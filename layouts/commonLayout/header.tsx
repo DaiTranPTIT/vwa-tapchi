@@ -70,9 +70,9 @@ const Header = (props: IProps) => {
 	};
 	const getThongTinChung = async () => {
 	  try {
-			const res=await axios.get(`${ip}/thong-tin-chung?locale=${langCode}`);
+			const res=await axios.get(`${ip}/htqt-thong-tin-chung?locale=${langCode}&populate=deep`);
 			if (res){
-				setDataThongTin(res?.data)
+				setDataThongTin(res?.data?.data?.attributes)
 			}
 		}catch (e) {
 			console.log(e)
@@ -80,7 +80,7 @@ const Header = (props: IProps) => {
 	}
 	const getDataNav = async () => {
 		try {
-			const res=await axios.get(`${ip}/qlkh-cau-truc-trang-web?populate=deep&locale=${langCode}`);
+			const res=await axios.get(`${ip}/htqt-cau-truc-trang-web?populate=deep&locale=${langCode}`);
 			if (res){
 				setDataMenu(res?.data?.data?.attributes?.cauTruc??[])
 			}
@@ -162,8 +162,9 @@ const Header = (props: IProps) => {
 			<div className='hidden sm:block bg-[#DE221A] px-6 '>
 				<div className='container mx-auto '>
 					<div className='header-branch flex justify-between items-center'>
-						<div className=' flex items-center'>
-							<img src={renderImage(dataThongTin?.logoHeader)} alt={"image"} />
+						<div className=' flex items-center title-header'>
+							{/*<img src={renderImage(dataThongTin?.logoHeader)} alt={"image"} />*/}
+							{dataThongTin?.ten}
 						</div>
 						<div className=' flex item-center' >
 							{/*<img src={"/images/icons/facebook.svg"} />*/}
@@ -218,13 +219,16 @@ const Header = (props: IProps) => {
 					</div>
 				</div>
 			</div>
-			<div className={`label ${isScroll ? "fixed top-0 left-0 w-full bg-primary z-50" : "lg:bg-white bg-primary"} `}>
-				<div className=' container sm:mx-auto lg:py-[20px] py-0  '>
+			<div className={`label ${isScroll ? "fixed top-0 left-0 w-full bg-white z-50" : "lg:bg-white bg-primary"} `}>
+				<div className=' container sm:mx-auto lg:py-[12px] py-0  '>
 					{/*<div className='logo'>*/}
 					{/*	<img src={'/images/header/logo-db.png'} alt={"image"} />*/}
 					{/*</div>*/}
-					<div className={` ${isScroll ? " bg-primary" : "lg:bg-white"} `}>
-						<div className={`container mx-auto hidden sm:flex  justify-center items-center `}>
+					<div className={` ${isScroll ? " bg-white" : "lg:bg-white"} `}>
+						<div className={`container mx-auto hidden sm:flex  justify-between items-center `}>
+							<div>
+								<img src={renderImage(dataThongTin?.logoHeader?.data?.attributes?.url)}/>
+							</div>
 							<div className='flex items-center justify-center '>
 								{dataMenu.map((value, index) => {
 									return (
@@ -245,10 +249,10 @@ const Header = (props: IProps) => {
 												value?.link?.split('?')?.[0]?.localeCompare(typeMenu) === 0
 													? `text-white ${
 															isScroll
-																? "text-white md:border-b-2  md:border-white-500"
+																? "text-primary md:border-b-2  md:border-primary-500"
 																: "text-active md:border-b-2  md:border-primary-500"
 													  } `
-													: `md:border-none ${isScroll ? "text-white" : "text-black"}`
+													: `md:border-none ${isScroll ? "text-primary" : "text-black"}`
 											} block  `}
 											key={index}
 										>
@@ -485,6 +489,19 @@ const Header = (props: IProps) => {
 const HeaderWrapper = styled.div`
 	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.05);
 	z-index: 10;
+	.title-header{
+		font-family: 'SVN-Product Sans';
+		font-style: normal;
+		font-weight: 700;
+		font-size: 18px;
+		line-height: 22px;
+		/* identical to box height */
+
+
+		/* White */
+
+		color: #FFFFFF;
+	}
 	.header-branch {
 		padding: 16px 0;
 		.info {

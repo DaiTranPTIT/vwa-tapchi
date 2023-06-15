@@ -68,7 +68,7 @@ const ChiTiet = () => {
   const getData = async (id: string) => {
     try {
       const res = await axios.get(
-        `${ip}/htqt-tin-tuc-su-kiens/${id}?locale=${langCode}`
+        `${ip}/htqt-thong-bao-hoc-bongs/${id}?locale=${langCode}`
       );
       if (res) {
         setDataChiTiet(res?.data?.data);
@@ -104,7 +104,7 @@ const ChiTiet = () => {
                 path: "/",
               },
               {
-                title: "Tin tức - Sự kiện chi tiết",
+                title: "Thông báo học bổng chi tiết",
                 path: "/#",
               },
             ]}

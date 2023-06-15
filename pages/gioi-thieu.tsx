@@ -19,7 +19,7 @@ import NoData from "../components/NoData";
 const GioiThieu = () => {
   const [sendSuccess, setSendSuccess] = useState<boolean>(false);
   const [dataChiTiet, setDataChiTiet] = useState<GioiThieu>();
-  const [dataGioiThieu, setDataGioiThieu] = useState<any>();
+  const [dataGioiThieu, setDataGioiThieu] = useState<GioiThieu>();
   const [dataGioiThieuNC, setDataGioiThieuNC] = useState<GioiThieuNC[]>([]);
   const router = useRouter();
   const contentRef = useRef<HTMLDivElement>(null);
@@ -28,26 +28,17 @@ const GioiThieu = () => {
   const { dataThongTin, langCode } = useContext(AuthContext);
   const getData = async (typeStr: string) => {
     try {
-      if (typeStr === "NC") {
+
         const res = await axios.get(
-          `${ip}/qlkh-dinh-huong-nghien-cuus?locale=${langCode}`
-        );
-        if (res) {
-          console.log("resss", res);
-          setDataGioiThieuNC(res?.data?.data);
-          setDataChiTiet(res?.data?.data?.[0]);
-        }
-      }
-      if (typeStr === "KH") {
-        const res = await axios.get(
-          `${ip}/chien-luoc-phat-trien?locale=${langCode}`
+          `${ip}/htqt-gioi-thieu?locale=${langCode}&populate=deep`
         );
         if (res) {
           console.log("resss", res);
           setDataGioiThieu(res?.data?.data);
           setDataChiTiet(res?.data?.data?.[0]);
         }
-      }
+
+
     } catch (e) {
       console.log(e);
     }
@@ -62,40 +53,34 @@ const GioiThieu = () => {
   return (
     <ChiTietWrapper>
       <div className="container mx-auto lg:mt-[50px] mt-[20px] lg:mb-[50px] mb-[20px] px-[20px] lg:px-0">
-        {type === "KH" && (
+        {type === "GT" && (
           <>
             <Title
-              title={"Chiến lược phát triển KH, CN & ĐMST"}
+              title={"GIỚI THIỆU HOẠT ĐỘNG HỢP TÁC QUỐC TẾ"}
               uppercase={true}
             />
-						{dataGioiThieu?.attributes?.htmlContent?<>
+						{dataGioiThieu?.attributes?.gioiThieu?<>
 							<div
 								dangerouslySetInnerHTML={{
-									__html: dataGioiThieu?.attributes?.htmlContent,
+									__html: dataGioiThieu?.attributes?.gioiThieu?.noiDung,
 								}}
 							></div>
 							</>:<><NoData/></>}
 
           </>
         )}
-        {type === "NC" && (
+        {type === "CN" && (
           <>
-            <Title title={"ĐỊNH HƯỚNG NGHIÊN CỨU"} uppercase={true} />
-            {dataGioiThieuNC?.length > 0 ? (
+            <Title title={"CHỨC NĂNG, NHIỆM VỤ "} uppercase={true} />
+            {dataGioiThieu?.attributes?.hoatDong ? (
               <>
-                {dataGioiThieuNC?.map((val, i) => {
-                  return (
-                    <CardNghienCuu
-                      data={{
-                        no: val?.attributes?.so,
-                        title: val?.attributes.tieuDe,
-                        content: val?.attributes?.moTa,
-                        link: `/dinh-huong-nghien-cuu/${val?.id}`,
-                      }}
-                      key={i}
-                    />
-                  );
-                })}
+                {dataGioiThieu?.attributes?.hoatDong?<>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: dataGioiThieu?.attributes?.hoatDong?.noiDung,
+                    }}
+                  ></div>
+                </>:<><NoData/></>}
               </>
             ) : (
               <>
@@ -145,7 +130,7 @@ const GioiThieu = () => {
               </div>
               <div className="sm:w-[600px] sm:h-[450px]">
                 <iframe
-                  src={dataThongTin?.googleMap}
+                  src={dataThongTin?.googleMap??''}
                   width="100%"
                   height="100%"
                   // style='border:0;'

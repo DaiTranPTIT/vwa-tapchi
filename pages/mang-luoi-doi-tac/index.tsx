@@ -13,6 +13,7 @@ import { ETYPEDONVI } from "../../data/enum";
 import { renderImage } from "../../utils/util";
 import Pagination from "../../components/pagination";
 import {AuthContext} from "../../context/AuthContext";
+import CardHTQTMangLuoi from "../../components/CardHTQTMangLuoi";
 
 const DonViNghienCuu = () => {
   const [sendSuccess, setSendSuccess] = useState<boolean>(false);
@@ -22,6 +23,7 @@ const DonViNghienCuu = () => {
   const [total, setTotal] = useState<number>(0);
   const [dataGioiThieu, setDataGioiThieu] = useState<DataDonVi[]>([]);
   const router = useRouter();
+  const [condition, setCondition] = useState<any>();
   const {langCode}=useContext(AuthContext)
   const contentRef = useRef<HTMLDivElement>(null);
   let timmer: NodeJS.Timeout | undefined;
@@ -29,10 +31,19 @@ const DonViNghienCuu = () => {
 
   const getData = async (type: string) => {
     try {
-      const res = await axios.get(`${ip}/don-vi/all?type=${type}&locale=${langCode}`, {
+      const res = await axios.get(`${ip}/htqt-mang-luoi-doi-tacs?locale=${langCode}`, {
         params: {
-          page: page,
-          limit: limit,
+          filters: {
+            kieu: {
+              $eq: type,
+            },
+            ...condition,
+          },
+          populate: "deep",
+          pagination: {
+            page: page,
+            pageSize: limit,
+          },
         },
       });
       if (res) {
@@ -51,73 +62,103 @@ const DonViNghienCuu = () => {
       setType(router?.query?.type as string);
     }
   }, [router, page,langCode]);
-useEffect(()=>{
+  useEffect(()=>{
 
     setPage(1)
 
-},[type])
+  },[type])
   return (
     <DonViNghienCuuWrapper>
       <div className="container mx-auto lg:mt-[50px] mt-[20px] lg:mb-[50px] mb-[20px]">
-        {type === ETYPEDONVI.VIEN_NGHIEN_CUU && (
+        {type === ETYPEDONVI.MANG_LUOI_QUOC_TE && (
           <>
-            <Title title={"VIỆN NGHIÊN CỨU"} uppercase={true} />
+            <Title title={ETYPEDONVI.MANG_LUOI_QUOC_TE} uppercase={true} />
 
-              {dataGioiThieu?.length>0?<>
-              <div className="grid lg:grid-cols-3 grid-cols-1 gap-[30px]">
+            {dataGioiThieu?.length>0?<>
+              <div className="grid lg:grid-cols-1 grid-cols-1 gap-[30px]">
                 {dataGioiThieu?.map((val, i) => {
                   return (
-                    <CardEvent
+                    <CardHTQTMangLuoi
                       data={{
-                        imageUrl: renderImage(val?.imageUrl),
-                        content: val?.tieuDe,
-                        description: val?.moTa ?? "",
+                        imageUrl: renderImage(val?.attributes?.hinhAnh?.data?.attributes?.url),
+                        title: val?.attributes?.tieuDe,
+                        description: val?.attributes?.moTa ?? "",
                         // dateTime: val.createdAt,
-                        link: val?.duongDan,
+                        link: val?.attributes?.link,
                       }}
-                      category={"vien"}
                       key={i}
                     />
                   );
                 })}  </div></>:<><div className="w-full h-full justify-center items-center flex flex-col">
-                <img
-                  className="mb-[16px]"
-                  src="/images/default/no_data.png"
-                  alt="image"
-                />
-                <p className="text-secondary text-sm">Không có dữ liệu</p>
-              </div></>}
+              <img
+                className="mb-[16px]"
+                src="/images/default/no_data.png"
+                alt="image"
+              />
+              <p className="text-secondary text-sm">Không có dữ liệu</p>
+            </div></>}
 
 
           </>
         )}
-        {type === ETYPEDONVI.PHONG_THI_NGHIEM && (
+        {type === ETYPEDONVI.DOI_TAC_HOC_THUAT && (
           <>
-            <Title title={"PHÒNG THÍ NGHIỆM NGHIÊN CỨU"} uppercase={true} />
+            <Title title={ETYPEDONVI.DOI_TAC_HOC_THUAT} uppercase={true} />
 
-              {dataGioiThieu?.length>0?<>
+            {dataGioiThieu?.length>0?<>
               <div className="grid grid-cols-2 gap-[30px]">
                 {dataGioiThieu?.map((value, index) => {
                   return (
-                    <CardDeTai
+                    <CardHTQTMangLuoi
                       data={{
-                        imageUrl: renderImage(value.imageUrl),
-                        content: value.tieuDe,
-                        // dateTime: value.createdAt,
-                        description: value.moTa ?? "",
-                        link: value?.duongDan,
+                        imageUrl: renderImage(value?.attributes?.hinhAnh?.data?.attributes?.url),
+                        title: value?.attributes?.tieuDe,
+                        description: value?.attributes?.moTa ?? "",
+                        // dateTime: val.createdAt,
+                        link: value?.attributes?.link,
                       }}
                       key={index}
                     />
                   );
                 })} </div></>:<><div className="w-full h-full justify-center items-center flex flex-col">
-                <img
-                  className="mb-[16px]"
-                  src="/images/default/no_data.png"
-                  alt="image"
-                />
-                <p className="text-secondary text-sm">Không có dữ liệu</p>
-              </div></>}
+              <img
+                className="mb-[16px]"
+                src="/images/default/no_data.png"
+                alt="image"
+              />
+              <p className="text-secondary text-sm">Không có dữ liệu</p>
+            </div></>}
+
+
+          </>
+        )}
+        {type === ETYPEDONVI.DOI_TAC_DOANH_NGHIEP && (
+          <>
+            <Title title={ETYPEDONVI.DOI_TAC_DOANH_NGHIEP} uppercase={true} />
+
+            {dataGioiThieu?.length>0?<>
+              <div className="grid grid-cols-2 gap-[30px]">
+                {dataGioiThieu?.map((value, index) => {
+                  return (
+                    <CardDeTai
+                      data={{
+                        imageUrl: renderImage(value?.attributes?.hinhAnh?.data?.attributes?.url),
+                        content: value?.attributes?.tieuDe,
+                        // dateTime: value.createdAt,
+                        description: value.attributes?.moTa ?? "",
+                        link: value?.attributes?.link,
+                      }}
+                      key={index}
+                    />
+                  );
+                })} </div></>:<><div className="w-full h-full justify-center items-center flex flex-col">
+              <img
+                className="mb-[16px]"
+                src="/images/default/no_data.png"
+                alt="image"
+              />
+              <p className="text-secondary text-sm">Không có dữ liệu</p>
+            </div></>}
 
 
           </>

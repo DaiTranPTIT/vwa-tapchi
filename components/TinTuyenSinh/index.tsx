@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 import { IDataHome } from "../../utils/interface";
 import { useRouter } from "next/router";
 import { renderImage } from "../../utils/util";
+import CardHTQT from "../CardHTQT";
 interface IProps {
 	type: string;
 	name: string;
@@ -56,72 +57,79 @@ const TinTuyenSinh = (props: { dataHome: IDataHome }) => {
 	const handleRedirect = (id: string) => {
 		router.push(`/tin-tuc/${id}`);
 	};
-if (props.dataHome?.qlkh_tin_tucs?.data?.length>0){
+if (props.dataHome?.htqt_tin_tuc_su_kiens?.data?.length>0){
 	return (
 		<TinTuyenSinhWrapper className='bg-[#1421410A] px-[20px] lg:px-0 md:py-[50px] py-[20px] '>
 			<div className='container mx-auto'>
 				<div>
 					<Title title={"Tin tức - sự kiện"} uppercase={true} description={""} />
 				</div>
-				<div className='sm:grid sm:grid-cols-4 gap-[20px] hidden mt-[40px]'>
-					{props.dataHome?.qlkh_tin_tucs?.data?.map((value, i) => {
-						if (i < 6) {
-							if (i === 0 || i === 5) {
-								return (
-									<div className='col-span-2 ' key={i}>
-										<CardEvent
-											data={{
-												imageUrl: renderImage(value?.attributes?.hinhAnh?.data?.attributes?.url),
-												content: value?.attributes?.tieuDe,
-												dateTime: value?.attributes?.createdAt,
-												description: value?.attributes?.moTa ?? "",
-												link: `/tin-tuc/${value?.id}?type=TUYENSINH_DAIHOC`,
-											}}
-											type={"big"}
-										/>
-									</div>
-								);
-							} else {
-								return (
-									<div key={i}>
-										<CardEvent
-											data={{
-												imageUrl: renderImage(value?.attributes?.hinhAnh?.data?.attributes?.url),
-												content: value?.attributes?.tieuDe,
-												dateTime: value?.attributes?.createdAt,
-												description: value?.attributes?.moTa ?? "",
-												link: `/tin-tuc/${value?.id}?type=TUYENSINH_DAIHOC`,
-											}}
-											type={"small"}
-										/>
-									</div>
-								);
-							}
-						}
+				<div className='sm:grid sm:grid-cols-3 gap-[20px] hidden mt-[30px]'>
+					{/*{props.dataHome?.htqt_tin_tuc_su_kiens?.data?.map((value, i) => {*/}
+					{/*	if (i < 6) {*/}
+					{/*		if (i === 0 || i === 5) {*/}
+					{/*			return (*/}
+					{/*				<div className='col-span-2 ' key={i}>*/}
+					{/*					<CardEvent*/}
+					{/*						data={{*/}
+					{/*							imageUrl: renderImage(value?.attributes?.hinhAnh?.data?.attributes?.url),*/}
+					{/*							content: value?.attributes?.tieuDe,*/}
+					{/*							dateTime: value?.attributes?.createdAt,*/}
+					{/*							description: value?.attributes?.moTa ?? "",*/}
+					{/*							link: `/tin-tuc/${value?.id}?type=TUYENSINH_DAIHOC`,*/}
+					{/*						}}*/}
+					{/*						type={"big"}*/}
+					{/*					/>*/}
+					{/*				</div>*/}
+					{/*			);*/}
+					{/*		} else {*/}
+					{/*			return (*/}
+					{/*				<div key={i}>*/}
+					{/*					<CardEvent*/}
+					{/*						data={{*/}
+					{/*							imageUrl: renderImage(value?.attributes?.hinhAnh?.data?.attributes?.url),*/}
+					{/*							content: value?.attributes?.tieuDe,*/}
+					{/*							dateTime: value?.attributes?.createdAt,*/}
+					{/*							description: value?.attributes?.moTa ?? "",*/}
+					{/*							link: `/tin-tuc/${value?.id}?type=TUYENSINH_DAIHOC`,*/}
+					{/*						}}*/}
+					{/*						type={"small"}*/}
+					{/*					/>*/}
+					{/*				</div>*/}
+					{/*			);*/}
+					{/*		}*/}
+					{/*	}*/}
+					{/*})}*/}
+					{props.dataHome?.htqt_tin_tuc_su_kiens?.data?.map((val,i)=>{
+						return(
+							<CardHTQT data={{
+								title:val?.attributes?.tieuDe,
+								dateTime:val?.attributes?.thoiGianBatDau,
+								description:val?.attributes?.moTa,
+								imageUrl:renderImage(val?.attributes?.hinhAnh?.data?.attributes?.url),
+								link:`/tin-tuc/${val?.id}`
+							}} isShowTime={true} key={i}/>
+						)
 					})}
 				</div>
 				<div className='sm:hidden block mt-[20px]'>
 					<Slider {...settings}>
-						{props.dataHome?.qlkh_tin_tucs?.data?.map((value,i)=>{
+						{props.dataHome?.htqt_tin_tuc_su_kiens?.data?.map((value,i)=>{
 							return(
 								<div>
-									<CardEvent
-										data={{
-											imageUrl: renderImage(value?.attributes?.hinhAnh?.data?.attributes?.url),
-											content: value?.attributes?.tieuDe,
-											dateTime: value?.attributes?.createdAt,
-											description: value?.attributes?.moTa ?? "",
-											link: `/tin-tuc/${value?.id}?type=TUYENSINH_DAIHOC`,
-										}}
-										category={'slide'}
-										type={"small"}
-									/>
+									<CardHTQT data={{
+										title:value?.attributes?.tieuDe,
+										dateTime:value?.attributes?.thoiGianBatDau,
+										description:value?.attributes?.moTa,
+										imageUrl:renderImage(value?.attributes?.hinhAnh?.data?.attributes?.url),
+										link:`/tin-tuc/${value?.id}`
+									}} isShowTime={true} key={i}/>
 								</div>
 							)
 						})}
 					</Slider>
 				</div>
-				{props.dataHome?.qlkh_tin_tucs?.data?.length>6&&
+				{props.dataHome?.htqt_tin_tuc_su_kiens?.data?.length>6&&
 					<div className='flex justify-center sm:mt-[40px] mt-[20px]'>
 						<Button
 							type={"primary"}

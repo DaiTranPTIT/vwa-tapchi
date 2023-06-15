@@ -21,6 +21,7 @@ import { AuthContext } from "../../context/AuthContext";
 import SapToi from "../../components/News/components/sapToi";
 import DaDienRa from "../../components/News/components/daDienRa";
 import DangDienRa from "../../components/News/components/dangDienRa";
+import CardHTQTNews from "../../components/CardHTQTNews";
 
 const Tintuc = () => {
   const router = useRouter();
@@ -57,7 +58,7 @@ const Tintuc = () => {
   const handleGetAll = async () => {
     try {
       const res = await axios.get(
-        `${ip}/qlkh-tin-tucs?locale=${langCode}&populate=deep`,
+        `${ip}/htqt-tin-tuc-su-kiens?locale=${langCode}&populate=deep`,
         {
           params: {
             filters: {
@@ -176,7 +177,7 @@ const Tintuc = () => {
 
               {dataNew?.length > 0 ? (
                 <>
-                <div className={"hidden lg:grid grid-cols-3 gap-[30px] "}>
+                <div className={"hidden lg:grid grid-cols-2 gap-[30px] "}>
                   {dataNew?.map((val, i) => {
                     return (
 
@@ -186,16 +187,23 @@ const Tintuc = () => {
                         }}
                         key={i}
                       >
-                        <CardBanner
-                          imageUrl={renderImage(
-                            val?.attributes?.hinhAnh?.data?.attributes?.url
-                          )}
-                          title={val?.attributes?.tieuDe}
-                          description={val?.attributes?.moTa ?? ""}
-                          dateTime={val?.attributes?.createdAt}
-                          key={i}
-                          type={"list"}
-                        />
+                        {/*<CardBanner*/}
+                        {/*  imageUrl={renderImage(*/}
+                        {/*    val?.attributes?.hinhAnh?.data?.attributes?.url*/}
+                        {/*  )}*/}
+                        {/*  title={val?.attributes?.tieuDe}*/}
+                        {/*  description={val?.attributes?.moTa ?? ""}*/}
+                        {/*  dateTime={val?.attributes?.createdAt}*/}
+                        {/*  key={i}*/}
+                        {/*  type={"list"}*/}
+                        {/*/>*/}
+                        <CardHTQTNews data={{
+                          imageUrl: renderImage(  val?.attributes?.hinhAnh?.data?.attributes?.url),
+                          content: val?.attributes?.tieuDe,
+                          dateTime:val?.attributes?.createdAt,
+                          description: val?.attributes.moTa ?? "",
+                          link: `/tin-tuc/${val?.id}`,
+                        }}/>
                       </div>
 
                     );
@@ -219,16 +227,23 @@ const Tintuc = () => {
               {dataNew.map((val, i) => {
                 return (
                   <div className={"mb-[24px]"} key={i}>
-                    <CardBanner
-                      imageUrl={renderImage(
-                        val?.attributes?.hinhAnh?.data?.attributes?.url
-                      )}
-                      title={val?.attributes?.tieuDe}
-                      description={val?.attributes?.moTa ?? ""}
-                      dateTime={val?.attributes?.createdAt}
-                      key={i}
-                      type={"small"}
-                    />
+                    {/*<CardBanner*/}
+                    {/*  imageUrl={renderImage(*/}
+                    {/*    val?.attributes?.hinhAnh?.data?.attributes?.url*/}
+                    {/*  )}*/}
+                    {/*  title={val?.attributes?.tieuDe}*/}
+                    {/*  description={val?.attributes?.moTa ?? ""}*/}
+                    {/*  dateTime={val?.attributes?.createdAt}*/}
+                    {/*  key={i}*/}
+                    {/*  type={"small"}*/}
+                    {/*/>*/}
+                    <CardHTQTNews data={{
+                      imageUrl: renderImage(  val?.attributes?.hinhAnh?.data?.attributes?.url),
+                      content: val?.attributes?.tieuDe,
+                      dateTime:val?.attributes?.createdAt,
+                      description: val?.attributes.moTa ?? "",
+                      link: `/tin-tuc/${val?.id}`,
+                    }}/>
                   </div>
                 );
               })}

@@ -20,11 +20,11 @@ const Discover = (props:{dataHome:IDataHome}) => {
 	const { dataConfig } = useAuth();
 
 	return (
-		<DiscoverWrapper className=' md:px-0 md:mt-[50px] mt-[20px]'>
+		<DiscoverWrapper className=' md:px-0 '>
 			{/*<div className={"discover-1 md:pt-[109px] md:pb-[96px] py-[20px] "}>*/}
 			<div className={" h-[555px]"}>
 				{/*<ReactPlayer url='https://youtu.be/XZTaNCfhyzY' width={"100%"} height={"555px"} />*/}
-				<iframe width="100%" height="555" src={props.dataHome?.duongDanVideo} title="YouTube video player"
+				<iframe width="100%" height="555" src={props.dataHome?.duongDanVideo??''} title="YouTube video player"
 								frameBorder="0"
 								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 								allowFullScreen></iframe>

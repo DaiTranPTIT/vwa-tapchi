@@ -37,11 +37,19 @@ const QuyChe = () => {
   } = useForm();
   const getData = async () => {
     try {
-      const res = await axios.get(`${ip}/van-ban/all`, {
+      const res = await axios.get(`${ip}/htqt-van-ban-quy-dinhs`, {
         params: {
-          ...condition,
-          page: page,
-          limit: limit,
+          filters: {
+            // kieu: {
+            //   $eq: type,
+            // },
+            ...condition,
+          },
+          sort: ['createdAt:desc'],
+          pagination: {
+            page: page,
+            pageSize: limit,
+          },
         },
       });
       if (res) {
@@ -55,7 +63,7 @@ const QuyChe = () => {
   };
   const getDatav2 = async () => {
     try {
-      const res = await axios.get(`${ip}/van-ban-quy-dinhs?locale=${langCode}`, {
+      const res = await axios.get(`${ip}/htqt-van-ban-quy-dinhs?locale=${langCode}`, {
         params: {
           filters: {
             kieu: {

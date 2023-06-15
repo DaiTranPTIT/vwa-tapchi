@@ -13,8 +13,8 @@ const Button = (props: IProps) => {
 		<ButtonWrapper>
 			<button
 				onClick={props?.onClick}
-				className={`${props.classname} button-default sm:px-[40px] sm:py-[8px] px-[12px] py-[4px] flex justify-center items-center  ${
-					props.type === "primary" ? "bg-primary" : "bg-secondary"
+				className={`${props.classname} button-default sm:px-[20px] sm:py-[8px] px-[12px] py-[4px] flex justify-center items-center  ${
+					props.type === "primary" ? "bg-primary" : "bg-white text-primary"
 				}`}
 				style={props.style}
 			>

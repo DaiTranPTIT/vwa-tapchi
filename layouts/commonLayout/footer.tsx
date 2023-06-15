@@ -31,7 +31,7 @@ const MainFooter = () => {
 				<div className='container mx-auto lg:pt-[60px] pt-[20px] lg:pb-[60px] pb-[20px] px-[20px] md:px-[20px]'>
 					<div className='lg:flex block justify-between'>
 						<div className='lg:max-w-[596px] wow fadeInUp'>
-							<img className={"w-full"} src={renderImage(dataThongTin?.logoFooter)} />
+							<img className={"w-full"} src={renderImage(dataThongTin?.logoFooter?.data?.attributes?.url)} />
 							<div className='lg:flex hidden items-center mt-[20px]'>
 								{/*<img className="mr-[20px] cursor-pointer" src="/images/icons/facebook-2.svg" alt={'image'}/>*/}
 								<div className='mr-[20px] cursor-pointer'>

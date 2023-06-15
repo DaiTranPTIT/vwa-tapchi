@@ -14,18 +14,18 @@ import { renderImage } from "../../utils/util";
 import { ro } from "date-fns/locale";
 import CardHTQT from "../CardHTQT";
 
-const ChuongTrinhDaoTao = (props: { dataHome: IDataHome }) => {
+const ChuongTrinhDuAn = (props: { dataHome: IDataHome }) => {
   const router = useRouter();
 
   useEffect(() => {}, []);
-  if (props?.dataHome?.htqt_thong_bao_hoc_bongs?.data?.length>0){
+  if (props?.dataHome?.htqt_chuong_trinh_du_ans?.data?.length>0){
     return (
       <ChuongTrinhDaoTaoWrapper>
         <div className="bg-[#FFFFFF] py-[50px] px-[20px] lg:px-0">
           <div className="container mx-auto ">
-            <Title title={"Thông báo học bổng"} uppercase={true} />
+            <Title title={"Chương trình dự án"} uppercase={true} />
             <div className="hidden lg:grid grid-cols-3 gap-[30px]">
-              {props.dataHome?.htqt_thong_bao_hoc_bongs?.data?.map((val, i) => {
+              {props.dataHome?.htqt_chuong_trinh_du_ans?.data?.map((val, i) => {
                 if (i < 3) {
                   return (
                     <div
@@ -43,7 +43,7 @@ const ChuongTrinhDaoTao = (props: { dataHome: IDataHome }) => {
                           title:val?.attributes?.tieuDe,
                           description: val?.attributes?.moTa ?? "",
                           dateTime: val?.attributes?.createdAt,
-                          link: `/thong-bao-hoc-bong/${val?.id}`,
+                          link: ``,
                         }}
                         isShadow={true}
                       />
@@ -55,7 +55,7 @@ const ChuongTrinhDaoTao = (props: { dataHome: IDataHome }) => {
               })}
             </div>
             <div className="lg:hidden grid grid-cols-1 gap-[30px]">
-              {props.dataHome?.htqt_thong_bao_hoc_bongs?.data?.map((val, i) => {
+              {props.dataHome?.htqt_chuong_trinh_du_ans?.data?.map((val, i) => {
                 return (
                   <div
                     className="cursor-pointer"
@@ -72,14 +72,14 @@ const ChuongTrinhDaoTao = (props: { dataHome: IDataHome }) => {
                         title:val?.attributes?.tieuDe,
                         description: val?.attributes?.moTa ?? "",
                         dateTime: val?.attributes?.createdAt,
-                        link: `/thong-bao-hoc-bong/${val?.id}`,
+                        link: ``,
                       }}
                     />
                   </div>
                 );
               })}
             </div>
-            {props.dataHome?.htqt_thong_bao_hoc_bongs?.data?.length > 6 && (
+            {props.dataHome?.htqt_chuong_trinh_du_ans?.data?.length > 6 && (
               <div className="flex justify-center md:mt-[40px] mt-[20px]">
                 <Button
                   type={"primary"}
@@ -115,4 +115,4 @@ const ChuongTrinhDaoTao = (props: { dataHome: IDataHome }) => {
 };
 
 const ChuongTrinhDaoTaoWrapper = styled.div``;
-export default ChuongTrinhDaoTao;
+export default ChuongTrinhDuAn;

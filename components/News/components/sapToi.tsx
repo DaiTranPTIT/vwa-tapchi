@@ -22,7 +22,7 @@ const SapToi = (props:{type:string,conditionSearch:any}) => {
   const handleGetAllEvent = async () => {
     try {
       const res = await axios.get(
-        `${ip}/qlkh-tin-tucs?locale=${langCode}&populate=deep`,
+        `${ip}/htqt-tin-tuc-su-kiens?locale=${langCode}&populate=deep`,
         {
           params: {
             filters: {
@@ -96,7 +96,7 @@ const SapToi = (props:{type:string,conditionSearch:any}) => {
                             dateTime: val?.attributes.thoiGianBatDau,
                             dateStart: val?.attributes.thoiGianBatDau,
                             dateEnd: val?.attributes.thoiGianKetThuc,
-                            link: ``,
+                            link: `/tin-tuc/${val?.id}`,
                           }}
                           key={i}
                         />

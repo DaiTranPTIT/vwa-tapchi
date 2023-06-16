@@ -51,7 +51,7 @@ const CardHTQTNews = (props: IPorps) => {
                 </div>
               )}
 
-              <div className="content min-h-[48px] ">{props.data.content}</div>
+              <div className="content min-h-[56px] ">{props.data.content}</div>
             </div>
 
             {props.data.description && (

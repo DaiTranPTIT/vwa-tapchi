@@ -14,7 +14,7 @@ const CardHTQTChuongChinh = (props:IPorps) => {
   return(
     <CardHTQTChuongChinhWraper className="cursor-pointer">
     <div onClick={()=>{router.push(data?.link??'#')}}>
-      <div className="relative mb-[40px]">
+      <div className="relative mb-[40px] wow fadeInUp">
         <img className="w-full" src={data?.imageUrl} alt="image"/>
         <div className="absolute left-0 bottom-[-18px] w-full">
           <div className="w-full flex justify-center">

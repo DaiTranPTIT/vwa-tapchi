@@ -135,17 +135,17 @@ const ChiTietHoatDong = () => {
               "detail mb-14 flex flex-col items-center border-b border-[#C3C7CC]"
             }
           >
-            <h2>{dataDetail?.tieuDe}</h2>
+            <h2>{dataDetail?.attributes?.tieuDe}</h2>
             <div className="flex justify-center">
               <p className="date lg:mr-[40px] mr-[20px]">
                 Ngày đăng: {moment().format("DD/MM/YYYY HH:mm")}
               </p>
-              <p className="date">Tác giả: {dataDetail?.tacGia??'Không có tác giả'}</p>
+              <p className="date">Tác giả: {dataDetail?.attributes?.tacGia??'Không có tác giả'}</p>
             </div>
           </div>
         </div>
         <div>
-          <div className="title" dangerouslySetInnerHTML={{__html:dataDetail?.noiDung??''}}>
+          <div className="title" dangerouslySetInnerHTML={{__html:dataDetail?.attributes?.noiDung??''}}>
 
           </div>
           {/*<div className="show-more flex items-center cursor-pointer mt-[26px]">*/}
@@ -153,12 +153,12 @@ const ChiTietHoatDong = () => {
           {/*  <img src="/images/icons/arrow-right-2.svg" alt="image" />*/}
           {/*</div>*/}
           <div className="mt-[26px]">
-            <TableBaseV2 columns={type!==ETYPEKHOAHOC.CB?columns:columnsCongBo} dataSource={dataDetail?.chiTiet?.map((val,i)=>{
-							return{
-								...val,
-								index:i+1
-							}
-						})} />
+            {/*<TableBaseV2 columns={type!==ETYPEKHOAHOC.CB?columns:columnsCongBo} dataSource={dataDetail?.attributes?.chiTiet?.map((val,i)=>{*/}
+						{/*	return{*/}
+						{/*		...val,*/}
+						{/*		index:i+1*/}
+						{/*	}*/}
+						{/*})} />*/}
           </div>
         </div>
       </div>

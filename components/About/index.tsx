@@ -39,7 +39,7 @@ const About = () => {
     <AboutWrapper>
       <div className="container mx-auto lg:mt-[50px] mt-[20px] px-[20px] lg:px-0 sm:pb-[75px] pb-[20px]">
         <div className="grid grid-cols-2 gap-[40px]">
-          <div className="">
+          <div className="wow fadeInLeft">
             <div className="title-1 mb-[12px]">Giới thiệu</div>
             <div className="title-2 mb-[40px]">GIỚI THIỆU <br/> HOẠT ĐỘNG HỢP TÁC QUỐC TẾ</div>
             <div className="">
@@ -47,14 +47,14 @@ const About = () => {
                 type={"primary"}
                 classname="lg:w-[239px]"
                 onClick={() => {
-                  router.push("/tin-tuc");
+                  router.push("/gioi-thieu?type=GT");
                 }}
               >
                 Xem thêm
               </Button>
             </div>
           </div>
-          <div>
+          <div className="content-banner-2 wow fadeInUp">
             {dataGioiThieu?.moTa}
           </div>
         </div>
@@ -87,6 +87,22 @@ const AboutWrapper = styled.div`
     /* Black */
 
     color: #18202A;
+  }
+  .content-banner-2{
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 28px;
+
+    color: #73787E; 
+    
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 8;
+    -webkit-box-orient: vertical;
   }
 `;
 export default About;

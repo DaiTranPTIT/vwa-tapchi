@@ -23,7 +23,7 @@ const ChuongTrinhDuAn = (props: { dataHome: IDataHome }) => {
       <ChuongTrinhDaoTaoWrapper>
         <div className="bg-[#FFFFFF] py-[50px] px-[20px] lg:px-0">
           <div className="container mx-auto ">
-            <Title title={"Chương trình dự án"} uppercase={true} />
+            <Title title={"Chương trình dự án"} titleTop={"HOẠT ĐỘNG HỢP TÁC"} uppercase={true} />
             <div className="hidden lg:grid grid-cols-3 gap-[30px]">
               {props.dataHome?.htqt_chuong_trinh_du_ans?.data?.map((val, i) => {
                 if (i < 3) {
@@ -32,7 +32,7 @@ const ChuongTrinhDuAn = (props: { dataHome: IDataHome }) => {
                       className="cursor-pointer"
                       key={i}
                       onClick={() => {
-                        router.push(`/hoat-dong/${val?.id}`);
+                        router.push(`/chuong-trinh-du-an/${val?.id}`);
                       }}
                     >
                       <CardHTQT
@@ -45,6 +45,8 @@ const ChuongTrinhDuAn = (props: { dataHome: IDataHome }) => {
                           dateTime: val?.attributes?.createdAt,
                           link: ``,
                         }}
+                        isRedTime={true}
+                        isShowTime={true}
                         isShadow={true}
                       />
                     </div>
@@ -61,7 +63,7 @@ const ChuongTrinhDuAn = (props: { dataHome: IDataHome }) => {
                     className="cursor-pointer"
                     key={i}
                     onClick={() => {
-                      router.push(`/hoat-dong/${val?.id}`);
+                      router.push(`/chuong-trinh-du-an/${val?.id}`);
                     }}
                   >
                     <CardHTQT
@@ -85,7 +87,7 @@ const ChuongTrinhDuAn = (props: { dataHome: IDataHome }) => {
                   type={"primary"}
                   classname="lg:w-[279px]"
                   onClick={() => {
-                    router.push(`/hoat-dong?type=Đề tài`);
+                    router.push(`/chuong-trinh-du-an`);
                   }}
                 >
                   Xem thêm

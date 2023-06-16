@@ -73,7 +73,7 @@ const ThongBaoHocBong = () => {
     <DonViNghienCuuWrapper>
       <div className="container mx-auto lg:mt-[50px] mt-[20px] lg:mb-[50px] mb-[20px]">
         <>
-          <Title title={"CHƯƠNG TRÌNH - DỰ ÁN HỢP TÁC QUỐC TẾ"} uppercase={true} />
+          <Title title={"THÔNG BÁO HỌC BỔNG"} titleTop="học bổng" uppercase={true} />
 
           {dataGioiThieu?.length > 0 ? (
             <>

@@ -13,21 +13,23 @@ interface IPorps {
   };
   style?: CSSProperties;
   isShowTime?:boolean;
+  isRedTime?:boolean;
   isShadow?:boolean;
+  isArrow2?:boolean;
   type?: "big" | "small";
 }
 const CardHTQT = (props: IPorps) => {
-  const { data,isShowTime,isShadow } = props;
+  const { data,isShowTime,isShadow,isRedTime,isArrow2 } = props;
   return (
     <CardHTQTWrapper className={`bg-white ${isShadow?'shadow':''}`}>
       <Link href={data.link ? data.link : "#"} className="h-full">
-        <div className="" style={props.style}>
+        <div className="wow fadeInUp" style={props.style}>
           <div>
             <img src={data?.imageUrl} alt="image" />
           </div>
-          <div className="content p-[24px]">
+          <div className="content p-[24px] wow fadeInUp">
             {isShowTime&&<div className=" flex mb-[16px]">
-                <img className="mr-[12px]" src="/images/icons/time.svg" alt="icon" />
+              {isRedTime? <img className="mr-[12px]" src="/images/icons/time-2.svg" alt="icon" />: <img className="mr-[12px]" src="/images/icons/time.svg" alt="icon" />}
                 <div className="time">
                   {moment(data?.dateTime).format("DD/MM/YYYY")}
                 </div>
@@ -37,20 +39,25 @@ const CardHTQT = (props: IPorps) => {
             <div className="description mb-[16px]">{data?.description}</div>
             <div className="show-more flex">
               <div className={"mr-2"}>Xem thêm</div>
-              <svg
-                width="15"
-                height="14"
-                viewBox="0 0 15 14"
-                fill="currentColor"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 7H13M13 7L7.7381 1.5M13 7L7.7381 12.5"
-                  stroke="currentColor"
-                  strokeWidth="2"
+              {isArrow2?<svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1.5 0.663574L5.5 5.16357L1.5 9.66357" stroke="#DE221A" stroke-width="1.7"/>
+                  <path d="M7.5 0.663574L11.5 5.16357L7.5 9.66357" stroke="#DE221A" stroke-width="1.7"/>
+                </svg>
+                : <svg
+                  width="15"
+                  height="14"
+                  viewBox="0 0 15 14"
                   fill="currentColor"
-                />
-              </svg>
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0 7H13M13 7L7.7381 1.5M13 7L7.7381 12.5"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    fill="currentColor"
+                  />
+                </svg>}
+
             </div>
           </div>
         </div>

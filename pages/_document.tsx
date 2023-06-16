@@ -41,6 +41,8 @@ export default class CustomDocument extends Document {
 					<script src="/js/wow.js"></script>
 					{/* eslint-disable-next-line @next/next/no-sync-scripts */}
 					<script src="/js/script.js"></script>
+					<link href="https://fonts.cdnfonts.com/css/product-sans" rel="stylesheet"/>
+
 					<link rel='preconnect' href='https://fonts.googleapis.com' />
 					<link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin={"true"} />
 					<link

@@ -28,17 +28,14 @@ const GioiThieu = () => {
   const { dataThongTin, langCode } = useContext(AuthContext);
   const getData = async (typeStr: string) => {
     try {
-
-        const res = await axios.get(
-          `${ip}/htqt-gioi-thieu?locale=${langCode}&populate=deep`
-        );
-        if (res) {
-          console.log("resss", res);
-          setDataGioiThieu(res?.data?.data);
-          setDataChiTiet(res?.data?.data?.[0]);
-        }
-
-
+      const res = await axios.get(
+        `${ip}/htqt-gioi-thieu?locale=${langCode}&populate=deep`
+      );
+      if (res) {
+        console.log("resss", res);
+        setDataGioiThieu(res?.data?.data);
+        setDataChiTiet(res?.data?.data?.[0]);
+      }
     } catch (e) {
       console.log(e);
     }
@@ -56,31 +53,47 @@ const GioiThieu = () => {
         {type === "GT" && (
           <>
             <Title
+              titleTop={"Giới thiệu"}
               title={"GIỚI THIỆU HOẠT ĐỘNG HỢP TÁC QUỐC TẾ"}
               uppercase={true}
             />
-						{dataGioiThieu?.attributes?.gioiThieu?<>
-							<div
-								dangerouslySetInnerHTML={{
-									__html: dataGioiThieu?.attributes?.gioiThieu?.noiDung,
-								}}
-							></div>
-							</>:<><NoData/></>}
-
+            {dataGioiThieu?.attributes?.gioiThieu ? (
+              <>
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: dataGioiThieu?.attributes?.gioiThieu?.noiDung,
+                  }}
+                ></div>
+              </>
+            ) : (
+              <>
+                <NoData />
+              </>
+            )}
           </>
         )}
         {type === "CN" && (
           <>
-            <Title title={"CHỨC NĂNG, NHIỆM VỤ "} uppercase={true} />
+            <Title
+              title={"CHỨC NĂNG, NHIỆM VỤ "}
+              titleTop={"Giới thiệu"}
+              uppercase={true}
+            />
             {dataGioiThieu?.attributes?.hoatDong ? (
               <>
-                {dataGioiThieu?.attributes?.hoatDong?<>
-                  <div
-                    dangerouslySetInnerHTML={{
-                      __html: dataGioiThieu?.attributes?.hoatDong?.noiDung,
-                    }}
-                  ></div>
-                </>:<><NoData/></>}
+                {dataGioiThieu?.attributes?.hoatDong ? (
+                  <>
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: dataGioiThieu?.attributes?.hoatDong?.noiDung,
+                      }}
+                    ></div>
+                  </>
+                ) : (
+                  <>
+                    <NoData />
+                  </>
+                )}
               </>
             ) : (
               <>
@@ -91,7 +104,11 @@ const GioiThieu = () => {
         )}
         {type === "LH" && (
           <div className="lien-he">
-            <Title title={"THÔNG TIN LIÊN HỆ"} uppercase={true} />
+            <Title
+              title={"THÔNG TIN LIÊN HỆ"}
+              titleTop={"Giới thiệu"}
+              uppercase={true}
+            />
             <div className="sm:flex sm:justify-between sm:items-center block">
               <div className="info mb-[40px] sm:mb-0">
                 <p className="mb-[40px]">{dataThongTin?.tenPhongTiepNhan}</p>
@@ -130,7 +147,7 @@ const GioiThieu = () => {
               </div>
               <div className="sm:w-[600px] sm:h-[450px]">
                 <iframe
-                  src={dataThongTin?.googleMap??''}
+                  src={dataThongTin?.googleMap ?? ""}
                   width="100%"
                   height="100%"
                   // style='border:0;'

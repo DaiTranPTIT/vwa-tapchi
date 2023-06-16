@@ -28,27 +28,11 @@ const MainFooter = () => {
 	return (
 		<FooterWrapper>
 			<div>
-				<div className='container mx-auto lg:pt-[60px] pt-[20px] lg:pb-[60px] pb-[20px] px-[20px] md:px-[20px]'>
+				<div className='container mx-auto lg:pt-[60px] pt-[20px] lg:pb-[20px] pb-[20px] px-[20px] md:px-[20px]'>
 					<div className='lg:flex block justify-between'>
 						<div className='lg:max-w-[596px] wow fadeInUp'>
 							<img className={"w-full"} src={renderImage(dataThongTin?.logoFooter?.data?.attributes?.url)} />
-							<div className='lg:flex hidden items-center mt-[20px]'>
-								{/*<img className="mr-[20px] cursor-pointer" src="/images/icons/facebook-2.svg" alt={'image'}/>*/}
-								<div className='mr-[20px] cursor-pointer'>
-									<a href={getDataConfig("facebook")} target={"_blank"} rel={"noreferrer"}>
-										<img src={"/images/icons/Facebook.svg"} alt={"image"} />
-									</a>
-								</div>
-								<div className='mr-[20px] cursor-pointer'>
-									<a href={getDataConfig("twitter")} target={"_blank"} rel={"noreferrer"}>
-										<img src={"/images/icons/Twiter.svg"} alt={"image"} />
-									</a>
-								</div>
-								{/*<img className="mr-[20px] cursor-pointer" src="/images/icons/twiter-2.svg" alt={'image'}/>*/}
-								<a href={getDataConfig("youtube")} target={"_blank"} rel={"noreferrer"}>
-									<img className=' cursor-pointer' src='/images/icons/Youtube.svg' alt={"image"} />
-								</a>
-							</div>
+
 						</div>
 						<div className='mt-[20px] lg:mt-0'>
 							{/*{dataFooterLocation?.map((val, i) => {*/}
@@ -138,6 +122,30 @@ const MainFooter = () => {
 						<a href={getDataConfig("youtube")}>
 							<img className=' cursor-pointer' src='/images/icons/Youtube.svg' alt={"image"} />
 						</a>
+					</div>
+					<div className="flex justify-between items-center border-t border-[#FFFFFF]">
+						<div>
+							Copyright@ 2023 Develop by AI-Soft
+						</div>
+						<div>
+							<div className='lg:flex hidden items-center mt-[20px]'>
+								{/*<img className="mr-[20px] cursor-pointer" src="/images/icons/facebook-2.svg" alt={'image'}/>*/}
+								<div className='mr-[20px] cursor-pointer'>
+									<a href={dataThongTin?.facebook??'#'} target={"_blank"} rel={"noreferrer"}>
+										<img src={"/images/icons/Facebook.svg"} alt={"image"} />
+									</a>
+								</div>
+								<div className='mr-[20px] cursor-pointer'>
+									<a href={dataThongTin?.twitter??'#'} target={"_blank"} rel={"noreferrer"}>
+										<img src={"/images/icons/Twiter.svg"} alt={"image"} />
+									</a>
+								</div>
+								{/*<img className="mr-[20px] cursor-pointer" src="/images/icons/twiter-2.svg" alt={'image'}/>*/}
+								<a href={dataThongTin?.youtube??'#'} target={"_blank"} rel={"noreferrer"}>
+									<img className=' cursor-pointer' src='/images/icons/Youtube.svg' alt={"image"} />
+								</a>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>

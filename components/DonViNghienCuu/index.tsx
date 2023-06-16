@@ -16,7 +16,7 @@ const DonViNghienCuu = (props:{dataHome:IDataHome}) => {
 		return (
 			<DonViWrapper className="bg-[#1421410A] sm:py-[50px] py-[20px]">
 				<div className='container mx-auto px-[20px] lg:px-0 lg:mt-[50px] mt-[20px] '>
-					<Title title={"Mạng lưới đối tác"} uppercase={true} />
+					<Title title={"Mạng lưới đối tác"} titleTop={"ĐỐI TÁC"} uppercase={true} />
 					<div className='grid lg:grid-cols-3 grid-cols-1 gap-[30px]'>
 						{props.dataHome?.htqt_mang_luoi_doi_tacs?.data?.map((val, i) => {
 							if (i<3){

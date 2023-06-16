@@ -217,6 +217,9 @@ export interface DataThongTin {
   "email": "thiennd@ptit.edu.vn",
   "soDienThoai": " 024.33524054",
   "truongPhong": "Trưởng phòng: Ông Ngô Đức Thiện ",
+  "youtube": "Trưởng phòng: Ông Ngô Đức Thiện ",
+  "facebook": "Trưởng phòng: Ông Ngô Đức Thiện ",
+  "twitter": "Trưởng phòng: Ông Ngô Đức Thiện ",
   "googleMap": null,
   "tenPhongTiepNhan": "Phòng Quản lý Khoa học Công nghệ và Hợp tác Quốc tế",
   "logoHeader": {
@@ -294,7 +297,12 @@ export interface GioiThieu {
       "noiDung": "<p>ádfasdfasdfasdf ádf ádf ádf ádf ádfa sdfa sdf ádfa sdfasdf ád fadsfdas fasdfasdfasdf</p>",
       "moTa": "ádfasdfasdfasdfadsf"
     },
-    "hoatDong": null
+    "hoatDong": {
+      "id": 1,
+      "tieuDe": "Giới Thiệu",
+      "noiDung": "<p>ádfasdfasdfasdf ádf ádf ádf ádf ádfa sdfa sdf ádfa sdfasdf ád fadsfdas fasdfasdfasdf</p>",
+      "moTa": "ádfasdfasdfasdfadsf"
+    }
   }
 }
 export interface GioiThieuBanner {

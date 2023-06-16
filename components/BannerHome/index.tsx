@@ -9,10 +9,11 @@ import Slider from "react-slick";
 import styled from "styled-components";
 import { dataBannerSlide } from "../../data";
 import { images } from "next/dist/build/webpack/config/blocks/images";
+import {useRouter} from "next/router";
 
 const BannerHome = (props: { dataHome: IDataHome }) => {
   const SliderRef = useRef(null);
-
+const router=useRouter();
   useEffect(() => {}, []);
   const settings = {
     dots: false,
@@ -88,31 +89,32 @@ const BannerHome = (props: { dataHome: IDataHome }) => {
           />
         </button>
         <div className="relative ">
-          {/*<img*/}
-          {/*  className="w-full max-h-[714px]"*/}
-          {/*  src="/images/home/banner-big.png"*/}
-          {/*  alt="image"*/}
-          {/*/>*/}
-          <Slider {...settings} ref={SliderRef}>
-          	{props.dataHome?.banner?.map((value,index)=>{
-          		return(
-          			<a href={value.linkTo} target={"_blank"} rel={"noreferrer"} key={index}>
+
+          {props.dataHome?.banner?.length>0?<Slider {...settings} ref={SliderRef}>
+            {props.dataHome?.banner?.map((value,index)=>{
+              return(
+                <a href={value.linkTo} target={"_blank"} rel={"noreferrer"} key={index}>
                   <img
-                    className="w-full max-h-[714px]"
+                    className="w-full max-h-[714px] wow fadeInUp"
                     src={renderImage(value?.images?.data?.attributes?.url)}
                     alt="image"
                   />
-          			</a>
-          		)
-          	})}
-          </Slider>
-          <div className="absolute top-0 left-0 h-full">
+                </a>
+              )
+            })}
+          </Slider>:    <img
+            className="w-full max-h-[714px]"
+            src="/images/default/no_image.png"
+            alt="image"
+          />}
+
+          <div className="absolute top-0 left-0 h-full wow fadeInLeft">
             <div className="trapezoid h-full w-[675px] ">
 
             </div>
           </div>
           <div className="absolute top-0 left-0 w-full h-full flex items-center">
-            <div className="trapezoid-2 h-[383px] w-[685px] relative">
+            <div className="trapezoid-2 h-[383px] w-[685px] relative wow fadeInLeft">
               {/*<div className="absolute bottom-0 right-0 w-[48px] h-[31px] trapezoid-3 ">*/}
 
               {/*</div>*/}
@@ -130,7 +132,7 @@ const BannerHome = (props: { dataHome: IDataHome }) => {
                       type={"default"}
                       classname="lg:w-[239px]"
                       onClick={() => {
-                        // router.push("/tin-tuc");
+                        router.push("/tin-tuc");
                       }}
                     >
                       Xem thêm

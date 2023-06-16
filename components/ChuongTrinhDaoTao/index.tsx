@@ -23,7 +23,7 @@ const ChuongTrinhDaoTao = (props: { dataHome: IDataHome }) => {
       <ChuongTrinhDaoTaoWrapper>
         <div className="bg-[#FFFFFF] py-[50px] px-[20px] lg:px-0">
           <div className="container mx-auto ">
-            <Title title={"Thông báo học bổng"} uppercase={true} />
+            <Title title={"Thông báo học bổng"} titleTop={"HỌC BỔNG"} uppercase={true} />
             <div className="hidden lg:grid grid-cols-3 gap-[30px]">
               {props.dataHome?.htqt_thong_bao_hoc_bongs?.data?.map((val, i) => {
                 if (i < 3) {
@@ -85,7 +85,7 @@ const ChuongTrinhDaoTao = (props: { dataHome: IDataHome }) => {
                   type={"primary"}
                   classname="lg:w-[279px]"
                   onClick={() => {
-                    router.push(`/hoat-dong?type=Đề tài`);
+                    router.push(`/thong-bao-hoc-bong`);
                   }}
                 >
                   Xem thêm

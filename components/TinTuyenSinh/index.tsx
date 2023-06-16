@@ -62,7 +62,7 @@ if (props.dataHome?.htqt_tin_tuc_su_kiens?.data?.length>0){
 		<TinTuyenSinhWrapper className='bg-[#1421410A] px-[20px] lg:px-0 md:py-[50px] py-[20px] '>
 			<div className='container mx-auto'>
 				<div>
-					<Title title={"Tin tức - sự kiện"} uppercase={true} description={""} />
+					<Title title={"Tin tức - sự kiện"} titleTop={"TỪ TIN TỨC CỦA CHÚNG TÔI"} uppercase={true} description={""} />
 				</div>
 				<div className='sm:grid sm:grid-cols-3 gap-[20px] hidden mt-[30px]'>
 					{/*{props.dataHome?.htqt_tin_tuc_su_kiens?.data?.map((value, i) => {*/}
@@ -108,7 +108,7 @@ if (props.dataHome?.htqt_tin_tuc_su_kiens?.data?.length>0){
 								description:val?.attributes?.moTa,
 								imageUrl:renderImage(val?.attributes?.hinhAnh?.data?.attributes?.url),
 								link:`/tin-tuc/${val?.id}`
-							}} isShowTime={true} key={i}/>
+							}} isShowTime={true} isArrow2={true} key={i}/>
 						)
 					})}
 				</div>
@@ -123,7 +123,7 @@ if (props.dataHome?.htqt_tin_tuc_su_kiens?.data?.length>0){
 										description:value?.attributes?.moTa,
 										imageUrl:renderImage(value?.attributes?.hinhAnh?.data?.attributes?.url),
 										link:`/tin-tuc/${value?.id}`
-									}} isShowTime={true} key={i}/>
+									}} isShowTime={true} isArrow2={true} key={i}/>
 								</div>
 							)
 						})}

@@ -71,7 +71,7 @@ const ChuongTrinhDuAn = () => {
   }, [type]);
   return (
     <DonViNghienCuuWrapper>
-      <div className="container mx-auto lg:mt-[50px] mt-[20px] lg:mb-[50px] mb-[20px]">
+      <div className="container mx-auto lg:mt-[50px] mt-[20px] lg:mb-[50px] mb-[20px] px-[20px] lg:px-0">
         <>
           <Title title={"CHƯƠNG TRÌNH - DỰ ÁN HỢP TÁC QUỐC TẾ"} titleTop={"chương trình - dự án"} uppercase={true} />
 

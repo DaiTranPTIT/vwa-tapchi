@@ -168,7 +168,7 @@ const Header = (props: IProps) => {
   }, []);
   return (
     <HeaderWrapper className=" shadow-header">
-      <div className="hidden sm:block bg-[#DE221A] px-6 ">
+      <div className="hidden lg:block bg-[#DE221A] px-6 ">
         <div className="container mx-auto ">
           <div className="header-branch flex justify-between items-center">
             <div className=" flex items-center title-header">
@@ -269,13 +269,13 @@ const Header = (props: IProps) => {
             : "lg:bg-white bg-primary"
         } `}
       >
-        <div className=" container sm:mx-auto lg:py-[12px] py-0  ">
+        <div className=" container lg:mx-auto lg:py-[12px] py-0  ">
           {/*<div className='logo'>*/}
           {/*	<img src={'/images/header/logo-db.png'} alt={"image"} />*/}
           {/*</div>*/}
           <div className={` ${isScroll ? " bg-white" : "lg:bg-white"} `}>
             <div
-              className={`container mx-auto hidden sm:flex  justify-between items-center `}
+              className={`container mx-auto hidden lg:flex  justify-between items-center `}
             >
               <div
                 onClick={() => {
@@ -289,7 +289,7 @@ const Header = (props: IProps) => {
                 />
               </div>
               <div className="flex items-center justify-center ">
-                {dataMenu.map((value, index) => {
+                {dataMenu?.map((value, index) => {
                   return (
                     <div
                       onClick={() => {
@@ -380,23 +380,109 @@ const Header = (props: IProps) => {
               {/*	</Navbar.Collapse>*/}
               {/*</Navbar>*/}
             </div>
+            {/*==================mobile===============*/}
             <div
               className={
-                "lg:hidden lg:invisible flex  justify-between items-center lg:mt-[16px] mt-0 px-2 py-[8px] lg:py-0 "
+                "lg:hidden lg:invisible flex  justify-between items-center lg:mt-[16px] mt-0 px-2 py-[8px] lg:py-0 bg-primary"
               }
             >
               <div className="mr-[8px]">
-                <img src="./images/header/logo-header.png" alt={"image"} />
+                {/*<img src="./images/header/logo-header.png" alt={"image"} />*/}
+                <div className="  title-header">
+                  {/*<img src={renderImage(dataThongTin?.logoHeader)} alt={"image"} />*/}
+                  HỌC VIỆN CÔNG NGHỆ BƯU CHÍNH VIỄN THÔNG
+                  {/*<div className="border-r-2 border-[#FFFFFF] w-[2px] h-[18px] mx-[20px]"></div>*/}
+                  <div className="border-t pt-[4px] mt-[4px]">{dataThongTin?.ten}</div>
+                </div>
               </div>
 
               <div className="flex items-center relative shrink-0 mr-[8px]">
-                <div onClick={() => setShowMenu(!showMenu)}>
+                <div className="mr-[8px]" onClick={() => setShowMenu(!showMenu)}>
                   <img src={"/images/icons/menu.svg"} alt={"image"} />
+                </div>
+                <div className="relative mr-2" ref={langRef}>
+                  <div
+                    className="language flex items-center "
+                    onClick={() => onClickLanguage()}
+                  >
+                    <img
+                      className="w-8"
+                      src={
+                        props.language === "vi-VN"
+                          ? "/images/icons/vn.svg"
+                          : "/images/icons/us.svg"
+                      }
+                      alt=""
+                    />
+                    {/*{isChangeLang ? (*/}
+                    {/*  <svg*/}
+                    {/*    className="w-6 h-6"*/}
+                    {/*    fill="none"*/}
+                    {/*    stroke="currentColor"*/}
+                    {/*    viewBox="0 0 24 24"*/}
+                    {/*    xmlns="http://www.w3.org/2000/svg"*/}
+                    {/*  >*/}
+                    {/*    <path*/}
+                    {/*      strokeLinecap="round"*/}
+                    {/*      strokeLinejoin="round"*/}
+                    {/*      strokeWidth="2"*/}
+                    {/*      d="M5 15l7-7 7 7"*/}
+                    {/*    ></path>*/}
+                    {/*  </svg>*/}
+                    {/*) : (*/}
+                    {/*  <svg*/}
+                    {/*    className="w-6 h-6"*/}
+                    {/*    fill="none"*/}
+                    {/*    stroke="currentColor"*/}
+                    {/*    viewBox="0 0 24 24"*/}
+                    {/*    xmlns="http://www.w3.org/2000/svg"*/}
+                    {/*  >*/}
+                    {/*    <path*/}
+                    {/*      strokeLinecap="round"*/}
+                    {/*      strokeLinejoin="round"*/}
+                    {/*      strokeWidth="2"*/}
+                    {/*      d="M19 9l-7 7-7-7"*/}
+                    {/*    ></path>*/}
+                    {/*  </svg>*/}
+                    {/*)}*/}
+                  </div>
+                  {isChangeLang && (
+                    <div className="language absolute top-9 right-0 shadow-lg py-2.5 w-40 secondary-bg rounded-xl ">
+                      <ul>
+                        <li className="hover:hover-bg px-2.5 cursor-pointer">
+                          <a
+                            className="flex items-center"
+                            onClick={(e) => onChangeLanguage(e, "en")}
+                          >
+                            <img
+                              className="w-8 mr-2"
+                              src="/images/us.png"
+                              alt=""
+                            />{" "}
+                            <span>English (US)</span>
+                          </a>
+                        </li>
+                        <li className="hover:hover-bg px-2.5 cursor-pointer">
+                          <a
+                            className="flex items-center"
+                            onClick={(e) => onChangeLanguage(e, "vi-VN")}
+                          >
+                            <img
+                              className="w-8 mr-2"
+                              src="/images/vi.png"
+                              alt=""
+                            />{" "}
+                            Tiếng Việt
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  )}
                 </div>
                 {showMenu && (
                   <div className="menu-mobile absolute w-[180px] top-[50px] right-0 bg-white px-2 py-2 shadow-md rounded z-50">
                     <ul>
-                      {dataMenu.map((value, index) => {
+                      {dataMenu?.map((value, index) => {
                         return (
                           <div
                             onClick={() => {
@@ -414,13 +500,13 @@ const Header = (props: IProps) => {
                               value?.link
                                 ?.split("?")?.[0]
                                 ?.localeCompare(typeMenu) === 0
-                                ? `text-white ${
+                                ? `text-primary ${
                                     isScroll
-                                      ? "text-white md:border-b-2  md:border-white-500"
+                                      ? "text-primary md:border-b-2  md:border-primary-500"
                                       : "text-active md:border-b-2  md:border-primary-500"
                                   } `
                                 : `md:border-none ${
-                                    isScroll ? "text-white" : "text-black"
+                                    isScroll ? "text-black" : "text-black"
                                   }`
                             } block  `}
                             key={index}
@@ -474,85 +560,7 @@ const Header = (props: IProps) => {
                   </div>
                 )}
               </div>
-              <div className="relative mr-2" ref={langRef}>
-                <div
-                  className="language flex items-center "
-                  onClick={() => onClickLanguage()}
-                >
-                  <img
-                    className="w-8"
-                    src={
-                      props.language === "vi-VN"
-                        ? "/images/icons/vn.svg"
-                        : "/images/icons/us.svg"
-                    }
-                    alt=""
-                  />
-                  {isChangeLang ? (
-                    <svg
-                      className="w-6 h-6"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M5 15l7-7 7 7"
-                      ></path>
-                    </svg>
-                  ) : (
-                    <svg
-                      className="w-6 h-6"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M19 9l-7 7-7-7"
-                      ></path>
-                    </svg>
-                  )}
-                </div>
-                {isChangeLang && (
-                  <div className="language absolute top-9 right-0 shadow-lg py-2.5 w-40 secondary-bg rounded-xl ">
-                    <ul>
-                      <li className="hover:hover-bg px-2.5 cursor-pointer">
-                        <a
-                          className="flex items-center"
-                          onClick={(e) => onChangeLanguage(e, "en")}
-                        >
-                          <img
-                            className="w-8 mr-2"
-                            src="/images/us.png"
-                            alt=""
-                          />{" "}
-                          <span>English (US)</span>
-                        </a>
-                      </li>
-                      <li className="hover:hover-bg px-2.5 cursor-pointer">
-                        <a
-                          className="flex items-center"
-                          onClick={(e) => onChangeLanguage(e, "vi-VN")}
-                        >
-                          <img
-                            className="w-8 mr-2"
-                            src="/images/vi.png"
-                            alt=""
-                          />{" "}
-                          Tiếng Việt
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                )}
-              </div>
+
             </div>
           </div>
         </div>

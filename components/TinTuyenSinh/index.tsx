@@ -24,14 +24,16 @@ const TinTuyenSinh = (props: { dataHome: IDataHome }) => {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 4,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    slidesToShow: 1,
     slidesToScroll: 1,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToShow: 1,
+          slidesToScroll: 1,
           infinite: true,
           dots: true,
         },
@@ -39,8 +41,8 @@ const TinTuyenSinh = (props: { dataHome: IDataHome }) => {
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
+          slidesToShow: 1,
+          slidesToScroll: 1,
           initialSlide: 2,
         },
       },
@@ -68,7 +70,7 @@ const TinTuyenSinh = (props: { dataHome: IDataHome }) => {
               description={""}
             />
           </div>
-          <div className="sm:grid sm:grid-cols-3 gap-[30px] hidden mt-[30px]">
+          <div className="lg:grid lg:grid-cols-3 gap-[30px] hidden mt-[30px]">
             {/*{props.dataHome?.htqt_tin_tuc_su_kiens?.data?.map((value, i) => {*/}
             {/*	if (i < 6) {*/}
             {/*		if (i === 0 || i === 5) {*/}
@@ -125,7 +127,7 @@ const TinTuyenSinh = (props: { dataHome: IDataHome }) => {
               }
             })}
           </div>
-          <div className="sm:hidden block mt-[20px]">
+          <div className="lg:hidden block mt-[20px]">
             <Slider {...settings}>
               {props.dataHome?.htqt_tin_tuc_su_kiens?.data?.map((value, i) => {
                 return (

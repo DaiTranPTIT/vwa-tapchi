@@ -25,7 +25,7 @@ const CardHTQT = (props: IPorps) => {
       <Link href={data.link ? data.link : "#"} className="h-full">
         <div className="wow fadeInUp" style={props.style}>
           <div>
-            <img src={data?.imageUrl} className="h-[285px] object-cover" alt="image" />
+            <img src={data?.imageUrl} className="h-[285px] w-full object-cover" alt="image" />
           </div>
           <div className="content p-[24px] wow fadeInUp">
             {isShowTime&&<div className=" flex mb-[16px]">

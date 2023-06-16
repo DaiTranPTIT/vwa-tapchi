@@ -96,7 +96,7 @@ const ChiTiet = () => {
         className="container mx-auto bg-white px-6 sm:px-0 pt-6 pb-8"
         ref={contentRef}
       >
-        <div className="flex justify-between">
+        <div className="lg:flex justify-between">
           <BreadcrumbPage
             data={[
               {

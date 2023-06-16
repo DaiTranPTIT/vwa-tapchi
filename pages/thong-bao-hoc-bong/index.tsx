@@ -71,7 +71,7 @@ const ThongBaoHocBong = () => {
   }, [type]);
   return (
     <DonViNghienCuuWrapper>
-      <div className="container mx-auto lg:mt-[50px] mt-[20px] lg:mb-[50px] mb-[20px]">
+      <div className="container mx-auto lg:mt-[50px] mt-[20px] lg:mb-[50px] mb-[20px] px-[20px] lg:px-0">
         <>
           <Title title={"THÔNG BÁO HỌC BỔNG"} titleTop="học bổng" uppercase={true} />
 

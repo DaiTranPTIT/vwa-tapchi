@@ -16,11 +16,11 @@ const CardHTQTMangLuoi = (props: IPorps) => {
   const { data } = props;
   return (
     <CardHTQTMangLuoiWrapper className="bg-[#1421410A] w-full">
-      <div className="flex w-full">
+      <div className="lg:flex w-full">
         <div className="wow fadeInUp">
-          <img className="h-[337px] w-[337px] object-cover" src={data?.imageUrl} />
+          <img className="lg:h-[337px] lg:w-[337px] object-cover" src={data?.imageUrl} />
         </div>
-        <div className="content py-[45px] px-[40px] wow fadeInUp">
+        <div className="content lg:py-[45px] lg:px-[40px] px-[16px] py-[16px]  wow fadeInUp">
           <div className="border-l-2 pl-[12px] md:border-primary-500 content wow fadeInUp mb-[24px]">
             <div className="flex mb-[10px]">
               <img className="mr-[16px]" src="/images/icons/web.svg" alt="icon" />

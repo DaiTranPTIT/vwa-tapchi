@@ -69,7 +69,7 @@ const DonViNghienCuu = () => {
   },[type])
   return (
     <DonViNghienCuuWrapper>
-      <div className="container mx-auto lg:mt-[50px] mt-[20px] lg:mb-[50px] mb-[20px]">
+      <div className="container mx-auto lg:mt-[50px] mt-[20px] lg:mb-[50px] mb-[20px] px-[20px] lg:px-0">
         {type === ETYPEDONVI.MANG_LUOI_QUOC_TE && (
           <>
             <Title title={ETYPEDONVI.MANG_LUOI_QUOC_TE} titleTop={"mạng lưới đối tác"} uppercase={true} />
@@ -137,7 +137,7 @@ const DonViNghienCuu = () => {
             <Title title={ETYPEDONVI.DOI_TAC_DOANH_NGHIEP} titleTop={"mạng lưới đối tác"} uppercase={true} />
 
             {dataGioiThieu?.length>0?<>
-              <div className="grid grid-cols-2 gap-[30px]">
+              <div className="grid lg:grid-cols-2 grid-cols-1 gap-[30px]">
                 {dataGioiThieu?.map((value, index) => {
                   return (
                     <CardDeTai

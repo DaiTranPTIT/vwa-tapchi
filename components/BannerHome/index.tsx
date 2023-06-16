@@ -9,11 +9,11 @@ import Slider from "react-slick";
 import styled from "styled-components";
 import { dataBannerSlide } from "../../data";
 import { images } from "next/dist/build/webpack/config/blocks/images";
-import {useRouter} from "next/router";
+import { useRouter } from "next/router";
 
 const BannerHome = (props: { dataHome: IDataHome }) => {
   const SliderRef = useRef(null);
-const router=useRouter();
+  const router = useRouter();
   useEffect(() => {}, []);
   const settings = {
     dots: false,
@@ -67,7 +67,7 @@ const router=useRouter();
   };
   return (
     <BannerWrapper>
-      <div className="relative">
+      <div className="hidden lg:block relative">
         <button
           className="hidden lg:flex next-btn mr-[16px] cursor-pointer  items-center justify-center absolute top-1/2 left-0 z-50 btn-next btn"
           onClick={handlePrev}
@@ -89,29 +89,35 @@ const router=useRouter();
           />
         </button>
         <div className="relative ">
-
-          {props.dataHome?.banner?.length>0?<Slider {...settings} ref={SliderRef}>
-            {props.dataHome?.banner?.map((value,index)=>{
-              return(
-                <a href={value.linkTo} target={"_blank"} rel={"noreferrer"} key={index}>
-                  <img
-                    className="w-full max-h-[714px] wow fadeInUp"
-                    src={renderImage(value?.images?.data?.attributes?.url)}
-                    alt="image"
-                  />
-                </a>
-              )
-            })}
-          </Slider>:    <img
-            className="w-full max-h-[714px]"
-            src="/images/default/no_image.png"
-            alt="image"
-          />}
+          {props.dataHome?.banner?.length > 0 ? (
+            <Slider {...settings} ref={SliderRef}>
+              {props.dataHome?.banner?.map((value, index) => {
+                return (
+                  <a
+                    href={value.linkTo}
+                    target={"_blank"}
+                    rel={"noreferrer"}
+                    key={index}
+                  >
+                    <img
+                      className="w-full max-h-[714px] wow fadeInUp"
+                      src={renderImage(value?.images?.data?.attributes?.url)}
+                      alt="image"
+                    />
+                  </a>
+                );
+              })}
+            </Slider>
+          ) : (
+            <img
+              className="w-full max-h-[714px]"
+              src="/images/default/no_image.png"
+              alt="image"
+            />
+          )}
 
           <div className="absolute top-0 left-0 h-full wow fadeInLeft">
-            <div className="trapezoid h-full w-[675px] ">
-
-            </div>
+            <div className="trapezoid h-full w-[675px] "></div>
           </div>
           <div className="absolute top-0 left-0 w-full h-full flex items-center">
             <div className="trapezoid-2 h-[383px] w-[685px] relative wow fadeInLeft">
@@ -141,9 +147,6 @@ const router=useRouter();
               </div>
             </div>
           </div>
-
-
-
         </div>
         {/*<Slider {...settings} ref={SliderRef}>*/}
         {/*	{props.dataHome?.banner?.map((value,index)=>{*/}
@@ -159,13 +162,62 @@ const router=useRouter();
         {/*	})}*/}
         {/*</Slider>*/}
       </div>
+      <div className="lg:hidden ">
+        <div className="bg-primary py-[20px] px-[20px]">
+          <div className="title-banner-1 mb-[24px]">
+            {props.dataHome?.title}
+          </div>
+          <div className="title-banner-2 mb-[24px]">
+            {props.dataHome?.title2}
+          </div>
+          <div className="flex justify-center">
+            <Button
+              type={"default"}
+              classname="lg:w-[239px]"
+              onClick={() => {
+                router.push("/tin-tuc");
+              }}
+            >
+              Xem thêm
+            </Button>
+          </div>
+        </div>
+        <div>
+          {props.dataHome?.banner?.length > 0 ? (
+            <Slider {...settings} ref={SliderRef}>
+              {props.dataHome?.banner?.map((value, index) => {
+                return (
+                  <a
+                    href={value.linkTo}
+                    target={"_blank"}
+                    rel={"noreferrer"}
+                    key={index}
+                  >
+                    <img
+                      className="w-full h-[200px] wow fadeInUp object-cover"
+                      src={renderImage(value?.images?.data?.attributes?.url)}
+                      alt="image"
+                    />
+                  </a>
+                );
+              })}
+            </Slider>
+          ) : (
+            <img
+              className="w-full h-[200px]"
+              src="/images/default/no_image.png"
+              alt="image"
+            />
+          )}
+        </div>
+      </div>
     </BannerWrapper>
   );
 };
 
 const BannerWrapper = styled.div`
-  .title-banner-1{
-    font-family: 'SVN-Product Sans';
+  .title-banner-1 {
+    font-family: "SVN-Product Sans";
     font-style: normal;
     font-weight: 700;
     font-size: 32px;
@@ -174,7 +226,7 @@ const BannerWrapper = styled.div`
 
     /* White */
 
-    color: #FFFFFF;
+    color: #ffffff;
 
     overflow: hidden;
     text-overflow: ellipsis;
@@ -182,8 +234,8 @@ const BannerWrapper = styled.div`
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
   }
-  .title-banner-2{
-    ont-family: 'Inter';
+  .title-banner-2 {
+    ont-family: "Inter";
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -191,14 +243,13 @@ const BannerWrapper = styled.div`
 
     /* White */
 
-    color: #FFFFFF;
+    color: #ffffff;
 
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
-
   }
   .trapezoid {
     -webkit-clip-path: polygon(0 0, 70% 0, 100% 100%, 0% 100%);
@@ -215,23 +266,18 @@ const BannerWrapper = styled.div`
     -webkit-clip-path: polygon(0 0, 83% 0, 100% 100%, 0% 100%);
     clip-path: polygon(0 0, 83% 0, 100% 100%, 0% 100%);
 
-
-
     background: linear-gradient(90deg, #9e0600 0%, #de221a 94.79%);
-    
-    
-    &:after{
+
+    &:after {
       position: absolute;
       bottom: 0;
       left: 0;
-      background-color: #DE221A;
+      background-color: #de221a;
     }
   }
   .trapezoid-3 {
     -webkit-clip-path: polygon(100% 0, 0 0, 23% 76%);
     clip-path: polygon(100% 0, 0 0, 23% 76%);
-
-
 
     background: linear-gradient(90deg, #9e0600 0%, #de221a 94.79%);
   }

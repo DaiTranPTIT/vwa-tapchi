@@ -406,7 +406,8 @@ export interface GioiThieuNC {
 }
 [];
 export interface IDataHome {
-  "title": null,
+  "title":string// null,
+  "title2":string// null,
   "createdAt": "2023-06-15T09:40:17.190Z",
   "updatedAt": "2023-06-15T09:40:20.270Z",
   "publishedAt": "2023-06-15T09:40:20.269Z",

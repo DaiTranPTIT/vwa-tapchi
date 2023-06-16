@@ -106,7 +106,7 @@ const DonViNghienCuu = () => {
             <Title title={ETYPEDONVI.DOI_TAC_HOC_THUAT} titleTop={"mạng lưới đối tác"} uppercase={true} />
 
             {dataGioiThieu?.length>0?<>
-              <div className="grid grid-cols-2 gap-[30px]">
+              <div className="grid grid-cols-1 gap-[30px]">
                 {dataGioiThieu?.map((value, index) => {
                   return (
                     <CardHTQTMangLuoi

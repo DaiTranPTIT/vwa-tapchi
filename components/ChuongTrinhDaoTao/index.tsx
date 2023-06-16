@@ -26,7 +26,7 @@ const ChuongTrinhDaoTao = (props: { dataHome: IDataHome }) => {
             <Title title={"Thông báo học bổng"} titleTop={"HỌC BỔNG"} uppercase={true} />
             <div className="hidden lg:grid grid-cols-3 gap-[30px]">
               {props.dataHome?.htqt_thong_bao_hoc_bongs?.data?.map((val, i) => {
-                if (i < 3) {
+                if (i < 6) {
                   return (
                     <div
                       className="cursor-pointer"

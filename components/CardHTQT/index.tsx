@@ -25,7 +25,7 @@ const CardHTQT = (props: IPorps) => {
       <Link href={data.link ? data.link : "#"} className="h-full">
         <div className="wow fadeInUp" style={props.style}>
           <div>
-            <img src={data?.imageUrl} alt="image" />
+            <img src={data?.imageUrl} className="h-[285px] object-cover" alt="image" />
           </div>
           <div className="content p-[24px] wow fadeInUp">
             {isShowTime&&<div className=" flex mb-[16px]">
@@ -34,9 +34,9 @@ const CardHTQT = (props: IPorps) => {
                   {moment(data?.dateTime).format("DD/MM/YYYY")}
                 </div>
             </div>}
+            {data?.title&& <div className="title mb-[16px] min-h-[56px]">{data?.title}</div>}
+            {data?.description&& <div className="description mb-[16px] min-h-[72px]">{data?.description}</div>}
 
-            <div className="title mb-[16px]">{data?.title}</div>
-            <div className="description mb-[16px]">{data?.description}</div>
             <div className="show-more flex">
               <div className={"mr-2"}>Xem thêm</div>
               {isArrow2?<svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">

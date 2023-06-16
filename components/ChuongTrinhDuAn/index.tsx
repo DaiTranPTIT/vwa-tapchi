@@ -81,7 +81,7 @@ const ChuongTrinhDuAn = (props: { dataHome: IDataHome }) => {
                 );
               })}
             </div>
-            {props.dataHome?.htqt_chuong_trinh_du_ans?.data?.length > 6 && (
+            {props.dataHome?.htqt_chuong_trinh_du_ans?.data?.length > 3 && (
               <div className="flex justify-center md:mt-[40px] mt-[20px]">
                 <Button
                   type={"primary"}

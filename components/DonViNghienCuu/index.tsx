@@ -39,17 +39,17 @@ const DonViNghienCuu = (props:{dataHome:IDataHome}) => {
 
 						})}
 					</div>
-					<div className="show-more flex items-center justify-center md:mt-[16px] cursor-pointer">
-						<Pagination
-							page={page}
-							limit={3}
-							total={total}
-							handleChangePage={(page) => {
-								console.log("page", page);
-								setPage(page);
-							}}
-						/>
-					</div>
+					{/*<div className="show-more flex items-center justify-center md:mt-[16px] cursor-pointer">*/}
+					{/*	<Pagination*/}
+					{/*		page={page}*/}
+					{/*		limit={limit}*/}
+					{/*		total={total}*/}
+					{/*		handleChangePage={(page) => {*/}
+					{/*			console.log("page", page);*/}
+					{/*			setPage(page);*/}
+					{/*		}}*/}
+					{/*	/>*/}
+					{/*</div>*/}
 				</div>
 			</DonViWrapper>
 		);

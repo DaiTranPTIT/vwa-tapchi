@@ -121,11 +121,10 @@ const router=useRouter();
               <div className="flex justify-center items-center w-full h-full ">
                 <div className="max-w-[55%]">
                   <div className="title-banner-1 mb-[24px]">
-                    top trường đại học hàng đầu Việt Nam
+                    {props.dataHome?.title}
                   </div>
                   <div className="title-banner-2 mb-[24px]">
-                    Một trong những trường đại học hàng đầu Việt Nam với các chuyên ngành mũi nhọn về chuyển đổi số và đại học số.
-                    Là trường đại học thành viên duy nhất của Bộ Thông tin và Truyền thông Việt Nam.
+                    {props.dataHome?.title2}
                   </div>
                   <div className="">
                     <Button

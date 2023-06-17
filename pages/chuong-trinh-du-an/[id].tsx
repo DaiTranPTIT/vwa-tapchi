@@ -52,7 +52,7 @@ const ChiTietDuAn = () => {
                 path: "/",
               },
               {
-                title: "HOẠT ĐỘNG KH, CN & ĐMST",
+                title: "Chường trình dự án",
                 path: "#",
               },
             ]}

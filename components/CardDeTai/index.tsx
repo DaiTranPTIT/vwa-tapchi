@@ -99,7 +99,7 @@ const CardDeTaiWrapper = styled.div`
 			overflow: hidden;
 			text-overflow: ellipsis;
 			display: -webkit-box;
-			-webkit-line-clamp: 4;
+			-webkit-line-clamp: 3;
 			-webkit-box-orient: vertical;
 		}
 		.description {
@@ -111,6 +111,12 @@ const CardDeTaiWrapper = styled.div`
 			display: flex;
 			align-items: center;
 			color: #495057;
+
+			overflow: hidden;
+			text-overflow: ellipsis;
+			display: -webkit-box;
+			-webkit-line-clamp: 4;
+			-webkit-box-orient: vertical;
 		}
 		.time {
 			font-family: "Inter";

@@ -42,8 +42,10 @@ const About = () => {
           <div className="wow fadeInLeft">
             <div className="title-1 mb-[12px]">Giới thiệu</div>
             <div className="title-2 lg:mb-[40px] mn-[16px]">GIỚI THIỆU <br/> HOẠT ĐỘNG HỢP TÁC QUỐC TẾ</div>
-            <div className=" lg:hidden block lg:content-banner-2 wow fadeInUp mb-[16px]">
+            <div className="lg:hidden block">
+            <div className="  content-banner-2 wow fadeInUp mb-[16px]">
               {dataGioiThieu?.moTa}
+            </div>
             </div>
             <div className="">
               <Button
@@ -57,8 +59,10 @@ const About = () => {
               </Button>
             </div>
           </div>
-          <div className="hidden lg:block lg:content-banner-2 wow fadeInUp">
-            {dataGioiThieu?.moTa}
+          <div className="hidden lg:block">
+            <div className=" content-banner-2 wow fadeInUp">
+              {dataGioiThieu?.moTa}
+            </div>
           </div>
         </div>
       </div>

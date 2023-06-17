@@ -18,6 +18,7 @@ import ReactToPrint from "react-to-print";
 import CardBanner from "../../components/CardBanner";
 import {DataNewList, DataNewListV2, IDataChiTiet} from "../../utils/interface";
 import { AuthContext } from "../../context/AuthContext";
+import CardHTQT from "../../components/CardHTQT";
 
 const ChiTiet = () => {
   // const {
@@ -53,10 +54,10 @@ const ChiTiet = () => {
                 // $lte: moment().endOf("day").toISOString(),
               },
             },
-            pagination: {
-              page: page,
-              pageSize: limit,
-            },
+            // pagination: {
+            //   page: page,
+            //   pageSize: limit,
+            // },
           },
         }
       );
@@ -199,13 +200,28 @@ const ChiTiet = () => {
                       }}
                       key={i}
                     >
-                      <CardBanner
-                        imageUrl={renderImage( val?.attributes?.hinhAnh?.data?.attributes?.url)}
-                        title={val?.attributes.tieuDe}
-                        description={val?.attributes.moTa}
-                        dateTime={val?.attributes.createdAt}
+                      {/*<CardBanner*/}
+                      {/*  imageUrl={renderImage( val?.attributes?.hinhAnh?.data?.attributes?.url)}*/}
+                      {/*  title={val?.attributes.tieuDe}*/}
+                      {/*  description={val?.attributes.moTa}*/}
+                      {/*  dateTime={val?.attributes.createdAt}*/}
+                      {/*  key={i}*/}
+                      {/*  type={"list"}*/}
+                      {/*/>*/}
+                      <CardHTQT
+                        data={{
+                          title: val?.attributes?.tieuDe,
+                          dateTime: val?.attributes?.thoiGianBatDau,
+                          description: val?.attributes?.moTa,
+                          imageUrl: renderImage(
+                            val?.attributes?.hinhAnh?.data?.attributes?.url
+                          ),
+                          link: `/tin-tuc/${val?.id}`,
+                        }}
+                        isShowTime={true}
+                        isArrow2={true}
+                        isShadow={true}
                         key={i}
-                        type={"list"}
                       />
                     </div>
                   );

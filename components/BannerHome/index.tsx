@@ -20,7 +20,7 @@ const BannerHome = (props: { dataHome: IDataHome }) => {
     infinite: true,
     // fade: true,
     speed: 500,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 5000,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -67,7 +67,7 @@ const BannerHome = (props: { dataHome: IDataHome }) => {
   };
   return (
     <BannerWrapper>
-      <div className="hidden lg:block relative">
+      <div className="hidden lg:block relativ border-b-2 border-primary">
         <button
           className="hidden lg:flex next-btn mr-[16px] cursor-pointer  items-center justify-center absolute top-1/2 left-0 z-50 btn-next btn"
           onClick={handlePrev}
@@ -98,6 +98,7 @@ const BannerHome = (props: { dataHome: IDataHome }) => {
                     target={"_blank"}
                     rel={"noreferrer"}
                     key={index}
+                    className="h-full pb-0"
                   >
                     <img
                       className="w-full max-h-[714px] wow fadeInUp"

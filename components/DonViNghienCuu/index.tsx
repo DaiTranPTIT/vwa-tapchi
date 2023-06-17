@@ -30,6 +30,7 @@ const DonViNghienCuu = (props:{dataHome:IDataHome}) => {
 											// link: val?.attributes?.duongDan,
 										}}
 										type={'small'}
+										isCenterTitle={true}
 										key={i}
 									/>
 								);

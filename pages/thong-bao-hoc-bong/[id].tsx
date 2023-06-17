@@ -173,49 +173,49 @@ const ChiTiet = () => {
           {/*</div>*/}
         </div>
       </div>
-      {dataDaDienRa?.length > 0 && (
-        <div className={"container mx-auto mt-2 mb-[50px]"}>
-          <div className="title-event lg:mb-[40px] flex justify-between">
-            <h2>Tin tức - Sự kiện đã diễn ra</h2>
-            <div
-              className="show-more flex items-center cursor-pointer"
-              onClick={() => {
-                router.push("/tin-tuc");
-              }}
-            >
-              <div className="mr-[24px] shrink-0 text-primary">Xem thêm</div>
-              <img src="/images/icons/arrow-right-2.svg" alt="image" />
-            </div>
-          </div>
-          <div className={"grid grid-cols-3 gap-[30px]"}>
-            {dataDaDienRa
+      {/*{dataDaDienRa?.length > 0 && (*/}
+      {/*  <div className={"container mx-auto mt-2 mb-[50px]"}>*/}
+      {/*    <div className="title-event lg:mb-[40px] flex justify-between">*/}
+      {/*      <h2>Tin tức - Sự kiện đã diễn ra</h2>*/}
+      {/*      <div*/}
+      {/*        className="show-more flex items-center cursor-pointer"*/}
+      {/*        onClick={() => {*/}
+      {/*          router.push("/tin-tuc");*/}
+      {/*        }}*/}
+      {/*      >*/}
+      {/*        <div className="mr-[24px] shrink-0 text-primary">Xem thêm</div>*/}
+      {/*        <img src="/images/icons/arrow-right-2.svg" alt="image" />*/}
+      {/*      </div>*/}
+      {/*    </div>*/}
+      {/*    <div className={"grid grid-cols-3 gap-[30px]"}>*/}
+      {/*      {dataDaDienRa*/}
 
-              ?.map((val, i) => {
-                if (i < 3) {
-                  return (
-                    <div
-                      onClick={() => {
-                        router.push(`/tin-tuc/${val?.id}`);
-                      }}
-                      key={i}
-                    >
-                      <CardBanner
-                        imageUrl={renderImage( val?.attributes?.hinhAnh?.data?.attributes?.url)}
-                        title={val?.attributes.tieuDe}
-                        description={val?.attributes.moTa}
-                        dateTime={val?.attributes.createdAt}
-                        key={i}
-                        type={"list"}
-                      />
-                    </div>
-                  );
-                } else {
-                  return null;
-                }
-              })}
-          </div>
-        </div>
-      )}
+      {/*        ?.map((val, i) => {*/}
+      {/*          if (i < 3) {*/}
+      {/*            return (*/}
+      {/*              <div*/}
+      {/*                onClick={() => {*/}
+      {/*                  router.push(`/tin-tuc/${val?.id}`);*/}
+      {/*                }}*/}
+      {/*                key={i}*/}
+      {/*              >*/}
+      {/*                <CardBanner*/}
+      {/*                  imageUrl={renderImage( val?.attributes?.hinhAnh?.data?.attributes?.url)}*/}
+      {/*                  title={val?.attributes.tieuDe}*/}
+      {/*                  description={val?.attributes.moTa}*/}
+      {/*                  dateTime={val?.attributes.createdAt}*/}
+      {/*                  key={i}*/}
+      {/*                  type={"list"}*/}
+      {/*                />*/}
+      {/*              </div>*/}
+      {/*            );*/}
+      {/*          } else {*/}
+      {/*            return null;*/}
+      {/*          }*/}
+      {/*        })}*/}
+      {/*    </div>*/}
+      {/*  </div>*/}
+      {/*)}*/}
     </ChiTietWrapper>
   );
 };

@@ -13,13 +13,15 @@ interface IPorps {
   };
   style?: CSSProperties;
   isShowTime?:boolean;
+  isShowMore?:boolean;
   isRedTime?:boolean;
   isShadow?:boolean;
   isArrow2?:boolean;
+  isCenterTitle?:boolean;
   type?: "big" | "small";
 }
 const CardHTQT = (props: IPorps) => {
-  const { data,isShowTime,isShadow,isRedTime,isArrow2 } = props;
+  const { data,isShowTime,isShadow,isRedTime,isShowMore,isArrow2,isCenterTitle } = props;
   return (
     <CardHTQTWrapper className={`bg-white ${isShadow?'shadow':''}`}>
       <Link href={data.link ? data.link : "#"} className="h-full">
@@ -34,31 +36,32 @@ const CardHTQT = (props: IPorps) => {
                   {moment(data?.dateTime).format("DD/MM/YYYY")}
                 </div>
             </div>}
-            {data?.title&& <div className="title mb-[16px] min-h-[56px]">{data?.title}</div>}
+            {data?.title&& <div className={`title mb-[16px]  ${isCenterTitle?'text-center':'min-h-[56px]'}`}>{data?.title}</div>}
             {data?.description&& <div className="description mb-[16px] min-h-[72px]">{data?.description}</div>}
+            {isShowMore&&
+                <div className="show-more flex">
+                    <div className={"mr-2"}>Xem thêm</div>
+                  {isArrow2?<svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M1.5 0.663574L5.5 5.16357L1.5 9.66357" stroke="#DE221A" stroke-width="1.7"/>
+                      <path d="M7.5 0.663574L11.5 5.16357L7.5 9.66357" stroke="#DE221A" stroke-width="1.7"/>
+                    </svg>
+                    : <svg
+                      width="15"
+                      height="14"
+                      viewBox="0 0 15 14"
+                      fill="currentColor"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M0 7H13M13 7L7.7381 1.5M13 7L7.7381 12.5"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        fill="currentColor"
+                      />
+                    </svg>}
 
-            <div className="show-more flex">
-              <div className={"mr-2"}>Xem thêm</div>
-              {isArrow2?<svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M1.5 0.663574L5.5 5.16357L1.5 9.66357" stroke="#DE221A" stroke-width="1.7"/>
-                  <path d="M7.5 0.663574L11.5 5.16357L7.5 9.66357" stroke="#DE221A" stroke-width="1.7"/>
-                </svg>
-                : <svg
-                  width="15"
-                  height="14"
-                  viewBox="0 0 15 14"
-                  fill="currentColor"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M0 7H13M13 7L7.7381 1.5M13 7L7.7381 12.5"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    fill="currentColor"
-                  />
-                </svg>}
+                </div>}
 
-            </div>
           </div>
         </div>
       </Link>

@@ -33,6 +33,7 @@ const ChuongTrinhDuAn = (props: { dataHome: IDataHome }) => {
                       key={i}
                       onClick={() => {
                         router.push(`/chuong-trinh-du-an/${val?.id}`);
+
                       }}
                     >
                       <CardHTQT

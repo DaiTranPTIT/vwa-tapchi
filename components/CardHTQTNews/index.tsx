@@ -42,7 +42,7 @@ const CardHTQTNews = (props: IPorps) => {
               {props.data.dateTime && (
                 <div className="time-content flex items-center mb-[16px]">
                   <div className="day">
-                    {moment(props.data.dateTime).days()}
+                    {moment(props.data.dateTime).date()}
                   </div>
                   <div className="line h-[30px] border-r-2 border-[#73787E] ml-[20px] mr-[6px]"></div>
                   <div className="month">
@@ -66,19 +66,23 @@ const CardHTQTNews = (props: IPorps) => {
               }}
             >
               <div className={"mr-2"}>Xem thêm</div>
-              <svg
-                width="15"
-                height="14"
-                viewBox="0 0 15 14"
-                fill="currentColor"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 7H13M13 7L7.7381 1.5M13 7L7.7381 12.5"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  fill="currentColor"
-                />
+              {/*<svg*/}
+              {/*  width="15"*/}
+              {/*  height="14"*/}
+              {/*  viewBox="0 0 15 14"*/}
+              {/*  fill="currentColor"*/}
+              {/*  xmlns="http://www.w3.org/2000/svg"*/}
+              {/*>*/}
+              {/*  <path*/}
+              {/*    d="M0 7H13M13 7L7.7381 1.5M13 7L7.7381 12.5"*/}
+              {/*    stroke="currentColor"*/}
+              {/*    strokeWidth="2"*/}
+              {/*    fill="currentColor"*/}
+              {/*  />*/}
+              {/*</svg>*/}
+              <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1.5 0.663574L5.5 5.16357L1.5 9.66357" stroke="#DE221A" stroke-width="1.7"/>
+                <path d="M7.5 0.663574L11.5 5.16357L7.5 9.66357" stroke="#DE221A" stroke-width="1.7"/>
               </svg>
             </div>
           </div>
@@ -116,6 +120,27 @@ const CardNews = styled.div`
     line-height: 28px;
 
     color: #18202a;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+  .description{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+
+    color: #73787E;
+    
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
   }
 `;
 export default CardHTQTNews;

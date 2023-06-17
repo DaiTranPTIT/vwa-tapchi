@@ -19,7 +19,7 @@ const DonViNghienCuu = () => {
   const [sendSuccess, setSendSuccess] = useState<boolean>(false);
   const [dataChiTiet, setDataChiTiet] = useState<GioiThieu>();
   const [page, setPage] = useState<number>(1);
-  const [limit, setLimit] = useState<number>(4);
+  const [limit, setLimit] = useState<number>(6);
   const [total, setTotal] = useState<number>(0);
   const [dataGioiThieu, setDataGioiThieu] = useState<DataDonVi[]>([]);
   const router = useRouter();
@@ -50,7 +50,7 @@ const DonViNghienCuu = () => {
         console.log("resss", res);
         setDataGioiThieu(res?.data?.data ?? []);
         // setDataChiTiet(res?.data?.[0]);
-        setTotal(res?.data?.metadata?.total ?? 0);
+        setTotal(res?.data?.meta?.pagination?.total ?? 0);
       }
     } catch (e) {
       console.log(e);

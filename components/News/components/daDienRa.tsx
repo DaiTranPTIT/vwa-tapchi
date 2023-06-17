@@ -9,6 +9,7 @@ import CardEvent from "../../CardEvent";
 import {renderImage} from "../../../utils/util";
 import CardBanner from "../../CardBanner";
 import Pagination from "../../pagination";
+import CardHTQTNews from "../../CardHTQTNews";
 
 const DaDienRa = (props:{type:string,conditionSearch:any}) => {
   const router=useRouter();
@@ -71,9 +72,10 @@ const DaDienRa = (props:{type:string,conditionSearch:any}) => {
           {/*  <img src="./images/icons/arrow-right-2.svg" alt="image" />*/}
           {/*</div>*/}
         </div>
-        <div className={"hidden lg:grid grid-cols-1 gap-[30px] "}>
+
           {dataNew?.length > 0 ? (
             <>
+            <div className={"hidden lg:grid grid-cols-2 gap-[30px] "}>
               {dataNew
                 // ?.filter((item) => {
                 //   return moment(item?.attributes.thoiGianBatDau).isBefore(
@@ -88,24 +90,32 @@ const DaDienRa = (props:{type:string,conditionSearch:any}) => {
                       }}
                       key={i}
                     >
-                      <CardEvent
-                        data={{
-                          imageUrl: renderImage(
-                            val?.attributes?.hinhAnh?.data?.attributes
-                              ?.url
-                          ),
-                          title: val?.attributes?.tieuDe,
-                          content: val?.attributes?.moTa ?? "",
-                          dateTime: val?.attributes?.thoiGianBatDau,
-                          dateStart: val?.attributes.thoiGianBatDau,
-                          dateEnd: val?.attributes.thoiGianKetThuc,
-                          link: `/tin-tuc/1`,
-                        }}
-                        key={i}
-                      />
+                      {/*<CardEvent*/}
+                      {/*  data={{*/}
+                      {/*    imageUrl: renderImage(*/}
+                      {/*      val?.attributes?.hinhAnh?.data?.attributes*/}
+                      {/*        ?.url*/}
+                      {/*    ),*/}
+                      {/*    title: val?.attributes?.tieuDe,*/}
+                      {/*    content: val?.attributes?.moTa ?? "",*/}
+                      {/*    dateTime: val?.attributes?.thoiGianBatDau,*/}
+                      {/*    dateStart: val?.attributes.thoiGianBatDau,*/}
+                      {/*    dateEnd: val?.attributes.thoiGianKetThuc,*/}
+                      {/*    link: `/tin-tuc/1`,*/}
+                      {/*  }}*/}
+                      {/*  key={i}*/}
+                      {/*/>*/}
+                      <CardHTQTNews data={{
+                        imageUrl: renderImage(  val?.attributes?.hinhAnh?.data?.attributes?.url),
+                        content: val?.attributes?.tieuDe,
+                        dateTime:val?.attributes?.createdAt,
+                        description: val?.attributes.moTa ?? "",
+                        link: `/tin-tuc/${val?.id}`,
+                      }}/>
                     </div>
                   );
                 })}
+            </div>
             </>
           ) : (
             <>
@@ -119,21 +129,28 @@ const DaDienRa = (props:{type:string,conditionSearch:any}) => {
               </div>
             </>
           )}
-        </div>
+
         <div className="block lg:hidden">
           {dataNew.map((val, i) => {
             return (
               <div className={"mb-[24px]"} key={i}>
-                <CardBanner
-                  imageUrl={renderImage(
-                    val?.attributes?.hinhAnh?.data?.attributes?.url
-                  )}
-                  title={val?.attributes?.tieuDe}
-                  description={val?.attributes?.moTa ?? ""}
-                  dateTime={val?.attributes?.createdAt}
-                  key={i}
-                  type={"small"}
-                />
+                {/*<CardBanner*/}
+                {/*  imageUrl={renderImage(*/}
+                {/*    val?.attributes?.hinhAnh?.data?.attributes?.url*/}
+                {/*  )}*/}
+                {/*  title={val?.attributes?.tieuDe}*/}
+                {/*  description={val?.attributes?.moTa ?? ""}*/}
+                {/*  dateTime={val?.attributes?.createdAt}*/}
+                {/*  key={i}*/}
+                {/*  type={"small"}*/}
+                {/*/>*/}
+                <CardHTQTNews data={{
+                  imageUrl: renderImage(  val?.attributes?.hinhAnh?.data?.attributes?.url),
+                  content: val?.attributes?.tieuDe,
+                  dateTime:val?.attributes?.createdAt,
+                  description: val?.attributes.moTa ?? "",
+                  link: `/tin-tuc/${val?.id}`,
+                }}/>
               </div>
             );
           })}

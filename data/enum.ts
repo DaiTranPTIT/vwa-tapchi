@@ -6,5 +6,5 @@ DT="Đề tài",
 export enum ETYPEDONVI{
   MANG_LUOI_QUOC_TE="Mạng lưới quốc tế",
   DOI_TAC_HOC_THUAT="Đối tác học thuật",
-  DOI_TAC_DOANH_NGHIEP="Đối tác danh nghiệp",
+  DOI_TAC_DOANH_NGHIEP="Đối tác doanh nghiệp",
 }

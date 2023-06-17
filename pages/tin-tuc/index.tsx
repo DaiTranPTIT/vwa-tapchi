@@ -26,7 +26,7 @@ import CardHTQTNews from "../../components/CardHTQTNews";
 const Tintuc = () => {
   const router = useRouter();
   const [page, setPage] = useState<number>(1);
-  const [limit, setLimit] = useState<number>(9);
+  const [limit, setLimit] = useState<number>(6);
   const [total, setTotal] = useState<number>(0);
   const [type, setType] = useState<"news" | "event">("news");
   const [dataNew, setDataNew] = useState<DataNewListV2[]>([]);
@@ -177,7 +177,7 @@ const Tintuc = () => {
 
               {dataNew?.length > 0 ? (
                 <>
-                <div className={"hidden lg:grid grid-cols-2 gap-[30px] "}>
+                <div className={"hidden lg:grid grid-cols-2 gap-[30px]"}>
                   {dataNew?.map((val, i) => {
                     return (
 

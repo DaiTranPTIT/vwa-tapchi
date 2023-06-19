@@ -94,7 +94,7 @@ const KhamPha = (props: { dataHome: IDataHome }) => {
 };
 const AboutWrapper = styled.div`
   .kham-pha {
-    background-image: url("./images/about/bg-kp.png");
+    background-image: url("./images/about/bg-kp-2.png");
     .dicover {
       font-family: "Be Vietnam Pro";
       font-style: normal;

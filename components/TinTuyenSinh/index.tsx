@@ -121,6 +121,7 @@ const TinTuyenSinh = (props: { dataHome: IDataHome }) => {
                     }}
                     isShowTime={true}
                     isArrow2={true}
+                    isShowMore={true}
                     key={i}
                   />
                 );
@@ -144,6 +145,7 @@ const TinTuyenSinh = (props: { dataHome: IDataHome }) => {
                       }}
                       isShowTime={true}
                       isArrow2={true}
+                      isShowMore={true}
                       key={i}
                     />
                   </div>

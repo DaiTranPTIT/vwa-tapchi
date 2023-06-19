@@ -40,7 +40,7 @@ const About = () => {
       <div className="container mx-auto lg:mt-[50px] mt-[20px] px-[20px] lg:px-0 sm:pb-[75px] pb-[20px]">
         <div className="lg:grid lg:grid-cols-2 gap-[40px]">
           <div className="wow fadeInLeft">
-            <div className="title-1 mb-[12px]">Giới thiệu</div>
+            <div className="title-1 mb-[12px] uppercase">Giới thiệu</div>
             <div className="title-2 lg:mb-[40px] mn-[16px]">GIỚI THIỆU <br/> HOẠT ĐỘNG HỢP TÁC QUỐC TẾ</div>
             <div className="lg:hidden block">
             <div className="  content-banner-2 wow fadeInUp mb-[16px]">

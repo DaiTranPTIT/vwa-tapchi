@@ -49,6 +49,7 @@ const ChuongTrinhDuAn = (props: { dataHome: IDataHome }) => {
                         isRedTime={true}
                         isShowTime={true}
                         isShadow={true}
+                        isShowMore={true}
                       />
                     </div>
                   );
@@ -77,6 +78,7 @@ const ChuongTrinhDuAn = (props: { dataHome: IDataHome }) => {
                         dateTime: val?.attributes?.createdAt,
                         link: ``,
                       }}
+                      isShowMore={true}
                     />
                   </div>
                 );

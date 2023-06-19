@@ -167,8 +167,12 @@ const Header = (props: IProps) => {
     // getLogo();
   }, []);
   return (
-    <HeaderWrapper className=" shadow-header">
-      <div className="hidden lg:block bg-[#DE221A] px-6 ">
+    <HeaderWrapper
+      className={`shadow-header ${
+        isScroll ? "lg:fixed top-0 left-0 w-full z-50" : "lg:block"
+      }`}
+    >
+      <div className={`hidden lg:block bg-[#DE221A] px-6 `}>
         <div className="container mx-auto ">
           <div className="header-branch flex justify-between items-center">
             <div className=" flex items-center title-header">
@@ -184,14 +188,35 @@ const Header = (props: IProps) => {
               <div className="flex md:order-2 " ref={searchRef}>
                 <div className="flex items-center z-50">
                   <div className="socical flex mr-[40px]">
-                    <a className={"mr-[20px]"} href={dataThongTin?.twitter??'#'} target={"_blank"}>
-                      <img src="/images/icons/Twitter-header.svg" alt={"icon"}/>
+                    <a
+                      className={"mr-[20px]"}
+                      href={dataThongTin?.twitter ?? "#"}
+                      target={"_blank"}
+                    >
+                      <img
+                        src="/images/icons/Twitter-header.svg"
+                        alt={"icon"}
+                      />
                     </a>
-                    <a className={"mr-[20px]"} href={dataThongTin?.youtube??'#'} target={"_blank"}>
-                      <img src="/images/icons/Youtube-header.svg" alt={"icon"}/>
+                    <a
+                      className={"mr-[20px]"}
+                      href={dataThongTin?.youtube ?? "#"}
+                      target={"_blank"}
+                    >
+                      <img
+                        src="/images/icons/Youtube-header.svg"
+                        alt={"icon"}
+                      />
                     </a>
-                    <a className={""} href={dataThongTin?.facebook??'#'} target={"_blank"}>
-                      <img src="/images/icons/Facebook-header.svg" alt={"icon"}/>
+                    <a
+                      className={""}
+                      href={dataThongTin?.facebook ?? "#"}
+                      target={"_blank"}
+                    >
+                      <img
+                        src="/images/icons/Facebook-header.svg"
+                        alt={"icon"}
+                      />
                     </a>
                   </div>
                   {/*{isShowSearch ? (*/}
@@ -263,11 +288,7 @@ const Header = (props: IProps) => {
         </div>
       </div>
       <div
-        className={`label ${
-          isScroll
-            ? "fixed top-0 left-0 w-full bg-white z-50"
-            : "lg:bg-white bg-primary"
-        } `}
+        className={`label bg-white shadow`}
       >
         <div className=" container lg:mx-auto lg:py-[12px] py-0  ">
           {/*<div className='logo'>*/}
@@ -308,12 +329,10 @@ const Header = (props: IProps) => {
                           ?.split("?")?.[0]
                           ?.localeCompare(typeMenu) === 0
                           ? `text-white ${
-                              isScroll
-                                ? "text-primary md:border-b-2  md:border-primary-500"
-                                : "text-active md:border-b-2  md:border-primary-500"
+                              isScroll ? "text-active " : "text-active "
                             } `
                           : `md:border-none ${
-                              isScroll ? "text-primary" : "text-black"
+                              isScroll ? "text-black" : "text-black"
                             }`
                       } block  `}
                       key={index}
@@ -392,12 +411,17 @@ const Header = (props: IProps) => {
                   {/*<img src={renderImage(dataThongTin?.logoHeader)} alt={"image"} />*/}
                   HỌC VIỆN CÔNG NGHỆ BƯU CHÍNH VIỄN THÔNG
                   {/*<div className="border-r-2 border-[#FFFFFF] w-[2px] h-[18px] mx-[20px]"></div>*/}
-                  <div className="border-t pt-[4px] mt-[4px]">{dataThongTin?.ten}</div>
+                  <div className="border-t pt-[4px] mt-[4px]">
+                    {dataThongTin?.ten}
+                  </div>
                 </div>
               </div>
 
               <div className="flex items-center relative shrink-0 mr-[8px]">
-                <div className="mr-[8px]" onClick={() => setShowMenu(!showMenu)}>
+                <div
+                  className="mr-[8px]"
+                  onClick={() => setShowMenu(!showMenu)}
+                >
                   <img src={"/images/icons/menu.svg"} alt={"image"} />
                 </div>
                 <div className="relative mr-2" ref={langRef}>
@@ -560,7 +584,6 @@ const Header = (props: IProps) => {
                   </div>
                 )}
               </div>
-
             </div>
           </div>
         </div>
@@ -585,7 +608,7 @@ const HeaderWrapper = styled.div`
     color: #ffffff;
   }
   .header-branch {
-    padding: 16px 0;
+    padding: 11px 0;
     .info {
       .line {
         width: 1px;

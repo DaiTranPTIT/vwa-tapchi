@@ -46,6 +46,7 @@ const ChuongTrinhDaoTao = (props: { dataHome: IDataHome }) => {
                           link: `/thong-bao-hoc-bong/${val?.id}`,
                         }}
                         isShadow={true}
+                        isShowMore={true}
                       />
                     </div>
                   );

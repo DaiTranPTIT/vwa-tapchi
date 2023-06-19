@@ -20,7 +20,7 @@ const BannerHome = (props: { dataHome: IDataHome }) => {
     infinite: true,
     // fade: true,
     speed: 500,
-    autoplay: false,
+    autoplay: true,
     autoplaySpeed: 5000,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -68,26 +68,26 @@ const BannerHome = (props: { dataHome: IDataHome }) => {
   return (
     <BannerWrapper>
       <div className="hidden lg:block relativ border-b-2 border-primary">
-        <button
-          className="hidden lg:flex next-btn mr-[16px] cursor-pointer  items-center justify-center absolute top-1/2 left-0 z-50 btn-next btn"
-          onClick={handlePrev}
-        >
-          <img
-            className={"w-[60px]"}
-            src="/images/icons/arrow-left.svg"
-            alt={"image"}
-          />
-        </button>
-        <button
-          className="hidden lg:flex prev-btn cursor-pointer  items-center justify-center absolute top-1/2 right-0 z-50 btn-prev btn"
-          onClick={handleNext}
-        >
-          <img
-            className={"w-[60px]"}
-            src="/images/icons/arrow-right.svg"
-            alt={"image"}
-          />
-        </button>
+        {/*<button*/}
+        {/*  className="hidden lg:flex next-btn mr-[16px] cursor-pointer  items-center justify-center absolute top-1/2 left-0 z-50 btn-next btn"*/}
+        {/*  onClick={handlePrev}*/}
+        {/*>*/}
+        {/*  <img*/}
+        {/*    className={"w-[60px]"}*/}
+        {/*    src="/images/icons/arrow-left.svg"*/}
+        {/*    alt={"image"}*/}
+        {/*  />*/}
+        {/*</button>*/}
+        {/*<button*/}
+        {/*  className="hidden lg:flex prev-btn cursor-pointer  items-center justify-center absolute top-1/2 right-0 z-50 btn-prev btn"*/}
+        {/*  onClick={handleNext}*/}
+        {/*>*/}
+        {/*  <img*/}
+        {/*    className={"w-[60px]"}*/}
+        {/*    src="/images/icons/arrow-right.svg"*/}
+        {/*    alt={"image"}*/}
+        {/*  />*/}
+        {/*</button>*/}
         <div className="relative ">
           {props.dataHome?.banner?.length > 0 ? (
             <Slider {...settings} ref={SliderRef}>

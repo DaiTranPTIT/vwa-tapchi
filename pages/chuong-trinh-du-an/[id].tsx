@@ -52,7 +52,7 @@ const ChiTietDuAn = () => {
                 path: "/",
               },
               {
-                title: "Chường trình dự án",
+                title: "Chương trình dự án",
                 path: "#",
               },
             ]}

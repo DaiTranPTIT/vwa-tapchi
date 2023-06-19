@@ -31,10 +31,10 @@ const ChuongTrinhDuAn = (props: { dataHome: IDataHome }) => {
                     <div
                       className="cursor-pointer"
                       key={i}
-                      onClick={() => {
-                        router.push(`/chuong-trinh-du-an/${val?.id}`);
-
-                      }}
+                      // onClick={() => {
+                      //   router.push(`/chuong-trinh-du-an/${val?.id}`);
+                      //
+                      // }}
                     >
                       <CardHTQT
                         data={{
@@ -44,7 +44,7 @@ const ChuongTrinhDuAn = (props: { dataHome: IDataHome }) => {
                           title:val?.attributes?.tieuDe,
                           description: val?.attributes?.moTa ?? "",
                           dateTime: val?.attributes?.createdAt,
-                          link: ``,
+                          link: `/chuong-trinh-du-an/${val?.id}`,
                         }}
                         isRedTime={true}
                         isShowTime={true}
@@ -64,9 +64,9 @@ const ChuongTrinhDuAn = (props: { dataHome: IDataHome }) => {
                   <div
                     className="cursor-pointer"
                     key={i}
-                    onClick={() => {
-                      router.push(`/chuong-trinh-du-an/${val?.id}`);
-                    }}
+                    // onClick={() => {
+                    //   router.push(`/chuong-trinh-du-an/${val?.id}`);
+                    // }}
                   >
                     <CardHTQT
                       data={{
@@ -76,7 +76,7 @@ const ChuongTrinhDuAn = (props: { dataHome: IDataHome }) => {
                         title:val?.attributes?.tieuDe,
                         description: val?.attributes?.moTa ?? "",
                         dateTime: val?.attributes?.createdAt,
-                        link: ``,
+                        link: `/chuong-trinh-du-an/${val?.id}`,
                       }}
                       isShowMore={true}
                     />

@@ -31,9 +31,9 @@ const ChuongTrinhDaoTao = (props: { dataHome: IDataHome }) => {
                     <div
                       className="cursor-pointer"
                       key={i}
-                      onClick={() => {
-                        router.push(`/hoat-dong/${val?.id}`);
-                      }}
+                      // onClick={() => {
+                      //   router.push(`/hoat-dong/${val?.id}`);
+                      // }}
                     >
                       <CardHTQT
                         data={{
@@ -61,9 +61,9 @@ const ChuongTrinhDaoTao = (props: { dataHome: IDataHome }) => {
                   <div
                     className="cursor-pointer"
                     key={i}
-                    onClick={() => {
-                      router.push(`/hoat-dong/${val?.id}`);
-                    }}
+                    // onClick={() => {
+                    //   router.push(`/hoat-dong/${val?.id}`);
+                    // }}
                   >
                     <CardHTQT
                       data={{

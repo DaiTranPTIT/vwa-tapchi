@@ -1,5 +1,5 @@
 import { User } from "../user/type";
-import {DataConfig, DataThongTin, MainMenu} from "../../utils/interface";
+import {DataConfig, DataMenu, DataThongTin, MainMenu} from "../../utils/interface";
 
 declare module Auth {
 	export interface IClientOAuth {
@@ -57,5 +57,7 @@ declare module Auth {
 		OAuthData: Auth.IClientOAuth;
 		typeLogin: "keycloak" | "default";
 		setTypeLogin: (data: "keycloak" | "default") => void;
+		setDataMenu:(data:DataMenu[])=>void;
+		dataMenu:DataMenu[]
 	}
 }

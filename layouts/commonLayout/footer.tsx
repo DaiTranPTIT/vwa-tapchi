@@ -20,7 +20,7 @@ const MainFooter = () => {
 	const router = useRouter();
 	const [dataConfigFooter, setDataConfigFooter] = useState<DataConfig[]>([]);
 	const { menu, setDataConfig } = useAuth();
-	const {dataThongTin}=useContext(AuthContext);
+	const {dataThongTin,dataMenu}=useContext(AuthContext);
 
 	const getDataConfig = (type: string): any => {
 		return null
@@ -61,36 +61,36 @@ const MainFooter = () => {
 							</div>
 						</div>
 						<div className='location hidden lg:block wow fadeInUp'>
-							{dataNavBar?.map((value, index) => {
+							{dataMenu?.map((value, index) => {
 								return (
 									<div
 										onClick={() => {
-											if (value?.childrenRouter?.length > 0) {
+											if (value?.trangCon?.length > 0) {
 											} else {
-												router.push(value?.linkTo);
+												router.push(value?.link);
 											}
 										}}
 										className={` text-nav pt-2  block hover:text-[#DE221A] `}
 										key={index}
 									>
-										{value?.childrenRouter?.length > 0 ? (
+										{value?.trangCon?.length > 0 ? (
 											<>
 												<Tooltip
 													content={
 														<>
-															{value?.childrenRouter?.map((value2, index2) => {
+															{value?.trangCon?.map((value2, index2) => {
 																return (
 																	<div
 																		onClick={() => {
-																			if (value?.childrenRouter?.length > 0) {
+																			if (value?.trangCon?.length > 0) {
 																			} else {
-																				router.push(value?.linkTo);
+																				router.push(value?.link);
 																			}
 																		}}
 																		className={` text-nav pt-2  block cursor-pointer `}
 																		key={index2}
 																	>
-																		{value2.name}
+																		{value2?.ten}
 																	</div>
 																);
 															})}
@@ -99,11 +99,11 @@ const MainFooter = () => {
 													style={"light"}
 													placement='right'
 												>
-													{value?.name}
+													{value?.ten}
 												</Tooltip>
 											</>
 										) : (
-											<>{value?.name}</>
+											<>{value?.ten}</>
 										)}
 									</div>
 								);

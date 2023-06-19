@@ -36,7 +36,7 @@ const Header = (props: IProps) => {
   const router = useRouter();
   const [showMenu, setShowMenu] = useState<boolean>(false);
   const [typeMenu, setTypeMenu] = useState<string>("");
-  const [dataMenu, setDataMenu] = useState<DataMenu[]>([]);
+  // const [dataMenu, setDataMenu] = useState<DataMenu[]>([]);
   const [linkLogo, setLinkLogo] = useState<string>();
   const [mainMenu, setMainMenu] = useState<MainMenu[]>([]);
   const [isScroll, setIsScroll] = useState<boolean>(false);
@@ -44,7 +44,7 @@ const Header = (props: IProps) => {
   const { language, handleChangeLanguage } = props;
   const searchRef = useRef<HTMLDivElement>(null);
   const langRef = useRef<HTMLDivElement>(null);
-  const { setDataThongTin, dataThongTin, langCode } = useContext(AuthContext);
+  const { setDataThongTin, dataThongTin, langCode,setDataMenu,dataMenu } = useContext(AuthContext);
 
   const [isChangeLang, setIsChangeLang] = useState<boolean>(false);
   const {
@@ -92,6 +92,7 @@ const Header = (props: IProps) => {
         `${ip}/htqt-cau-truc-trang-web?populate=deep&locale=${langCode}`
       );
       if (res) {
+        setDataMenu(res?.data?.data?.attributes?.cauTruc ?? []);
         setDataMenu(res?.data?.data?.attributes?.cauTruc ?? []);
       }
     } catch (e) {

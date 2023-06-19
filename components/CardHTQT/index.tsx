@@ -18,13 +18,14 @@ interface IPorps {
   isShadow?:boolean;
   isArrow2?:boolean;
   isCenterTitle?:boolean;
+  isRedirect?:boolean;
   type?: "big" | "small";
 }
 const CardHTQT = (props: IPorps) => {
-  const { data,isShowTime,isShadow,isRedTime,isShowMore,isArrow2,isCenterTitle } = props;
+  const { data,isShowTime,isRedirect,isShadow,isRedTime,isShowMore,isArrow2,isCenterTitle } = props;
   return (
     <CardHTQTWrapper className={`bg-white ${isShadow?'shadow':''}`}>
-      <Link href={data.link ? data.link : "#"} target={'_blank'} className="h-full">
+      <Link href={data.link ? data.link : "#"} target={isRedirect?'_blank':'_parent'} className="h-full">
         <div className="wow fadeInUp overflow-hidden" style={props.style}>
           <div>
             <img src={data?.imageUrl} className="h-[285px] w-full object-cover" alt="image" />

@@ -29,6 +29,7 @@ const DonViNghienCuu = (props:{dataHome:IDataHome}) => {
 											// // dateTime: val?.attributes?.createdAt,
 											link: val?.attributes?.link,
 										}}
+										isRedirect={true}
 										type={'small'}
 										isCenterTitle={true}
 										key={i}

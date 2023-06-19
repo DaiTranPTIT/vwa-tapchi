@@ -19,7 +19,7 @@ const DonViNghienCuu = () => {
   const [sendSuccess, setSendSuccess] = useState<boolean>(false);
   const [dataChiTiet, setDataChiTiet] = useState<GioiThieu>();
   const [page, setPage] = useState<number>(1);
-  const [limit, setLimit] = useState<number>(6);
+  const [limit, setLimit] = useState<number>(3);
   const [total, setTotal] = useState<number>(0);
   const [dataGioiThieu, setDataGioiThieu] = useState<DataDonVi[]>([]);
   const router = useRouter();
@@ -42,7 +42,7 @@ const DonViNghienCuu = () => {
           populate: "deep",
           pagination: {
             page: page,
-            pageSize: limit,
+            pageSize: type===ETYPEDONVI.DOI_TAC_DOANH_NGHIEP?4:limit,
           },
         },
       });
@@ -60,6 +60,7 @@ const DonViNghienCuu = () => {
     if (router?.query) {
       getData(router?.query?.type as string);
       setType(router?.query?.type as string);
+
     }
   }, [router, page,langCode]);
   useEffect(()=>{

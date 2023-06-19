@@ -24,8 +24,8 @@ const CardHTQT = (props: IPorps) => {
   const { data,isShowTime,isShadow,isRedTime,isShowMore,isArrow2,isCenterTitle } = props;
   return (
     <CardHTQTWrapper className={`bg-white ${isShadow?'shadow':''}`}>
-      <Link href={data.link ? data.link : "#"} className="h-full">
-        <div className="wow fadeInUp" style={props.style}>
+      <Link href={data.link ? data.link : "#"} target={'_blank'} className="h-full">
+        <div className="wow fadeInUp overflow-hidden" style={props.style}>
           <div>
             <img src={data?.imageUrl} className="h-[285px] w-full object-cover" alt="image" />
           </div>
@@ -69,6 +69,12 @@ const CardHTQT = (props: IPorps) => {
   );
 };
 const CardHTQTWrapper = styled.div`
+  img {
+    transition: 0.3s;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
   .shadow-content{
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
   }

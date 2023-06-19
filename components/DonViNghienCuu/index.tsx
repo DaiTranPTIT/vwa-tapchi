@@ -27,7 +27,7 @@ const DonViNghienCuu = (props:{dataHome:IDataHome}) => {
 											title: val?.attributes?.tieuDe,
 											// description: val?.attributes?.moTa??'',
 											// // dateTime: val?.attributes?.createdAt,
-											// link: val?.attributes?.duongDan,
+											link: val?.attributes?.link,
 										}}
 										type={'small'}
 										isCenterTitle={true}

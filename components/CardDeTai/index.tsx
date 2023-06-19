@@ -37,7 +37,7 @@ const CardDeTai = (props: IPorps) => {
 	};
 	return (
 		<CardDeTaiWrapper>
-			<Link href={props.data.link ? props.data.link : "#"} className='h-full'>
+			<Link href={props.data.link ? props.data.link : "#"} target={'_blank'} className='h-full'>
 				<div className='card cursor-pointer h-full flex flex-col' style={props.style}>
 				<div>
 					<img
@@ -53,7 +53,7 @@ const CardDeTai = (props: IPorps) => {
 
 					<div className='px-[20px] flex flex-col justify-center  pb-[26px] pt-[26px] bg-white'>
 						<div className='border-l-2 pl-[12px] md:border-primary-500 content wow fadeInUp h-full'>
-							{props.data.type && <div className='mb-[8px]'>{renderType(props.data.type)}</div>}
+							{/*{props.data.type && <div className='mb-[8px]'>{renderType(props.data.type)}</div>}*/}
 
 							<div className="min-h-[48px]">{props.data.content}</div>
 						</div>
@@ -67,7 +67,9 @@ const CardDeTai = (props: IPorps) => {
 								{moment(props.data.dateTime).format("DD/MM/YYYY HH:mm")}
 							</div>
 						)}
-						{props.data.description && <div className='description'>{props.data.description}</div>}
+			<div>
+				{props.data.description && <div className='description'>{props.data.description}</div>}
+			</div>
 					</div>
 				</div>
 			</Link>

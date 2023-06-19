@@ -67,7 +67,7 @@ const BannerHome = (props: { dataHome: IDataHome }) => {
   };
   return (
     <BannerWrapper>
-      <div className="hidden lg:block relativ border-b-2 border-primary">
+      <div className="hidden lg:block relativ border-b-2 border-primary max-h-[714px] overflow-hidden">
         {/*<button*/}
         {/*  className="hidden lg:flex next-btn mr-[16px] cursor-pointer  items-center justify-center absolute top-1/2 left-0 z-50 btn-next btn"*/}
         {/*  onClick={handlePrev}*/}

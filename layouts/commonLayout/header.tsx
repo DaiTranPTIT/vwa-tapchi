@@ -142,7 +142,8 @@ const Header = (props: IProps) => {
   }, []);
 
   const isSticky = (e: any) => {
-    if (window.scrollY > 167) {
+    console.log('cc',window.scrollY)
+    if (window.scrollY > 132) {
       setIsScroll(true);
     } else {
       setIsScroll(false);

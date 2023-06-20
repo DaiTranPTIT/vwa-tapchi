@@ -44,7 +44,8 @@ const Header = (props: IProps) => {
   const { language, handleChangeLanguage } = props;
   const searchRef = useRef<HTMLDivElement>(null);
   const langRef = useRef<HTMLDivElement>(null);
-  const { setDataThongTin, dataThongTin, langCode,setDataMenu,dataMenu } = useContext(AuthContext);
+  const { setDataThongTin, dataThongTin, langCode, setDataMenu, dataMenu } =
+    useContext(AuthContext);
 
   const [isChangeLang, setIsChangeLang] = useState<boolean>(false);
   const {
@@ -142,7 +143,7 @@ const Header = (props: IProps) => {
   }, []);
 
   const isSticky = (e: any) => {
-    console.log('cc',window.scrollY)
+    console.log("cc", window.scrollY);
     if (window.scrollY > 132) {
       setIsScroll(true);
     } else {
@@ -170,9 +171,7 @@ const Header = (props: IProps) => {
   }, []);
   return (
     <HeaderWrapper
-      className={`shadow-header ${
-        isScroll ? "lg:fixed top-0 left-0 w-full z-50" : "lg:block"
-      }`}
+      className={`shadow-header`}
     >
       <div className={`hidden lg:block bg-[#DE221A] px-6 `}>
         <div className="container mx-auto ">
@@ -289,14 +288,16 @@ const Header = (props: IProps) => {
           </div>
         </div>
       </div>
-      <div
-        className={`label bg-white shadow`}
-      >
+      <div className={`label bg-white shadow`}>
         <div className=" container lg:mx-auto lg:py-[12px] py-0  ">
           {/*<div className='logo'>*/}
           {/*	<img src={'/images/header/logo-db.png'} alt={"image"} />*/}
           {/*</div>*/}
-          <div className={` ${isScroll ? " bg-white" : "lg:bg-white"} `}>
+          <div
+            className={` ${isScroll ? " bg-white" : "lg:bg-white"}     ${
+              isScroll ? "lg:fixed top-0 left-0 w-full z-50 shadow py-[12px]" : ""
+            }`}
+          >
             <div
               className={`container mx-auto hidden lg:flex  justify-between items-center `}
             >

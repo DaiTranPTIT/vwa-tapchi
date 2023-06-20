@@ -37,7 +37,7 @@ const CardHTQT = (props: IPorps) => {
                   {moment(data?.dateTime).format("DD/MM/YYYY")}
                 </div>
             </div>}
-            {data?.title&& <div className={`title mb-[16px]  ${isCenterTitle?'text-center':'min-h-[56px]'}`}>{data?.title}</div>}
+            {data?.title&& <div className={`title  ${isCenterTitle?'text-center':'min-h-[56px] mb-[16px] '}`}>{data?.title}</div>}
             {data?.description&& <div className="description mb-[16px] min-h-[72px]">{data?.description}</div>}
             {isShowMore&&
                 <div className="show-more flex">

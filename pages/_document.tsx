@@ -58,7 +58,7 @@ export default class CustomDocument extends Document {
 							<link
 								href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&display=swap"
 								rel="stylesheet"/>
-					<script async src="https://www.googletagmanager.com/gtag/js?id=G-8Z1H039CBG"></script>
+					<script async src="https://www.googletagmanager.com/gtag/js?id=G-QP4N23K5R0"></script>
 					<script
 						dangerouslySetInnerHTML={{
 							__html: `
@@ -66,7 +66,7 @@ export default class CustomDocument extends Document {
 							function gtag(){dataLayer.push(arguments);}
 							gtag('js', new Date());
 
-							gtag('config', 'G-8Z1H039CBG');`,
+							gtag('config', 'G-QP4N23K5R0');`,
 						}}
 					></script>
 				</Head>

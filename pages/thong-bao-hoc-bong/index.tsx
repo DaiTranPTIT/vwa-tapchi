@@ -109,7 +109,7 @@ const ThongBaoHocBong = () => {
         <>
           <Title title={"THÔNG BÁO HỌC BỔNG"} titleTop="học bổng" uppercase={true} />
           <div className="mb-[40px]">
-            <div className="lg:flex justify-end">
+            <div className="lg:flex  grid grid-cols-2 gap-[30px] justify-end">
               <div className="dropdown mr-[24px] mb-[16px] md:mb-0">
                 <Controller
                   name={"type"}
@@ -145,9 +145,10 @@ const ThongBaoHocBong = () => {
               </div>
               <div className="">
                 <form onSubmit={handleSubmit(onSubmit)} className="h-full">
-                  <div className="search flex item-center h-full">
-                    <div className="relative">
+                  <div className="search flex item-center lg:h-full h-[36px]">
+                    <div className="relative w-full">
                       <input
+                        className="w-full"
                         placeholder={"Tìm kiếm"}
                         {...register("keyword", {})}
                       />

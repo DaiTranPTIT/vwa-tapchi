@@ -44,6 +44,7 @@ const Header = (props: IProps) => {
   const { language, handleChangeLanguage } = props;
   const searchRef = useRef<HTMLDivElement>(null);
   const langRef = useRef<HTMLDivElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
   const { setDataThongTin, dataThongTin, langCode, setDataMenu, dataMenu } =
     useContext(AuthContext);
 
@@ -152,13 +153,26 @@ const Header = (props: IProps) => {
   };
   useEffect(() => {
     getThongTinChung();
+    setShowMenu(false);
   }, [router, langCode]);
   const handleClickOutside = (e: any) => {
     const { target } = e;
     const node = searchRef?.current;
+    const node2 = menuRef?.current;
+    const node3 = langRef?.current;
     if (node) {
       if (!node.contains(target)) {
         setIsShowSearch(false);
+      }
+    }
+    if (node2) {
+      if (!node2.contains(target)) {
+        setShowMenu(false);
+      }
+    }
+    if (node3) {
+      if (!node3.contains(target)) {
+        setIsChangeLang(false);
       }
     }
   };
@@ -186,7 +200,7 @@ const Header = (props: IProps) => {
               {/*<img src={"/images/icons/facebook.svg"} />*/}
               {/*<img src={"/images/icons/twitter.svg"} />*/}
               {/*<img src={"/images/icons/youtube.svg"} />*/}
-              <div className="flex md:order-2 " ref={searchRef}>
+              <div className="flex lg:order-2 " ref={searchRef}>
                 <div className="flex items-center z-50">
                   <div className="socical flex mr-[40px]">
                     <a
@@ -289,7 +303,7 @@ const Header = (props: IProps) => {
         </div>
       </div>
       <div className={`label bg-white shadow`}>
-        <div className=" container lg:mx-auto lg:py-[12px] py-0  ">
+        <div className="  lg:mx-auto lg:py-[12px] py-0  ">
           {/*<div className='logo'>*/}
           {/*	<img src={'/images/header/logo-db.png'} alt={"image"} />*/}
           {/*</div>*/}
@@ -334,7 +348,7 @@ const Header = (props: IProps) => {
                           ? `text-white ${
                               isScroll ? "text-active " : "text-active "
                             } `
-                          : `md:border-none ${
+                          : `lg:border-none ${
                               isScroll ? "text-black" : "text-black"
                             }`
                       } block  `}
@@ -360,8 +374,8 @@ const Header = (props: IProps) => {
                                         value2?.link?.localeCompare(
                                           typeMenu
                                         ) === 0
-                                          ? "text-active md:border-b-2  md:border-primary-500"
-                                          : "md:border-none"
+                                          ? "text-active lg:border-b-2  lg:border-primary-500"
+                                          : "lg:border-none"
                                       } block  hover:border-b hover:border-primary mb-[8px]`}
                                       key={index2}
                                     >
@@ -391,7 +405,7 @@ const Header = (props: IProps) => {
               {/*				<Link*/}
               {/*					href={value.path}*/}
               {/*					className={`uppercase text-nav pt-2 ${*/}
-              {/*						typeMenu === value.name ? "text-active md:border-t-2  md:border-primary-500" : "md:border-none"*/}
+              {/*						typeMenu === value.name ? "text-active lg:border-t-2  lg:border-primary-500" : "lg:border-none"*/}
               {/*					} block  `}*/}
               {/*					key={index}*/}
               {/*				>*/}
@@ -410,7 +424,7 @@ const Header = (props: IProps) => {
             >
               <div className="mr-[8px]">
                 {/*<img src="./images/header/logo-header.png" alt={"image"} />*/}
-                <div className="  title-header">
+                <div className="  title-header" onClick={()=>{router.push('/')}}>
                   {/*<img src={renderImage(dataThongTin?.logoHeader)} alt={"image"} />*/}
                   HỌC VIỆN CÔNG NGHỆ BƯU CHÍNH VIỄN THÔNG
                   {/*<div className="border-r-2 border-[#FFFFFF] w-[2px] h-[18px] mx-[20px]"></div>*/}
@@ -421,12 +435,96 @@ const Header = (props: IProps) => {
               </div>
 
               <div className="flex items-center relative shrink-0 mr-[8px]">
-                <div
-                  className="mr-[8px]"
-                  onClick={() => setShowMenu(!showMenu)}
-                >
-                  <img src={"/images/icons/menu.svg"} alt={"image"} />
+                <div ref={menuRef}>
+                  <div
+                    className="mr-[8px]"
+                    onClick={() => setShowMenu(!showMenu)}
+                  >
+                    <img src={"/images/icons/menu.svg"} alt={"image"} />
+                  </div>
+
+                  {showMenu && (
+                    <div className="menu-mobile absolute w-[280px] top-[30px] right-0 bg-white px-2 py-2 shadow-md rounded z-50">
+                      <ul>
+                        {dataMenu?.map((value, index) => {
+                          return (
+                            <div
+                              onClick={() => {
+                                if (value?.trangCon?.length > 0) {
+                                } else {
+                                  if (value?.sangTrangMoi) {
+                                    window.open(value?.link);
+                                  } else {
+                                    router.push(value?.link);
+                                  }
+                                }
+                              }}
+                              // href={value?.children?.length > 0 ? "" : value?.linkTo}
+                              className={` mr-[24px] last-of-type:mr-0 text-nav pt-2 cursor-pointer ${
+                                value?.link
+                                  ?.split("?")?.[0]
+                                  ?.localeCompare(typeMenu) === 0
+                                  ? `text-primary ${
+                                    isScroll
+                                      ? "text-primary lg:border-b-2  lg:border-primary-500"
+                                      : "text-active lg:border-b-2  lg:border-primary-500"
+                                  } `
+                                  : `lg:border-none ${
+                                    isScroll ? "text-black" : "text-black"
+                                  }`
+                              } block  `}
+                              key={index}
+                            >
+                              {value?.trangCon?.length > 0 ? (
+                                <>
+                                  <Tooltip
+                                    className={"tooltip-label"}
+                                    content={
+                                      <>
+                                        {value?.trangCon?.map(
+                                          (value2, index2) => {
+                                            return (
+                                              <div
+                                                onClick={() => {
+                                                  if (value?.sangTrangMoi) {
+                                                    window.open(value2?.link);
+                                                  } else {
+                                                    router.push(value2?.link);
+                                                  }
+                                                }}
+                                                className={`text-children mr-[40px] cursor-pointer pt-2 ${
+                                                  value2?.link?.localeCompare(
+                                                    typeMenu
+                                                  ) === 0
+                                                    ? "text-active lg:border-b-2  lg:border-primary-500"
+                                                    : "lg:border-none"
+                                                } block  hover:border-b hover:border-primary mb-[8px]`}
+                                                key={index2}
+                                              >
+                                                {value2.ten}
+                                              </div>
+                                            );
+                                          }
+                                        )}
+                                      </>
+                                    }
+                                    style={"light"}
+                                    placement="bottom"
+                                  >
+                                    {value?.ten}
+                                  </Tooltip>
+                                </>
+                              ) : (
+                                <>{value?.ten}</>
+                              )}
+                            </div>
+                          );
+                        })}
+                      </ul>
+                    </div>
+                  )}
                 </div>
+
                 <div className="relative mr-2" ref={langRef}>
                   <div
                     className="language flex items-center "
@@ -506,86 +604,6 @@ const Header = (props: IProps) => {
                     </div>
                   )}
                 </div>
-                {showMenu && (
-                  <div className="menu-mobile absolute w-[180px] top-[50px] right-0 bg-white px-2 py-2 shadow-md rounded z-50">
-                    <ul>
-                      {dataMenu?.map((value, index) => {
-                        return (
-                          <div
-                            onClick={() => {
-                              if (value?.trangCon?.length > 0) {
-                              } else {
-                                if (value?.sangTrangMoi) {
-                                  window.open(value?.link);
-                                } else {
-                                  router.push(value?.link);
-                                }
-                              }
-                            }}
-                            // href={value?.children?.length > 0 ? "" : value?.linkTo}
-                            className={` mr-[24px] last-of-type:mr-0 text-nav pt-2 cursor-pointer ${
-                              value?.link
-                                ?.split("?")?.[0]
-                                ?.localeCompare(typeMenu) === 0
-                                ? `text-primary ${
-                                    isScroll
-                                      ? "text-primary md:border-b-2  md:border-primary-500"
-                                      : "text-active md:border-b-2  md:border-primary-500"
-                                  } `
-                                : `md:border-none ${
-                                    isScroll ? "text-black" : "text-black"
-                                  }`
-                            } block  `}
-                            key={index}
-                          >
-                            {value?.trangCon?.length > 0 ? (
-                              <>
-                                <Tooltip
-                                  className={"tooltip-label"}
-                                  content={
-                                    <>
-                                      {value?.trangCon?.map(
-                                        (value2, index2) => {
-                                          return (
-                                            <div
-                                              onClick={() => {
-                                                if (value?.sangTrangMoi) {
-                                                  window.open(value2?.link);
-                                                } else {
-                                                  router.push(value2?.link);
-                                                }
-                                              }}
-                                              className={`text-children mr-[40px] cursor-pointer pt-2 ${
-                                                value2?.link?.localeCompare(
-                                                  typeMenu
-                                                ) === 0
-                                                  ? "text-active md:border-b-2  md:border-primary-500"
-                                                  : "md:border-none"
-                                              } block  hover:border-b hover:border-primary mb-[8px]`}
-                                              key={index2}
-                                            >
-                                              {value2.ten}
-                                            </div>
-                                          );
-                                        }
-                                      )}
-                                    </>
-                                  }
-                                  style={"light"}
-                                  placement="bottom"
-                                >
-                                  {value?.ten}
-                                </Tooltip>
-                              </>
-                            ) : (
-                              <>{value?.ten}</>
-                            )}
-                          </div>
-                        );
-                      })}
-                    </ul>
-                  </div>
-                )}
               </div>
             </div>
           </div>

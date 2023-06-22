@@ -19,10 +19,10 @@ const CardHTQTMangLuoi = (props: IPorps) => {
       <a href={props.data?.link?props.data?.link:"#"} target={"_blank"}>
         <div className="lg:flex w-full">
           <div className="wow fadeInUp shrink-0">
-            <img className="lg:h-[337px] lg:w-[337px] object-cover" src={data?.imageUrl} />
+            <img className="h-[337px] lg:w-[337px] w-full object-cover" src={data?.imageUrl} />
           </div>
           <div className="content lg:py-[45px] lg:px-[40px] px-[16px] py-[16px]  wow fadeInUp">
-            <div className="border-l-2 pl-[12px] md:border-primary-500 content wow fadeInUp mb-[24px]">
+            <div className="border-l-2 pl-[12px] lg:border-primary-500 content wow fadeInUp mb-[24px]">
               <div className="flex mb-[10px]">
                 <img className="mr-[16px]" src="/images/icons/web.svg" alt="icon" />
                 <a className="text-primary" href={props.data.link??'#'} target={'_blank'}> {props.data.link}</a>

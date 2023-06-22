@@ -103,8 +103,9 @@ const ChuongTrinhDuAn = () => {
               <div className="">
                 <form onSubmit={handleSubmit(onSubmit)} className="h-full">
                   <div className="search flex item-center h-full">
-                    <div className="relative">
+                    <div className="relative w-full">
                       <input
+                        className="w-full"
                         placeholder={"Tìm kiếm"}
                         {...register("keyword", {})}
                       />

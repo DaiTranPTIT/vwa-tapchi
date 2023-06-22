@@ -51,7 +51,7 @@ const KhamPha = (props: { dataHome: IDataHome }) => {
   return (
     <AboutWrapper>
       <div className="kham-pha md:py-[50px] py-[20px] md:mt-[50px] mt-[20px]">
-        <div className="container mx-auto flex flex-col lg:flex-row justify-between items-center">
+        <div className="container mx-auto lg:flex grid grid-cols-2 lg:flex-row justify-between items-center">
           {/*<div className="dicover mb-[20px] lg:mb-0">*/}
           {/*  {props.dataHome?.khamPha?.title?.toUpperCase()}*/}
           {/*</div>*/}
@@ -95,6 +95,8 @@ const KhamPha = (props: { dataHome: IDataHome }) => {
 const AboutWrapper = styled.div`
   .kham-pha {
     background-image: url("./images/about/bg-kp-2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
     .dicover {
       font-family: "Be Vietnam Pro";
       font-style: normal;

@@ -63,7 +63,7 @@ const Tintuc = () => {
           params: {
             filters: {
               kieu: {
-                $eq: type,
+                $eq: 'news',
               },
               ...condition,
             },
@@ -172,155 +172,286 @@ const Tintuc = () => {
           {/*</div>*/}
           {/*)}*/}
         </div>
-        {type === "news" && (
-          <div>
-            <div className="event">
-              <div className="hidden title-event lg:mb-[40px] lg:flex justify-between">
-                <h2>Tin mới nhất</h2>
-                {/*<div className="show-more flex items-center cursor-pointer">*/}
-                {/*  <div className="mr-[24px] shrink-0">Xem thêm</div>*/}
-                {/*  <img src="./images/icons/arrow-right-2.svg" alt="image" />*/}
-                {/*</div>*/}
-                <div className="mb-[20px] lg:mb-0">
-                  <form onSubmit={handleSubmit(onSubmit)}>
+        <div className={"hidden lg:block"}>
+          <div className="event">
+            <div className="hidden title-event lg:mb-[40px] lg:flex justify-between">
+              <h2>Tin mới nhất</h2>
+              {/*<div className="show-more flex items-center cursor-pointer">*/}
+              {/*  <div className="mr-[24px] shrink-0">Xem thêm</div>*/}
+              {/*  <img src="./images/icons/arrow-right-2.svg" alt="image" />*/}
+              {/*</div>*/}
+              <div className="mb-[20px] lg:mb-0">
+                <form onSubmit={handleSubmit(onSubmit)}>
+                  <div className="">
                     <div className="">
-                      <div className="">
-                        <div className="search flex item-center">
-                          <div className="relative w-full">
-                            <input
-                              className="w-full px-[20px] py-[8px]"
-                              placeholder={
-                                router?.query?.keyword
-                                  ? (router?.query?.keyword as string)
-                                  : "Tìm kiếm"
-                              }
-                              {...register("keyword")}
-                            />
-                            <div className="icon absolute top-[8px] right-[20px]">
-                              <button type="submit">
-                                <img
-                                  src={"/images/icons/search-pri.svg"}
-                                  alt={"image"}
-                                />
-                              </button>
-                            </div>
+                      <div className="search flex item-center">
+                        <div className="relative w-full">
+                          <input
+                            className="w-full px-[20px] py-[8px]"
+                            placeholder={
+                              router?.query?.keyword
+                                ? (router?.query?.keyword as string)
+                                : "Tìm kiếm"
+                            }
+                            {...register("keyword")}
+                          />
+                          <div className="icon absolute top-[8px] right-[20px]">
+                            <button type="submit">
+                              <img
+                                src={"/images/icons/search-pri.svg"}
+                                alt={"image"}
+                              />
+                            </button>
                           </div>
                         </div>
-                        {errors.keyword && <p className="error-text">Bắt buộc</p>}
                       </div>
+                      {errors.keyword && <p className="error-text">Bắt buộc</p>}
                     </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-
-            {dataNew?.length > 0 ? (
-              <>
-                <div className={"hidden lg:grid grid-cols-2 gap-[30px]"}>
-                  {dataNew?.map((val, i) => {
-                    return (
-                      <div
-                        onClick={() => {
-                          router.push(`/tin-tuc/${val?.id}`);
-                        }}
-                        key={i}
-                      >
-                        {/*<CardBanner*/}
-                        {/*  imageUrl={renderImage(*/}
-                        {/*    val?.attributes?.hinhAnh?.data?.attributes?.url*/}
-                        {/*  )}*/}
-                        {/*  title={val?.attributes?.tieuDe}*/}
-                        {/*  description={val?.attributes?.moTa ?? ""}*/}
-                        {/*  dateTime={val?.attributes?.createdAt}*/}
-                        {/*  key={i}*/}
-                        {/*  type={"list"}*/}
-                        {/*/>*/}
-                        <CardHTQTNews
-                          data={{
-                            imageUrl: renderImage(
-                              val?.attributes?.hinhAnh?.data?.attributes?.url
-                            ),
-                            content: val?.attributes?.tieuDe,
-                            dateTime: val?.attributes?.createdAt,
-                            description: val?.attributes.moTa ?? "",
-                            link: `/tin-tuc/${val?.id}`,
-                          }}
-                        />
-                      </div>
-                    );
-                  })}
-                </div>
-              </>
-            ) : (
-              <>
-                <div className="w-full h-full justify-center items-center flex flex-col">
-                  <img
-                    className="mb-[16px]"
-                    src="/images/default/no_data.png"
-                    alt="image"
-                  />
-                  <p className="text-secondary text-sm">Không có dữ liệu</p>
-                </div>
-              </>
-            )}
-
-            <div className="block lg:hidden">
-              {dataNew.map((val, i) => {
-                return (
-                  <div className={"mb-[24px]"} key={i}>
-                    {/*<CardBanner*/}
-                    {/*  imageUrl={renderImage(*/}
-                    {/*    val?.attributes?.hinhAnh?.data?.attributes?.url*/}
-                    {/*  )}*/}
-                    {/*  title={val?.attributes?.tieuDe}*/}
-                    {/*  description={val?.attributes?.moTa ?? ""}*/}
-                    {/*  dateTime={val?.attributes?.createdAt}*/}
-                    {/*  key={i}*/}
-                    {/*  type={"small"}*/}
-                    {/*/>*/}
-                    <CardHTQTNews
-                      data={{
-                        imageUrl: renderImage(
-                          val?.attributes?.hinhAnh?.data?.attributes?.url
-                        ),
-                        content: val?.attributes?.tieuDe,
-                        dateTime: val?.attributes?.createdAt,
-                        description: val?.attributes.moTa ?? "",
-                        link: `/tin-tuc/${val?.id}`,
-                      }}
-                    />
                   </div>
-                );
-              })}
-            </div>
-            <div className="hidden lg:block mt-[30px]">
-              <div className="event">
-                <SapToi type={type} conditionSearch={condition} />
-                <DaDienRa type={type} conditionSearch={condition} />
-                <DangDienRa type={type} conditionSearch={condition} />
+                </form>
               </div>
             </div>
           </div>
-        )}
 
-        {type === "event" && (
-          <div className="event">
-            <SapToi type={type} conditionSearch={condition} />
-            <DaDienRa type={type} conditionSearch={condition} />
-            <DangDienRa type={type} conditionSearch={condition} />
-            {/*<div className="show-more flex items-center justify-center md:mt-[16px] cursor-pointer">*/}
-            {/*  <Pagination*/}
-            {/*    page={page}*/}
-            {/*    limit={limit}*/}
-            {/*    total={totalEvented}*/}
-            {/*    handleChangePage={(page) => {*/}
-            {/*      console.log("page", page);*/}
-            {/*      setPage(page);*/}
-            {/*    }}*/}
-            {/*  />*/}
-            {/*</div>*/}
+          {dataNew?.length > 0 ? (
+            <>
+              <div className={"hidden lg:grid grid-cols-2 gap-[30px]"}>
+                {dataNew?.map((val, i) => {
+                  return (
+                    <div
+                      onClick={() => {
+                        router.push(`/tin-tuc/${val?.id}`);
+                      }}
+                      key={i}
+                    >
+                      {/*<CardBanner*/}
+                      {/*  imageUrl={renderImage(*/}
+                      {/*    val?.attributes?.hinhAnh?.data?.attributes?.url*/}
+                      {/*  )}*/}
+                      {/*  title={val?.attributes?.tieuDe}*/}
+                      {/*  description={val?.attributes?.moTa ?? ""}*/}
+                      {/*  dateTime={val?.attributes?.createdAt}*/}
+                      {/*  key={i}*/}
+                      {/*  type={"list"}*/}
+                      {/*/>*/}
+                      <CardHTQTNews
+                        data={{
+                          imageUrl: renderImage(
+                            val?.attributes?.hinhAnh?.data?.attributes?.url
+                          ),
+                          content: val?.attributes?.tieuDe,
+                          dateTime: val?.attributes?.createdAt,
+                          description: val?.attributes.moTa ?? "",
+                          link: `/tin-tuc/${val?.id}`,
+                        }}
+                      />
+                    </div>
+                  );
+                })}
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="w-full h-full justify-center items-center flex flex-col">
+                <img
+                  className="mb-[16px]"
+                  src="/images/default/no_data.png"
+                  alt="image"
+                />
+                <p className="text-secondary text-sm">Không có dữ liệu</p>
+              </div>
+            </>
+          )}
+
+          <div className="block lg:hidden">
+            {dataNew.map((val, i) => {
+              return (
+                <div className={"mb-[24px]"} key={i}>
+                  {/*<CardBanner*/}
+                  {/*  imageUrl={renderImage(*/}
+                  {/*    val?.attributes?.hinhAnh?.data?.attributes?.url*/}
+                  {/*  )}*/}
+                  {/*  title={val?.attributes?.tieuDe}*/}
+                  {/*  description={val?.attributes?.moTa ?? ""}*/}
+                  {/*  dateTime={val?.attributes?.createdAt}*/}
+                  {/*  key={i}*/}
+                  {/*  type={"small"}*/}
+                  {/*/>*/}
+                  <CardHTQTNews
+                    data={{
+                      imageUrl: renderImage(
+                        val?.attributes?.hinhAnh?.data?.attributes?.url
+                      ),
+                      content: val?.attributes?.tieuDe,
+                      dateTime: val?.attributes?.createdAt,
+                      description: val?.attributes.moTa ?? "",
+                      link: `/tin-tuc/${val?.id}`,
+                    }}
+                  />
+                </div>
+              );
+            })}
           </div>
-        )}
+          <div className="hidden lg:block mt-[30px]">
+            <div className="event">
+              <SapToi type={"event"} conditionSearch={condition} />
+              <DaDienRa type={"event"} conditionSearch={condition} />
+              <DangDienRa type={"event"} conditionSearch={condition} />
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+
+        <div>
+          {type === "news" && (
+            <div>
+              <div className="event">
+                <div className="hidden title-event lg:mb-[40px] lg:flex justify-between">
+                  <h2>Tin mới nhất</h2>
+                  {/*<div className="show-more flex items-center cursor-pointer">*/}
+                  {/*  <div className="mr-[24px] shrink-0">Xem thêm</div>*/}
+                  {/*  <img src="./images/icons/arrow-right-2.svg" alt="image" />*/}
+                  {/*</div>*/}
+                  <div className="mb-[20px] lg:mb-0">
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                      <div className="">
+                        <div className="">
+                          <div className="search flex item-center">
+                            <div className="relative w-full">
+                              <input
+                                className="w-full px-[20px] py-[8px]"
+                                placeholder={
+                                  router?.query?.keyword
+                                    ? (router?.query?.keyword as string)
+                                    : "Tìm kiếm"
+                                }
+                                {...register("keyword")}
+                              />
+                              <div className="icon absolute top-[8px] right-[20px]">
+                                <button type="submit">
+                                  <img
+                                    src={"/images/icons/search-pri.svg"}
+                                    alt={"image"}
+                                  />
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                          {errors.keyword && (
+                            <p className="error-text">Bắt buộc</p>
+                          )}
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+              {dataNew?.length > 0 ? (
+                <>
+                  <div className={"hidden lg:grid grid-cols-2 gap-[30px]"}>
+                    {dataNew?.map((val, i) => {
+                      return (
+                        <div
+                          onClick={() => {
+                            router.push(`/tin-tuc/${val?.id}`);
+                          }}
+                          key={i}
+                        >
+                          {/*<CardBanner*/}
+                          {/*  imageUrl={renderImage(*/}
+                          {/*    val?.attributes?.hinhAnh?.data?.attributes?.url*/}
+                          {/*  )}*/}
+                          {/*  title={val?.attributes?.tieuDe}*/}
+                          {/*  description={val?.attributes?.moTa ?? ""}*/}
+                          {/*  dateTime={val?.attributes?.createdAt}*/}
+                          {/*  key={i}*/}
+                          {/*  type={"list"}*/}
+                          {/*/>*/}
+                          <CardHTQTNews
+                            data={{
+                              imageUrl: renderImage(
+                                val?.attributes?.hinhAnh?.data?.attributes?.url
+                              ),
+                              content: val?.attributes?.tieuDe,
+                              dateTime: val?.attributes?.createdAt,
+                              description: val?.attributes.moTa ?? "",
+                              link: `/tin-tuc/${val?.id}`,
+                            }}
+                          />
+                        </div>
+                      );
+                    })}
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="w-full h-full justify-center items-center flex flex-col">
+                    <img
+                      className="mb-[16px]"
+                      src="/images/default/no_data.png"
+                      alt="image"
+                    />
+                    <p className="text-secondary text-sm">Không có dữ liệu</p>
+                  </div>
+                </>
+              )}
+
+              <div className="block lg:hidden">
+                {dataNew.map((val, i) => {
+                  return (
+                    <div className={"mb-[24px]"} key={i}>
+                      {/*<CardBanner*/}
+                      {/*  imageUrl={renderImage(*/}
+                      {/*    val?.attributes?.hinhAnh?.data?.attributes?.url*/}
+                      {/*  )}*/}
+                      {/*  title={val?.attributes?.tieuDe}*/}
+                      {/*  description={val?.attributes?.moTa ?? ""}*/}
+                      {/*  dateTime={val?.attributes?.createdAt}*/}
+                      {/*  key={i}*/}
+                      {/*  type={"small"}*/}
+                      {/*/>*/}
+                      <CardHTQTNews
+                        data={{
+                          imageUrl: renderImage(
+                            val?.attributes?.hinhAnh?.data?.attributes?.url
+                          ),
+                          content: val?.attributes?.tieuDe,
+                          dateTime: val?.attributes?.createdAt,
+                          description: val?.attributes.moTa ?? "",
+                          link: `/tin-tuc/${val?.id}`,
+                        }}
+                      />
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+          {type === "event" && (
+            <div className="event">
+              <SapToi type={type} conditionSearch={condition} />
+              <DaDienRa type={type} conditionSearch={condition} />
+              <DangDienRa type={type} conditionSearch={condition} />
+              {/*<div className="show-more flex items-center justify-center md:mt-[16px] cursor-pointer">*/}
+              {/*  <Pagination*/}
+              {/*    page={page}*/}
+              {/*    limit={limit}*/}
+              {/*    total={totalEvented}*/}
+              {/*    handleChangePage={(page) => {*/}
+              {/*      console.log("page", page);*/}
+              {/*      setPage(page);*/}
+              {/*    }}*/}
+              {/*  />*/}
+              {/*</div>*/}
+            </div>
+          )}
+        </div>
+
         {type === "news" && (
           <div className="show-more flex items-center justify-center md:mt-[16px] cursor-pointer">
             <Pagination

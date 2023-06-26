@@ -109,8 +109,8 @@ const ThongBaoHocBong = () => {
         <>
           <Title title={"THÔNG BÁO HỌC BỔNG"} titleTop="học bổng" uppercase={true} />
           <div className="mb-[40px]">
-            <div className="lg:flex  grid grid-cols-2 gap-[30px] justify-end">
-              <div className="dropdown mr-[24px] mb-[16px] md:mb-0">
+            <div className="lg:flex  grid sm:grid-cols-2 grid-cols-1 lg:gap-[30px] sm:gap-[16px] justify-end">
+              <div className="dropdown lg:mr-[24px] mb-[16px] md:mb-0 ">
                 <Controller
                   name={"type"}
                   control={control}

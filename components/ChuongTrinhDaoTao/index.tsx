@@ -66,6 +66,7 @@ const ChuongTrinhDaoTao = (props: { dataHome: IDataHome }) => {
                     // }}
                   >
                     <CardHTQT
+                      isShowMore={true}
                       data={{
                         imageUrl: renderImage(
                           val?.attributes?.hinhAnh?.data?.attributes?.url

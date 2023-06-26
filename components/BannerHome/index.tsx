@@ -40,7 +40,7 @@ const BannerHome = (props: { dataHome: IDataHome }) => {
           slidesToShow: 1,
           slidesToScroll: 1,
           initialSlide: 1,
-          dots: true,
+          dots: false,
         },
       },
       {
@@ -48,7 +48,7 @@ const BannerHome = (props: { dataHome: IDataHome }) => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          dots: true,
+          dots: false,
         },
       },
     ],
@@ -67,27 +67,7 @@ const BannerHome = (props: { dataHome: IDataHome }) => {
   };
   return (
     <BannerWrapper>
-      <div className="hidden lg:block relativ border-b-2 border-primary max-h-[714px] overflow-hidden">
-        {/*<button*/}
-        {/*  className="hidden lg:flex next-btn mr-[16px] cursor-pointer  items-center justify-center absolute top-1/2 left-0 z-50 btn-next btn"*/}
-        {/*  onClick={handlePrev}*/}
-        {/*>*/}
-        {/*  <img*/}
-        {/*    className={"w-[60px]"}*/}
-        {/*    src="/images/icons/arrow-left.svg"*/}
-        {/*    alt={"image"}*/}
-        {/*  />*/}
-        {/*</button>*/}
-        {/*<button*/}
-        {/*  className="hidden lg:flex prev-btn cursor-pointer  items-center justify-center absolute top-1/2 right-0 z-50 btn-prev btn"*/}
-        {/*  onClick={handleNext}*/}
-        {/*>*/}
-        {/*  <img*/}
-        {/*    className={"w-[60px]"}*/}
-        {/*    src="/images/icons/arrow-right.svg"*/}
-        {/*    alt={"image"}*/}
-        {/*  />*/}
-        {/*</button>*/}
+      <div className="hidden lg:block relative border-b-2 border-primary max-h-[714px] overflow-hidden">
         <div className="relative ">
           {props.dataHome?.banner?.length > 0 ? (
             <Slider {...settings} ref={SliderRef}>
@@ -183,7 +163,32 @@ const BannerHome = (props: { dataHome: IDataHome }) => {
         {/*    </Button>*/}
         {/*  </div>*/}
         {/*</div>*/}
-        <div>
+        <div className="relative">
+          {props.dataHome?.banner?.length > 2 && (
+            <>
+              <button
+                className=" lg:flex next-btn mr-[16px] cursor-pointer  items-center justify-center absolute top-1/2 left-0 z-50 btn-next btn"
+                onClick={handlePrev}
+              >
+                <img
+                  className={"w-[30px]"}
+                  src="/images/icons/arrow-left.svg"
+                  alt={"image"}
+                />
+              </button>
+              <button
+                className=" lg:flex prev-btn cursor-pointer  items-center justify-center absolute top-1/2 right-0 z-50 btn-prev btn"
+                onClick={handleNext}
+              >
+                <img
+                  className={"w-[30px]"}
+                  src="/images/icons/arrow-right.svg"
+                  alt={"image"}
+                />
+              </button>
+            </>
+          )}
+
           {props.dataHome?.banner?.length > 0 ? (
             <Slider {...settings} ref={SliderRef}>
               {props.dataHome?.banner?.map((value, index) => {

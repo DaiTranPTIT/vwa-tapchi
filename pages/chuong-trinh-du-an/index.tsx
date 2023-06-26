@@ -100,12 +100,12 @@ const ChuongTrinhDuAn = () => {
           <Title title={"CHƯƠNG TRÌNH - DỰ ÁN HỢP TÁC QUỐC TẾ"} titleTop={"chương trình - dự án"} uppercase={true} />
           <div className="mb-[40px]">
             <div className="lg:flex justify-end">
-              <div className="">
+              <div className="h-[36px]">
                 <form onSubmit={handleSubmit(onSubmit)} className="h-full">
                   <div className="search flex item-center h-full">
                     <div className="relative w-full">
                       <input
-                        className="w-full"
+                        className="w-full h-[36px]"
                         placeholder={"Tìm kiếm"}
                         {...register("keyword", {})}
                       />

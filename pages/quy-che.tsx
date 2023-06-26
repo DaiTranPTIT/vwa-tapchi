@@ -95,10 +95,12 @@ const QuyChe = () => {
     {
       title: "STT",
       dataIndex: "index",
+      align:"center"
     },
     {
       title: "Số văn bản",
       dataIndex: "attributes",
+      align:"center",
       render: (val: any) => {
         return val?.so;
       },
@@ -106,6 +108,7 @@ const QuyChe = () => {
     {
       title: "Ngày ban hành",
       dataIndex: "attributes",
+      align:"center",
       render: (val: any) => {
         return val
           ? moment(val?.ngayBanHanh).format("DD/MM/YYYY")
@@ -115,6 +118,7 @@ const QuyChe = () => {
     {
       title: "Thời gian bắt đầu hiệu lực",
       dataIndex: "attributes",
+      align:"center",
       render: (val: any) => {
         return val
           ? moment(val?.thoiGianHieuLuc).format("DD/MM/YYYY")
@@ -137,6 +141,7 @@ const QuyChe = () => {
     {
       title: "Loại văn bản",
       dataIndex: "attributes",
+      align:"center",
       render: (val: any) => {
        return(
          <div className="w-[80px]">
@@ -148,6 +153,7 @@ const QuyChe = () => {
     {
       title: "Cơ quan ban hành",
       dataIndex: "attributes",
+      align:"center",
       render: (val: any) => {
         return (
           <div className="w-[80px]">
@@ -164,7 +170,7 @@ const QuyChe = () => {
         return (
           <div className="w-full overflow-hidden break-words ">
             <a
-              className="max-w-[100px] block link-download underline"
+              className="block link-download underline"
               href={renderImage(val?.taiLieuDinhKem?.data?.attributes?.url)}
             >
               {val?.taiLieuDinhKem?.data?.attributes?.name}
@@ -268,16 +274,9 @@ const QuyChe = () => {
           </div>
         </div>
         <div>
-          {/*<TableBase*/}
-          {/*  columns={columns}*/}
-          {/*  dataSource={dataGioiThieu?.map((val, i) => {*/}
-          {/*    return {*/}
-          {/*      ...val,*/}
-          {/*      index: i + 1,*/}
-          {/*    };*/}
-          {/*  })}*/}
-          {/*/>*/}
-          <TableBaseV2
+
+          <TableBase
+            //@ts-ignore
             columns={columns}
             dataSource={dataGioiThieu?.map((val, i) => {
               return {
@@ -286,6 +285,15 @@ const QuyChe = () => {
               };
             })}
           />
+          {/*<TableBaseV2*/}
+          {/*  columns={columns}*/}
+          {/*  dataSource={dataGioiThieu?.map((val, i) => {*/}
+          {/*    return {*/}
+          {/*      ...val,*/}
+          {/*      index: i + 1,*/}
+          {/*    };*/}
+          {/*  })}*/}
+          {/*/>*/}
         </div>
         <div className="show-more flex items-center justify-center md:mt-[16px] cursor-pointer mb-[50px]">
           <Pagination

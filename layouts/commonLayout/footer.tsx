@@ -123,8 +123,8 @@ const MainFooter = () => {
 							<img className=' cursor-pointer' src='/images/icons/Youtube.svg' alt={"image"} />
 						</a>
 					</div>
-					<div className="flex justify-between items-center border-t border-[#FFFFFF]">
-						<div>
+					<div className="flex lg:justify-between justify-center items-center border-t border-[#FFFFFF]">
+						<div className="pt-[8px] lg:pt-0">
 							Copyright@ 2023 Develop by AI-Soft
 						</div>
 						<div>

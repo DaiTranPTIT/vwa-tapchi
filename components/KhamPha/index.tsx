@@ -51,36 +51,36 @@ const KhamPha = (props: { dataHome: IDataHome }) => {
   return (
     <AboutWrapper>
       <div className="kham-pha md:py-[50px] py-[20px] md:mt-[50px] mt-[20px]">
-        <div className="container mx-auto lg:flex grid grid-cols-2 lg:flex-row justify-between items-center">
+        <div className="container mx-auto lg:flex grid grid-cols-1 lg:flex-row justify-between items-center">
           {/*<div className="dicover mb-[20px] lg:mb-0">*/}
           {/*  {props.dataHome?.khamPha?.title?.toUpperCase()}*/}
           {/*</div>*/}
-          <div className="flex flex-col items-center mb-[20px] lg:mb-0">
-            <div className="count mb-[20px]">
+          <div className="flex flex-col items-center mb-[20px]  lg:mb-0">
+            <div className="count lg:mb-[20px] mb-[16px]">
               {props.dataHome?.khamPha?.duLieu?.[0]?.soLuong} +
             </div>
             <div className="des">
               {props.dataHome?.khamPha?.duLieu?.[0]?.title?.toUpperCase()}
             </div>
           </div>
-          <div className="flex flex-col items-center">
-            <div className="count mb-[20px]">
+          <div className="flex flex-col items-center mb-[20px]  lg:mb-0">
+            <div className="count lg:mb-[20px] mb-[16px]">
               {props.dataHome?.khamPha?.duLieu?.[1]?.soLuong} +
             </div>
             <div className="des">
               {props.dataHome?.khamPha?.duLieu?.[1]?.title?.toUpperCase()}
             </div>
           </div>
-          <div className="flex flex-col items-center">
-            <div className="count mb-[20px]">
+          <div className="flex flex-col items-center mb-[20px]  lg:mb-0">
+            <div className="count lg:mb-[20px] mb-[16px]">
               {props.dataHome?.khamPha?.duLieu?.[2]?.soLuong} +
             </div>
             <div className="des">
               {props.dataHome?.khamPha?.duLieu?.[2]?.title?.toUpperCase()}
             </div>
           </div>
-          <div className="flex flex-col items-center">
-            <div className="count mb-[20px]">
+          <div className="flex flex-col items-center mb-[20px]  lg:mb-0">
+            <div className="count lg:mb-[20px] mb-[16px]">
               {props.dataHome?.khamPha?.duLieu?.[3]?.soLuong} +
             </div>
             <div className="des">

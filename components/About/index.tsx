@@ -47,7 +47,7 @@ const About = () => {
               {dataGioiThieu?.moTa}
             </div>
             </div>
-            <div className="">
+            <div className="flex justify-center lg:block">
               <Button
                 type={"primary"}
                 classname="lg:w-[239px]"

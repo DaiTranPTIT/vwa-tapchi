@@ -40,7 +40,7 @@ const BannerHome = (props: { dataHome: IDataHome }) => {
           slidesToShow: 1,
           slidesToScroll: 1,
           initialSlide: 1,
-          dots: false,
+          dots: true,
         },
       },
       {
@@ -48,7 +48,7 @@ const BannerHome = (props: { dataHome: IDataHome }) => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          dots: false,
+          dots: true,
         },
       },
     ],
@@ -164,25 +164,25 @@ const BannerHome = (props: { dataHome: IDataHome }) => {
         {/*</Slider>*/}
       </div>
       <div className="lg:hidden ">
-        <div className="bg-primary py-[20px] px-[20px]">
-          <div className="title-banner-1 mb-[24px]">
-            {props.dataHome?.title}
-          </div>
-          <div className="title-banner-2 mb-[24px]">
-            {props.dataHome?.title2}
-          </div>
-          <div className="flex justify-center">
-            <Button
-              type={"default"}
-              classname="lg:w-[239px]"
-              onClick={() => {
-                router.push("/tin-tuc");
-              }}
-            >
-              Xem thêm
-            </Button>
-          </div>
-        </div>
+        {/*<div className="bg-primary py-[20px] px-[20px]">*/}
+        {/*  <div className="title-banner-1 mb-[24px]">*/}
+        {/*    {props.dataHome?.title}*/}
+        {/*  </div>*/}
+        {/*  <div className="title-banner-2 mb-[24px]">*/}
+        {/*    {props.dataHome?.title2}*/}
+        {/*  </div>*/}
+        {/*  <div className="flex justify-center">*/}
+        {/*    <Button*/}
+        {/*      type={"default"}*/}
+        {/*      classname="lg:w-[239px]"*/}
+        {/*      onClick={() => {*/}
+        {/*        router.push("/tin-tuc");*/}
+        {/*      }}*/}
+        {/*    >*/}
+        {/*      Xem thêm*/}
+        {/*    </Button>*/}
+        {/*  </div>*/}
+        {/*</div>*/}
         <div>
           {props.dataHome?.banner?.length > 0 ? (
             <Slider {...settings} ref={SliderRef}>

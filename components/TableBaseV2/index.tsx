@@ -16,7 +16,7 @@ const TableBaseV2 = (props: IProps) => {
   return (
     <>
       <Table  hoverable>
-        <Table.Head >
+        <Table.Head>
           {props.columns?.map((val, i) => {
             return <Table.HeadCell >{val.title}</Table.HeadCell>;
           })}

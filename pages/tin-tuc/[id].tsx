@@ -19,7 +19,8 @@ import CardBanner from "../../components/CardBanner";
 import {DataNewList, DataNewListV2, IDataChiTiet} from "../../utils/interface";
 import { AuthContext } from "../../context/AuthContext";
 import CardHTQT from "../../components/CardHTQT";
-
+// @ts-ignore
+import Slider from "react-slick";
 const ChiTiet = () => {
   // const {
   // 	register,
@@ -38,6 +39,41 @@ const ChiTiet = () => {
   const [limit, setLimit] = useState<number>(2);
   const [total, setTotal] = useState<number>(0);
   const { langCode } = useContext(AuthContext);
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
   const handleGetAllDaDienRa = async () => {
     try {
       const res = await axios.get(
@@ -175,8 +211,8 @@ const ChiTiet = () => {
         </div>
       </div>
       {dataDaDienRa?.length > 0 && (
-        <div className={"container mx-auto mt-2 mb-[50px]"}>
-          <div className="title-event lg:mb-[40px] flex justify-between">
+        <div className={"container mx-auto mt-2 mb-[50px] px-[20px] lg:px-0"}>
+          <div className="title-event lg:mb-[40px] lg:flex lg:justify-between">
             <h2>Tin tức - Sự kiện đã diễn ra</h2>
             <div
               className="show-more flex items-center cursor-pointer"
@@ -188,9 +224,8 @@ const ChiTiet = () => {
               <img src="/images/icons/arrow-right-2.svg" alt="image" />
             </div>
           </div>
-          <div className={"grid grid-cols-3 gap-[30px]"}>
+          <div className={"lg:grid grid-cols-3 gap-[30px] hidden"}>
             {dataDaDienRa
-
               ?.map((val, i) => {
                 if (i < 3) {
                   return (
@@ -229,6 +264,31 @@ const ChiTiet = () => {
                   return null;
                 }
               })}
+          </div>
+          <div className="lg:hidden block mt-[20px]">
+            <Slider {...settings}>
+              {dataDaDienRa?.map((value, i) => {
+                return (
+                  <div>
+                    <CardHTQT
+                      data={{
+                        title: value?.attributes?.tieuDe,
+                        dateTime: value?.attributes?.thoiGianBatDau,
+                        description: value?.attributes?.moTa,
+                        imageUrl: renderImage(
+                          value?.attributes?.hinhAnh?.data?.attributes?.url
+                        ),
+                        link: `/tin-tuc/${value?.id}`,
+                      }}
+                      isShowTime={true}
+                      isArrow2={true}
+                      isShadow={true}
+                      key={i}
+                    />
+                  </div>
+                );
+              })}
+            </Slider>
           </div>
         </div>
       )}

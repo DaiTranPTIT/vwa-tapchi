@@ -124,7 +124,7 @@ const ChuongTrinhDuAn = () => {
           </div>
           {dataGioiThieu?.length > 0 ? (
             <>
-              <div className="grid lg:grid-cols-2 grid-cols-1 gap-[30px]">
+              <div className="grid lg:grid-cols-2 sm:grid-cols-2 grid-cols-1 gap-[30px]">
                 {dataGioiThieu?.map((val, i) => {
                   return (
                     <CardHTQTChuongChinh

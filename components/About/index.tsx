@@ -4,7 +4,7 @@ import Title from "../Title";
 import React, { useContext, useEffect, useState } from "react";
 // @ts-ignore
 import Slider from "react-slick";
-import {GioiThieu, GioiThieuBanner, IDataHome} from "../../utils/interface";
+import { GioiThieu, GioiThieuBanner, IDataHome } from "../../utils/interface";
 import { useRouter } from "next/router";
 import { renderImage } from "../../utils/util";
 import axios from "axios";
@@ -40,12 +40,22 @@ const About = () => {
       <div className="container mx-auto lg:mt-[50px] mt-[20px] px-[20px] lg:px-0 sm:pb-[75px] pb-[20px]">
         <div className="lg:grid lg:grid-cols-2 gap-[40px]">
           <div className="wow fadeInLeft">
-            <div className="title-1 mb-[12px] uppercase">Giới thiệu</div>
-            <div className="title-2 lg:mb-[40px] mn-[16px]">GIỚI THIỆU <br/> HOẠT ĐỘNG HỢP TÁC QUỐC TẾ</div>
-            <div className="lg:hidden block">
-            <div className="  content-banner-2 wow fadeInUp mb-[16px]">
-              {dataGioiThieu?.moTa}
+            <div className="lg:hidden">
+              <Title
+                title={"HOẠT ĐỘNG HỢP TÁC QUỐC TẾ"}
+                titleTop={"Giới thiệu"}
+              />
             </div>
+            <div className="hidden lg:block title-1 mb-[12px] uppercase">
+              Giới thiệu
+            </div>
+            <div className="hidden lg:block title-2 lg:mb-[40px] mn-[16px]">
+              GIỚI THIỆU <br /> HOẠT ĐỘNG HỢP TÁC QUỐC TẾ
+            </div>
+            <div className="lg:hidden block">
+              <div className="  content-banner-2 wow fadeInUp mb-[16px]">
+                {dataGioiThieu?.moTa}
+              </div>
             </div>
             <div className="flex justify-center lg:block">
               <Button
@@ -70,22 +80,17 @@ const About = () => {
   );
 };
 const AboutWrapper = styled.div`
-  .title-1{
-    font-family: 'Inter';
+  .title-1 {
+    font-family: "Inter";
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
     line-height: 19px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-
-    /* Redmain */
-
-    color: #DE221A;
+    
+    color: #de221a;
   }
-  .title-2{
-    font-family: 'SVN-Product Sans';
+  .title-2 {
+    font-family: "SVN-Product Sans";
     font-style: normal;
     font-weight: 700;
     font-size: 32px;
@@ -93,18 +98,17 @@ const AboutWrapper = styled.div`
 
     /* Black */
 
-    color: #18202A;
+    color: #18202a;
   }
-  .content-banner-2{
-
-    font-family: 'Inter';
+  .content-banner-2 {
+    font-family: "Inter";
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 28px;
 
-    color: #73787E; 
-    
+    color: #73787e;
+
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;

@@ -13,10 +13,44 @@ import { useRouter } from "next/router";
 import { renderImage } from "../../utils/util";
 import { ro } from "date-fns/locale";
 import CardHTQT from "../CardHTQT";
-
+// @ts-ignore
+import Slider from "react-slick";
 const ChuongTrinhDuAn = (props: { dataHome: IDataHome }) => {
   const router = useRouter();
-
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: false,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
   useEffect(() => {}, []);
   if (props?.dataHome?.htqt_chuong_trinh_du_ans?.data?.length>0){
     return (
@@ -59,14 +93,15 @@ const ChuongTrinhDuAn = (props: { dataHome: IDataHome }) => {
               })}
             </div>
             <div className="lg:hidden grid grid-cols-1 gap-[30px]">
+              <Slider {...settings}>
               {props.dataHome?.htqt_chuong_trinh_du_ans?.data?.map((val, i) => {
                 return (
                   <div
-                    className="cursor-pointer"
+                    className="cursor-pointer pr-[16px]"
                     key={i}
-                    // onClick={() => {
-                    //   router.push(`/chuong-trinh-du-an/${val?.id}`);
-                    // }}
+                    onClick={() => {
+                      router.push(`/chuong-trinh-du-an/${val?.id}`);
+                    }}
                   >
                     <CardHTQT
                       data={{
@@ -83,6 +118,7 @@ const ChuongTrinhDuAn = (props: { dataHome: IDataHome }) => {
                   </div>
                 );
               })}
+              </Slider>
             </div>
             {props.dataHome?.htqt_chuong_trinh_du_ans?.data?.length > 3 && (
               <div className="flex justify-center md:mt-[40px] mt-[20px]">

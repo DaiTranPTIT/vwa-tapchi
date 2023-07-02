@@ -32,7 +32,7 @@ const TinTuyenSinh = (props: { dataHome: IDataHome }) => {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 2,
           slidesToScroll: 1,
           infinite: true,
           dots: true,
@@ -41,9 +41,8 @@ const TinTuyenSinh = (props: { dataHome: IDataHome }) => {
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 2,
           slidesToScroll: 1,
-          initialSlide: 2,
         },
       },
       {
@@ -132,7 +131,7 @@ const TinTuyenSinh = (props: { dataHome: IDataHome }) => {
             <Slider {...settings}>
               {props.dataHome?.htqt_tin_tuc_su_kiens?.data?.map((value, i) => {
                 return (
-                  <div>
+                  <div className="pr-[16px]">
                     <CardHTQT
                       data={{
                         title: value?.attributes?.tieuDe,

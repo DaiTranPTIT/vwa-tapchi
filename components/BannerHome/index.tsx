@@ -200,7 +200,7 @@ const BannerHome = (props: { dataHome: IDataHome }) => {
                     key={index}
                   >
                     <img
-                      className="w-full h-[200px] wow fadeInUp object-cover"
+                      className="w-full h-[200px] sm:h-[350px] wow fadeInUp object-cover"
                       src={renderImage(value?.images?.data?.attributes?.url)}
                       alt="image"
                     />

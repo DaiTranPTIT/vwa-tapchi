@@ -118,7 +118,7 @@ const ChuongTrinhDaoTao = (props: { dataHome: IDataHome }) => {
               </Slider>
             </div>
             {props.dataHome?.htqt_thong_bao_hoc_bongs?.data?.length > 6 && (
-              <div className="flex justify-center md:mt-[40px] mt-[20px]">
+              <div className="hidden lg:flex justify-center md:mt-[40px] mt-[20px]">
                 <Button
                   type={"primary"}
                   classname="lg:w-[279px]"

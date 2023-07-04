@@ -83,6 +83,8 @@ const HoatDong = () => {
   }, [router, condition, page]);
 
   const onSubmit = (data: any) => {
+    setPage(1);
+
     console.log("data", data);
     if (data && data?.keyword !== "" && data?.keyword) {
       setCondition(
@@ -151,11 +153,9 @@ const HoatDong = () => {
         return "";
     }
   };
-  useEffect(()=>{
-
-    setPage(1)
-
-  },[type])
+  useEffect(() => {
+    setPage(1);
+  }, [type]);
   return (
     <HoatDongWrapper>
       <div className="container mx-auto lg:mt-[50px] mt-[20px] lg:mb-[50px] mb-[20px]">
@@ -339,12 +339,11 @@ const HoatDong = () => {
         )}
         {type === ETYPEKHOAHOC.SP && (
           <>
-
-              {dataGioiThieu?.length > 0 ? (
-                <>
-                  {dataGioiThieu?.map((value, index) => {
-                    return (
-                      <div className="grid sm:grid-cols-2 grid-cols-1 gap-[30px]">
+            {dataGioiThieu?.length > 0 ? (
+              <>
+                {dataGioiThieu?.map((value, index) => {
+                  return (
+                    <div className="grid sm:grid-cols-2 grid-cols-1 gap-[30px]">
                       <div
                         onClick={() => {
                           router.push(
@@ -366,23 +365,22 @@ const HoatDong = () => {
                           key={index}
                         />
                       </div>
-                      </div>
-                    );
-                  })}
-                </>
-              ) : (
-                <>
-                  <div className="w-full h-full justify-center items-center flex flex-col">
-                    <img
-                      className="mb-[16px]"
-                      src="/images/default/no_data.png"
-                      alt="image"
-                    />
-                    <p className="text-secondary text-sm">Không có dữ liệu</p>
-                  </div>
-                </>
-              )}
-
+                    </div>
+                  );
+                })}
+              </>
+            ) : (
+              <>
+                <div className="w-full h-full justify-center items-center flex flex-col">
+                  <img
+                    className="mb-[16px]"
+                    src="/images/default/no_data.png"
+                    alt="image"
+                  />
+                  <p className="text-secondary text-sm">Không có dữ liệu</p>
+                </div>
+              </>
+            )}
           </>
         )}
       </div>

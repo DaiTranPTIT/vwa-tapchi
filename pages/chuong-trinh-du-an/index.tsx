@@ -15,7 +15,7 @@ import Pagination from "../../components/pagination";
 import { AuthContext } from "../../context/AuthContext";
 import CardHTQTMangLuoi from "../../components/CardHTQTMangLuoi";
 import CardHTQTChuongChinh from "../../components/CardHTQTChuongChinh";
-import {Controller, useForm} from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import DropdownFake from "../../components/Dropdown";
 import moment from "moment/moment";
 
@@ -73,21 +73,20 @@ const ChuongTrinhDuAn = () => {
       getData(router?.query?.type as string);
       setType(router?.query?.type as string);
     }
-  }, [router, page, langCode,condition]);
+  }, [router, page, langCode, condition]);
   useEffect(() => {
     setPage(1);
   }, [type]);
   const onSubmit = (data: any) => {
+    setPage(1);
     console.log("data", data);
     if (data && data?.keyword !== "" && data?.keyword) {
-      setCondition(
-        {
-          ...condition,
-          tieuDe: {
-            '$containsi': data?.keyword,
-          },
-        }
-      );
+      setCondition({
+        ...condition,
+        tieuDe: {
+          $containsi: data?.keyword,
+        },
+      });
     } else {
       delete condition?.tieuDe;
       setCondition({ ...condition });
@@ -97,7 +96,11 @@ const ChuongTrinhDuAn = () => {
     <DonViNghienCuuWrapper>
       <div className="container mx-auto lg:mt-[50px] mt-[20px] lg:mb-[50px] mb-[20px] px-[20px] lg:px-0">
         <>
-          <Title title={"CHƯƠNG TRÌNH - DỰ ÁN HỢP TÁC QUỐC TẾ"} titleTop={"chương trình - dự án"} uppercase={true} />
+          <Title
+            title={"CHƯƠNG TRÌNH - DỰ ÁN HỢP TÁC QUỐC TẾ"}
+            titleTop={"chương trình - dự án"}
+            uppercase={true}
+          />
           <div className="mb-[40px]">
             <div className="lg:flex justify-end">
               <div className="h-[36px]">
@@ -172,7 +175,6 @@ const ChuongTrinhDuAn = () => {
   );
 };
 const DonViNghienCuuWrapper = styled.div`
-
   .search {
     input {
       height: 100%;

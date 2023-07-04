@@ -78,6 +78,7 @@ const ThongBaoHocBong = () => {
     setPage(1);
   }, [type]);
   const onSubmit = (data: any) => {
+    setPage(1)
     console.log("data", data);
     if (data && data?.keyword !== "" && data?.keyword) {
       setCondition(

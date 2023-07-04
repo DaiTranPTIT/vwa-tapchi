@@ -119,7 +119,7 @@ const ThongBaoHocBong = () => {
                       option={option}
                       onChange={(val) => {
                         if (val?.value === "Tất cả") {
-                          delete condition?.ngayDangTai;
+                          delete condition?.createdAt;
                           setCondition({ ...condition });
                         } else {
                           setCondition({

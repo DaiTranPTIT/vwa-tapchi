@@ -30,7 +30,7 @@ const CardHTQT = (props: IPorps) => {
           <div>
             <img src={data?.imageUrl} className="lg:h-[285px] h-[200px] w-full object-cover" alt="image" />
           </div>
-          <div className="content p-[24px] wow fadeInUp">
+          <div className="content lg:p-[24px] sm:p-[12px] p-[8px] wow fadeInUp">
             {isShowTime&&<div className=" flex mb-[16px]">
               {isRedTime? <img className="mr-[12px]" src="/images/icons/time-2.svg" alt="icon" />: <img className="mr-[12px]" src="/images/icons/time.svg" alt="icon" />}
                 <div className="time">

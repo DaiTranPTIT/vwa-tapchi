@@ -139,47 +139,11 @@ const Tintuc = () => {
               Sự kiện nổi bật
             </div>
           </div>
-          {/*{type === "news" && (*/}
-          {/*<div className="mb-[20px] lg:mb-0">*/}
-          {/*  <form onSubmit={handleSubmit(onSubmit)}>*/}
-          {/*    <div className="">*/}
-          {/*      <div className="">*/}
-          {/*        <div className="search flex item-center">*/}
-          {/*          <div className="relative w-full">*/}
-          {/*            <input*/}
-          {/*              className="w-full px-[20px] py-[8px]"*/}
-          {/*              placeholder={*/}
-          {/*                router?.query?.keyword*/}
-          {/*                  ? (router?.query?.keyword as string)*/}
-          {/*                  : "Tìm kiếm"*/}
-          {/*              }*/}
-          {/*              {...register("keyword")}*/}
-          {/*            />*/}
-          {/*            <div className="icon absolute top-[8px] right-[20px]">*/}
-          {/*              <button type="submit">*/}
-          {/*                <img*/}
-          {/*                  src={"/images/icons/search-pri.svg"}*/}
-          {/*                  alt={"image"}*/}
-          {/*                />*/}
-          {/*              </button>*/}
-          {/*            </div>*/}
-          {/*          </div>*/}
-          {/*        </div>*/}
-          {/*        {errors.keyword && <p className="error-text">Bắt buộc</p>}*/}
-          {/*      </div>*/}
-          {/*    </div>*/}
-          {/*  </form>*/}
-          {/*</div>*/}
-          {/*)}*/}
         </div>
         <div className={"hidden lg:block"}>
           <div className="event">
             <div className="hidden title-event lg:mb-[40px] lg:flex justify-between">
               <h2>Tin mới nhất</h2>
-              {/*<div className="show-more flex items-center cursor-pointer">*/}
-              {/*  <div className="mr-[24px] shrink-0">Xem thêm</div>*/}
-              {/*  <img src="./images/icons/arrow-right-2.svg" alt="image" />*/}
-              {/*</div>*/}
               <div className="mb-[20px] lg:mb-0">
                 <form onSubmit={handleSubmit(onSubmit)}>
                   <div className="">
@@ -262,36 +226,6 @@ const Tintuc = () => {
               </div>
             </>
           )}
-
-          <div className="block lg:hidden">
-            {dataNew.map((val, i) => {
-              return (
-                <div className={"mb-[24px]"} key={i}>
-                  {/*<CardBanner*/}
-                  {/*  imageUrl={renderImage(*/}
-                  {/*    val?.attributes?.hinhAnh?.data?.attributes?.url*/}
-                  {/*  )}*/}
-                  {/*  title={val?.attributes?.tieuDe}*/}
-                  {/*  description={val?.attributes?.moTa ?? ""}*/}
-                  {/*  dateTime={val?.attributes?.createdAt}*/}
-                  {/*  key={i}*/}
-                  {/*  type={"small"}*/}
-                  {/*/>*/}
-                  <CardHTQTNews
-                    data={{
-                      imageUrl: renderImage(
-                        val?.attributes?.hinhAnh?.data?.attributes?.url
-                      ),
-                      content: val?.attributes?.tieuDe,
-                      dateTime: val?.attributes?.createdAt,
-                      description: val?.attributes.moTa ?? "",
-                      link: `/tin-tuc/${val?.id}`,
-                    }}
-                  />
-                </div>
-              );
-            })}
-          </div>
           <div className="hidden lg:block mt-[30px]">
             <div className="event">
               <SapToi type={"event"} conditionSearch={condition} />
@@ -305,8 +239,7 @@ const Tintuc = () => {
 
 
 
-
-        <div>
+        <div className="lg:hidden block">
           <div className="mb-[20px] lg:mb-0 mt-[16px]">
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="">
@@ -341,17 +274,6 @@ const Tintuc = () => {
           </div>
           {type === "news" && (
             <div>
-              <div className="event">
-                <div className=" title-event lg:mb-[40px] lg:flex justify-between">
-                  <h2>Tin mới nhất</h2>
-                  {/*<div className="show-more flex items-center cursor-pointer">*/}
-                  {/*  <div className="mr-[24px] shrink-0">Xem thêm</div>*/}
-                  {/*  <img src="./images/icons/arrow-right-2.svg" alt="image" />*/}
-                  {/*</div>*/}
-
-                </div>
-              </div>
-
               {dataNew?.length > 0 ? (
                 <>
                   <div className={"hidden lg:grid grid-cols-2 gap-[30px]"}>

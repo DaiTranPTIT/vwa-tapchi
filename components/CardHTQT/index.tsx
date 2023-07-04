@@ -123,13 +123,7 @@ const CardHTQTWrapper = styled.div`
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
-    /* or 150% */
-
-    display: flex;
-    align-items: center;
-
-    /* gray 2 */
-
+    
     color: #73787e;
 
     overflow: hidden;

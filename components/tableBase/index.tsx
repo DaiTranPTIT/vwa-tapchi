@@ -65,7 +65,7 @@ const  TableBase = (props: IProps) => {
             <tr>
               <td colSpan={props.columns && props.columns.length}>
                 <div className="flex justify-center w-full">
-                  <div>
+                  <div className="flex items-center flex-col">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"

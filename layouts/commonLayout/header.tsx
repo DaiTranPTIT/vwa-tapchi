@@ -594,7 +594,7 @@ const Header = (props: IProps) => {
                                        </>
                                      }
                                      style={"light"}
-                                     placement="bottom"
+                                     placement="bottom-start"
                                    >
 
                                      <div className="text-sm md:text-xl">{value?.ten}</div>

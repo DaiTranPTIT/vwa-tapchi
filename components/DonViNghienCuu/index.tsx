@@ -76,30 +76,32 @@ const DonViNghienCuu = (props:{dataHome:IDataHome}) => {
 
 						})}
 					</div>
-					<Slider {...settings}>
-						{props.dataHome?.htqt_mang_luoi_doi_tacs?.data?.map((val, i) => {
-							if (i<3){
-								return (
-									<CardHTQT
-										data={{
-											imageUrl: renderImage(val?.attributes?.hinhAnh?.data?.attributes?.url),
-											title: val?.attributes?.tieuDe,
-											// description: val?.attributes?.moTa??'',
-											// // dateTime: val?.attributes?.createdAt,
-											link: val?.attributes?.link,
-										}}
-										isRedirect={true}
-										type={'small'}
-										isCenterTitle={true}
-										key={i}
-									/>
-								);
-							}else {
-								return null;
-							}
+		<div className="lg:hidden block">
+			<Slider {...settings}>
+				{props.dataHome?.htqt_mang_luoi_doi_tacs?.data?.map((val, i) => {
+					if (i<3){
+						return (
+							<CardHTQT
+								data={{
+									imageUrl: renderImage(val?.attributes?.hinhAnh?.data?.attributes?.url),
+									title: val?.attributes?.tieuDe,
+									// description: val?.attributes?.moTa??'',
+									// // dateTime: val?.attributes?.createdAt,
+									link: val?.attributes?.link,
+								}}
+								isRedirect={true}
+								type={'small'}
+								isCenterTitle={true}
+								key={i}
+							/>
+						);
+					}else {
+						return null;
+					}
 
-						})}
-					</Slider>
+				})}
+			</Slider>
+		</div>
 					{/*<div className="show-more flex items-center justify-center md:mt-[16px] cursor-pointer">*/}
 					{/*	<Pagination*/}
 					{/*		page={page}*/}

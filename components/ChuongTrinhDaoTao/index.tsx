@@ -130,6 +130,19 @@ const ChuongTrinhDaoTao = (props: { dataHome: IDataHome }) => {
                 </Button>
               </div>
             )}
+            {props.dataHome?.htqt_thong_bao_hoc_bongs?.data?.length > 0 && (
+            <div className="lg:hidden flex justify-center md:mt-[40px] mt-[20px]">
+              <Button
+                type={"primary"}
+                classname="lg:w-[279px]"
+                onClick={() => {
+                  router.push(`/thong-bao-hoc-bong`);
+                }}
+              >
+                Xem thêm
+              </Button>
+            </div>
+              )}
           </div>
         </div>
       </ChuongTrinhDaoTaoWrapper>

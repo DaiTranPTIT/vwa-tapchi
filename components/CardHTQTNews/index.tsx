@@ -26,7 +26,7 @@ const CardHTQTNews = (props: IPorps) => {
           <div>
             <img
               className={
-                "image-card wow fadeInUp md:h-[321px] h-full w-full object-cover"
+                "image-card wow fadeInUp md:h-[321px] h-[200px] w-full object-cover"
               }
               src={props.data.imageUrl}
               onError={({ currentTarget }) => {

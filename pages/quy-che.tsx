@@ -128,6 +128,7 @@ const QuyChe = () => {
     {
       title: "Trích yếu nội dung",
       dataIndex: "attributes",
+      align:"center",
       width: 300,
       render: (val: any) => {
         return (

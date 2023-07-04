@@ -104,7 +104,7 @@ const ChiTiet = () => {
                 path: "/",
               },
               {
-                title: "Thông báo học bổng chi tiết",
+                title: "Thông báo học bổng ",
                 path: "/#",
               },
             ]}

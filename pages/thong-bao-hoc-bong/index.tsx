@@ -110,7 +110,7 @@ const ThongBaoHocBong = () => {
           <Title title={"THÔNG BÁO HỌC BỔNG"} titleTop="học bổng" uppercase={true} />
           <div className="mb-[40px]">
             <div className="lg:flex  grid sm:grid-cols-2 grid-cols-1 lg:gap-[30px] sm:gap-[16px] justify-end">
-              <div className="dropdown lg:mr-[24px] mb-[16px] md:mb-0 ">
+              <div className="dropdown  mb-[16px] md:mb-0 ">
                 <Controller
                   name={"type"}
                   control={control}
@@ -219,7 +219,7 @@ const DonViNghienCuuWrapper = styled.div`
   .search {
     input {
       height: 100%;
-      padding-left: 12px;
+      padding-left: 20px;
       background: #f1f3f5;
       border-radius: 4px 0 0 4px;
 

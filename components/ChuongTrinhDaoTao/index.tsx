@@ -32,7 +32,7 @@ const ChuongTrinhDaoTao = (props: { dataHome: IDataHome }) => {
           slidesToShow: 2,
           slidesToScroll: 1,
           infinite: true,
-          dots: true,
+          dots: false,
         },
       },
       {

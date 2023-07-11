@@ -169,7 +169,7 @@ const QuyChe = () => {
       width: "200px",
       render: (val: any) => {
         return (
-          <div className="w-full overflow-hidden break-words ">
+          <div className="w-[200px] overflow-hidden break-words ">
             <a
               className="block link-download underline"
               href={renderImage(val?.taiLieuDinhKem?.data?.attributes?.url)}

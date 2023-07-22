@@ -52,72 +52,87 @@ const ChuongTrinhDaoTao = (props: { dataHome: IDataHome }) => {
     ],
   };
   useEffect(() => {}, []);
-  if (props?.dataHome?.htqt_thong_bao_hoc_bongs?.data?.length>0){
+  if (
+    props?.dataHome?.thongBaoHocBong?.htqt_thong_bao_hoc_bongs?.data?.length > 0
+  ) {
     return (
       <ChuongTrinhDaoTaoWrapper>
         <div className="bg-[#FFFFFF] py-[50px] px-[20px] lg:px-0">
           <div className="container mx-auto ">
-            <Title title={"Thông báo học bổng"} titleTop={"HỌC BỔNG"} uppercase={true} />
+            <Title
+              title={
+                props?.dataHome?.thongBaoHocBong?.title ?? "Thông báo học bổng"
+              }
+              titleTop={
+                props?.dataHome?.thongBaoHocBong?.titleTop ?? "HỌC BỔNG"
+              }
+              uppercase={true}
+            />
             <div className="hidden lg:grid grid-cols-3 gap-[30px]">
-              {props.dataHome?.htqt_thong_bao_hoc_bongs?.data?.map((val, i) => {
-                if (i < 6) {
-                  return (
-                    <div
-                      className="cursor-pointer"
-                      key={i}
-                      // onClick={() => {
-                      //   router.push(`/hoat-dong/${val?.id}`);
-                      // }}
-                    >
-                      <CardHTQT
-                        data={{
-                          imageUrl: renderImage(
-                            val?.attributes?.hinhAnh?.data?.attributes?.url
-                          ),
-                          title:val?.attributes?.tieuDe,
-                          description: val?.attributes?.moTa ?? "",
-                          dateTime: val?.attributes?.createdAt,
-                          link: `/thong-bao-hoc-bong/${val?.id}`,
-                        }}
-                        isShadow={true}
-                        isShowMore={true}
-                      />
-                    </div>
-                  );
-                } else {
-                  return null;
+              {props.dataHome?.thongBaoHocBong?.htqt_thong_bao_hoc_bongs?.data?.map(
+                (val, i) => {
+                  if (i < 6) {
+                    return (
+                      <div
+                        className="cursor-pointer"
+                        key={i}
+                        // onClick={() => {
+                        //   router.push(`/hoat-dong/${val?.id}`);
+                        // }}
+                      >
+                        <CardHTQT
+                          data={{
+                            imageUrl: renderImage(
+                              val?.attributes?.hinhAnh?.data?.attributes?.url
+                            ),
+                            title: val?.attributes?.tieuDe,
+                            description: val?.attributes?.moTa ?? "",
+                            dateTime: val?.attributes?.createdAt,
+                            link: `/thong-bao-hoc-bong/${val?.id}`,
+                          }}
+                          isShadow={true}
+                          isShowMore={true}
+                        />
+                      </div>
+                    );
+                  } else {
+                    return null;
+                  }
                 }
-              })}
+              )}
             </div>
             <div className="lg:hidden grid grid-cols-1 gap-[30px]">
               <Slider {...settings}>
-              {props.dataHome?.htqt_thong_bao_hoc_bongs?.data?.map((val, i) => {
-                return (
-                  <div
-                    className="cursor-pointer pr-[16px]"
-                    key={i}
-                    onClick={() => {
-                      router.push(`/hoat-dong/${val?.id}`);
-                    }}
-                  >
-                    <CardHTQT
-                      isShowMore={true}
-                      data={{
-                        imageUrl: renderImage(
-                          val?.attributes?.hinhAnh?.data?.attributes?.url
-                        ),
-                        title:val?.attributes?.tieuDe,
-                        description: val?.attributes?.moTa ?? "",
-                        dateTime: val?.attributes?.createdAt,
-                        link: `/thong-bao-hoc-bong/${val?.id}`,
-                      }}
-                    />
-                  </div>
-                );
-              })}
+                {props.dataHome?.thongBaoHocBong?.htqt_thong_bao_hoc_bongs?.data?.map(
+                  (val, i) => {
+                    return (
+                      <div
+                        className="cursor-pointer pr-[16px]"
+                        key={i}
+                        onClick={() => {
+                          router.push(`/hoat-dong/${val?.id}`);
+                        }}
+                      >
+                        <CardHTQT
+                          isShowMore={true}
+                          data={{
+                            imageUrl: renderImage(
+                              val?.attributes?.hinhAnh?.data?.attributes?.url
+                            ),
+                            title: val?.attributes?.tieuDe,
+                            description: val?.attributes?.moTa ?? "",
+                            dateTime: val?.attributes?.createdAt,
+                            link: `/thong-bao-hoc-bong/${val?.id}`,
+                          }}
+                        />
+                      </div>
+                    );
+                  }
+                )}
               </Slider>
             </div>
-            {props.dataHome?.htqt_thong_bao_hoc_bongs?.data?.length > 6 && (
+            {props.dataHome?.thongBaoHocBong?.htqt_thong_bao_hoc_bongs?.data
+              ?.length > 6 && (
               <div className="hidden lg:flex justify-center md:mt-[40px] mt-[20px]">
                 <Button
                   type={"primary"}
@@ -130,39 +145,43 @@ const ChuongTrinhDaoTao = (props: { dataHome: IDataHome }) => {
                 </Button>
               </div>
             )}
-            {props.dataHome?.htqt_thong_bao_hoc_bongs?.data?.length > 0 && (
-            <div className="lg:hidden flex justify-center md:mt-[40px] mt-[20px]">
-              <Button
-                type={"primary"}
-                classname="lg:w-[279px]"
-                onClick={() => {
-                  router.push(`/thong-bao-hoc-bong`);
-                }}
-              >
-                Xem thêm
-              </Button>
-            </div>
-              )}
+            {props.dataHome?.thongBaoHocBong?.htqt_thong_bao_hoc_bongs?.data
+              ?.length > 0 && (
+              <div className="lg:hidden flex justify-center md:mt-[40px] mt-[20px]">
+                <Button
+                  type={"primary"}
+                  classname="lg:w-[279px]"
+                  onClick={() => {
+                    router.push(`/thong-bao-hoc-bong`);
+                  }}
+                >
+                  Xem thêm
+                </Button>
+              </div>
+            )}
           </div>
         </div>
       </ChuongTrinhDaoTaoWrapper>
     );
-  }else {
+  } else {
     return (
       <ChuongTrinhDaoTaoWrapper>
-        <div className='container mx-auto md:py-[50px] py-[20px]'>
+        <div className="container mx-auto md:py-[50px] py-[20px]">
           <div>
             <Title title={"HOẠT ĐỘNG KH, CN & ĐMST"} uppercase={true} />
           </div>
           <div className="w-full h-full justify-center items-center flex flex-col">
-            <img className="mb-[16px]" src="/images/default/no_data.png" alt="image"/>
+            <img
+              className="mb-[16px]"
+              src="/images/default/no_data.png"
+              alt="image"
+            />
             <p className="text-secondary text-sm">Không có dữ liệu</p>
           </div>
         </div>
       </ChuongTrinhDaoTaoWrapper>
-    )
+    );
   }
-
 };
 
 const ChuongTrinhDaoTaoWrapper = styled.div``;

@@ -57,20 +57,20 @@ const TinTuyenSinh = (props: { dataHome: IDataHome }) => {
   const handleRedirect = (id: string) => {
     router.push(`/tin-tuc/${id}`);
   };
-  if (props.dataHome?.htqt_tin_tuc_su_kiens?.data?.length > 0) {
+  if (props.dataHome?.tinTuc?.htqt_tin_tuc_su_kiens?.data?.length > 0) {
     return (
       <TinTuyenSinhWrapper className="bg-[#1421410A] px-[20px] lg:px-0 md:py-[50px] py-[20px] ">
         <div className="container mx-auto">
           <div>
             <Title
-              title={"Tin tức - sự kiện"}
-              titleTop={"TỪ TIN TỨC CỦA CHÚNG TÔI"}
+              title={props?.dataHome?.tinTuc?.title??"Tin tức - sự kiện"}
+              titleTop={props?.dataHome?.tinTuc?.titleTop??'TỪ TIN TỨC CỦA CHÚNG TÔI'}
               uppercase={true}
               description={""}
             />
           </div>
           <div className="lg:grid lg:grid-cols-3 gap-[30px] hidden mt-[30px]">
-            {/*{props.dataHome?.htqt_tin_tuc_su_kiens?.data?.map((value, i) => {*/}
+            {/*{props.dataHome?.tinTuc?.htqt_tin_tuc_su_kiens?.data?.map((value, i) => {*/}
             {/*	if (i < 6) {*/}
             {/*		if (i === 0 || i === 5) {*/}
             {/*			return (*/}
@@ -105,7 +105,7 @@ const TinTuyenSinh = (props: { dataHome: IDataHome }) => {
             {/*		}*/}
             {/*	}*/}
             {/*})}*/}
-            {props.dataHome?.htqt_tin_tuc_su_kiens?.data?.map((val, i) => {
+            {props.dataHome?.tinTuc?.htqt_tin_tuc_su_kiens?.data?.map((val, i) => {
               if (i < 3) {
                 return (
                   <CardHTQT
@@ -129,7 +129,7 @@ const TinTuyenSinh = (props: { dataHome: IDataHome }) => {
           </div>
           <div className="lg:hidden block mt-[20px]">
             <Slider {...settings}>
-              {props.dataHome?.htqt_tin_tuc_su_kiens?.data?.map((value, i) => {
+              {props.dataHome?.tinTuc?.htqt_tin_tuc_su_kiens?.data?.map((value, i) => {
                 return (
                   <div className="pr-[16px]">
                     <CardHTQT
@@ -152,7 +152,7 @@ const TinTuyenSinh = (props: { dataHome: IDataHome }) => {
               })}
             </Slider>
           </div>
-          {props.dataHome?.htqt_tin_tuc_su_kiens?.data?.length > 3 && (
+          {props.dataHome?.tinTuc?.htqt_tin_tuc_su_kiens?.data?.length > 3 && (
             <div className="flex justify-center sm:mt-[40px] mt-[20px]">
               <Button
                 type={"primary"}

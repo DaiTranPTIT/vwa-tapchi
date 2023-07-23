@@ -387,7 +387,7 @@ const Header = (props: IProps) => {
                               </>
                             }
                             style={"light"}
-                            placement="bottom"
+                            placement="bottom-start"
                           >
                             {value?.ten}
                           </Tooltip>
@@ -748,6 +748,7 @@ const HeaderWrapper = styled.div`
     .tooltip-label {
       border-radius: 0px !important;
       padding: 20px 24px !important;
+      margin-left: -24.906px
     }
   }
   .search {

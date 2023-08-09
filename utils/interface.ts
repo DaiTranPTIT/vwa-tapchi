@@ -410,6 +410,7 @@ export interface IDataHome {
   "createdAt": "2023-06-15T09:40:17.190Z",
   "updatedAt": "2023-07-22T16:20:58.539Z",
   "publishedAt": "2023-06-15T09:40:20.269Z",
+  "tieuDeButton": "2023-06-15T09:40:20.269Z",
   "duongDanVideo": "https://www.youtube.com/embed/XZTaNCfhyzY",
   "title2": "Một trong những trường đại học hàng đầu Việt Nam với các chuyên ngành mũi nhọn về chuyển đổi số và đại học số.\nLà trường đại học thành viên duy nhất của Bộ Thông tin và Truyền thông Việt Nam.\n",
   "banner": [

@@ -230,8 +230,8 @@ const Tintuc = () => {
           <div className="hidden lg:block mt-[30px]">
             <div className="event">
               <SapToi type={"event"} conditionSearch={condition} />
-              <DaDienRa type={"event"} conditionSearch={condition} />
               <DangDienRa type={"event"} conditionSearch={condition} />
+              <DaDienRa type={"event"} conditionSearch={condition} />
             </div>
           </div>
         </div>

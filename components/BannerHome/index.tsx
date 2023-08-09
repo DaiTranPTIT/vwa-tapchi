@@ -121,7 +121,7 @@ const BannerHome = (props: { dataHome: IDataHome }) => {
                         router.push("/tin-tuc");
                       }}
                     >
-                      Xem thêm
+                      {props?.dataHome?.tieuDeButton}
                     </Button>
                   </div>
                 </div>

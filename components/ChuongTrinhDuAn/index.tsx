@@ -145,7 +145,7 @@ const ChuongTrinhDuAn = (props: { dataHome: IDataHome }) => {
                     router.push(`/chuong-trinh-du-an`);
                   }}
                 >
-                  Xem thêm
+                  {props?.dataHome?.tieuDeButton}
                 </Button>
               </div>
             )}

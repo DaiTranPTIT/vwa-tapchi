@@ -155,7 +155,7 @@ const ChuongTrinhDaoTao = (props: { dataHome: IDataHome }) => {
                     router.push(`/thong-bao-hoc-bong`);
                   }}
                 >
-                  Xem thêm
+                  {props?.dataHome?.tieuDeButton}
                 </Button>
               </div>
             )}

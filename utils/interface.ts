@@ -204,6 +204,29 @@ export interface MainMenu {
   ];
 }
 export interface DataConfig {}
+export interface DataConfigLang {
+  "xemThem": "Xem thêm",
+  "timKiem": "Tìm kiếm",
+  "createdAt": "2023-08-15T01:54:53.012Z",
+  "updatedAt": "2023-08-15T07:53:48.638Z",
+  "publishedAt": "2023-08-15T07:53:48.637Z",
+  "locale": "vi-VN",
+  "localizations": {
+    "data": [
+      {
+        "id": 2,
+        "attributes": {
+          "xemThem": "See more",
+          "timKiem": "Search",
+          "createdAt": "2023-08-15T01:55:07.897Z",
+          "updatedAt": "2023-08-15T07:50:26.489Z",
+          "publishedAt": "2023-08-15T07:50:26.487Z",
+          "locale": "en"
+        }
+      }
+    ]
+  }
+}
 export interface DataThongTin {
   "ten": "HỢP TÁC QUỐC TẾ",
   "createdAt": "2023-06-15T09:11:47.227Z",

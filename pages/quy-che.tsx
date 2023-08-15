@@ -27,7 +27,7 @@ const QuyChe = () => {
   const [condition, setCondition] = useState<any>();
   const contentRef = useRef<HTMLDivElement>(null);
   let timmer: NodeJS.Timeout | undefined;
-  const {langCode}=useContext(AuthContext)
+  const {langCode,dataConfigLang}=useContext(AuthContext)
   const [type, setType] = useState<string>();
   const {
     register,
@@ -258,7 +258,7 @@ const QuyChe = () => {
                   <div className="relative w-full">
                     <input
                       className="w-full"
-                      placeholder={"Tìm kiếm"}
+                      placeholder={dataConfigLang?.timKiem}
                       {...register("keyword", {})}
                     />
                     {/*<div className='icon absolute top-[9.5px] left-[14.5px]'>*/}

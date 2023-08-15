@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { da } from "date-fns/locale";
-import React from "react";
+import React, { useContext } from "react";
 import Link from "next/link";
+import { AuthContext } from "../../context/AuthContext";
 interface IProps {
   data: {
     no: string;
@@ -12,6 +13,7 @@ interface IProps {
 }
 const CardNghienCuu = (props: IProps) => {
   const { data } = props;
+  const {dataConfigLang}=useContext(AuthContext)
   return (
     <CardNghienCuuWrapper>
       <Link href={data?.link ?? "#"}>
@@ -25,7 +27,7 @@ const CardNghienCuu = (props: IProps) => {
               <div className="content mb-[18px]">{data.content}</div>
               <div>
                 <div className="show-more flex items-center cursor-pointer">
-                  <div className="mr-[24px] shrink-0">Xem thêm</div>
+                  <div className="mr-[24px] shrink-0">{dataConfigLang?.xemThem}</div>
                   <img src="./images/icons/arrow-right-2.svg" alt="image" />
                 </div>
               </div>

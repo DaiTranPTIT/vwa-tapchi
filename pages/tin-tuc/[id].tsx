@@ -29,6 +29,7 @@ const ChiTiet = () => {
   // 	formState: { errors },
   // } = useForm();
   const [dataChiTiet, setDataChiTiet] = useState<IDataChiTiet>();
+  const {dataConfigLang}=useContext(AuthContext)
   const [dataDaDienRa, setDataDaDienRa] = useState<DataNewListV2[]>([]);
   const [sendSuccess, setSendSuccess] = useState<boolean>(false);
   const [content, setContent] = useState<any>(null);
@@ -220,7 +221,7 @@ const ChiTiet = () => {
                 router.push("/tin-tuc");
               }}
             >
-              <div className="hidden lg:block mr-[24px] shrink-0 text-primary">Xem thêm</div>
+              <div className="hidden lg:block mr-[24px] shrink-0 text-primary">{dataConfigLang?.xemThem}</div>
               <img src="/images/icons/arrow-right-2.svg" alt="image" />
             </div>
           </div>

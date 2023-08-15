@@ -31,7 +31,7 @@ const Tintuc = () => {
   const [type, setType] = useState<"news" | "event">("news");
   const [dataNew, setDataNew] = useState<DataNewListV2[]>([]);
   const [condition, setCondition] = useState<any>();
-  const { langCode } = useContext(AuthContext);
+  const { langCode,dataConfigLang } = useContext(AuthContext);
   const {
     register,
     handleSubmit,
@@ -156,7 +156,7 @@ const Tintuc = () => {
                             placeholder={
                               router?.query?.keyword
                                 ? (router?.query?.keyword as string)
-                                : "Tìm kiếm"
+                                : dataConfigLang?.timKiem
                             }
                             {...register("keyword")}
                           />
@@ -252,7 +252,7 @@ const Tintuc = () => {
                         placeholder={
                           router?.query?.keyword
                             ? (router?.query?.keyword as string)
-                            : "Tìm kiếm"
+                            : dataConfigLang?.timKiem
                         }
                         {...register("keyword")}
                       />

@@ -16,7 +16,7 @@ const About = () => {
   const router = useRouter();
   const [dataGioiThieu, setDataGioiThieu] = useState<GioiThieuBanner>();
 
-  const { dataThongTin, langCode } = useContext(AuthContext);
+  const { dataThongTin, langCode,dataConfigLang } = useContext(AuthContext);
   const getData = async (typeStr: string) => {
     try {
       const res = await axios.get(
@@ -47,14 +47,14 @@ const About = () => {
               />
             </div>
             <div className="hidden lg:block title-1 mb-[12px] uppercase">
-              Giới thiệu
+              {dataGioiThieu?.tieuDe}
             </div>
-            <div className="hidden lg:block title-2 lg:mb-[40px] mn-[16px]">
-              GIỚI THIỆU <br /> HOẠT ĐỘNG HỢP TÁC QUỐC TẾ
+            <div className="title-mo-ta hidden lg:block title-2 lg:mb-[40px] mn-[16px]">
+              {dataGioiThieu?.moTa}
             </div>
             <div className="lg:hidden block">
               <div className="  content-banner-2 wow fadeInUp mb-[16px]">
-                {dataGioiThieu?.moTa}
+                {dataGioiThieu?.noiDung}
               </div>
             </div>
             <div className="flex justify-center lg:block">
@@ -65,13 +65,16 @@ const About = () => {
                   router.push("/gioi-thieu?type=GT");
                 }}
               >
-                Xem thêm
+                {dataConfigLang?.xemThem}
               </Button>
             </div>
           </div>
           <div className="hidden lg:block">
             <div className=" content-banner-2 wow fadeInUp">
-              {dataGioiThieu?.moTa}
+              <div dangerouslySetInnerHTML={{__html:dataGioiThieu?.noiDung??''}}>
+
+              </div>
+              {/*{dataGioiThieu?.noiDung}*/}
             </div>
           </div>
         </div>
@@ -113,6 +116,13 @@ const AboutWrapper = styled.div`
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: 8;
+    -webkit-box-orient: vertical;
+  }
+  .title-mo-ta{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
   }
 `;

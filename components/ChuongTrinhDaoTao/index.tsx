@@ -5,7 +5,7 @@ import CardBanner from "../CardBanner";
 import CardEvent from "../Event/components/CardEvent";
 import Button from "../Button";
 import Card from "../Card";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { IDataHome } from "../../utils/interface";
 import axios from "axios";
 import { ip, ip3 } from "../../api/ip";
@@ -15,7 +15,9 @@ import { ro } from "date-fns/locale";
 import CardHTQT from "../CardHTQT";
 // @ts-ignore
 import Slider from "react-slick";
+import { AuthContext } from "../../context/AuthContext";
 const ChuongTrinhDaoTao = (props: { dataHome: IDataHome }) => {
+  const {dataConfigLang}=useContext(AuthContext)
   const router = useRouter();
   const settings = {
     dots: false,
@@ -141,7 +143,7 @@ const ChuongTrinhDaoTao = (props: { dataHome: IDataHome }) => {
                     router.push(`/thong-bao-hoc-bong`);
                   }}
                 >
-                  Xem thêm
+                 {dataConfigLang?.xemThem}
                 </Button>
               </div>
             )}

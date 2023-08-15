@@ -28,7 +28,7 @@ const ThongBaoHocBong = () => {
   const [dataGioiThieu, setDataGioiThieu] = useState<DataDonVi[]>([]);
   const router = useRouter();
   const [condition, setCondition] = useState<any>();
-  const { langCode } = useContext(AuthContext);
+  const { langCode,dataConfigLang } = useContext(AuthContext);
   const contentRef = useRef<HTMLDivElement>(null);
   let timmer: NodeJS.Timeout | undefined;
   const [type, setType] = useState<string>();
@@ -150,7 +150,7 @@ const ThongBaoHocBong = () => {
                     <div className="relative w-full">
                       <input
                         className="w-full"
-                        placeholder={"Tìm kiếm"}
+                        placeholder={dataConfigLang?.timKiem}
                         {...register("keyword", {})}
                       />
                       {/*<div className='icon absolute top-[9.5px] left-[14.5px]'>*/}

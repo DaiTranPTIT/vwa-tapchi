@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import moment from "moment";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 interface IProps {
 	imageUrl: string;
 	title: string;
@@ -8,6 +10,7 @@ interface IProps {
 	type?: "big" | "small" | "list";
 }
 const CardBanner = (props: IProps) => {
+	const {dataConfigLang}=useContext(AuthContext)
 	if (props.type === "big") {
 		return (
 			<CardBigBannerWrapper className='hover:shadow-xl cursor-pointer bg-[#1421410A] min-h-[277px]'>
@@ -33,7 +36,7 @@ const CardBanner = (props: IProps) => {
 						{/*<div className='border-t-4 border-primary w-[64px] mb-[12px]'></div>*/}
 						{props.description && <div className='title-card-2'>{props.description}</div>}
 						<button className='show-more mt-[12px]'>
-							<div className={"mr-2"}>Xem thêm</div>
+							<div className={"mr-2"}>{dataConfigLang?.xemThem}</div>
 							<svg width='15' height='14' viewBox='0 0 15 14' fill='currentColor' xmlns='http://www.w3.org/2000/svg'>
 								<path
 									d='M0 7H13M13 7L7.7381 1.5M13 7L7.7381 12.5'

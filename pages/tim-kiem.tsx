@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import BreadcrumbPage from "../components/Breadcrumb";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
@@ -11,7 +11,9 @@ import axios from "axios";
 import { ip, ip3 } from "../api/ip";
 import moment from "moment";
 import { renderImage } from "../utils/util";
+import { AuthContext } from "../context/AuthContext";
 const TimKiem = () => {
+	const {dataConfigLang}=useContext(AuthContext)
 	const [startDate, setStartDate] = useState(new Date());
 	const [common] = useTranslation("common");
 	const router = useRouter();
@@ -199,7 +201,7 @@ const TimKiem = () => {
 											<div className='relative w-full'>
 												<input
 													className='w-full'
-													placeholder={router?.query?.keyword ? (router?.query?.keyword as string) : "Tìm kiếm"}
+													placeholder={router?.query?.keyword ? (router?.query?.keyword as string) : dataConfigLang?.timKiem}
 													{...register("keyword")}
 												/>
 												<div className='icon absolute top-[12.5px] left-[14.5px]'>

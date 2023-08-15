@@ -9,7 +9,7 @@ import { USER_ROLE } from "../utils/constant";
 import { getRequest } from "../api";
 import { Auth } from "../api/auth/type";
 import {
-  DataConfig,
+  DataConfig, DataConfigLang,
   DataMenu,
   DataThongTin,
   MainMenu,
@@ -41,6 +41,8 @@ const defaultValue: Auth.AuthContextType = {
   setDataMenu: () => null,
   menu: [],
   dataConfig: [],
+  dataConfigLang: {} as DataConfigLang,
+  setDataConfigLang: () => null,
 };
 export const AuthContext = createContext<Auth.AuthContextType>(defaultValue);
 
@@ -49,6 +51,7 @@ export const AuthProvider = (props: { children: React.ReactNode }) => {
   const [langCode, setLangCode] = useState<string>(i18n.language);
   const [menu, setMenu] = useState<MainMenu[]>([]);
   const [dataConfig, setDataConfig] = useState<DataConfig[]>([]);
+  const [dataConfigLang, setDataConfigLang] = useState<DataConfigLang>({} as DataConfigLang);
   const [userLoading, setUserLoading] = useState(true);
   const [showAuthModal, setShowAuthModal] = useState("");
   const [allBookmark, setAllBookmark] = useState<string[]>([]);
@@ -204,6 +207,7 @@ export const AuthProvider = (props: { children: React.ReactNode }) => {
         setDataThongTin,
         dataMenu,
         setDataMenu,
+        setDataConfigLang,dataConfigLang
       }}
     >
       {props.children}

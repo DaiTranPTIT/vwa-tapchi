@@ -1,13 +1,14 @@
 import styled from "styled-components";
 // @ts-ignore
 import Slider from "react-slick";
-import {useEffect, useRef, useState} from "react";
+import {useContext, useEffect, useRef, useState} from "react";
 import { useTranslation } from "react-i18next";
 import Title from "../Title";
 import Button from "../Button";
 import CardBanner from "../CardBanner";
 import {renderImage} from "../../utils/util";
 import {useRouter} from "next/router";
+import { AuthContext } from "../../context/AuthContext";
 
 interface IProps{
 	type:string
@@ -17,6 +18,7 @@ interface IProps{
 const Event = () => {
 	const router=useRouter()
 	const [common] = useTranslation("common");
+	const {dataConfigLang}=useContext(AuthContext)
 	const SliderRef = useRef(null);
 	const settings = {
 		dots: true,
@@ -95,7 +97,7 @@ const Event = () => {
 					<div className='flex justify-center md:mt-[70px] mt-[20px] '>
 						<Button type={"default"} onClick={()=>{
 
-						}}>Xem thêm</Button>
+						}}>{dataConfigLang?.xemThem}</Button>
 					</div>
 				</div>
 			</EventWrapper>

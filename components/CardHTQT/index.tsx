@@ -1,6 +1,8 @@
 import Link from "next/link";
 import styled, { CSSProperties } from "styled-components";
 import moment from "moment";
+import {useContext} from "react";
+import {AuthContext} from "../../context/AuthContext";
 interface IPorps {
   data: {
     title: string;
@@ -23,6 +25,7 @@ interface IPorps {
 }
 const CardHTQT = (props: IPorps) => {
   const { data,isShowTime,isRedirect,isShadow,isRedTime,isShowMore,isArrow2,isCenterTitle } = props;
+  const {dataConfigLang}=useContext(AuthContext)
   return (
     <CardHTQTWrapper className={`bg-white ${isShadow?'shadow':''}`}>
       <Link href={data.link ? data.link : "#"} target={isRedirect?'_blank':'_parent'} className="h-full">
@@ -41,7 +44,7 @@ const CardHTQT = (props: IPorps) => {
             {data?.description&& <div className="description mb-[16px] min-h-[72px]">{data?.description}</div>}
             {isShowMore&&
                 <div className="show-more flex">
-                    <div className={"mr-2"}>Xem thêm</div>
+                    <div className={"mr-2"}>{dataConfigLang?.xemThem}</div>
                   {isArrow2?<svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M1.5 0.663574L5.5 5.16357L1.5 9.66357" stroke="#DE221A" stroke-width="1.7"/>
                       <path d="M7.5 0.663574L11.5 5.16357L7.5 9.66357" stroke="#DE221A" stroke-width="1.7"/>

@@ -17,7 +17,7 @@ import CardHTQT from "../CardHTQT";
 import Slider from "react-slick";
 import { AuthContext } from "../../context/AuthContext";
 const ChuongTrinhDaoTao = (props: { dataHome: IDataHome }) => {
-  const {dataConfigLang}=useContext(AuthContext)
+  const { dataConfigLang } = useContext(AuthContext);
   const router = useRouter();
   const settings = {
     dots: false,
@@ -143,7 +143,7 @@ const ChuongTrinhDaoTao = (props: { dataHome: IDataHome }) => {
                     router.push(`/thong-bao-hoc-bong`);
                   }}
                 >
-                 {dataConfigLang?.xemThem}
+                  {dataConfigLang?.xemThem}
                 </Button>
               </div>
             )}
@@ -170,7 +170,15 @@ const ChuongTrinhDaoTao = (props: { dataHome: IDataHome }) => {
       <ChuongTrinhDaoTaoWrapper>
         <div className="container mx-auto md:py-[50px] py-[20px]">
           <div>
-            <Title title={"HOẠT ĐỘNG KH, CN & ĐMST"} uppercase={true} />
+            <Title
+              title={
+                props?.dataHome?.thongBaoHocBong?.title ?? "Thông báo học bổng"
+              }
+              titleTop={
+                props?.dataHome?.thongBaoHocBong?.titleTop ?? "HỌC BỔNG"
+              }
+              uppercase={true}
+            />
           </div>
           <div className="w-full h-full justify-center items-center flex flex-col">
             <img

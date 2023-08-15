@@ -158,7 +158,16 @@ const ChuongTrinhDuAn = (props: { dataHome: IDataHome }) => {
       <ChuongTrinhDaoTaoWrapper>
         <div className="container mx-auto md:py-[50px] py-[20px]">
           <div>
-            <Title title={"HOẠT ĐỘNG KH, CN & ĐMST"} uppercase={true} />
+            <Title
+              title={
+                props?.dataHome?.chuongTrinhDuAn?.title ?? "Chương trình dự án"
+              }
+              titleTop={
+                props?.dataHome?.chuongTrinhDuAn?.titleTop ??
+                "HOẠT ĐỘNG HỢP TÁC"
+              }
+              uppercase={true}
+            />
           </div>
           <div className="w-full h-full justify-center items-center flex flex-col">
             <img

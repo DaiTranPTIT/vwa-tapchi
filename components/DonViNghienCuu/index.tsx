@@ -135,7 +135,13 @@ const DonViNghienCuu = (props: { dataHome: IDataHome }) => {
       <DonViWrapper>
         <div className="container mx-auto md:py-[50px] py-[20px]">
           <div>
-            <Title title={"Mạng lưới đối tác"} uppercase={true} />
+            <Title
+              title={
+                props?.dataHome?.mangLuoiDoiTac?.title ?? "Mạng lưới đối tác"
+              }
+              titleTop={props?.dataHome?.mangLuoiDoiTac?.titleTop ?? "ĐỐI TÁC"}
+              uppercase={true}
+            />
           </div>
           <div className="w-full h-full justify-center items-center flex flex-col">
             <img

@@ -7,16 +7,18 @@ import Button from "../Button";
 import { da, el, tr } from "date-fns/locale";
 import axios from "axios";
 import { ip } from "../../api/ip";
-import { useEffect, useState } from "react";
+import { Key, useEffect, useState } from "react";
 import { IDataHome } from "../../utils/interface";
 import { useRouter } from "next/router";
 import { renderImage } from "../../utils/util";
 import CardHTQT from "../CardHTQT";
+
 interface IProps {
   type: string;
   name: string;
   description: any;
 }
+
 const TinTuyenSinh = (props: { dataHome: IDataHome }) => {
   const router = useRouter();
 
@@ -57,14 +59,17 @@ const TinTuyenSinh = (props: { dataHome: IDataHome }) => {
   const handleRedirect = (id: string) => {
     router.push(`/tin-tuc/${id}`);
   };
+  console.log("props?.dataHome?.tinTuc", props?.dataHome?.tinTuc);
   if (props.dataHome?.tinTuc?.htqt_tin_tuc_su_kiens?.data?.length > 0) {
     return (
       <TinTuyenSinhWrapper className="bg-[#1421410A] px-[20px] lg:px-0 md:py-[50px] py-[20px] ">
         <div className="container mx-auto">
           <div>
             <Title
-              title={props?.dataHome?.tinTuc?.title??"Tin tức - sự kiện"}
-              titleTop={props?.dataHome?.tinTuc?.titleTop??'TỪ TIN TỨC CỦA CHÚNG TÔI'}
+              title={props?.dataHome?.tinTuc?.title ?? "Tin tức - sự kiện"}
+              titleTop={
+                props?.dataHome?.tinTuc?.titleTop ?? "TỪ TIN TỨC CỦA CHÚNG TÔI"
+              }
               uppercase={true}
               description={""}
             />
@@ -105,51 +110,77 @@ const TinTuyenSinh = (props: { dataHome: IDataHome }) => {
             {/*		}*/}
             {/*	}*/}
             {/*})}*/}
-            {props.dataHome?.tinTuc?.htqt_tin_tuc_su_kiens?.data?.map((val, i) => {
-              if (i < 3) {
-                return (
-                  <CardHTQT
-                    data={{
-                      title: val?.attributes?.tieuDe,
-                      dateTime: val?.attributes?.thoiGianBatDau,
-                      description: val?.attributes?.moTa,
-                      imageUrl: renderImage(
-                        val?.attributes?.hinhAnh?.data?.attributes?.url
-                      ),
-                      link: `/tin-tuc/${val?.id}`,
-                    }}
-                    isShowTime={true}
-                    isArrow2={true}
-                    isShowMore={true}
-                    key={i}
-                  />
-                );
-              }
-            })}
-          </div>
-          <div className="lg:hidden block mt-[20px]">
-            <Slider {...settings}>
-              {props.dataHome?.tinTuc?.htqt_tin_tuc_su_kiens?.data?.map((value, i) => {
-                return (
-                  <div className="pr-[16px]">
+            {props.dataHome?.tinTuc?.htqt_tin_tuc_su_kiens?.data?.map(
+              (
+                val: {
+                  attributes: {
+                    tieuDe: any;
+                    thoiGianBatDau: any;
+                    moTa: any;
+                    hinhAnh: { data: { attributes: { url: string } } };
+                  };
+                  id: any;
+                },
+                i: number
+              ) => {
+                if (i < 3) {
+                  return (
                     <CardHTQT
                       data={{
-                        title: value?.attributes?.tieuDe,
-                        dateTime: value?.attributes?.thoiGianBatDau,
-                        description: value?.attributes?.moTa,
+                        title: val?.attributes?.tieuDe,
+                        dateTime: val?.attributes?.thoiGianBatDau,
+                        description: val?.attributes?.moTa,
                         imageUrl: renderImage(
-                          value?.attributes?.hinhAnh?.data?.attributes?.url
+                          val?.attributes?.hinhAnh?.data?.attributes?.url
                         ),
-                        link: `/tin-tuc/${value?.id}`,
+                        link: `/tin-tuc/${val?.id}`,
                       }}
                       isShowTime={true}
                       isArrow2={true}
                       isShowMore={true}
                       key={i}
                     />
-                  </div>
-                );
-              })}
+                  );
+                }
+              }
+            )}
+          </div>
+          <div className="lg:hidden block mt-[20px]">
+            <Slider {...settings}>
+              {props.dataHome?.tinTuc?.htqt_tin_tuc_su_kiens?.data?.map(
+                (
+                  value: {
+                    attributes: {
+                      tieuDe: any;
+                      thoiGianBatDau: any;
+                      moTa: any;
+                      hinhAnh: { data: { attributes: { url: string } } };
+                    };
+                    id: any;
+                  },
+                  i: Key | null | undefined
+                ) => {
+                  return (
+                    <div className="pr-[16px]">
+                      <CardHTQT
+                        data={{
+                          title: value?.attributes?.tieuDe,
+                          dateTime: value?.attributes?.thoiGianBatDau,
+                          description: value?.attributes?.moTa,
+                          imageUrl: renderImage(
+                            value?.attributes?.hinhAnh?.data?.attributes?.url
+                          ),
+                          link: `/tin-tuc/${value?.id}`,
+                        }}
+                        isShowTime={true}
+                        isArrow2={true}
+                        isShowMore={true}
+                        key={i}
+                      />
+                    </div>
+                  );
+                }
+              )}
             </Slider>
           </div>
           {props.dataHome?.tinTuc?.htqt_tin_tuc_su_kiens?.data?.length > 3 && (
@@ -174,7 +205,10 @@ const TinTuyenSinh = (props: { dataHome: IDataHome }) => {
         <div className="container mx-auto md:py-[50px] py-[20px]">
           <div>
             <Title
-              title={"Tin tức - sự kiện"}
+              title={props?.dataHome?.tinTuc?.title ?? "Tin tức - sự kiện"}
+              titleTop={
+                props?.dataHome?.tinTuc?.titleTop ?? "TỪ TIN TỨC CỦA CHÚNG TÔI"
+              }
               uppercase={true}
               description={""}
             />

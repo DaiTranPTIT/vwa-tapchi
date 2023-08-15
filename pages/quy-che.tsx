@@ -219,8 +219,8 @@ const QuyChe = () => {
     <QuyCheWrapper>
       <div className="container mx-auto lg:mt-[50px] mt-[20px] lg:mb-[50px] mb-[20px] px-[20px] md:px-0">
         <Title
-          title={"CÁC VĂN BẢN QUY ĐỊNH VỀ HOẠT ĐỘNG HỢP TÁC QUỐC TẾ"}
-          titleTop="quy chế, quy định"
+          title={dataConfigLang?.titleQuyChe}
+          titleTop={dataConfigLang?.quyChe}
           uppercase={true}
         />
         <div className="mb-[40px]">
@@ -247,7 +247,7 @@ const QuyChe = () => {
                       }
                     }}
                     value={value}
-                    placeholder={"Văn bản cấp"}
+                    placeholder={dataConfigLang?.vanBanCap}
                   />
                 )}
               />

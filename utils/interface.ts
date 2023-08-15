@@ -214,6 +214,9 @@ export interface DataConfigLang {
   khongCoDuLieu: "Không có dữ liệu";
   truSoChinh: "Trụ sở chính";
   suKienNoiBat: "Trụ sở chính";
+  quyChe: "Trụ sở chính";
+  titleQuyChe: "Trụ sở chính";
+  vanBanCap: "Trụ sở chính";
   batBuoc: "Trụ sở chính";
   coSoDaoTaoHN: "Cơ sở HN";
   coSoDaoTaoHCM: "Cơ sở HCM";

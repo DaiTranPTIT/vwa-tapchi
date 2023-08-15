@@ -19,7 +19,7 @@ const MainFooter = () => {
 	const [common] = useTranslation("common");
 	const router = useRouter();
 	const [dataConfigFooter, setDataConfigFooter] = useState<DataConfig[]>([]);
-	const { menu, setDataConfig } = useAuth();
+	const { menu, setDataConfig,dataConfigLang } = useAuth();
 	const {dataThongTin,dataMenu}=useContext(AuthContext);
 
 	const getDataConfig = (type: string): any => {
@@ -44,19 +44,19 @@ const MainFooter = () => {
 							{/*	);*/}
 							{/*})}*/}
 							<div  className='lg:mb-[32px] mb-[20px]'>
-								<div className='title-footer mb-[8px]'>Trụ sở chính</div>
+								<div className='title-footer mb-[8px]'>{dataConfigLang?.truSoChinh}</div>
 								<div className='content-footer'>{dataThongTin?.truSoChinh}</div>
 							</div>
 							<div  className='lg:mb-[32px] mb-[20px]'>
-								<div className='title-footer mb-[8px]'>Cơ sở đào tạo tại Hà Nội</div>
+								<div className='title-footer mb-[8px]'>{dataConfigLang?.coSoDaoTaoHN}</div>
 								<div className='content-footer'>{dataThongTin?.coSo1}</div>
 							</div>
 							<div  className='lg:mb-[32px] mb-[20px]'>
-								<div className='title-footer mb-[8px]'>Học viện cơ sở tại TP. Hồ Chí Minh</div>
+								<div className='title-footer mb-[8px]'>{dataConfigLang?.truSoHCM}</div>
 								<div className='content-footer'>{dataThongTin?.hocVienCoSo}</div>
 							</div>
 							<div  className='lg:mb-[32px] mb-[20px]'>
-								<div className='title-footer mb-[8px]'>Cơ sở đào tạo tại TP Hồ Chí Minh</div>
+								<div className='title-footer mb-[8px]'>{dataConfigLang?.coSoDaoTaoHCM}</div>
 								<div className='content-footer'>{dataThongTin?.coSo2}</div>
 							</div>
 						</div>

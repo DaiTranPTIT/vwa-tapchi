@@ -73,7 +73,7 @@ const DonViNghienCuu = () => {
       <div className="container mx-auto lg:mt-[50px] mt-[20px] lg:mb-[50px] mb-[20px] px-[20px] lg:px-0">
         {type === ETYPEDONVI.MANG_LUOI_QUOC_TE && (
           <>
-            <Title title={ETYPEDONVI.MANG_LUOI_QUOC_TE} titleTop={"mạng lưới đối tác"} uppercase={true} />
+            <Title title={dataConfigLang?.mangluoiQuocTe} titleTop={dataConfigLang?.mangLuoi} uppercase={true} />
 
             {dataGioiThieu?.length>0?<>
               <div className="grid lg:grid-cols-1 grid-cols-1 gap-[30px]">
@@ -104,7 +104,7 @@ const DonViNghienCuu = () => {
         )}
         {type === ETYPEDONVI.DOI_TAC_HOC_THUAT && (
           <>
-            <Title title={ETYPEDONVI.DOI_TAC_HOC_THUAT} titleTop={"mạng lưới đối tác"} uppercase={true} />
+            <Title title={dataConfigLang?.doiTacHocThuat} titleTop={dataConfigLang?.mangLuoi} uppercase={true} />
 
             {dataGioiThieu?.length>0?<>
               <div className="grid grid-cols-1 gap-[30px]">
@@ -135,7 +135,7 @@ const DonViNghienCuu = () => {
         )}
         {type === ETYPEDONVI.DOI_TAC_DOANH_NGHIEP && (
           <>
-            <Title title={ETYPEDONVI.DOI_TAC_DOANH_NGHIEP} titleTop={"mạng lưới đối tác"} uppercase={true} />
+            <Title title={dataConfigLang?.doiTacDoanhNghiep} titleTop={dataConfigLang?.mangLuoi} uppercase={true} />
 
             {dataGioiThieu?.length>0?<>
               <div className="grid lg:grid-cols-2 grid-cols-1 gap-[30px]">

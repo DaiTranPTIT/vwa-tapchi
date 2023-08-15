@@ -25,7 +25,7 @@ const GioiThieu = () => {
   const contentRef = useRef<HTMLDivElement>(null);
   let timmer: NodeJS.Timeout | undefined;
   const [type, setType] = useState<string>();
-  const { dataThongTin, langCode } = useContext(AuthContext);
+  const { dataThongTin, langCode,dataConfigLang } = useContext(AuthContext);
   const getData = async (typeStr: string) => {
     try {
       const res = await axios.get(
@@ -53,8 +53,8 @@ const GioiThieu = () => {
         {type === "GT" && (
           <>
             <Title
-              titleTop={"Giới thiệu"}
-              title={"GIỚI THIỆU HOẠT ĐỘNG HỢP TÁC QUỐC TẾ"}
+              titleTop={dataConfigLang?.gioiThieu}
+              title={dataConfigLang?.tieuDeGioiThieu}
               uppercase={true}
             />
             {dataGioiThieu?.attributes?.gioiThieu ? (
@@ -75,8 +75,8 @@ const GioiThieu = () => {
         {type === "CN" && (
           <>
             <Title
-              title={"CHỨC NĂNG, NHIỆM VỤ "}
-              titleTop={"Giới thiệu"}
+              title={dataConfigLang?.chucNang}
+              titleTop={dataConfigLang?.gioiThieu}
               uppercase={true}
             />
             {dataGioiThieu?.attributes?.hoatDong ? (
@@ -105,8 +105,8 @@ const GioiThieu = () => {
         {type === "LH" && (
           <div className="lien-he">
             <Title
-              title={"THÔNG TIN LIÊN HỆ"}
-              titleTop={"Giới thiệu"}
+              title={dataConfigLang?.lienHe}
+              titleTop={dataConfigLang?.gioiThieu}
               uppercase={true}
             />
             <div className="sm:flex sm:justify-between sm:items-center block">

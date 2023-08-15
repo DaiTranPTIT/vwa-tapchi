@@ -97,8 +97,8 @@ const ChuongTrinhDuAn = () => {
       <div className="container mx-auto lg:mt-[50px] mt-[20px] lg:mb-[50px] mb-[20px] px-[20px] lg:px-0">
         <>
           <Title
-            title={"CHƯƠNG TRÌNH - DỰ ÁN HỢP TÁC QUỐC TẾ"}
-            titleTop={"chương trình - dự án"}
+            title={dataConfigLang?.tieuDeChuongTrinhDuAn}
+            titleTop={dataConfigLang?.chuongTrinhDuAn}
             uppercase={true}
           />
           <div className="mb-[40px]">
@@ -120,7 +120,7 @@ const ChuongTrinhDuAn = () => {
                       <img src={"/images/icons/search-pri.svg"} alt={"image"} />
                     </button>
                   </div>
-                  {errors.keyword && <p className="error-text">Bắt buộc</p>}
+                  {errors.keyword && <p className="error-text">{dataConfigLang?.batBuoc}</p>}
                 </form>
               </div>
             </div>

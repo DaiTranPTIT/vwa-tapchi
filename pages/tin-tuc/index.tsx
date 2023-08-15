@@ -127,7 +127,7 @@ const Tintuc = () => {
               } cursor-pointer`}
               onClick={() => handleChangeType("news")}
             >
-              Tin mới nhất
+              {dataConfigLang?.tinMoi}
             </div>
             <div
               className={`text-normal px-[24px] py-[8px] ${
@@ -137,14 +137,14 @@ const Tintuc = () => {
               } cursor-pointer`}
               onClick={() => handleChangeType("event")}
             >
-              Sự kiện nổi bật
+              {dataConfigLang?.suKienNoiBat}
             </div>
           </div>
         </div>
         <div className={"hidden lg:block"}>
           <div className="event">
             <div className="hidden title-event lg:mb-[40px] lg:flex justify-between">
-              <h2>Tin mới nhất</h2>
+              <h2>{dataConfigLang?.tinMoi}</h2>
               <div className="mb-[20px] lg:mb-0">
                 <form onSubmit={handleSubmit(onSubmit)}>
                   <div className="">
@@ -170,7 +170,7 @@ const Tintuc = () => {
                           </div>
                         </div>
                       </div>
-                      {errors.keyword && <p className="error-text">Bắt buộc</p>}
+                      {errors.keyword && <p className="error-text">{dataConfigLang?.batBuoc}</p>}
                     </div>
                   </div>
                 </form>
@@ -267,7 +267,7 @@ const Tintuc = () => {
                     </div>
                   </div>
                   {errors.keyword && (
-                    <p className="error-text">Bắt buộc</p>
+                    <p className="error-text">{dataConfigLang?.batBuoc}</p>
                   )}
                 </div>
               </div>

@@ -5,7 +5,7 @@ import CardBanner from "../CardBanner";
 import CardEvent from "../Event/components/CardEvent";
 import Button from "../Button";
 import Card from "../Card";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { IDataHome } from "../../utils/interface";
 import axios from "axios";
 import { ip, ip3 } from "../../api/ip";
@@ -15,7 +15,9 @@ import { ro } from "date-fns/locale";
 import CardHTQT from "../CardHTQT";
 // @ts-ignore
 import Slider from "react-slick";
+import { AuthContext } from "../../context/AuthContext";
 const ChuongTrinhDuAn = (props: { dataHome: IDataHome }) => {
+  const {dataConfigLang} =useContext(AuthContext)
   const router = useRouter();
   const settings = {
     dots: false,
@@ -175,7 +177,7 @@ const ChuongTrinhDuAn = (props: { dataHome: IDataHome }) => {
               src="/images/default/no_data.png"
               alt="image"
             />
-            <p className="text-secondary text-sm">Không có dữ liệu</p>
+            <p className="text-secondary text-sm">{dataConfigLang?.khongCoDuLieu}</p>
           </div>
         </div>
       </ChuongTrinhDaoTaoWrapper>

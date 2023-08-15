@@ -5,14 +5,16 @@ import CardEvent from "../Event/components/CardEvent";
 import { IDataHome } from "../../utils/interface";
 import { renderImage } from "../../utils/util";
 import Pagination from "../pagination";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import CardHTQT from "../CardHTQT";
 // @ts-ignore
 import Slider from "react-slick";
+import { AuthContext } from "../../context/AuthContext";
 const DonViNghienCuu = (props: { dataHome: IDataHome }) => {
   const [page, setPage] = useState<number>(1);
   const [limit, setLimit] = useState<number>(3);
   const [total, setTotal] = useState<number>(0);
+  const { dataConfigLang } = useContext(AuthContext);
   const settings = {
     dots: false,
     infinite: true,
@@ -149,7 +151,7 @@ const DonViNghienCuu = (props: { dataHome: IDataHome }) => {
               src="/images/default/no_data.png"
               alt="image"
             />
-            <p className="text-secondary text-sm">Không có dữ liệu</p>
+            <p className="text-secondary text-sm">{dataConfigLang?.khongCoDuLieu}</p>
           </div>
         </div>
       </DonViWrapper>

@@ -186,7 +186,7 @@ const ChuongTrinhDaoTao = (props: { dataHome: IDataHome }) => {
               src="/images/default/no_data.png"
               alt="image"
             />
-            <p className="text-secondary text-sm">Không có dữ liệu</p>
+            <p className="text-secondary text-sm">{dataConfigLang?.khongCoDuLieu}</p>
           </div>
         </div>
       </ChuongTrinhDaoTaoWrapper>

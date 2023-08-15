@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 const NoData = () => {
+  const { dataConfigLang } = useContext(AuthContext);
   return(
     <>
       <div className="w-full h-full justify-center items-center flex flex-col">
@@ -9,7 +11,7 @@ const NoData = () => {
           src="/images/default/no_data.png"
           alt="image"
         />
-        <p className="text-secondary text-sm">Không có dữ liệu</p>
+        <p className="text-secondary text-sm">{dataConfigLang?.khongCoDuLieu}</p>
       </div>
     </>
   )

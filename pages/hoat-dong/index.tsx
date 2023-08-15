@@ -32,7 +32,7 @@ const HoatDong = () => {
   const contentRef = useRef<HTMLDivElement>(null);
   let timmer: NodeJS.Timeout | undefined;
   const [type, setType] = useState<string>();
-  const { langCode } = useContext(AuthContext);
+  const { langCode,dataConfigLang } = useContext(AuthContext);
   const {
     register,
     handleSubmit,
@@ -285,7 +285,7 @@ const HoatDong = () => {
                     src="/images/default/no_data.png"
                     alt="image"
                   />
-                  <p className="text-secondary text-sm">Không có dữ liệu</p>
+                  <p className="text-secondary text-sm">{dataConfigLang?.khongCoDuLieu}</p>
                 </div>
               </>
             )}
@@ -331,7 +331,7 @@ const HoatDong = () => {
                     src="/images/default/no_data.png"
                     alt="image"
                   />
-                  <p className="text-secondary text-sm">Không có dữ liệu</p>
+                  <p className="text-secondary text-sm">{dataConfigLang?.khongCoDuLieu}</p>
                 </div>
               </>
             )}
@@ -377,7 +377,7 @@ const HoatDong = () => {
                     src="/images/default/no_data.png"
                     alt="image"
                   />
-                  <p className="text-secondary text-sm">Không có dữ liệu</p>
+                  <p className="text-secondary text-sm">{dataConfigLang?.khongCoDuLieu}</p>
                 </div>
               </>
             )}

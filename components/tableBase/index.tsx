@@ -1,6 +1,7 @@
-import { ReactNode } from "react";
+import { ReactNode, useContext } from "react";
 // @ts-ignore
 import styled from "styled-components";
+import { AuthContext } from "../../context/AuthContext";
 
 export interface IColumns {
   title?: string;
@@ -15,6 +16,7 @@ interface IProps {
   align?: "center" | "left" | "right";
 }
 const  TableBase = (props: IProps) => {
+  const { dataConfigLang } = useContext(AuthContext);
   return (
     <TableWrapper>
       <table id="table" className="table-auto">
@@ -80,7 +82,7 @@ const  TableBase = (props: IProps) => {
                         d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5m6 4.125l2.25 2.25m0 0l2.25 2.25M12 13.875l2.25-2.25M12 13.875l-2.25 2.25M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z"
                       />
                     </svg>
-                   <p className="text-secondary text-sm">Không có dữ liệu</p>
+                   <p className="text-secondary text-sm">{dataConfigLang?.khongCoDuLieu}</p>
                   </div>
                 </div>
               </td>

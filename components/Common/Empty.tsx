@@ -1,5 +1,9 @@
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
+
 const Empty = (props: { title?: string }) => {
-	let title = props.title ?? "Không có dữ liệu";
+	const {dataConfigLang}=useContext(AuthContext)
+	let title = props.title ?? dataConfigLang?.khongCoDuLieu;
 
 	return (
 		<div className='empty-content'>

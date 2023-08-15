@@ -112,7 +112,7 @@ const QuyChe = () => {
       render: (val: any) => {
         return val
           ? moment(val?.ngayBanHanh).format("DD/MM/YYYY")
-          : "Không có dữ liệu";
+          : {dataConfigLang?.khongCoDuLieu};
       },
     },
     {
@@ -122,7 +122,7 @@ const QuyChe = () => {
       render: (val: any) => {
         return val
           ? moment(val?.thoiGianHieuLuc).format("DD/MM/YYYY")
-          : "Không có dữ liệu";
+          : {dataConfigLang?.khongCoDuLieu};
       },
     },
     {

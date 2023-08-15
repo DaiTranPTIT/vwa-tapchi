@@ -7,11 +7,12 @@ import Button from "../Button";
 import { da, el, tr } from "date-fns/locale";
 import axios from "axios";
 import { ip } from "../../api/ip";
-import { Key, useEffect, useState } from "react";
+import { Key, useContext, useEffect, useState } from "react";
 import { IDataHome } from "../../utils/interface";
 import { useRouter } from "next/router";
 import { renderImage } from "../../utils/util";
 import CardHTQT from "../CardHTQT";
+import { AuthContext } from "../../context/AuthContext";
 
 interface IProps {
   type: string;
@@ -20,6 +21,7 @@ interface IProps {
 }
 
 const TinTuyenSinh = (props: { dataHome: IDataHome }) => {
+  const { dataConfigLang } = useContext(AuthContext);
   const router = useRouter();
 
   const settings = {
@@ -219,7 +221,7 @@ const TinTuyenSinh = (props: { dataHome: IDataHome }) => {
               src="/images/default/no_data.png"
               alt="image"
             />
-            <p className="text-secondary text-sm">Không có dữ liệu</p>
+            <p className="text-secondary text-sm">{dataConfigLang?.khongCoDuLieu}</p>
           </div>
         </div>
       </TinTuyenSinhWrapper>

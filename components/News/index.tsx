@@ -3,7 +3,7 @@ import Card from "../Card";
 import CardEvent from "../Event/components/CardEvent";
 import {dataTinTuc} from "../../data";
 import MiniCard from "../Event/components/MiniCard";
-import {useEffect, useRef, useState} from "react";
+import {useContext, useEffect, useRef, useState} from "react";
 // @ts-ignore
 import Slider from "react-slick";
 import {useTranslation} from "react-i18next";
@@ -15,8 +15,10 @@ import axios from "axios";
 import {ip} from "../../api/ip";
 import {renderImage} from "../../utils/util";
 import {useRouter} from "next/router";
+import { AuthContext } from "../../context/AuthContext";
 const News = (props:{dataHome:IDataHome}) => {
 	const [common] = useTranslation("common");
+	const {dataConfigLang}=useContext(AuthContext)
 	const router=useRouter();
 	const SliderRef = useRef(null);
 
@@ -155,7 +157,7 @@ const News = (props:{dataHome:IDataHome}) => {
 					</div>
 					<div className="w-full h-full justify-center items-center flex flex-col">
 						<img className="mb-[16px]" src="/images/default/no_data.png" alt="image"/>
-						<p className="text-secondary text-sm">Không có dữ liệu</p>
+						<p className="text-secondary text-sm">{dataConfigLang?.khongCoDuLieu}</p>
 					</div>
 				</div>
 			</NewsWrapper>

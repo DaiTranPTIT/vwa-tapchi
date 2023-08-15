@@ -207,6 +207,7 @@ export interface DataConfig {}
 export interface DataConfigLang {
   "xemThem": "Xem thêm",
   "timKiem": "Tìm kiếm",
+  "khongCoDuLieu": "Tìm kiếm",
   "createdAt": "2023-08-15T01:54:53.012Z",
   "updatedAt": "2023-08-15T07:53:48.638Z",
   "publishedAt": "2023-08-15T07:53:48.637Z",

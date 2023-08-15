@@ -17,7 +17,7 @@ const DangDienRa = (props:{type:string,conditionSearch:any}) => {
   const [page, setPage] = useState<number>(1);
   const [limit, setLimit] = useState<number>(2);
   const [total, setTotal] = useState<number>(0);
-  const { langCode } = useContext(AuthContext);
+  const { langCode,dataConfigLang } = useContext(AuthContext);
   const [condition, setCondition] = useState<any>();
   const [dataNew, setDataNew] = useState<DataNewListV2[]>([]);
   const handleGetAllEvent = async () => {
@@ -125,7 +125,7 @@ const DangDienRa = (props:{type:string,conditionSearch:any}) => {
                   src="/images/default/no_data.png"
                   alt="image"
                 />
-                <p className="text-secondary text-sm">Không có dữ liệu</p>
+                <p className="text-secondary text-sm">{dataConfigLang?.khongCoDuLieu}</p>
               </div>
             </>
           )}

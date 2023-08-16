@@ -36,7 +36,7 @@ const ChiTiet = () => {
   const [page, setPage] = useState<number>(1);
   const [limit, setLimit] = useState<number>(2);
   const [total, setTotal] = useState<number>(0);
-  const { langCode } = useContext(AuthContext);
+  const { langCode,dataConfigLang } = useContext(AuthContext);
   const handleGetAllDaDienRa = async () => {
     try {
       const res = await axios.get(
@@ -131,7 +131,7 @@ const ChiTiet = () => {
             <div className="flex justify-center">
               {dataChiTiet?.attributes?.createdAt && (
                 <p className="date lg:mr-[40px] mr-[20px]">
-                  Ngày đăng:{" "}
+                  {dataConfigLang?.ngayDang}:{" "}
                   {moment(dataChiTiet?.attributes?.createdAt).format(
                     "DD/MM/YYYY HH:mm"
                   )}
@@ -139,7 +139,7 @@ const ChiTiet = () => {
               )}
 
               <p className="date">
-                Tác giả: {dataChiTiet?.attributes?.tacGia ?? "Không có tác giả"}
+                {dataConfigLang?.tacGia}: {dataChiTiet?.attributes?.tacGia ?? dataConfigLang?.khongCoTacGia}
               </p>
             </div>
 

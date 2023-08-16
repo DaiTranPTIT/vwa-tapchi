@@ -238,6 +238,9 @@ export interface DataConfigLang {
   mangluoiQuocTe: "Mạng lưới quốc tế";
   doiTacHocThuat: "Đối tác học thuật";
   doiTacDoanhNghiep: "Đối tác doanh nghiệp";
+  ngayDang: "Đối tác doanh nghiệp";
+  tacGia: "Đối tác doanh nghiệp";
+  khongCoTacGia: "Đối tác doanh nghiệp";
   quyCheBang: {
     id: 2;
     hangMot: "Số văn bản";

@@ -20,7 +20,7 @@ const ChiTietDuAn = () => {
   const [content, setContent] = useState<any>(null);
   const [type, setType] = useState<string>();
   const [dataDetail,setDataDetail]=useState<DataDetailKhoaHoc>()
-  const {langCode}=useContext(AuthContext)
+  const {langCode,dataConfigLang}=useContext(AuthContext)
 
   const getData = async (id: string) => {
     try {
@@ -78,9 +78,9 @@ const ChiTietDuAn = () => {
             <h2>{dataDetail?.attributes?.tieuDe}</h2>
             <div className="flex justify-center">
               <p className="date lg:mr-[40px] mr-[20px]">
-                Ngày đăng: {moment().format("DD/MM/YYYY HH:mm")}
+               {dataConfigLang?.ngayDang}: {moment().format("DD/MM/YYYY HH:mm")}
               </p>
-              <p className="date">Tác giả: {dataDetail?.attributes?.tacGia??'Không có tác giả'}</p>
+              <p className="date">{dataConfigLang?.tacGia}: {dataDetail?.attributes?.tacGia??dataConfigLang?.khongCoTacGia}</p>
             </div>
           </div>
         </div>

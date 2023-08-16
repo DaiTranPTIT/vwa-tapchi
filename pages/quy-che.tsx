@@ -93,12 +93,12 @@ const QuyChe = () => {
 
   const columns = [
     {
-      title: "STT",
+      title: dataConfigLang?.quyCheBang?.hangMot,
       dataIndex: "index",
       align:"center"
     },
     {
-      title: "Số văn bản",
+      title: dataConfigLang?.quyCheBang?.hangHai,
       dataIndex: "attributes",
       align:"center",
       render: (val: any) => {
@@ -106,7 +106,7 @@ const QuyChe = () => {
       },
     },
     {
-      title: "Ngày ban hành",
+      title: dataConfigLang?.quyCheBang?.hangBa,
       dataIndex: "attributes",
       align:"center",
       render: (val: any) => {
@@ -116,7 +116,7 @@ const QuyChe = () => {
       },
     },
     {
-      title: "Thời gian bắt đầu hiệu lực",
+      title: dataConfigLang?.quyCheBang?.hangBon,
       dataIndex: "attributes",
       align:"center",
       render: (val: any) => {
@@ -126,7 +126,7 @@ const QuyChe = () => {
       },
     },
     {
-      title: "Trích yếu nội dung",
+      title: dataConfigLang?.quyCheBang?.hangNam,
       dataIndex: "attributes",
       align:"center",
       width: 300,
@@ -140,7 +140,7 @@ const QuyChe = () => {
       },
     },
     {
-      title: "Loại văn bản",
+      title: dataConfigLang?.quyCheBang?.hangSau,
       dataIndex: "attributes",
       align:"center",
       render: (val: any) => {
@@ -152,7 +152,7 @@ const QuyChe = () => {
       },
     },
     {
-      title: "Cơ quan ban hành",
+      title: dataConfigLang?.quyCheBang?.hangBay,
       dataIndex: "attributes",
       align:"center",
       render: (val: any) => {
@@ -164,7 +164,7 @@ const QuyChe = () => {
       },
     },
     {
-      title: "Tài liệu đính kèm",
+      title:dataConfigLang?.quyCheBang?.hangTam,
       dataIndex: "attributes",
       width: "200px",
       render: (val: any) => {

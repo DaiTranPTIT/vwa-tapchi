@@ -53,7 +53,6 @@ const QuyChe = () => {
         },
       });
       if (res) {
-        console.log("resss", res);
         setDataGioiThieu(res?.data?.data ?? []);
         setTotal(res?.data?.metadata?.total ?? 0);
       }
@@ -63,15 +62,21 @@ const QuyChe = () => {
   };
   const getDatav2 = async () => {
     try {
+      let filter =
+        router?.query?.type === "Học viện"
+          ? { coQuanBanHanh: { $eq: router?.query?.type } }
+          : { coQuanBanHanh: { $ne: "Học viện" } };
       const res = await axios.get(`${ip}/htqt-van-ban-quy-dinhs?locale=${langCode}`, {
         params: {
           filters: {
             kieu: {
               $eq: type,
             },
+            ...filter,
             ...condition,
           },
-          populate: "deep",
+          populate: "taiLieuDinhKem",
+          sort: [{ ngayBanHanh: "desc" }],
           pagination: {
             page: page,
             pageSize: limit,
@@ -79,7 +84,6 @@ const QuyChe = () => {
         },
       });
       if (res) {
-        console.log("resss", res);
         setDataGioiThieu(res?.data?.data ?? []);
         setTotal(res?.data?.meta?.pagination?.total ?? 0);
       }
@@ -225,33 +229,33 @@ const QuyChe = () => {
         />
         <div className="mb-[40px]">
           <div className="lg:flex  grid sm:grid-cols-2 grid-cols-1 lg:gap-[30px] sm:gap-[16px] justify-end">
-            <div className="dropdown lg:mr-[24px] mb-[16px] md:mb-0">
-              <Controller
-                name={"type"}
-                control={control}
-                render={({ field: { onChange, value } }) => (
-                  <DropdownFake
-                    option={option}
-                    onChange={(val) => {
-                      if (val?.value === "Tất cả") {
-                        console.log("cc", condition);
-                        delete condition?.coQuanBanHanh;
-                        setCondition({ ...condition });
-                      } else {
-                        setCondition({
-                          ...condition,
-                          coQuanBanHanh: {
-                            $eq: val?.value,
-                          },
-                        });
-                      }
-                    }}
-                    value={value}
-                    placeholder={dataConfigLang?.vanBanCap}
-                  />
-                )}
-              />
-            </div>
+            {/*<div className="dropdown lg:mr-[24px] mb-[16px] md:mb-0">*/}
+            {/*  <Controller*/}
+            {/*    name={"type"}*/}
+            {/*    control={control}*/}
+            {/*    render={({ field: { onChange, value } }) => (*/}
+            {/*      <DropdownFake*/}
+            {/*        option={option}*/}
+            {/*        onChange={(val) => {*/}
+            {/*          if (val?.value === "Tất cả") {*/}
+            {/*            console.log("cc", condition);*/}
+            {/*            delete condition?.coQuanBanHanh;*/}
+            {/*            setCondition({ ...condition });*/}
+            {/*          } else {*/}
+            {/*            setCondition({*/}
+            {/*              ...condition,*/}
+            {/*              coQuanBanHanh: {*/}
+            {/*                $eq: val?.value,*/}
+            {/*              },*/}
+            {/*            });*/}
+            {/*          }*/}
+            {/*        }}*/}
+            {/*        value={value}*/}
+            {/*        placeholder={dataConfigLang?.vanBanCap}*/}
+            {/*      />*/}
+            {/*    )}*/}
+            {/*  />*/}
+            {/*</div>*/}
             <div className="">
               <form onSubmit={handleSubmit(onSubmit)} className="h-full">
                 <div className="search flex item-center lg:h-full h-[36px]">

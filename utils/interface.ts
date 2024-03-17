@@ -292,6 +292,7 @@ export interface DataConfigLang {
 }
 export interface DataThongTin {
   ten: "HỢP TÁC QUỐC TẾ";
+  tenTruong: "HỢP TÁC QUỐC TẾ";
   createdAt: "2023-06-15T09:11:47.227Z";
   updatedAt: "2023-06-15T09:11:50.664Z";
   publishedAt: "2023-06-15T09:11:50.662Z";

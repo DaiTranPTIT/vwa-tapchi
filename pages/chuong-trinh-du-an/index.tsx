@@ -59,7 +59,6 @@ const ChuongTrinhDuAn = () => {
         }
       );
       if (res) {
-        console.log("resss", res);
         setDataGioiThieu(res?.data?.data ?? []);
         // setDataChiTiet(res?.data?.[0]);
         setTotal(res?.data?.meta?.pagination?.total ?? 0);
@@ -79,7 +78,6 @@ const ChuongTrinhDuAn = () => {
   }, [type]);
   const onSubmit = (data: any) => {
     setPage(1);
-    console.log("data", data);
     if (data && data?.keyword !== "" && data?.keyword) {
       setCondition({
         ...condition,
@@ -166,7 +164,6 @@ const ChuongTrinhDuAn = () => {
           limit={limit}
           total={total}
           handleChangePage={(page) => {
-            console.log("page", page);
             setPage(page);
           }}
         />

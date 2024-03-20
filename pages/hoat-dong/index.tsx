@@ -166,11 +166,9 @@ const HoatDong = () => {
               <DropdownFake
                 option={type === ETYPEKHOAHOC.CB ? optionCB : option}
                 onChange={(val) => {
-                  console.log("val", val);
                   setDataSelectDeTai(val?.value);
                   if (type === ETYPEKHOAHOC.CB) {
                     if (val?.value === "Tất cả") {
-                      console.log("cc", condition);
                       delete condition?.phamVi;
                       setCondition({ ...condition });
                     } else {
@@ -183,7 +181,6 @@ const HoatDong = () => {
                     }
                   } else {
                     if (val?.value === "Tất cả") {
-                      console.log("cc", condition);
                       delete condition?.capDo;
                       setCondition({ ...condition });
                     } else {
@@ -274,7 +271,7 @@ const HoatDong = () => {
                         />
                       </div>
                     );
-                  })}{" "}
+                  })}
                 </div>
               </>
             ) : (

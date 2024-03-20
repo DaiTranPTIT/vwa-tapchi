@@ -13,6 +13,7 @@ import {DataDetailKhoaHoc} from "../../utils/interface";
 import TableBaseV2 from "../../components/TableBaseV2";
 import {ETYPEKHOAHOC} from "../../data/enum";
 import {AuthContext} from "../../context/AuthContext";
+import {useTranslation} from "react-i18next";
 
 const ChiTietDuAn = () => {
   const router=useRouter();
@@ -21,6 +22,7 @@ const ChiTietDuAn = () => {
   const [type, setType] = useState<string>();
   const [dataDetail,setDataDetail]=useState<DataDetailKhoaHoc>()
   const {langCode,dataConfigLang}=useContext(AuthContext)
+  const [common] = useTranslation("common");
 
   const getData = async (id: string) => {
     try {
@@ -48,11 +50,11 @@ const ChiTietDuAn = () => {
           <BreadcrumbPage
             data={[
               {
-                title: "Trang chủ",
+                title: common("common.home"),
                 path: "/",
               },
               {
-                title: "Chương trình dự án",
+                title: common("common.chuong-trinh"),
                 path: "#",
               },
             ]}

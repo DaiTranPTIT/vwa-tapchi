@@ -17,6 +17,7 @@ import { renderImage } from "../../utils/util";
 import ReactToPrint from "react-to-print";
 import CardBanner from "../../components/CardBanner";
 import { IDataChiTiet } from "../../utils/interface";
+import {useTranslation} from "react-i18next";
 
 const ChiTiet = () => {
   // const {
@@ -29,6 +30,7 @@ const ChiTiet = () => {
   const [sendSuccess, setSendSuccess] = useState<boolean>(false);
   const [content, setContent] = useState<any>(null);
   const router = useRouter();
+  const [common] = useTranslation("common");
   let contentRef = useRef<HTMLDivElement>(null);
   let timmer: NodeJS.Timeout | undefined;
   const onSubmit = async (data: any, callback: any) => {
@@ -109,11 +111,11 @@ const ChiTiet = () => {
           <BreadcrumbPage
             data={[
               {
-                title: "Trang chủ",
+                title: common("common.home"),
                 path: "/",
               },
               {
-                title: "Tạp chí khoa học",
+                title: common("common.tap-chi-kh"),
                 path: "/#",
               },
             ]}

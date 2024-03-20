@@ -21,6 +21,7 @@ import { AuthContext } from "../../context/AuthContext";
 import CardHTQT from "../../components/CardHTQT";
 // @ts-ignore
 import Slider from "react-slick";
+import {useTranslation} from "react-i18next";
 const ChiTiet = () => {
   // const {
   // 	register,
@@ -36,6 +37,7 @@ const ChiTiet = () => {
   const router = useRouter();
   let contentRef = useRef<HTMLDivElement>(null);
   let timmer: NodeJS.Timeout | undefined;
+  const [common] = useTranslation("common");
   const [page, setPage] = useState<number>(1);
   const [limit, setLimit] = useState<number>(2);
   const [total, setTotal] = useState<number>(0);
@@ -138,11 +140,11 @@ const ChiTiet = () => {
           <BreadcrumbPage
             data={[
               {
-                title: "Trang chủ",
+                title: common("common.home"),
                 path: "/",
               },
               {
-                title: "Tin tức - Sự kiện chi tiết",
+                title: common("common.tin-tuc"),
                 path: "/#",
               },
             ]}

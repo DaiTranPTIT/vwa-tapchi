@@ -18,6 +18,7 @@ import ReactToPrint from "react-to-print";
 import CardBanner from "../../components/CardBanner";
 import {DataNewList, DataNewListV2, IDataChiTiet} from "../../utils/interface";
 import { AuthContext } from "../../context/AuthContext";
+import {useTranslation} from "react-i18next";
 
 const ChiTiet = () => {
   // const {
@@ -33,6 +34,7 @@ const ChiTiet = () => {
   const router = useRouter();
   let contentRef = useRef<HTMLDivElement>(null);
   let timmer: NodeJS.Timeout | undefined;
+  const [common] = useTranslation("common");
   const [page, setPage] = useState<number>(1);
   const [limit, setLimit] = useState<number>(2);
   const [total, setTotal] = useState<number>(0);
@@ -100,11 +102,11 @@ const ChiTiet = () => {
           <BreadcrumbPage
             data={[
               {
-                title: "Trang chủ",
+                title: common("common.home"),
                 path: "/",
               },
               {
-                title: "Thông báo học bổng ",
+                title:  common("common.thong-bao-hoc-bong"),
                 path: "/#",
               },
             ]}

@@ -201,7 +201,6 @@ const HoatDong = () => {
               <DropdownFake
                 option={optionYear}
                 onChange={(val) => {
-                  console.log("val", val);
                   if (val?.value === "Tất cả") {
                     delete condition?.ngayDangTai;
                     setCondition({ ...condition });

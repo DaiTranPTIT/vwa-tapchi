@@ -5,7 +5,7 @@ import Card from "../../components/Card";
 import { dataTinTuc } from "../../data";
 import MiniCard from "../../components/Event/components/MiniCard";
 import BreadcrumbPage from "../../components/Breadcrumb";
-import React, { useEffect, useRef, useState } from "react";
+import React, {useContext, useEffect, useRef, useState} from "react";
 import Share from "../../components/Share";
 import FormGopY from "../../components/FormGopY";
 import { useRouter } from "next/router";
@@ -18,6 +18,7 @@ import ReactToPrint from "react-to-print";
 import CardBanner from "../../components/CardBanner";
 import { IDataChiTiet } from "../../utils/interface";
 import {useTranslation} from "react-i18next";
+import {AuthContext} from "../../context/AuthContext";
 
 const ChiTiet = () => {
   // const {
@@ -29,6 +30,7 @@ const ChiTiet = () => {
   const [dataChiTiet, setDataChiTiet] = useState<IDataChiTiet>();
   const [sendSuccess, setSendSuccess] = useState<boolean>(false);
   const [content, setContent] = useState<any>(null);
+  const {dataConfigLang}=useContext(AuthContext)
   const router = useRouter();
   const [common] = useTranslation("common");
   let contentRef = useRef<HTMLDivElement>(null);
@@ -142,14 +144,14 @@ const ChiTiet = () => {
             <div className="lg:flex lg:justify-center">
               {dataChiTiet?.attributes?.createdAt && (
                 <p className="date lg:mr-[40px] mr-[20px]">
-                  Ngày đăng:{" "}
+                  {dataConfigLang?.ngayDang}:{" "}
                   {moment(dataChiTiet?.attributes?.createdAt).format(
                     "DD/MM/YYYY HH:mm"
                   )}
                 </p>
               )}
 
-              <p className="date">Tác giả: {dataChiTiet?.attributes?.tacGia??'Không có tác giả'}</p>
+              <p className="date">{dataConfigLang?.tacGia}: {dataChiTiet?.attributes?.tacGia??'Không có tác giả'}</p>
             </div>
 
             {/*<div className=' flex justify-end mt-[20px]'>*/}

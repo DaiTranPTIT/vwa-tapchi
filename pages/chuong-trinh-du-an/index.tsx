@@ -50,6 +50,9 @@ const ChuongTrinhDuAn = () => {
               },
               ...condition,
             },
+            sort:{
+              createdAt:'desc'
+            },
             populate: "deep",
             pagination: {
               page: page,

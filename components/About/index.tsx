@@ -40,12 +40,12 @@ const About = () => {
       <div className="container mx-auto lg:mt-[50px] mt-[20px] px-[20px] lg:px-0 sm:pb-[75px] pb-[20px]">
         <div className="lg:grid lg:grid-cols-2 gap-[40px]">
           <div className="wow fadeInLeft">
-            <div className="lg:hidden">
-              <Title
-                title={"HOẠT ĐỘNG HỢP TÁC QUỐC TẾ"}
-                titleTop={"Giới thiệu"}
-              />
-            </div>
+            {/*<div className="lg:hidden">*/}
+            {/*  <Title*/}
+            {/*    title={"HOẠT ĐỘNG HỢP TÁC QUỐC TẾ"}*/}
+            {/*    titleTop={"Giới thiệu"}*/}
+            {/*  />*/}
+            {/*</div>*/}
             <div className="hidden lg:block title-1 mb-[12px] uppercase">
               {dataGioiThieu?.tieuDe}
             </div>

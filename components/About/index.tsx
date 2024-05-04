@@ -53,8 +53,8 @@ const About = () => {
               {dataGioiThieu?.moTa}
             </div>
             <div className="lg:hidden block">
-              <div className="  content-banner-2 wow fadeInUp mb-[16px]">
-                {dataGioiThieu?.noiDung}
+              <div className="  content-banner-2 wow fadeInUp mb-[16px]" dangerouslySetInnerHTML={{__html:dataGioiThieu?.noiDung??''}}>
+
               </div>
             </div>
             <div className="flex justify-center lg:block">

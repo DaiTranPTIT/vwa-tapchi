@@ -2,6 +2,8 @@ import styled, { CSSProperties } from "styled-components";
 import Link from "next/link";
 import moment from "moment";
 import { useRouter } from "next/router";
+import {useContext} from "react";
+import {AuthContext} from "../../context/AuthContext";
 interface IPorps {
   data: {
     imageUrl: string;
@@ -16,6 +18,7 @@ interface IPorps {
 }
 const CardHTQTNews = (props: IPorps) => {
   const router = useRouter();
+  const { dataConfigLang } = useContext(AuthContext);
   return (
     <CardNews className="shadow">
       <Link href={props.data.link ? props.data.link : "#"} className="h-full">
@@ -65,7 +68,7 @@ const CardHTQTNews = (props: IPorps) => {
                 router.push(props?.data?.link??'#');
               }}
             >
-              <div className={"mr-2"}>Xem thêm</div>
+              <div className={"mr-2"}>{dataConfigLang?.xemThem}</div>
               {/*<svg*/}
               {/*  width="15"*/}
               {/*  height="14"*/}

@@ -16,7 +16,7 @@ const CommonLayout = ({ children }: any) => {
 
 	useEffect(() => {
 		(async () => {
-			const langCode = localStorage.getItem("langCode") || "vi-VN";
+			const langCode = localStorage.getItem("langCode") || "en";
 			setLanguage(langCode);
 			i18n.changeLanguage(langCode);
 		})();

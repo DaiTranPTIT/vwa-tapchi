@@ -7,9 +7,9 @@ import commonVi from '/commons/language/vi.json';
 const ISSERVER = typeof window === 'undefined';
 
 (async () => {
-  let langCode = 'vi-VN';
+  let langCode = 'en';
   if (!ISSERVER) {
-    langCode = localStorage.getItem('langCode') || 'vi-VN';
+    langCode = localStorage.getItem('langCode') || 'en';
   }
 
   i18n

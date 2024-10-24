@@ -90,7 +90,7 @@ const AboutWrapper = styled.div`
     font-size: 16px;
     line-height: 19px;
     
-    color: #de221a;
+    color: var(--primary-color);
   }
   .title-2 {
     font-family: "SVN-Product Sans";

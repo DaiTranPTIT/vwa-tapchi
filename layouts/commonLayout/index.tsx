@@ -1,6 +1,6 @@
-import { useRouter } from "next/router";
+import {useRouter} from "next/router";
 import React, {useContext, useEffect, useState} from "react";
-import {AuthContext, useAuth} from "../../context/AuthContext";
+import {AuthContext} from "../../context/AuthContext";
 import i18n from "../../i18n";
 import ScrollTopButton from "./components/ScrollTopButton";
 import Footer from "./footer";
@@ -67,15 +67,12 @@ const CommonLayout = ({ children }: any) => {
 				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 				<meta httpEquiv="X-UA-Compatible" content="ie=edge" />
 				<link rel="icon" href="/favicon.ico"></link>
-				<title>Hợp tác quốc tế</title>
+				<title>Tạp chí khoa học - Học viện Phụ nữ Việt Nam</title>
 			</Head>
 			<div className='flex flex-col min-h-screen bg-[#FFFFFF]'>
 				<Header language={language} handleChangeLanguage={handleChangeLanguage} />
-
 				<div className='flex-auto overflow-hidden'>{children}</div>
-
 				<Footer />
-
 				<ScrollTopButton />
 			</div>
 		</>

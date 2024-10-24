@@ -1,31 +1,17 @@
-import {
-  Button,
-  DarkThemeToggle,
-  Navbar,
-  Spinner,
-  Tooltip,
-} from "flowbite-react";
-import Image from "next/image";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import React, { useContext, useEffect, useRef, useState } from "react";
-import { useTranslation } from "react-i18next";
-import { AuthContext, useAuth } from "../../context/AuthContext";
-import LoginPopup from "./components/LoginPopup";
-import SignupPopup from "./components/SignupPopup";
-import UserDropdown from "./components/UserDropdown";
+import {Tooltip,} from "flowbite-react";
+import {useRouter} from "next/router";
+import React, {useContext, useEffect, useRef, useState} from "react";
+import {useTranslation} from "react-i18next";
+import {AuthContext, useAuth} from "../../context/AuthContext";
 import styled from "styled-components";
-import { rules } from "../../utils/rules";
-import { useForm } from "react-hook-form";
-import { Router } from "../../config";
+import {useForm} from "react-hook-form";
 import axios from "axios";
-import { ip } from "../../api/ip";
-import { DataMenu, MainMenu } from "../../utils/interface";
-import { renderImage } from "../../utils/util";
-import { el } from "date-fns/locale";
-import { dataNavBar } from "../../data";
-import { DivNode } from "postcss-value-parser";
-import SlideBarMobile from "../../components/SlideBarMobile";
+import {ip} from "../../api/ip";
+import {MainMenu} from "../../utils/interface";
+import Logo from "../../components/Logo";
+import AuthorAndRegister from "../../components/AuthorAndRegister";
+import {navMenu} from "../../data";
+import Button from "../../components/Button";
 
 interface IProps {
   language: string;
@@ -66,17 +52,6 @@ const Header = (props: IProps) => {
     props.handleChangeLanguage(language);
     setIsChangeLang(false);
   };
-  const fetch = async () => {
-    // await getAllProjectList()
-    // 	.then((response) => setDanhSach(response.data))
-    // 	.catch((e) => console.log(e));
-    // if (isAuthenticated)
-    // 	getNotificationPageable({ limit: 10, page: 1 })
-    // 		.then((response) => {
-    // 			setHasUnread(!!response.data.result.filter((item) => item.unread)?.length);
-    // 		})
-    // 		.catch(console.error);
-  };
   const getThongTinChung = async () => {
     try {
       const res = await axios.get(
@@ -91,27 +66,18 @@ const Header = (props: IProps) => {
   };
   const getDataNav = async () => {
     try {
-      const res = await axios.get(
-        `${ip}/htqt-cau-truc-trang-web?populate=deep&locale=${langCode}`
-      );
-      if (res) {
-        setDataMenu(res?.data?.data?.attributes?.cauTruc ?? []);
-        setDataMenu(res?.data?.data?.attributes?.cauTruc ?? []);
-      }
+      // const res = await axios.get(
+      //   `${ip}/htqt-cau-truc-trang-web?populate=deep&locale=${langCode}`
+      // );
+      // if (res) {
+      //   setDataMenu(res?.data?.data?.attributes?.cauTruc ?? []);
+      //   setDataMenu(res?.data?.data?.attributes?.cauTruc ?? []);
+      // }
+      setDataMenu(navMenu);
     } catch (e) {
       console.log(e);
     }
   };
-  // const getDataConfig = (type: string, valueGet?: string): any => {
-  // 	let obj = dataConfig?.find((item) => {
-  // 		return item.code === type;
-  // 	});
-  // 	if (valueGet) {
-  // 		return obj?.id;
-  // 	} else {
-  // 		return obj?.value;
-  // 	}
-  // };
   const {
     register,
     handleSubmit,
@@ -182,152 +148,36 @@ const Header = (props: IProps) => {
     return () => {
       window.removeEventListener("click", handleClickOutside, true);
     };
-    // getLogo();
   }, []);
   return (
     <HeaderWrapper className={`shadow-header`}>
-      <div className={`hidden lg:block bg-[#DE221A] px-6 `}>
+      <div className={`hidden lg:block bg-[white] px-6`}>
         <div className="container mx-auto ">
           <div className="header-branch flex justify-between items-center">
-            <div className=" flex items-center title-header">
-              {/*<img src={renderImage(dataThongTin?.logoHeader)} alt={"image"} />*/}
-              {dataThongTin?.tenTruong?.toUpperCase() ??
-                " HỌC VIỆN CÔNG NGHỆ BƯU CHÍNH VIỄN THÔNG"}
-              <div className="border-r-2 border-[#FFFFFF] w-[2px] h-[18px] mx-[20px]"></div>
-              <div>{dataThongTin?.ten}</div>
+            <div className="flex items-center title-header">
+              <Logo/>
             </div>
-            <div className=" flex item-center">
-              {/*<img src={"/images/icons/facebook.svg"} />*/}
-              {/*<img src={"/images/icons/twitter.svg"} />*/}
-              {/*<img src={"/images/icons/youtube.svg"} />*/}
-              <div className="flex lg:order-2 " ref={searchRef}>
-                <div className="flex items-center z-50">
-                  <div className="socical flex mr-[40px]">
-                    {/*<a*/}
-                    {/*  className={"mr-[20px]"}*/}
-                    {/*  href={dataThongTin?.twitter ?? "#"}*/}
-                    {/*  target={"_blank"}*/}
-                    {/*>*/}
-                    {/*  <img*/}
-                    {/*    src="/images/icons/Twitter-header.svg"*/}
-                    {/*    alt={"icon"}*/}
-                    {/*  />*/}
-                    {/*</a>*/}
-                    <a
-                      className={"mr-[20px]"}
-                      href={dataThongTin?.youtube ?? "#"}
-                      target={"_blank"}
-                    >
-                      <img
-                        src="/images/icons/Youtube-header.svg"
-                        alt={"icon"}
-                      />
-                    </a>
-                    <a
-                      className={""}
-                      href={dataThongTin?.facebook ?? "#"}
-                      target={"_blank"}
-                    >
-                      <img
-                        src="/images/icons/Facebook-header.svg"
-                        alt={"icon"}
-                      />
-                    </a>
-                  </div>
-                  {/*{isShowSearch ? (*/}
-                  {/*  <div className="mr-[32px]">*/}
-                  {/*    <form onSubmit={handleSubmit(onSubmit)}>*/}
-                  {/*      <div className="search flex item-center h-full">*/}
-                  {/*        <div className="relative">*/}
-                  {/*          <input*/}
-                  {/*            placeholder={"Tìm kiếm"}*/}
-                  {/*            {...register("keyword", { ...rules.required })}*/}
-                  {/*          />*/}
-                  {/*          /!*<div className='icon absolute top-[9.5px] left-[14.5px]'>*!/*/}
-                  {/*          /!*	<img src={"/images/icons/search.svg"} alt={"image"} />*!/*/}
-                  {/*          /!*</div>*!/*/}
-                  {/*        </div>*/}
-                  {/*        <button type="submit">*/}
-                  {/*          <img*/}
-                  {/*            src={"/images/icons/search.svg"}*/}
-                  {/*            alt={"image"}*/}
-                  {/*          />*/}
-                  {/*        </button>*/}
-                  {/*      </div>*/}
-                  {/*      /!*{errors.keyword && <p className='error-text'>Bắt buộc</p>}*!/*/}
-                  {/*    </form>*/}
-                  {/*  </div>*/}
-                  {/*) : (*/}
-                  {/*  <div*/}
-                  {/*    className="cursor-pointer "*/}
-                  {/*    onClick={() => setIsShowSearch(true)}*/}
-                  {/*  >*/}
-                  {/*    <img*/}
-                  {/*      className="mr-[32px]"*/}
-                  {/*      src="/images/icons/search-header.svg"*/}
-                  {/*      alt={"image"}*/}
-                  {/*    />*/}
-                  {/*  </div>*/}
-                  {/*)}*/}
-                </div>
-
-                <div className="flex">
-                  <div
-                    className={`mr-[8px] cursor-pointer ${
-                      language === "vi-VN" ? "border-white border" : ""
-                    } hover:border-white hover:border`}
-                    onClick={() => handleChangeLanguage("vi-VN")}
-                  >
-                    <img
-                      className="h-[30px] w-[45px]"
-                      src={"/images/icons/vn.svg"}
-                      alt={"image"}
-                    />
-                  </div>
-                  <div
-                    className={`cursor-pointer ${
-                      language === "en" ? "border-white border" : ""
-                    } hover:border-white hover:border`}
-                    onClick={() => handleChangeLanguage("en")}
-                  >
-                    <img
-                      className="h-[30px] w-[45px]"
-                      src={"/images/icons/us.svg"}
-                      alt={"image"}
-                    />
-                  </div>
-                </div>
+            <div className="flex item-center gap-[50px]">
+              <div className="flex items-center">
+                <strong>ISSN</strong><span>: 2615 - 9007</span>
               </div>
+              <AuthorAndRegister/>
             </div>
           </div>
         </div>
       </div>
       <div className={`label bg-white shadow`}>
-        <div className="  lg:mx-auto lg:py-[12px] py-0  ">
-          {/*<div className='logo'>*/}
-          {/*	<img src={'/images/header/logo-db.png'} alt={"image"} />*/}
-          {/*</div>*/}
+        <div className="lg:mx-auto py-0">
           <div
-            className={` ${isScroll ? " bg-white" : "lg:bg-white"}     ${
+            className={` ${isScroll ? "bg-white" : "lg:bg-white"} ${
               isScroll
-                ? "lg:fixed top-0 left-0 w-full z-50 shadow py-[12px]"
+                ? "lg:fixed top-0 left-0 w-full z-50 shadow"
                 : ""
             }`}
           >
             <div
-              className={`container mx-auto hidden lg:flex  justify-between items-center `}
+              className={`container mx-auto hidden lg:flex justify-between items-center `}
             >
-              <div
-                onClick={() => {
-                  router.push("/");
-                }}
-              >
-                <img
-                  src={renderImage(
-                    dataThongTin?.logoHeader?.data?.attributes?.url
-                  )}
-                />
-              </div>
               <div className="flex items-center justify-center ">
                 {dataMenu?.map((value, index) => {
                   return (
@@ -343,7 +193,7 @@ const Header = (props: IProps) => {
                         }
                       }}
                       // href={value?.children?.length > 0 ? "" : value?.linkTo}
-                      className={` mr-[24px] last-of-type:mr-0 text-nav pt-2 cursor-pointer ${
+                      className={`mr-[24px] last-of-type:mr-0 text-nav pt-2 cursor-pointer ${
                         value?.link
                           ?.split("?")?.[0]
                           ?.localeCompare(typeMenu) === 0
@@ -400,23 +250,15 @@ const Header = (props: IProps) => {
                   );
                 })}
               </div>
-              {/*<Navbar className='hidden lg:block'>*/}
-              {/*	<Navbar.Collapse>*/}
-              {/*		{Router.map((value, index) => {*/}
-              {/*			return (*/}
-              {/*				<Link*/}
-              {/*					href={value.path}*/}
-              {/*					className={`uppercase text-nav pt-2 ${*/}
-              {/*						typeMenu === value.name ? "text-active lg:border-t-2  lg:border-primary-500" : "lg:border-none"*/}
-              {/*					} block  `}*/}
-              {/*					key={index}*/}
-              {/*				>*/}
-              {/*					{common(`common.${value.name}`)}*/}
-              {/*				</Link>*/}
-              {/*			);*/}
-              {/*		})}*/}
-              {/*	</Navbar.Collapse>*/}
-              {/*</Navbar>*/}
+              <Button
+                  type={"primary"}
+                  classname=""
+                  onClick={() => {
+                    router.push("/");
+                  }}
+              >
+                Gửi bài
+              </Button>
             </div>
             {/*==================mobile===============*/}
 
@@ -795,14 +637,15 @@ const HeaderWrapper = styled.div`
     }
   }
   .text-nav {
+    padding-top: 0;
     font-family: "Inter";
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
-    line-height: 19px;
+    line-height: 22.5px;
   }
   .text-active {
-    color: #de221a !important;
+    color: var(--primary-color) !important;
   }
   .menu-mobile {
     ul {
@@ -821,7 +664,7 @@ const HeaderWrapper = styled.div`
 
     color: #18202a;
     &:hover {
-      color: #de221a;
+      color: var(--primary-color);
     }
   }
   .shadow-header {

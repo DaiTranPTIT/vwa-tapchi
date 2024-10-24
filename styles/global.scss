@@ -12,6 +12,12 @@
 	width: 90%;
 }
 
+:root {
+	--primary-color: #AFCC36;
+	--text-primary: #212529;
+	--text-secondary: #777D93;
+}
+
 @layer utilities {
 	@media (min-width: 1536px) {
 		.container {
@@ -26,6 +32,9 @@
 	}
 	.primary-bg {
 		background: var(--primary-color);
+	}
+	.color-primary {
+		color: var(--primary-color);
 	}
 	.hover-bg {
 		background: #f0f0f0;
@@ -87,11 +96,11 @@
 }
 * {
 	&::selection {
-		background: #DE221A;
+		background: var(--primary-color);
 		color: #ffffff;
 	}
 	&::-moz-selection {
-		background: #DE221A;
+		background: var(--primary-color);
 		color: #ffffff;
 	}
 	//&::-webkit-selection {
@@ -113,10 +122,10 @@
 	bottom: -35px;
 }
  .image-gallery-right-nav {
-	background: #DE221A !important;
+	 color: var(--primary-color) !important;
 }
 .image-gallery-left-nav {
-	background: #DE221A !important;
+	color: var(--primary-color) !important;
 }
 .bg-cover{
 	background: #0000003b;
@@ -128,13 +137,12 @@
 }
 .bg-gradient-gray{
 	background: linear-gradient(0deg, rgba(20, 33, 65, 0.06), rgba(20, 33, 65, 0.06)), #FFFFFF;
-
 }
 .bg-gray{
 	background-color: #C3C7CC;
 }
 .text-primary{
-	color: #DE221A!important;
+	color: var(--primary-color)!important;
 }
 .text-normal{
 	font-family: 'Inter';
@@ -149,6 +157,33 @@
 }
 .link-download{
 	&:hover{
-		color: #DE221A;
+		color: var(--primary-color);
+	}
+}
+
+.background-primary {
+	background-color: var(--primary-color);
+}
+
+a {
+	transition: .2s;
+	:hover {
+		color: var(--primary-color);
+	}
+}
+
+.button-outline {
+	padding: 10px 20px;
+	font-size: 15px;
+	font-weight: 700;
+	line-height: 17.25px;
+	text-align: left;
+	color: var(--primary-color);
+	transition: .2s;
+	border: 1px solid var(--primary-color);
+
+	:hover {
+		background-color: var(--primary-color) !important;
+		color: white !important;
 	}
 }

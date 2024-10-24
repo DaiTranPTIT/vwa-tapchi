@@ -78,7 +78,7 @@ const CardNghienCuuWrapper = styled.div`
     -webkit-box-orient: vertical;
   }
   .show-more {
-    color: #de221a;
+    color: var(--primary-color);
     font-family: "Inter";
     font-style: normal;
     font-weight: 400;

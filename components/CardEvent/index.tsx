@@ -60,7 +60,7 @@ const CardEventWrapper = styled.div`
 			font-size: 24px;
 			line-height: 29px;
 
-			color: #de221a;
+			color: var(--primary-color);
 		}
 	}
   .content{

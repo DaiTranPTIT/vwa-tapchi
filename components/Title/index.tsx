@@ -54,7 +54,7 @@ const TitleWrapper = styled.div`
 
     /* Redmain */
 
-    color: #de221a;
+    color: var(--primary-color);
   }
   .description {
     font-family: "Inter";

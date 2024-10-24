@@ -46,8 +46,8 @@ const CardHTQT = (props: IPorps) => {
                 <div className="show-more flex">
                     <div className={"mr-2"}>{dataConfigLang?.xemThem}</div>
                   {isArrow2?<svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M1.5 0.663574L5.5 5.16357L1.5 9.66357" stroke="#DE221A" stroke-width="1.7"/>
-                      <path d="M7.5 0.663574L11.5 5.16357L7.5 9.66357" stroke="#DE221A" stroke-width="1.7"/>
+                      <path d="M1.5 0.663574L5.5 5.16357L1.5 9.66357" stroke="var(--primary-color)" stroke-width="1.7"/>
+                      <path d="M7.5 0.663574L11.5 5.16357L7.5 9.66357" stroke="var(--primary-color)" stroke-width="1.7"/>
                     </svg>
                     : <svg
                       width="15"
@@ -92,7 +92,7 @@ const CardHTQTWrapper = styled.div`
     align-items: center;
 
 
-    color: #DE221A;
+    color: var(--primary-color);
 
   }
   .time {

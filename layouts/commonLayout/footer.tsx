@@ -1,151 +1,35 @@
-import { Footer, Tooltip } from "flowbite-react";
-import Image from "next/image";
-import Link from "next/link";
-import { useTranslation } from "react-i18next";
-import { BsFacebook, BsGithub, BsInstagram, BsTwitter } from "react-icons/bs";
 import styled from "styled-components";
-import React, {useContext, useEffect, useRef, useState} from "react";
-import { Router } from "../../config";
-import { FacebookShareButton, TwitterShareButton } from "react-share";
-import { useRouter } from "next/router";
-import axios from "axios";
-import { ip, ip3 } from "../../api/ip";
-import { DataConfig } from "../../utils/interface";
-import {AuthContext, useAuth} from "../../context/AuthContext";
-import { dataFooterLocation, dataNavBar } from "../../data";
-import {renderImage} from "../../utils/util";
+import React from "react";
+import Link from "next/link";
+import ShareSocial from "../../components/ShareSocial";
 
 const MainFooter = () => {
-	const [common] = useTranslation("common");
-	const router = useRouter();
-	const [dataConfigFooter, setDataConfigFooter] = useState<DataConfig[]>([]);
-	const { menu, setDataConfig,dataConfigLang } = useAuth();
-	const {dataThongTin,dataMenu}=useContext(AuthContext);
 
-	const getDataConfig = (type: string): any => {
-		return null
-	};
 	return (
 		<FooterWrapper>
-			<div>
-				<div className='lg:container mx-auto lg:pt-[60px] pt-[20px] lg:pb-[20px] pb-[20px] px-[20px] md:px-[20px]'>
-					<div className='lg:flex block justify-between'>
-						<div className='lg:max-w-[596px] wow fadeInUp'>
-							<img className={"w-full"} src={renderImage(dataThongTin?.logoFooter?.data?.attributes?.url)} />
-
+			<div className="footer-container">
+				<div className="container mx-auto">
+					<div className="flex flex-col items-center py-[50px] gap-[24px]">
+						<div className="logo-footer">
+							<Link href='/'>
+								<img src="./images/footer/logo-footer.svg" alt={"Logo tạp chí khoa học"} />
+							</Link>
 						</div>
-						<div className='mt-[20px] lg:mt-0'>
-							{/*{dataFooterLocation?.map((val, i) => {*/}
-							{/*	return (*/}
-							{/*		<div key={i} className='lg:mb-[32px] mb-[20px]'>*/}
-							{/*			<div className='title-footer mb-[8px]'>{val?.title}</div>*/}
-							{/*			<div className='content-footer'>{val?.name}</div>*/}
-							{/*		</div>*/}
-							{/*	);*/}
-							{/*})}*/}
-							<div  className='lg:mb-[32px] mb-[20px]'>
-								<div className='title-footer mb-[8px]'>{dataConfigLang?.truSoChinh}</div>
-								<div className='content-footer'>{dataThongTin?.truSoChinh}</div>
-							</div>
-							<div  className='lg:mb-[32px] mb-[20px]'>
-								<div className='title-footer mb-[8px]'>{dataConfigLang?.coSoDaoTaoHN}</div>
-								<div className='content-footer'>{dataThongTin?.coSo1}</div>
-							</div>
-							<div  className='lg:mb-[32px] mb-[20px]'>
-								<div className='title-footer mb-[8px]'>{dataConfigLang?.truSoHCM}</div>
-								<div className='content-footer'>{dataThongTin?.hocVienCoSo}</div>
-							</div>
-							<div  className='lg:mb-[32px] mb-[20px]'>
-								<div className='title-footer mb-[8px]'>{dataConfigLang?.coSoDaoTaoHCM}</div>
-								<div className='content-footer'>{dataThongTin?.coSo2}</div>
-							</div>
-						</div>
-						<div className='location hidden lg:block wow fadeInUp'>
-							{dataMenu?.map((value, index) => {
-								return (
-									<div
-										onClick={() => {
-											if (value?.trangCon?.length > 0) {
-											} else {
-												router.push(value?.link);
-											}
-										}}
-										className={` text-nav pt-2  block hover:text-[#DE221A] `}
-										key={index}
-									>
-										{value?.trangCon?.length > 0 ? (
-											<>
-												<Tooltip
-													content={
-														<>
-															{value?.trangCon?.map((value2, index2) => {
-																return (
-																	<div
-																		onClick={() => {
-																			if (value?.trangCon?.length > 0) {
-																			} else {
-																				router.push(value?.link);
-																			}
-																		}}
-																		className={` text-nav pt-2  block cursor-pointer `}
-																		key={index2}
-																	>
-																		{value2?.ten}
-																	</div>
-																);
-															})}
-														</>
-													}
-													style={"light"}
-													placement='right'
-												>
-													{value?.ten}
-												</Tooltip>
-											</>
-										) : (
-											<>{value?.ten}</>
-										)}
-									</div>
-								);
-							})}
-						</div>
+						<ShareSocial/>
 					</div>
-					<div className='flex lg:hidden justify-center'>
-						{/*<img className="mr-[20px] cursor-pointer" src="/images/icons/facebook-2.svg" alt={'image'}/>*/}
-						<div className='mr-[20px] cursor-pointer'>
-							<a href={getDataConfig("facebook")} target={"_blank"} rel={"noreferrer"}>
-								<img src={"/images/icons/Facebook.svg"} alt={"image"} />
-							</a>
-						</div>
+				</div>
+				<div className="bgr-break">
+					<img src={'./images/footer/bgr-break.png'}/>
+				</div>
+				<div className="copyright container mx-auto">
+					<strong>© Copyright 2024 HocvienPhunuVietNam, All rights reserved ® Học viện Phụ nữ Việt Nam giữ bản quyền nội dung trên website này</strong>
+					<strong>Phòng 1503, Tầng 15, Tòa A2, Học viện Phụ nữ Việt Nam, 68 Nguyễn Chí Thanh, Đống Đa, Hà Nội</strong>
+					<strong>(84-24) 3775-4452; (84) 0983.160.389</strong>
 
-						<img className='mr-[20px] cursor-pointer' src='/images/icons/Twiter.svg' alt={"image"} />
-						<a href={getDataConfig("youtube")}>
-							<img className=' cursor-pointer' src='/images/icons/Youtube.svg' alt={"image"} />
-						</a>
-					</div>
-					<div className="flex lg:justify-between justify-center items-center border-t border-[#FFFFFF]">
-						<div className="pt-[8px] lg:pt-0">
-							Copyright@ 2023 Develop by AI-Soft
-						</div>
-						<div>
-							<div className='lg:flex hidden items-center mt-[20px]'>
-								{/*<img className="mr-[20px] cursor-pointer" src="/images/icons/facebook-2.svg" alt={'image'}/>*/}
-								<div className='mr-[20px] cursor-pointer'>
-									<a href={dataThongTin?.facebook??'#'} target={"_blank"} rel={"noreferrer"}>
-										<img src={"/images/icons/Facebook.svg"} alt={"image"} />
-									</a>
-								</div>
-								<div className='mr-[20px] cursor-pointer'>
-									<a href={dataThongTin?.twitter??'#'} target={"_blank"} rel={"noreferrer"}>
-										<img src={"/images/icons/Twiter.svg"} alt={"image"} />
-									</a>
-								</div>
-								{/*<img className="mr-[20px] cursor-pointer" src="/images/icons/twiter-2.svg" alt={'image'}/>*/}
-								<a href={dataThongTin?.youtube??'#'} target={"_blank"} rel={"noreferrer"}>
-									<img className=' cursor-pointer' src='/images/icons/Youtube.svg' alt={"image"} />
-								</a>
-							</div>
-						</div>
+					<div className="contact-info">
+						<p>Tạp chí Khoa học Học viện Phụ nữ Việt Nam đang trong quá trình hoàn thiện, phát triển. Mọi ý kiến đóng góp, chia sẻ xin vui lòng gửi về:</p>
+						<p>Toà soạn Tạp chí Khoa học, Học viện Phụ nữ Việt Nam </p>
+						<p>Email: tapchikh@vwa.edu.vn</p>
 					</div>
 				</div>
 			</div>
@@ -153,85 +37,38 @@ const MainFooter = () => {
 	);
 };
 const FooterWrapper = styled.div`
-	background: linear-gradient(0deg, rgba(20, 33, 65, 0.07), rgba(20, 33, 65, 0.07)), #ffffff;
-	.title-footer {
-		font-family: "Inter";
-		font-style: normal;
-		font-weight: 600;
-		font-size: 14px;
-		line-height: 17px;
-		/* identical to box height */
-
-		/* Black */
-
-		color: #18202a;
+	.footer-container {
+		border-top: 2px solid #B2B5C1;
 	}
-	.content-footer {
-		font-family: "Inter";
-		font-style: normal;
-		font-weight: 400;
-		font-size: 14px;
-		line-height: 17px;
-		/* identical to box height */
+	
+	.bgr-break img {
+		width: 100%;
+		object-fit: contain;
+	}
 
-		/* Black */
-
-		color: #18202a;
-	}
-	.logo {
-		img {
-			max-width: 596px;
-		}
-	}
-	ul {
-		li {
-			display: flex;
-			margin-bottom: 16px;
-			align-items: center;
-			&:last-of-type {
-				align-items: start;
-			}
-			img {
-				width: 17px;
-				margin-right: 16px;
-			}
-			.list-link {
-				color: #1c7ed6;
-			}
-			a {
-				color: #1c7ed6;
-				text-decoration: underline;
-			}
-		}
-	}
-	.location {
-		h2 {
-			font-family: "Inter";
-			font-style: normal;
-			font-weight: 600;
+	.copyright {
+		padding: 40px 0;
+		strong {
+			display: block;
+			text-align: center;
 			font-size: 16px;
-			line-height: 32px;
-			display: flex;
-			align-items: center;
+			font-weight: 700;
+			line-height: 18.4px;
+			color: var(--text-primary);
+			margin-bottom: 12px;
 		}
-	}
-	.text-footer,
-	.text-footer a {
-		font-family: "Inter";
-		font-style: normal;
-		font-weight: 600;
-		font-size: 15px;
-		line-height: 24px;
-		color: #ffffff;
-	}
-	.list-link {
-		a {
-			font-family: "Inter";
-			font-style: normal;
-			font-weight: 600;
-			font-size: 15px;
-			line-height: 24px;
-			color: #ffffff;
+		
+		.contact-info {
+			p {
+				display: block;
+				text-align: center;
+				font-size: 14px;
+				font-weight: 400;
+				line-height: 16.1px;
+				color: var(--text-secondary);
+				margin-bottom: 6px;
+			}
+			margin-top: 24px;
 		}
 	}
 `;

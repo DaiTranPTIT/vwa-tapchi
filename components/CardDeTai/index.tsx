@@ -61,7 +61,7 @@ const CardDeTai = (props: IPorps) => {
 							<div className='time-content flex items-center mb-[16px]'>
 								<div className='mr-[16px]'>
 									<svg width='15' height='14' viewBox='0 0 15 14' fill='none' xmlns='http://www.w3.org/2000/svg'>
-										<path d='M0 7H13M13 7L7.7381 1.5M13 7L7.7381 12.5' stroke='#DE221A' strokeWidth='2' />
+										<path d='M0 7H13M13 7L7.7381 1.5M13 7L7.7381 12.5' stroke='var(--primary-color)' strokeWidth='2' />
 									</svg>
 								</div>
 								{moment(props.data.dateTime).format("DD/MM/YYYY HH:mm")}
@@ -137,7 +137,7 @@ const CardDeTaiWrapper = styled.div`
 		font-weight: 600;
 		font-size: 14px;
 		line-height: 28px;
-		color: #de221a;
+		color: var(--primary-color);
 	}
 	.description {
 		font-family: "Be Vietnam Pro";

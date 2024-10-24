@@ -92,7 +92,7 @@ const CardEvent = (props: IPorps) => {
                           >
                             <path
                               d="M0 7H13M13 7L7.7381 1.5M13 7L7.7381 12.5"
-                              stroke="#DE221A"
+                              stroke="var(--primary-color)"
                               strokeWidth="2"
                             />
                           </svg>
@@ -165,7 +165,7 @@ const CardEvent = (props: IPorps) => {
                     >
                       <path
                         d="M0 7H13M13 7L7.7381 1.5M13 7L7.7381 12.5"
-                        stroke="#DE221A"
+                        stroke="var(--primary-color)"
                         strokeWidth="2"
                       />
                     </svg>
@@ -234,7 +234,7 @@ const CardEventWrapper = styled.div`
     font-weight: 600;
     font-size: 14px;
     line-height: 28px;
-    color: #de221a;
+    color: var(--primary-color);
   }
 `;
 const CardBigEventWrapper = styled.div`

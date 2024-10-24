@@ -199,12 +199,12 @@ const ChiTietWrapper = styled.div`
 
       color: #000000;
       &:hover {
-        //background-color: #DE221A;
-        color: #de221a;
+        //background-color: var(--primary-color);
+        color: var(--primary-color);
       }
     }
     .active {
-      color: #de221a;
+      color: var(--primary-color);
       font-weight: 700;
     }
   }

@@ -101,11 +101,11 @@ const DiscoverWrapper = styled.div`
     }
   }
   .tabs-item-active {
-    color: #de221a;
-    border-bottom: 1px solid #de221a;
+    color: var(--primary-color);
+    border-bottom: 1px solid var(--primary-color);
     svg {
       path {
-        fill: #de221a;
+        fill: var(--primary-color);
       }
     }
   }

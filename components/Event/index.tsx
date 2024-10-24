@@ -106,7 +106,7 @@ const Event = () => {
 
 };
 const EventWrapper = styled.div`
-	background-color: #DE221A;
+	background-color: var(--primary-color);
 	.button-arrow {
 		button {
 			background: #f8f9fa;

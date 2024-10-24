@@ -132,7 +132,7 @@ const AboutWrapper = styled.div`
       font-size: 18px;
       line-height: 22px;
 
-      color: #de221a;
+      color: var(--primary-color);
     }
     .content {
       font-family: "Inter";
@@ -153,7 +153,7 @@ const AboutWrapper = styled.div`
     .item {
       .content {
         &:hover {
-          color: #de221a;
+          color: var(--primary-color);
         }
       }
     }

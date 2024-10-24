@@ -85,7 +85,7 @@ const PaginationWrapper=styled.div`
   }
 
   .pagination a.active {
-    background-color: #DE221A;
+    background-color: var(--primary-color);
     color: white;
   }
 

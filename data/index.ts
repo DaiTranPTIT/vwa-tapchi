@@ -7,69 +7,23 @@ export const dataNavBar: { linkTo: string; name: string; childrenRouter: { linkT
 	{
 		linkTo: "/gioi-thieu",
 		name: "Giới thiệu",
-		childrenRouter: [
-			{
-				linkTo: "/gioi-thieu?type=KH",
-				name: "Chiến lược phát triển KH, CN & ĐMST",
-			},
-			{
-				linkTo: "/gioi-thieu?type=NC",
-				name: "Định hướng nghiên cứu",
-			},
-			{
-				linkTo: "/gioi-thieu?type=LH",
-				name: "Thông tin liên hệ",
-			},
-		],
+		childrenRouter: []
+	},
+	{
+		linkTo: "/cac-so-tap-chi",
+		name: "Các số tạp chí",
+		childrenRouter: [],
 	},
 	{
 		linkTo: "/tin-tuc",
-		name: "Tin tức - sự kiện",
+		name: "Tin tức",
 		childrenRouter: [],
 	},
 	{
-		linkTo: "/hoat-dong",
-		name: "Hoạt động KH, CN & ĐMST",
-		childrenRouter: [
-			{
-				linkTo: "/hoat-dong?type=Đề tài",
-				name: "Đề tài/ Dự án KH, CN & ĐMST",
-			},
-			{
-				linkTo: "/hoat-dong?type=Công bố",
-				name: "Công bố khoa học",
-			},
-			{
-				linkTo: "/hoat-dong?type=Sản phẩm",
-				name: "Sản phẩm KHCN tiêu biểu",
-			},
-		],
-	},
-	{
-		linkTo: "https://jstic.ptit.edu.vn/index.html",
-		name: "Tạp chí khoa học",
+		linkTo: "/phat-hanh",
+		name: "Phát hành",
 		childrenRouter: [],
-	},
-	{
-		linkTo: "/don-vi-nghien-cuu",
-		name: "Các đơn vị nghiên cứu",
-		childrenRouter: [
-			{
-				linkTo: "/don-vi-nghien-cuu?type=Viện nghiên cứu",
-				name: "Viện nghiên cứu",
-			},
-			{
-				linkTo: "/don-vi-nghien-cuu?type=Phòng thí nghiệm",
-				name: "Phòng thí nghiệm nghiên cứu",
-			},
-		],
-	},
-
-	{
-		linkTo: "/quy-che",
-		name: "Quy  chế, quy định KH, CN & ĐMST",
-		childrenRouter: [],
-	},
+	}
 ];
 export const dataBannerSlide=[
 	{
@@ -276,4 +230,68 @@ export const dataQuyChe=[
 		coQuanBanHanh:'Chính phủ',
 		taiLieuDinhKem:'569/QĐ-TTg.doc'
 	}
+]
+
+export const navMenu = [
+	{
+		"id": 15,
+		"ten": "Trang chủ",
+		"link": "/",
+		"sangTrangMoi": false,
+		"trangCon": []
+	},
+	{
+		"id": 20,
+		"ten": "Giới thiệu",
+		"link": "/gioi-thieu",
+		"sangTrangMoi": false,
+		"trangCon": [
+			{
+				"id": 17,
+				"ten": "Giới thiệu chung",
+				"link": "/gioi-thieu?type=GT",
+				"sangTrangMoi": false
+			},
+			{
+				"id": 18,
+				"ten": "Chức năng nhiệm vụ",
+				"link": "/gioi-thieu?type=CN",
+				"sangTrangMoi": false
+			},
+			{
+				"id": 19,
+				"ten": "Thông tin liên hệ",
+				"link": "/gioi-thieu?type=LH",
+				"sangTrangMoi": false
+			}
+		]
+	},
+	{
+		"id": 17,
+		"ten": "Các số tạp chí",
+		"link": "/cac-so-tap-chi",
+		"sangTrangMoi": false,
+		"trangCon": []
+	},
+	{
+		"id": 16,
+		"ten": "Tin tức",
+		"link": "/tin-tuc",
+		"sangTrangMoi": false,
+		"trangCon": []
+	},
+	{
+		"id": 18,
+		"ten": "Phát hành",
+		"link": "/phat-hanh",
+		"sangTrangMoi": false,
+		"trangCon": []
+	},
+	{
+		"id": 19,
+		"ten": "Tra cứu",
+		"link": "/tra-cuu",
+		"sangTrangMoi": false,
+		"trangCon": []
+	},
 ]

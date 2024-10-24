@@ -397,7 +397,7 @@ const TinTucWraper = styled.div`
     color: #000000;
   }
   .show-more {
-    color: #de221a;
+    color: var(--primary-color);
     font-family: "Inter";
     font-style: normal;
     font-weight: 400;
@@ -440,7 +440,7 @@ const TinTucWraper = styled.div`
         font-size: 24px;
         line-height: 29px;
 
-        color: #de221a;
+        color: var(--primary-color);
       }
     }
   }

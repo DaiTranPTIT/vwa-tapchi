@@ -169,7 +169,7 @@ const ChiTietHoatDong = () => {
 };
 const ChiTietHoatDongWrapper = styled.div`
   .show-more {
-    color: #de221a;
+    color: var(--primary-color);
     font-family: "Inter";
     font-style: normal;
     font-weight: 400;
@@ -283,7 +283,7 @@ const ChiTietHoatDongWrapper = styled.div`
       font-size: 24px;
       line-height: 29px;
 
-      color: #de221a;
+      color: var(--primary-color);
     }
   }
 `;

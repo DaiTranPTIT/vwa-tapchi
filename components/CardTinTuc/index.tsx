@@ -8,13 +8,13 @@ interface IProps {
 export default (props: IProps) => {
     return <CardTInTucWrapper>
         <div className="card">
-            <Link href={'/'}>
+            <Link href={'/tap-chi/tap-chi-1'}>
                 <div className="feature-image relative">
                     <img src="./images/default/logo-tap-chi.jpg"/>
                     <div className="tag absolute">Đã khoá</div>
                 </div>
             </Link>
-            <Link href={'/'}>
+            <Link href={'/tap-chi/tap-chi-1'}>
                 <h2 className="title">
                     Hình ảnh người phụ nữ trong văn xuôi Việt Nam tiêu biểu giai đoạn 1945-1975: Phân tích từ cách tiếp cận Giới
                 </h2>

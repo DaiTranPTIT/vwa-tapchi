@@ -28,7 +28,7 @@ const CardNghienCuu = (props: IProps) => {
               <div>
                 <div className="show-more flex items-center cursor-pointer">
                   <div className="mr-[24px] shrink-0">{dataConfigLang?.xemThem}</div>
-                  <img src="./images/icons/arrow-right-2.svg" alt="image" />
+                  <img src="/images/icons/arrow-right-2.svg" alt="image" />
                 </div>
               </div>
             </div>

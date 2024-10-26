@@ -12,14 +12,14 @@ const MainFooter = () => {
 					<div className="flex flex-col items-center py-[50px] gap-[24px]">
 						<div className="logo-footer">
 							<Link href='/'>
-								<img src="./images/footer/logo-footer.svg" alt={"Logo tạp chí khoa học"} />
+								<img src="/images/footer/logo-footer.svg" alt={"Logo tạp chí khoa học"} />
 							</Link>
 						</div>
 						<ShareSocial/>
 					</div>
 				</div>
 				<div className="bgr-break">
-					<img src={'./images/footer/bgr-break.png'}/>
+					<img src={'/images/footer/bgr-break.png'}/>
 				</div>
 				<div className="copyright container mx-auto">
 					<strong>© Copyright 2024 HocvienPhunuVietNam, All rights reserved ® Học viện Phụ nữ Việt Nam giữ bản quyền nội dung trên website này</strong>

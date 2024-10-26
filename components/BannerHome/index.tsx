@@ -8,7 +8,7 @@ export default () => {
         <h4 className="description">“Rà soát, xác định vấn đề xã hội cấp thiết với phụ nữ, trẻ em vùng dân tộc thiểu số và miền núi; khuyến nghị, đề xuất nội dung, giải pháp vận động hỗ trợ phụ nữ dân tộc thiểu số giai đoạn tiếp theo" </h4>
       </div>
       <div className="banner-image">
-        <img src={'./images/home/banner-home.jpg'}/>
+        <img src={'/images/home/banner-home.jpg'}/>
       </div>
     </div>
   </BannerHomeWrapper>

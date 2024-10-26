@@ -234,64 +234,82 @@ export const dataQuyChe=[
 
 export const navMenu = [
 	{
-		"id": 15,
-		"ten": "Trang chủ",
-		"link": "/",
-		"sangTrangMoi": false,
-		"trangCon": []
+		id: 15,
+		ten: "Trang chủ",
+		link: "/",
+		sangTrangMoi: false,
+		trangCon: []
 	},
 	{
-		"id": 20,
-		"ten": "Giới thiệu",
-		"link": "/gioi-thieu",
-		"sangTrangMoi": false,
-		"trangCon": [
+		id: 20,
+		ten: "Giới thiệu",
+		link: "/gioi-thieu",
+		sangTrangMoi: false,
+		trangCon: [
 			{
-				"id": 17,
-				"ten": "Giới thiệu chung",
-				"link": "/gioi-thieu?type=GT",
-				"sangTrangMoi": false
+				id: 17,
+				ten: "Hội đồng biên tập",
+				link: "/gioi-thieu/hoi-dong-bien-tap",
+				sangTrangMoi: false
 			},
 			{
-				"id": 18,
-				"ten": "Chức năng nhiệm vụ",
-				"link": "/gioi-thieu?type=CN",
-				"sangTrangMoi": false
+				id: 18,
+				ten: "Tôn chỉ, mục đích học động",
+				link: "/gioi-thieu/ton-chi-muc-dich",
+				sangTrangMoi: false
 			},
 			{
-				"id": 19,
-				"ten": "Thông tin liên hệ",
-				"link": "/gioi-thieu?type=LH",
-				"sangTrangMoi": false
+				id: 19,
+				ten: "Quy trình phản biện tạp chí",
+				link: "/gioi-thieu/quy-trinh-phan-bien",
+				sangTrangMoi: false
+			},
+			{
+				id: 20,
+				ten: "Quy định và hướng dẫn dành cho tác giả",
+				link: "/gioi-thieu/quy-dinh-huong-dan",
+				sangTrangMoi: false
+			},
+			{
+				id: 21,
+				ten: "Quy định về bản quyền",
+				link: "/gioi-thieu/quy-trinh-ban-quyen",
+				sangTrangMoi: false
+			},
+			{
+				id: 22,
+				ten: "Chính sách rút bài/sửa bài",
+				link: "/gioi-thieu/chinh-sach-rut-bai",
+				sangTrangMoi: false
 			}
 		]
 	},
 	{
-		"id": 17,
-		"ten": "Các số tạp chí",
-		"link": "/cac-so-tap-chi",
-		"sangTrangMoi": false,
-		"trangCon": []
+		id: 17,
+		ten: "Các số tạp chí",
+		link: "/so-tap-chi",
+		sangTrangMoi: false,
+		trangCon: []
 	},
 	{
-		"id": 16,
-		"ten": "Tin tức",
-		"link": "/tin-tuc",
-		"sangTrangMoi": false,
-		"trangCon": []
+		id: 16,
+		ten: "Tin tức",
+		link: "/tin-tuc",
+		sangTrangMoi: false,
+		trangCon: []
 	},
 	{
-		"id": 18,
-		"ten": "Phát hành",
-		"link": "/phat-hanh",
-		"sangTrangMoi": false,
-		"trangCon": []
+		id: 18,
+		ten: "Phát hành",
+		link: "/phat-hanh",
+		sangTrangMoi: false,
+		trangCon: []
 	},
 	{
-		"id": 19,
-		"ten": "Tra cứu",
-		"link": "/tra-cuu",
-		"sangTrangMoi": false,
-		"trangCon": []
+		id: 19,
+		ten: "Tra cứu",
+		link: "/tra-cuu",
+		sangTrangMoi: false,
+		trangCon: []
 	},
 ]

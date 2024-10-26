@@ -10,7 +10,7 @@ export default (props: IProps) => {
         <div className="card">
             <Link href={'/tap-chi/tap-chi-1'}>
                 <div className="feature-image relative">
-                    <img src="./images/default/logo-tap-chi.jpg"/>
+                    <img src="/images/default/logo-tap-chi.jpg"/>
                     <div className="tag absolute">Đã khoá</div>
                 </div>
             </Link>

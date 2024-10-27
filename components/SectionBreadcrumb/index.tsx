@@ -16,7 +16,7 @@ export default () => {
                     path: '/baiviet'
                 }
             ]}/>
-            <div className="description-tapchi flex gap-[40px] mt-[28px]">
+            <div className="description-tapchi md:flex gap-[40px] mt-[28px]">
                 <div className="banner-image">
                     <img src={'/images/default/logo-tap-chi.jpg'}/>
                 </div>
@@ -74,5 +74,14 @@ const SectionBreadcrumb = styled.div`
               color: #FFFFFF;
         }
     }
+
+  @media screen and (max-width: 768px) {
+    .container-breadcrumb {
+      .title {
+        font-size: 24px;
+        line-height: 36px;
+      }
+    }
+  }
 `;
 

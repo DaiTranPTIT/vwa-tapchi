@@ -28,22 +28,26 @@ module.exports = {
 					},
 				},
 				secondary: {
-					50: "#fbf4f4",
-					100: "#f6e9e9",
-					200: "#e9c9c9",
-					300: "#dba8a8",
-					400: "#c16767",
-					500: "#a62626",
-					600: "#952222",
-					700: "#7d1d1d",
-					800: "#641717",
-					900: "#51131a",
-					DEFAULT: "#FF1818", //500
+					50: "#AFCC36",
+					100: "#AFCC36",
+					200: "#AFCC36",
+					300: "#AFCC36",
+					400: "#AFCC36",
+					500: "#BBDD44",
+					600: "#748628",
+					700: "#4f5918",
+					800: "#AFCC36",
+					900: "#AFCC36",
+					DEFAULT: "#1C75BC", //500
 					on: "#f4fbfa", //50
 					dark: {
-						DEFAULT: "#dba8a8", //300
-						on: "#641717", //800
+						DEFAULT: "#AFCC36", //300
+						on: "#AFCC36", //800
 					},
+				},
+				textColor: {
+					default: 'var(--text-primary)',
+					hover: 'var(--text-main)'
 				},
 				white: {
 					50: "#fbf4f4",

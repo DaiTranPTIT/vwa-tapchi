@@ -12,6 +12,7 @@ import Logo from "../../components/Logo";
 import AuthorAndRegister from "../../components/AuthorAndRegister";
 import {navMenu} from "../../data";
 import Button from "../../components/Button";
+import Link from "next/link";
 
 interface IProps {
   language: string;
@@ -24,7 +25,7 @@ const Header = (props: IProps) => {
   const [showMenu, setShowMenu] = useState<boolean>(false);
   const [typeMenu, setTypeMenu] = useState<string>("");
   // const [dataMenu, setDataMenu] = useState<DataMenu[]>([]);
-  const [linkLogo, setLinkLogo] = useState<string>();
+  const [, setLinkLogo] = useState<string>();
   const [mainMenu, setMainMenu] = useState<MainMenu[]>([]);
   const [isScroll, setIsScroll] = useState<boolean>(false);
   const [isShowSearch, setIsShowSearch] = useState<boolean>(false);
@@ -178,7 +179,7 @@ const Header = (props: IProps) => {
             <div
               className={`container mx-auto hidden lg:flex justify-between items-center `}
             >
-              <div className="flex items-center justify-center ">
+              <div className="flex items-center justify-center gap-[32px]">
                 {dataMenu?.map((value, index) => {
                   return (
                     <div
@@ -193,7 +194,7 @@ const Header = (props: IProps) => {
                         }
                       }}
                       // href={value?.children?.length > 0 ? "" : value?.linkTo}
-                      className={`mr-[24px] last-of-type:mr-0 text-nav pt-2 cursor-pointer ${
+                      className={`text-nav cursor-pointer ${
                         value?.link
                           ?.split("?")?.[0]
                           ?.localeCompare(typeMenu) === 0
@@ -210,11 +211,9 @@ const Header = (props: IProps) => {
                         <>
                           <Tooltip
                             className={"tooltip-label"}
-                            content={
-                              <>
-                                {value?.trangCon?.map((value2, index2) => {
-                                  return (
-                                    <div
+                            content={value?.trangCon?.map((value2, index2) => {
+                              return (
+                                  <div
                                       onClick={() => {
                                         if (value?.sangTrangMoi) {
                                           window.open(value2?.link);
@@ -223,28 +222,33 @@ const Header = (props: IProps) => {
                                         }
                                       }}
                                       className={`text-children mr-[40px] cursor-pointer pt-2 ${
-                                        value2?.link?.localeCompare(
-                                          typeMenu
-                                        ) === 0
-                                          ? "text-active lg:border-b-2  lg:border-primary-500"
-                                          : "lg:border-none"
-                                      } block  hover:border-b hover:border-primary mb-[8px]`}
+                                          value2?.link?.localeCompare(
+                                              typeMenu
+                                          ) === 0
+                                              ? "text-active lg:border-b-2 lg:border-secondary"
+                                              : "lg:border-none"
+                                      } mb-[8px] hover:text-secondary`}
                                       key={index2}
-                                    >
-                                      {value2.ten}
-                                    </div>
-                                  );
-                                })}
-                              </>
-                            }
+                                  >
+                                    {value2.ten}
+                                  </div>
+                              );
+                            })}
                             style={"light"}
                             placement="bottom-start"
                           >
-                            {value?.ten}
+                            <div className="flex items-center gap-[10px]">
+                              <span>{value?.ten}</span>
+                              <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3.86207 5.06896L0 0.93103L8 0.931031L3.86207 5.06896Z" fill="#212529"/>
+                              </svg>
+                            </div>
                           </Tooltip>
                         </>
                       ) : (
-                        <>{value?.ten}</>
+                        <>
+                          {value?.ten}
+                        </>
                       )}
                     </div>
                   );
@@ -254,7 +258,7 @@ const Header = (props: IProps) => {
                   type={"primary"}
                   classname=""
                   onClick={() => {
-                    router.push("/");
+                    router.push("/huong-dan-gui-bai");
                   }}
               >
                 Gửi bài
@@ -268,111 +272,24 @@ const Header = (props: IProps) => {
               }
             >
               <div className="mr-[8px]">
-                {/*<img src="./images/header/logo-header.png" alt={"image"} />*/}
                 <div
-                  className="  title-header"
+                  className="title-header"
                   onClick={() => {
                     router.push("/");
                   }}
                 >
-                  {/*<img src={renderImage(dataThongTin?.logoHeader)} alt={"image"} />*/}
-                  HỌC VIỆN CÔNG NGHỆ BƯU CHÍNH VIỄN THÔNG
-                  {/*<div className="border-r-2 border-[#FFFFFF] w-[2px] h-[18px] mx-[20px]"></div>*/}
-                  <div className="border-t pt-[4px] mt-[4px]">
-                    {dataThongTin?.ten}
-                  </div>
+                  <Logo/>
                 </div>
               </div>
 
-              <div className="flex items-center relative shrink-0 mr-[8px]">
+              <div className="flex items-center relative shrink-0">
                 <div ref={menuRef}>
                   <div
-                    className="mr-[8px]"
+                    className=""
                     onClick={() => setShowMenu(!showMenu)}
                   >
                     <img src={"/images/icons/menu.svg"} alt={"image"} />
                   </div>
-
-                  {/*{showMenu && (*/}
-                  {/*  <div className="menu-mobile absolute w-[280px] top-[30px] right-0 bg-white px-2 py-2 shadow-md rounded z-50">*/}
-                  {/*    <ul>*/}
-                  {/*      {dataMenu?.map((value, index) => {*/}
-                  {/*        return (*/}
-                  {/*          <div*/}
-                  {/*            onClick={() => {*/}
-                  {/*              if (value?.trangCon?.length > 0) {*/}
-                  {/*              } else {*/}
-                  {/*                if (value?.sangTrangMoi) {*/}
-                  {/*                  window.open(value?.link);*/}
-                  {/*                } else {*/}
-                  {/*                  router.push(value?.link);*/}
-                  {/*                }*/}
-                  {/*              }*/}
-                  {/*            }}*/}
-                  {/*            // href={value?.children?.length > 0 ? "" : value?.linkTo}*/}
-                  {/*            className={` mr-[24px] last-of-type:mr-0 text-nav pt-2 cursor-pointer ${*/}
-                  {/*              value?.link*/}
-                  {/*                ?.split("?")?.[0]*/}
-                  {/*                ?.localeCompare(typeMenu) === 0*/}
-                  {/*                ? `text-primary ${*/}
-                  {/*                  isScroll*/}
-                  {/*                    ? "text-primary lg:border-b-2  lg:border-primary-500"*/}
-                  {/*                    : "text-active lg:border-b-2  lg:border-primary-500"*/}
-                  {/*                } `*/}
-                  {/*                : `lg:border-none ${*/}
-                  {/*                  isScroll ? "text-black" : "text-black"*/}
-                  {/*                }`*/}
-                  {/*            } block  `}*/}
-                  {/*            key={index}*/}
-                  {/*          >*/}
-                  {/*            {value?.trangCon?.length > 0 ? (*/}
-                  {/*              <>*/}
-                  {/*                <Tooltip*/}
-                  {/*                  className={"tooltip-label"}*/}
-                  {/*                  content={*/}
-                  {/*                    <>*/}
-                  {/*                      {value?.trangCon?.map(*/}
-                  {/*                        (value2, index2) => {*/}
-                  {/*                          return (*/}
-                  {/*                            <div*/}
-                  {/*                              onClick={() => {*/}
-                  {/*                                if (value?.sangTrangMoi) {*/}
-                  {/*                                  window.open(value2?.link);*/}
-                  {/*                                } else {*/}
-                  {/*                                  router.push(value2?.link);*/}
-                  {/*                                }*/}
-                  {/*                              }}*/}
-                  {/*                              className={`text-children mr-[40px] cursor-pointer pt-2 ${*/}
-                  {/*                                value2?.link?.localeCompare(*/}
-                  {/*                                  typeMenu*/}
-                  {/*                                ) === 0*/}
-                  {/*                                  ? "text-active lg:border-b-2  lg:border-primary-500"*/}
-                  {/*                                  : "lg:border-none"*/}
-                  {/*                              } block  hover:border-b hover:border-primary mb-[8px]`}*/}
-                  {/*                              key={index2}*/}
-                  {/*                            >*/}
-                  {/*                              {value2.ten}*/}
-                  {/*                            </div>*/}
-                  {/*                          );*/}
-                  {/*                        }*/}
-                  {/*                      )}*/}
-                  {/*                    </>*/}
-                  {/*                  }*/}
-                  {/*                  style={"light"}*/}
-                  {/*                  placement="bottom"*/}
-                  {/*                >*/}
-                  {/*                  {value?.ten}*/}
-                  {/*                </Tooltip>*/}
-                  {/*              </>*/}
-                  {/*            ) : (*/}
-                  {/*              <>{value?.ten}</>*/}
-                  {/*            )}*/}
-                  {/*          </div>*/}
-                  {/*        );*/}
-                  {/*      })}*/}
-                  {/*    </ul>*/}
-                  {/*  </div>*/}
-                  {/*)}*/}
 
                   {showMenu && (
                     <>
@@ -468,85 +385,85 @@ const Header = (props: IProps) => {
                   )}
                 </div>
 
-                <div className="relative mr-2" ref={langRef}>
-                  <div
-                    className="language flex items-center "
-                    onClick={() => onClickLanguage()}
-                  >
-                    <img
-                      className="w-8"
-                      src={
-                        props.language === "vi-VN"
-                          ? "/images/icons/vn.svg"
-                          : "/images/icons/us.svg"
-                      }
-                      alt=""
-                    />
-                    {/*{isChangeLang ? (*/}
-                    {/*  <svg*/}
-                    {/*    className="w-6 h-6"*/}
-                    {/*    fill="none"*/}
-                    {/*    stroke="currentColor"*/}
-                    {/*    viewBox="0 0 24 24"*/}
-                    {/*    xmlns="http://www.w3.org/2000/svg"*/}
-                    {/*  >*/}
-                    {/*    <path*/}
-                    {/*      strokeLinecap="round"*/}
-                    {/*      strokeLinejoin="round"*/}
-                    {/*      strokeWidth="2"*/}
-                    {/*      d="M5 15l7-7 7 7"*/}
-                    {/*    ></path>*/}
-                    {/*  </svg>*/}
-                    {/*) : (*/}
-                    {/*  <svg*/}
-                    {/*    className="w-6 h-6"*/}
-                    {/*    fill="none"*/}
-                    {/*    stroke="currentColor"*/}
-                    {/*    viewBox="0 0 24 24"*/}
-                    {/*    xmlns="http://www.w3.org/2000/svg"*/}
-                    {/*  >*/}
-                    {/*    <path*/}
-                    {/*      strokeLinecap="round"*/}
-                    {/*      strokeLinejoin="round"*/}
-                    {/*      strokeWidth="2"*/}
-                    {/*      d="M19 9l-7 7-7-7"*/}
-                    {/*    ></path>*/}
-                    {/*  </svg>*/}
-                    {/*)}*/}
-                  </div>
-                  {isChangeLang && (
-                    <div className="language absolute top-9 right-0 shadow-lg py-2.5 w-40 secondary-bg rounded-xl ">
-                      <ul>
-                        <li className="hover:hover-bg px-2.5 cursor-pointer">
-                          <a
-                            className="flex items-center"
-                            onClick={(e) => onChangeLanguage(e, "en")}
-                          >
-                            <img
-                              className="w-8 mr-2"
-                              src="/images/us.png"
-                              alt=""
-                            />{" "}
-                            <span>English (US)</span>
-                          </a>
-                        </li>
-                        <li className="hover:hover-bg px-2.5 cursor-pointer">
-                          <a
-                            className="flex items-center"
-                            onClick={(e) => onChangeLanguage(e, "vi-VN")}
-                          >
-                            <img
-                              className="w-8 mr-2"
-                              src="/images/vi.png"
-                              alt=""
-                            />{" "}
-                            Tiếng Việt
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  )}
-                </div>
+                {/*<div className="relative mr-2" ref={langRef}>*/}
+                {/*  <div*/}
+                {/*    className="language flex items-center "*/}
+                {/*    onClick={() => onClickLanguage()}*/}
+                {/*  >*/}
+                {/*    <img*/}
+                {/*      className="w-8"*/}
+                {/*      src={*/}
+                {/*        props.language === "vi-VN"*/}
+                {/*          ? "/images/icons/vn.svg"*/}
+                {/*          : "/images/icons/us.svg"*/}
+                {/*      }*/}
+                {/*      alt=""*/}
+                {/*    />*/}
+                {/*    /!*{isChangeLang ? (*!/*/}
+                {/*    /!*  <svg*!/*/}
+                {/*    /!*    className="w-6 h-6"*!/*/}
+                {/*    /!*    fill="none"*!/*/}
+                {/*    /!*    stroke="currentColor"*!/*/}
+                {/*    /!*    viewBox="0 0 24 24"*!/*/}
+                {/*    /!*    xmlns="http://www.w3.org/2000/svg"*!/*/}
+                {/*    /!*  >*!/*/}
+                {/*    /!*    <path*!/*/}
+                {/*    /!*      strokeLinecap="round"*!/*/}
+                {/*    /!*      strokeLinejoin="round"*!/*/}
+                {/*    /!*      strokeWidth="2"*!/*/}
+                {/*    /!*      d="M5 15l7-7 7 7"*!/*/}
+                {/*    /!*    ></path>*!/*/}
+                {/*    /!*  </svg>*!/*/}
+                {/*    /!*) : (*!/*/}
+                {/*    /!*  <svg*!/*/}
+                {/*    /!*    className="w-6 h-6"*!/*/}
+                {/*    /!*    fill="none"*!/*/}
+                {/*    /!*    stroke="currentColor"*!/*/}
+                {/*    /!*    viewBox="0 0 24 24"*!/*/}
+                {/*    /!*    xmlns="http://www.w3.org/2000/svg"*!/*/}
+                {/*    /!*  >*!/*/}
+                {/*    /!*    <path*!/*/}
+                {/*    /!*      strokeLinecap="round"*!/*/}
+                {/*    /!*      strokeLinejoin="round"*!/*/}
+                {/*    /!*      strokeWidth="2"*!/*/}
+                {/*    /!*      d="M19 9l-7 7-7-7"*!/*/}
+                {/*    /!*    ></path>*!/*/}
+                {/*    /!*  </svg>*!/*/}
+                {/*    /!*)}*!/*/}
+                {/*  </div>*/}
+                {/*  {isChangeLang && (*/}
+                {/*    <div className="language absolute top-9 right-0 shadow-lg py-2.5 w-40 secondary-bg rounded-xl ">*/}
+                {/*      <ul>*/}
+                {/*        <li className="hover:hover-bg px-2.5 cursor-pointer">*/}
+                {/*          <a*/}
+                {/*            className="flex items-center"*/}
+                {/*            onClick={(e) => onChangeLanguage(e, "en")}*/}
+                {/*          >*/}
+                {/*            <img*/}
+                {/*              className="w-8 mr-2"*/}
+                {/*              src="/images/us.png"*/}
+                {/*              alt=""*/}
+                {/*            />{" "}*/}
+                {/*            <span>English (US)</span>*/}
+                {/*          </a>*/}
+                {/*        </li>*/}
+                {/*        <li className="hover:hover-bg px-2.5 cursor-pointer">*/}
+                {/*          <a*/}
+                {/*            className="flex items-center"*/}
+                {/*            onClick={(e) => onChangeLanguage(e, "vi-VN")}*/}
+                {/*          >*/}
+                {/*            <img*/}
+                {/*              className="w-8 mr-2"*/}
+                {/*              src="/images/vi.png"*/}
+                {/*              alt=""*/}
+                {/*            />{" "}*/}
+                {/*            Tiếng Việt*/}
+                {/*          </a>*/}
+                {/*        </li>*/}
+                {/*      </ul>*/}
+                {/*    </div>*/}
+                {/*  )}*/}
+                {/*</div>*/}
               </div>
             </div>
           </div>
@@ -645,7 +562,7 @@ const HeaderWrapper = styled.div`
     line-height: 22.5px;
   }
   .text-active {
-    color: var(--primary-color) !important;
+    color: var(--text-main) !important;
   }
   .menu-mobile {
     ul {
@@ -664,7 +581,7 @@ const HeaderWrapper = styled.div`
 
     color: #18202a;
     &:hover {
-      color: var(--primary-color);
+      color: var(--main-color);
     }
   }
   .shadow-header {

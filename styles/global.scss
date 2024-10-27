@@ -16,6 +16,7 @@
 	--primary-color: #AFCC36;
 	--text-primary: #212529;
 	--text-secondary: #777D93;
+	--text-main: #1C75BC
 }
 
 @layer utilities {
@@ -172,21 +173,6 @@ a {
 	}
 }
 
-.button-outline {
-	padding: 10px 20px;
-	font-size: 15px;
-	font-weight: 700;
-	line-height: 17.25px;
-	text-align: left;
-	color: var(--primary-color);
-	transition: .2s;
-	border: 1px solid var(--primary-color);
-
-	:hover {
-		background-color: var(--primary-color) !important;
-		color: white !important;
-	}
-}
 .button-type-2 {
 	border-radius: 40px;
 }
@@ -202,6 +188,24 @@ a {
 	}
 	.sidebar {
 		width: 240px;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.container {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+	.layout-sidebar {
+		display: flex;
+		flex-direction: column;
+		gap: 30px;
+		.content {
+			width: 100%;
+		}
+		.sidebar {
+			width: 100%;
+		}
 	}
 }
 
@@ -226,6 +230,10 @@ a {
 			color: var(--text-primary);
 		}
 	}
+}
+
+.border-bottom {
+	border-bottom: 0.5px solid #A9CBED;
 }
 
 .heading-1 {
@@ -260,7 +268,6 @@ a {
 			font-weight: 700;
 			line-height: 22.5px;
 			text-align: left;
-			color: #3E3E41;
 			text-decoration: underline;
 		}
 
@@ -273,6 +280,99 @@ a {
 			display: flex;
 			align-items: center;
 			justify-content: center;
+		}
+	}
+}
+
+.blog-content {
+	line-height: 32px;
+	text-align: justify;
+
+	h3 {
+		font-size: 18px;
+		font-weight: 700;
+		line-height: 26.1px;
+		text-align: left;
+		color: var(--text-primary);
+		margin-bottom: 1em;
+	}
+
+	h4 {
+		font-size: 16px;
+		font-weight: 700;
+		line-height: 23.2px;
+		letter-spacing: 0.01em;
+		color: var(--text-primary);
+		margin-bottom: .5em;
+		margin-top: .5em;
+	}
+
+	a {
+		color: var(--text-main);
+		text-decoration: underline;
+	}
+
+	table {
+		width: 100%;
+		border-collapse: collapse;
+		margin-bottom: 20px;
+		tr {
+			border-bottom: 1px solid #D6D6D5;
+		}
+		th {
+			font-size: 16px;
+			font-weight: 700;
+			line-height: 23.2px;
+			letter-spacing: 0.01em;
+			text-align: center;
+			color: var(--text-primary);
+			text-align: center;
+			padding: 12px;
+		}
+		td {
+			color: var(--text-primary);
+			text-align: center;
+			font-size: 16px;
+			font-weight: 400;
+			line-height: 23.2px;
+			letter-spacing: 0.01em;
+			text-align: center;
+			padding: 12px;
+		}
+	}
+}
+
+@media (max-width: 767px) {
+	.ds-so-tapchi .item .link {
+		font-size: 16px;
+	}
+	.banner-home {
+		flex-direction: column !important;
+		.content, .banner-image {
+			width: 100% !important;
+		}
+	}
+
+	.card-type-2 {
+		margin-bottom: 40px;
+		.heading {
+			padding-bottom: 6px;
+			margin-bottom: 16px;
+			border-bottom: 2px solid #A9CBED;
+			.title {
+				font-size: 24px;
+				font-weight: 700;
+				line-height: 32px;
+				text-align: left;
+				color: var(--text-primary);
+			}
+			.sub-title {
+				font-size: 16px;
+				font-weight: 700;
+				line-height: 30px;
+				text-align: left;
+				color: var(--text-primary);
+			}
 		}
 	}
 }

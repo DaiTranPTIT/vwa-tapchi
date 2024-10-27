@@ -8,13 +8,14 @@ export default () => {
         <h4 className="description">“Rà soát, xác định vấn đề xã hội cấp thiết với phụ nữ, trẻ em vùng dân tộc thiểu số và miền núi; khuyến nghị, đề xuất nội dung, giải pháp vận động hỗ trợ phụ nữ dân tộc thiểu số giai đoạn tiếp theo" </h4>
       </div>
       <div className="banner-image">
-        <img src={'/images/home/banner-home.jpg'}/>
+        <img className="h-[100%] w-[100%]" src={'/images/home/banner-home.jpg'}/>
       </div>
     </div>
   </BannerHomeWrapper>
 }
 
 const BannerHomeWrapper = styled.div`
+  
   .banner-home {
     .content {
       background: linear-gradient(299.06deg, #AFCC36 -9.53%, #70931F 80.52%);

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export default () => {
     return <TapChiInfoOverallWrapper>
-        <div className="rows-4-items">
+        <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-[16px]">
             <div className="card-info">
                 <div className="icon">
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -87,43 +87,37 @@ export default () => {
 }
 
 const TapChiInfoOverallWrapper = styled.div`
-    .rows-4-items { 
-      display: grid;
-      gap: 16px;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
-      
-      .card-info {
-        display: flex;
-        gap: 16px;
-        align-items: center;
-        
-        .icon {
-          width: 40px;
-          height: 40px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border-radius: 40px;
-          border: 1px solid #A9CBED;
-        }
-        
-        .label {
-          font-size: 14px;
-          font-weight: 400;
-          line-height: 20.3px;
-          letter-spacing: 0.01em;
-          text-align: left;
-          color: var(--text-primary);
-        }
-        
-        .value {
-          font-size: 18px;
-          font-weight: 700;
-          line-height: 26.1px;
-          letter-spacing: 0.01em;
-          text-align: left;
-          color: var(--text-primary);
-        }
-      }
+  .card-info {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+
+    .icon {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 40px;
+      border: 1px solid #A9CBED;
     }
+
+    .label {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 20.3px;
+      letter-spacing: 0.01em;
+      text-align: left;
+      color: var(--text-primary);
+    }
+
+    .value {
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 26.1px;
+      letter-spacing: 0.01em;
+      text-align: left;
+      color: var(--text-primary);
+    }
+  }
 `

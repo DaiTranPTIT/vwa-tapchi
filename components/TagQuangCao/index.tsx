@@ -27,7 +27,7 @@ const TagQuangCao = styled.div`
       background-color: white;
       padding: 2px 8px;
       border-radius: 2px;
-      color: #1C75BC;
+      color: var(--text-main);
       font-size: 12px;
       font-weight: 400;
       line-height: 16.2px;

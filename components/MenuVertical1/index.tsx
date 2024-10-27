@@ -1,36 +1,21 @@
 import Link from "next/link";
 
-export default () => {
-    const listNam = [
-        {
-            title: 'Năm 2024',
-            path: '/'
-        },
-        {
-            title: 'Năm 2023',
-            path: '/'
-        },
-        {
-            title: 'Năm 2022',
-            path: '/'
-        },
-        {
-            title: 'Năm 2021',
-            path: '/'
-        },
-        {
-            title: 'Năm 2020',
-            path: '/'
-        }
-    ]
+interface IProps{
+    listLink: {
+        title: string,
+        path: string
+    }[],
+    hasBox?: boolean
+}
+export default (props: IProps) => {
     return <>
-        <ul className="nav-link">
+        <ul className={`nav-link ${props.hasBox? '': 'no-border'}`}>
             {
-                listNam.map(item => {
+                props.listLink.map(item => {
                     return (
                         <li className="item">
                             <div className="flex gap-[10px] justify-between">
-                                <Link className="link" href={item.path}>
+                                <Link className="link text-textColor-default hover:text-textColor-hover" href={item.path}>
                                     {item.title}
                                 </Link>
                                 <Link href={item.path}>

@@ -1,5 +1,5 @@
-import TapChiSidebar from "../../components/TapChiSidebar";
 import DetailSoTapChi from "../../components/DetailSoTapChi";
+import MenuVertical1 from "../../components/MenuVertical1";
 
 export default () => {
     return <>
@@ -12,7 +12,28 @@ export default () => {
                     <div className="mb-[28px]">
                         <h2 className="heading-1">Tạp chí khoa học</h2>
                     </div>
-                    <TapChiSidebar/>
+                    <MenuVertical1 hasBox={true} listLink={[
+                        {
+                            title: 'Năm 2024',
+                            path: '/'
+                        },
+                        {
+                            title: 'Năm 2023',
+                            path: '/'
+                        },
+                        {
+                            title: 'Năm 2022',
+                            path: '/'
+                        },
+                        {
+                            title: 'Năm 2021',
+                            path: '/'
+                        },
+                        {
+                            title: 'Năm 2020',
+                            path: '/'
+                        }
+                    ]}/>
                 </div>
             </div>
         </div>

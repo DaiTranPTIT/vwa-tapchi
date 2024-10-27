@@ -4,7 +4,7 @@ import React from "react";
 export default () => {
     return <TapChiStickyWrapper>
         <div className="card-tapchi">
-            <img src={'/images/default/logo-tap-chi.jpg'}/>
+            <img width="100%" src={'/images/default/logo-tap-chi.jpg'}/>
         </div>
     </TapChiStickyWrapper>
 }

@@ -3,6 +3,8 @@ import TapChiInfoOverall from "../TapChiInfoOverall";
 import TagTapChi from "../TagTapChi";
 import CardTinTuc3 from "../CardTinTuc3";
 import BaiVietCungSo from "../BaiVietCungSo";
+import Button from "../Button";
+import React from "react";
 
 export default () => {
     return <TapChiContentWrapper>
@@ -27,15 +29,25 @@ export default () => {
                 </div>
                 <TapChiInfoOverall/>
             </div>
-            <div className="mb-[50px]">
+            <div className="mb-[40px] md:mb-[50px]">
                 <TagTapChi/>
             </div>
-            <div className="so-moi-nhat mb-[50px]">
+            <div className="so-moi-nhat mb-[40px] md:mb-[50px]">
                 <CardTinTuc3/>
             </div>
-            <div className="">
+            <div className="mb-[40px] md:mb-[50px]">
                 <BaiVietCungSo/>
             </div>
+            <Button
+                type={"primary"}
+                classname="flex gap-[8px] items-center"
+                onClick={() => {}}
+            >
+                Mua bài tại đây
+                <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0.583984 4.2392H11.0006M11.0006 4.2392L7.65393 0.739197M11.0006 4.2392L7.65393 7.7392" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </Button>
         </div>
     </TapChiContentWrapper>
 }

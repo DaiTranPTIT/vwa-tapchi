@@ -78,7 +78,7 @@ const CardNamTapChiWrapper = styled.div`
         font-weight: 700;
         line-height: 27px;
         text-align: center;
-        color: #1C75BC;
+        color: var(--text-main);
         text-decoration: underline;
       }
     }

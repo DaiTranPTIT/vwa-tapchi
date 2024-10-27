@@ -11,7 +11,7 @@ export default () => {
             </Link>
             <div className="content">
                 <Link href={'/tin-tuc/tin-tuc-1'}>
-                    <h2 className="title">
+                    <h2 className="title text-textColor-default hover:text-textColor-hover">
                         Thư mời viết tham luận hội thảo NCKH: Lãnh đạo, quản lý khu vực công trong bối cảnh chuyển đổi số
                     </h2>
                 </Link>
@@ -54,7 +54,6 @@ const CardTinTuc5Wrapper = styled.div`
           line-height: 29px;
           letter-spacing: -0.01em;
           text-align: left;
-          color: var(--text-primary);
           text-decoration: underline;
           margin-bottom: 12px;
         }
@@ -74,4 +73,19 @@ const CardTinTuc5Wrapper = styled.div`
         }
       }
     }
+  
+  @media screen and (max-width: 768px) {
+    .card-tin-tuc-5 {
+      display: flex;
+      gap: 24px;
+
+      .feature-image {
+        width: 120px;
+        height: 120px;
+      }
+      .content {
+        width: calc(100% - 120px);
+      }
+    }
+  }
 `

@@ -303,7 +303,14 @@ export const navMenu = [
 		ten: "Phát hành",
 		link: "/phat-hanh",
 		sangTrangMoi: false,
-		trangCon: []
+		trangCon: [
+			{
+				id: 1,
+				ten: "Đặt mua tạp chí",
+				link: "/phat-hanh/dat-mua-tap-chi",
+				sangTrangMoi: false
+			}
+		]
 	},
 	{
 		id: 19,

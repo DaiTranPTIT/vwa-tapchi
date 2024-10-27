@@ -12,7 +12,7 @@ const Home: NextPage = () => {
 	return (
 		<HomeWrapper>
 			<section className="container mx-auto">
-				<div className="py-[20px]">
+				<div className="py-0 py-[20px]">
 					<BannerHome/>
 				</div>
 			</section>

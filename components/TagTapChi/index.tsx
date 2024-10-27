@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export default () => {
     return <TagTapChiWrapper>
-        <div className="flex gap-[16px]">
+        <div className="flex gap-[16px] flex-wrap">
             <strong>
                 Từ khoá:
             </strong>
@@ -27,6 +27,7 @@ export default () => {
 const TagTapChiWrapper = styled.div`
     ul.list-tag {
       display: flex;
+      flex-wrap: wrap;
       gap: 8px;
       li {
         font-size: 14px;

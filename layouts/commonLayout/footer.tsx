@@ -47,7 +47,8 @@ const FooterWrapper = styled.div`
 	}
 
 	.copyright {
-		padding: 40px 0;
+		padding-top: 40px;
+		padding-bottom: 40px;
 		strong {
 			display: block;
 			text-align: center;

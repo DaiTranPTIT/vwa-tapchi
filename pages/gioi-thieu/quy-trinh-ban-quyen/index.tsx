@@ -1,41 +1,39 @@
-import {useRouter} from "next/router";
-import SectionBreadcrumb from "../../components/SectionBreadcrumb";
-import TapChiContent from "../../components/TapChiContent";
-import MenuVertical1 from "../../components/MenuVertical1";
+import MenuVertical1 from "../../../components/MenuVertical1";
 
 export default () => {
-    const router = useRouter();
-
     return <>
         <div>
-            <SectionBreadcrumb/>
             <div className="layout-sidebar justify-between container mx-auto">
                 <div className="content">
-                    <TapChiContent/>
+                    <div className="border-bottom mb-[24px]">
+                        <h1 className="heading-1 mb-[8px]">
+                            Hội đồng biên tập
+                        </h1>
+                    </div>
                 </div>
                 <div className="sidebar">
                     <div className="mb-[28px]">
-                        <h2 className="heading-1">Tạp chí khoa học</h2>
+                        <h2 className="heading-1">Giới thiệu</h2>
                     </div>
                     <MenuVertical1 hasBox={true} listLink={[
                         {
-                            title: 'Năm 2024',
+                            title: 'Tôn chỉ, mục đích học động',
                             path: '/'
                         },
                         {
-                            title: 'Năm 2023',
+                            title: 'Quy trình phản biện tạp chí',
                             path: '/'
                         },
                         {
-                            title: 'Năm 2022',
+                            title: 'Quy định và hướng dẫn dành cho tác giả',
                             path: '/'
                         },
                         {
-                            title: 'Năm 2021',
+                            title: 'Quy định về bản quyền',
                             path: '/'
                         },
                         {
-                            title: 'Năm 2020',
+                            title: 'Chính sách rút bài/sửa bài',
                             path: '/'
                         }
                     ]}/>

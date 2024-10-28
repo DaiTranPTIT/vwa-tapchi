@@ -46,7 +46,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           content="Tạp chí khoa học - Học viện Phụ nữ Việt Nam"
           key="ogdesc"
         />
-        <meta property="og:image" content="/images/PTIT_LOGO.png" key="ogimg" />
+        <meta property="og:image" content="/images/vwa-logo.png" key="ogimg" />
       </Head>
 
       <AuthProvider>

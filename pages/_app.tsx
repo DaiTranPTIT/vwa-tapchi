@@ -43,7 +43,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta property="og:type" content="article" />
         <meta
           property="og:description"
-          content="quan-ly-khoa-hoc-ptit"
+          content="Tạp chí khoa học - Học viện Phụ nữ Việt Nam"
           key="ogdesc"
         />
         <meta property="og:image" content="/images/PTIT_LOGO.png" key="ogimg" />

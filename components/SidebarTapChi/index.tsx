@@ -11,10 +11,10 @@ export default (props: IProps) => {
     const {treeNam, setSelectSo, selectedSo} = props;
     return <SidebarWrapper>
         <Sidebar width="100%" className="custom-sidebar">
-            <Menu>
+            <Menu defaultChecked={true}>
                 {
-                  treeNam.map(nam => {
-                    return <SubMenu label={`Năm ${nam.namXuatBan}`}>
+                  treeNam.map((nam, index) => {
+                    return <SubMenu defaultOpen={true} label={`Năm ${nam.namXuatBan}`} key={index}>
                       {
                         nam.dsSoTapChi.map(so => {
                           return <MenuItem className={`${selectedSo?._id === so._id? 'active': ''}`}

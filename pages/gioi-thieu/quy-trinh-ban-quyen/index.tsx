@@ -1,4 +1,4 @@
-import MenuVertical1 from "../../../components/MenuVertical1";
+import MenuDefault from "../components/MenuDefault";
 
 export default () => {
     return <>
@@ -7,7 +7,7 @@ export default () => {
                 <div className="content">
                     <div className="border-bottom mb-[24px]">
                         <h1 className="heading-1 mb-[8px]">
-                            Hội đồng biên tập
+                            Quy định về bản quyền
                         </h1>
                     </div>
                 </div>
@@ -15,28 +15,7 @@ export default () => {
                     <div className="mb-[28px]">
                         <h2 className="heading-1">Giới thiệu</h2>
                     </div>
-                    <MenuVertical1 hasBox={true} listLink={[
-                        {
-                            title: 'Tôn chỉ, mục đích học động',
-                            path: '/'
-                        },
-                        {
-                            title: 'Quy trình phản biện tạp chí',
-                            path: '/'
-                        },
-                        {
-                            title: 'Quy định và hướng dẫn dành cho tác giả',
-                            path: '/'
-                        },
-                        {
-                            title: 'Quy định về bản quyền',
-                            path: '/'
-                        },
-                        {
-                            title: 'Chính sách rút bài/sửa bài',
-                            path: '/'
-                        }
-                    ]}/>
+                    <MenuDefault/>
                 </div>
             </div>
         </div>

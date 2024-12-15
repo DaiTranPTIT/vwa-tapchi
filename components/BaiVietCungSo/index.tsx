@@ -3,6 +3,7 @@ import CardTinTuc4 from "../CardTinTuc4";
 import { useEffect, useState } from "react";
 import { MTapChi } from "../../api/tapChi/typing";
 import { getTapChiTheoSo } from "../../api/tapChi/api";
+import Empty from "../Common/Empty";
 
 export default (props: {soTapChi?: string, idBaiHienTai?: string}) => {
     const [dsTapChi, setDsTapChi] = useState<MTapChi.ITapChi[]>();
@@ -37,6 +38,13 @@ export default (props: {soTapChi?: string, idBaiHienTai?: string}) => {
                 <CardTinTuc4 data={item}/>
               </li>
             })}
+            {dsTapChi?.filter(item => {
+              if(!props.idBaiHienTai) return true;
+              else {
+                return item._id !== props.idBaiHienTai;
+              }
+            }).length === 0 && <Empty title="Không còn bài viết trong số hiện tại"/>}
+
         </ul>
     </BaiVietCungSoWrapper>
 }

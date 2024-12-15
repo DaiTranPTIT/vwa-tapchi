@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { MTapChi } from "../../api/tapChi/typing";
 import { getTapChi } from "../../api/tapChi/api";
 import router from "next/router";
+import { HiArrowNarrowRight } from "react-icons/hi";
 
 export default () => {
     const [dsTapChi, setDsTapChi] = useState<MTapChi.ITapChi[]>();
@@ -29,9 +30,6 @@ export default () => {
             }
         </div>
         <ButtonDefault onClick={() => {router.push('/so-tap-chi')}} title="Xem thêm bài viết"
-                       icon={<svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M0.583984 4.2392H11.0006M11.0006 4.2392L7.65393 0.739197M11.0006 4.2392L7.65393 7.7392"
-                                  stroke="#AFCC36"/>
-                        </svg>}/>
+                       icon={<HiArrowNarrowRight/>}/>
     </>
 }

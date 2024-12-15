@@ -14,7 +14,7 @@ export default (props: IProps) => {
                 props.listLink.map(item => {
                     return (
                         <li className="item">
-                            <div className="flex gap-[10px] justify-between">
+                            <div className="flex gap-[10px] justify-between items-center">
                                 <Link className="link text-textColor-default hover:text-textColor-hover" href={item.path}>
                                     {item.title}
                                 </Link>

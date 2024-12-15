@@ -5,6 +5,7 @@ import { MTapChi } from "../../api/tapChi/typing";
 import { formatDate } from "../../utils/util";
 import router from "next/router";
 import { HiArrowNarrowRight } from "react-icons/hi";
+import soTapChi from "../../pages/so-tap-chi";
 
 interface IProps {
   soMoiNhat?: MTapChi.ISoTapChi
@@ -24,7 +25,7 @@ export default (props: IProps) => {
                         Ngày {formatDate(props.soMoiNhat?.thoiGianXuatBan)}
                     </div>
                     <div className="vertical-line"></div>
-                    <Link href="/">
+                    <Link href={`/so-tap-chi/${(new Date(props.soMoiNhat?.thoiGianXuatBan || '').getFullYear())}/${props.soMoiNhat?.soXuatBan}`}>
                         Tạp chí: {props.soMoiNhat?.quyen}, {props.soMoiNhat?.soXuatBan}
                     </Link>
                 </div>

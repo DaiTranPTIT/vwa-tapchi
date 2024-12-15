@@ -59,7 +59,7 @@ const CommonLayout = ({ children }: any) => {
 		} catch (e) {}
 	};
 	useEffect(() => {
-		getConfigButton();
+		//getConfigButton();
 	}, [langCode]);
 	return (
 		<>

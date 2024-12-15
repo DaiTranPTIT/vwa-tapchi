@@ -1,61 +1,37 @@
 import styled from "styled-components";
 import Link from "next/link";
+import { MTapChi } from "../../api/tapChi/typing";
 
-export default () => {
+interface IProps {
+    namTapChi?: MTapChi.INamTapChi
+}
+export default (props: IProps) => {
+    const {namTapChi} = props;
     return <CardNamTapChiWrapper>
         <div className="card-type-2">
             <div className="heading">
                 <div className="flex items-center justify-between">
-                    <h2 className="title">Năm 2024</h2>
-                    <strong className="sub-title">Từ tháng 1- tháng 12 2024</strong>
+                    <h2 className="title">Năm {namTapChi?.namXuatBan}</h2>
+                    <strong className="sub-title">Từ tháng 1- tháng 12 {namTapChi?.namXuatBan}</strong>
                 </div>
             </div>
             <div className="card-body">
                 <ul className="ds-so-tapchi">
-                    <li className="item">
-                        <div className="flex items-center gap-[12px]">
-                            <Link href="/so-tap-chi/so-1" className="link">
-                                Quyển. 25, Số 1
-                            </Link>
-                            <div className="vertical-line"></div>
-                            <p className="meta">
-                                Tháng 12 2024
-                            </p>
-                        </div>
-                    </li>
-                    <li className="item">
-                        <div className="flex items-center gap-[12px]">
-                            <Link href="/so-tap-chi/so-1" className="link">
-                                Quyển. 25, Số 1
-                            </Link>
-                            <div className="vertical-line"></div>
-                            <p className="meta">
-                                Tháng 12 2024
-                            </p>
-                        </div>
-                    </li>
-                    <li className="item">
-                        <div className="flex items-center gap-[12px]">
-                            <Link href="/so-tap-chi/so-1" className="link">
-                                Quyển. 25, Số 1
-                            </Link>
-                            <div className="vertical-line"></div>
-                            <p className="meta">
-                                Tháng 12 2024
-                            </p>
-                        </div>
-                    </li>
-                    <li className="item">
-                        <div className="flex items-center gap-[12px]">
-                            <Link href="/so-tap-chi/so-1" className="link">
-                                Quyển. 25, Số 1
-                            </Link>
-                            <div className="vertical-line"></div>
-                            <p className="meta">
-                                Tháng 12 2024
-                            </p>
-                        </div>
-                    </li>
+                    {
+                        namTapChi?.dsSoTapChi.map(item => {
+                            return <li className="item">
+                            <div className="flex items-center gap-[12px]">
+                                <Link href={`/so-tap-chi/${namTapChi.namXuatBan}/${item.soXuatBan}`} className="link">
+                                    {item.quyen}, {item.soXuatBan}
+                                </Link>
+                                <div className="vertical-line"></div>
+                                <p className="meta">
+                                    {new Intl.DateTimeFormat('vi-VN', { year: 'numeric', month: 'long' }).format(new Date(item.thoiGianXuatBan))}
+                                </p>
+                            </div>
+                        </li>
+                        })
+                    }
                 </ul>
             </div>
         </div>
@@ -80,6 +56,11 @@ const CardNamTapChiWrapper = styled.div`
         text-align: center;
         color: var(--text-main);
         text-decoration: underline;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
       }
     }
   }

@@ -1,28 +1,29 @@
 import {Menu, MenuItem, Sidebar, SubMenu} from "react-pro-sidebar";
 import styled from "styled-components";
+import { MTapChi } from "../../api/tapChi/typing";
 
-export default () => {
+interface IProps {
+  treeNam: MTapChi.INamTapChi[],
+  selectedSo?: MTapChi.ISoTapChi,
+  setSelectSo: (rec: MTapChi.ISoTapChi) => void
+}
+export default (props: IProps) => {
+    const {treeNam, setSelectSo, selectedSo} = props;
     return <SidebarWrapper>
         <Sidebar width="100%" className="custom-sidebar">
             <Menu>
-                <SubMenu label="Năm 2024">
-                    <MenuItem>Quyển. 21, Số 1</MenuItem>
-                    <MenuItem>Quyển. 22, Số 2</MenuItem>
-                    <MenuItem>Quyển. 22, Số 3</MenuItem>
-                    <MenuItem>Quyển. 22, Số 4</MenuItem>
-                </SubMenu>
-                <SubMenu label="Năm 2023">
-                    <MenuItem>Quyển. 21, Số 1</MenuItem>
-                    <MenuItem>Quyển. 22, Số 2</MenuItem>
-                    <MenuItem>Quyển. 22, Số 3</MenuItem>
-                    <MenuItem>Quyển. 22, Số 4</MenuItem>
-                </SubMenu>
-                <SubMenu label="Năm 2022">
-                    <MenuItem>Quyển. 21, Số 1</MenuItem>
-                    <MenuItem>Quyển. 22, Số 2</MenuItem>
-                    <MenuItem>Quyển. 22, Số 3</MenuItem>
-                    <MenuItem>Quyển. 22, Số 4</MenuItem>
-                </SubMenu>
+                {
+                  treeNam.map(nam => {
+                    return <SubMenu label={`Năm ${nam.namXuatBan}`}>
+                      {
+                        nam.dsSoTapChi.map(so => {
+                          return <MenuItem className={`${selectedSo?._id === so._id? 'active': ''}`}
+                           onClick={() => setSelectSo(so)}>{so.quyen}, {so.soXuatBan}</MenuItem>
+                        })
+                      }
+                  </SubMenu>
+                  })
+                }
             </Menu>
         </Sidebar>
     </SidebarWrapper>

@@ -1,33 +1,16 @@
-import {useState} from "react";
 import styled from "styled-components";
+import { MTapChi } from "../../api/tapChi/typing";
 
-export default () => {
-    const [soTaiLieuSelected, selectSoTaiLieu] = useState<string>('so_1');
-    const soTaiLieu = [
-        {
-            title: 'Số 1',
-            key: 'so_1'
-        },
-        {
-            title: 'Số 2',
-            key: 'so_2'
-        },
-        {
-            title: 'Số 3',
-            key: 'so_3'
-        },
-        {
-            title: 'Số 4',
-            key: 'so_4'
-        }
-    ]
+export default (props: {listSo?: MTapChi.ISoTapChi[], soHienTai?: string, selectSoTaiLieu: (soXuatBan: string) => void}) => {
+    const {listSo, soHienTai, selectSoTaiLieu} = props;
+
     return <TabsSoTapChiWrapper>
         <ul className="tabs">
             {
-                soTaiLieu.map(item => {
+                listSo?.map(item => {
                     return (
-                        <li className={`item ${item.key === soTaiLieuSelected ? 'active': ''}`} onClick={() => selectSoTaiLieu(item.key)}>
-                            {item.title}
+                        <li className={`item ${item.soXuatBan === soHienTai ? 'active': ''}`} onClick={() => selectSoTaiLieu(item.soXuatBan)}>
+                            {item.soXuatBan}
                         </li>
                     )
                 })

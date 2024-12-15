@@ -1,6 +1,7 @@
 import Axios, { AxiosError, Method } from "axios";
 import * as qs from "qs";
 import { toast } from "react-toastify";
+import { ip } from "./ip";
 
 export interface IApiResponse<T> {
 	status: number;
@@ -14,9 +15,9 @@ export interface IReqOptions {
 }
 
 const urls = {
-	test: `https://ais.aisenote.com/cong-thong-tin-viec-lam/`,
-	development: "https://ais.aisenote.com/cong-thong-tin-viec-lam/",
-	production: "https://ais.aisenote.com/cong-thong-tin-viec-lam/",
+	test: ip,
+	development: ip,
+	production: ip,
 };
 
 export const axios = Axios.create({

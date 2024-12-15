@@ -1,28 +1,21 @@
+
 import { useRouter } from "next/router";
-import SectionBreadcrumb from "../../components/SectionBreadcrumb";
-import TapChiContent from "../../components/TapChiContent";
-import MenuVertical1 from "../../components/MenuVertical1";
+import DetailSoTapChi from "../../../components/DetailSoTapChi";
+import MenuVertical1 from "../../../components/MenuVertical1";
+import { getNam } from "../../../api/tapChi/api";
 import { useEffect, useState } from "react";
-import { MTapChi } from "../../api/tapChi/typing";
-import { getNam, getTapChiDetail, getTapChiTheoSo } from "../../api/tapChi/api";
+import { MTapChi } from "../../../api/tapChi/typing";
 
 export default () => {
     const router = useRouter();
-    const { slug } = router.query;
+    const { nam, slug } = router.query;
     const [treeNam, setTreeNam] = useState<MTapChi.INamTapChi[]>([]);
-    const [selectedSo, setSelectSo] = useState<MTapChi.ISoTapChi>();
-    const [tapChiInfo, setTapChiInfo] = useState<MTapChi.ITapChi>();
+    const [namHienTai, setNamHienTai] = useState<MTapChi.INamTapChi>()
 
     const getAllSo = async () => {
         try {
-            const res = await getNam({'sort': '{"thoiGianXuatBan": -1}'});
+            const res = await getNam({ 'sort': '{"thoiGianXuatBan": -1}' });
             if (!res.data) return;
-
-            //lấy số xuất bản mới nhất
-            const latestRecord = res.data.reduce((latest, record) => {
-                return new Date(record.thoiGianXuatBan) > new Date(latest.thoiGianXuatBan) ? record : latest;
-            });
-            if (latestRecord) setSelectSo(latestRecord);
 
             //ánh xạ ds số xuất bản theo năm
             const listSo = res.data.map(item => {
@@ -40,32 +33,22 @@ export default () => {
                 return acc;
             }, {})).map(([nam, items]) => ({ namXuatBan: nam, dsSoTapChi: items }));
             setTreeNam(groupedByYear);
+            const namHt = groupedByYear.find(item => item.namXuatBan === nam);
+            setNamHienTai(namHt);
         } catch (err) {
             console.log(err);
         } finally { }
     }
 
-    const getDetailTapChi = async () => {
-        try {
-            const res = await getTapChiDetail(String(slug));
-            if(res.data) setTapChiInfo(res.data);
-        } catch(err) {console.log(err)}
-        finally {}
-    }
-
     useEffect(() => {
-        if(slug) {
-            getAllSo();
-            getDetailTapChi();
-        }
-    }, [slug]);
+        if(nam) getAllSo();
+    }, [nam]);
 
     return <>
         <div>
-            <SectionBreadcrumb tapChiInfo={tapChiInfo}/>
             <div className="layout-sidebar justify-between container mx-auto">
                 <div className="content">
-                    <TapChiContent soMoiNhat={selectedSo} tapChiInfo={tapChiInfo}/>
+                    <DetailSoTapChi nam={String(nam)} so={String(slug)} namHienTai={namHienTai}/>
                 </div>
                 <div className="sidebar">
                     <div className="mb-[28px]">

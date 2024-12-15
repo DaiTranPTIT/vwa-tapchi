@@ -5,8 +5,14 @@ import CardTinTuc3 from "../CardTinTuc3";
 import BaiVietCungSo from "../BaiVietCungSo";
 import Button from "../Button";
 import React from "react";
+import { MTapChi } from "../../api/tapChi/typing";
+import router from "next/router";
 
-export default () => {
+interface IProps {
+    soMoiNhat?: MTapChi.ISoTapChi,
+    tapChiInfo?: MTapChi.ITapChi;
+}
+export default (props: IProps) => {
     return <TapChiContentWrapper>
         <div className="section-content">
             <h2 className="meta-title">Tổng quan</h2>
@@ -16,32 +22,32 @@ export default () => {
                         Tác giả:
                     </strong>
                     <p className="post-info">
-                        Bùi Duy Phú (buiduyphu@gmail.com; Đại học Đại Nam), Nguyễn Nhật Minh (nguyennhatminh@gmail.com; Học viện Ngân hàng)
+                        {props.tapChiInfo?.danhSachNguoiThamGia.map(item => {
+                            return `${item.hoTen} (${item.email}; ${item.toChuc})`;
+                        }).join(', ')}
                     </p>
                 </div>
                 <div className="post-wrapper">
                     <strong className="title">
                         Tóm tắt:
                     </strong>
-                    <p className="post-info">
-                        The protection of financial consumers plays a crucial role in promoting the development of the financial system contributing significantly to economic growth and overall financial objectives in each country. Therefore, many major organizations worldwide have developed principles or provided recommendations as reference frameworks for implementing financial consumer protection practices. Among these, the “39 Good Practices for Financial Consumer Protection” by the World Bank and the “10 Principles for Financial Consumer Protection” by the G20/OECD stand out prominently. While not legally binding, these principles are considered essential foundations for countries to consult in constructing and refining their legal and institutional frameworks. Building on this foundation, the article elaborates on specific international norms, legal frameworks, and enforcement mechanisms for financial consumer protection proposed by the World Bank and G20/OECD. The aim is to assist policymakers in enhancing their legal frameworks for the protection of financial consumers.
-                    </p>
+                    <p className="post-info" dangerouslySetInnerHTML={{ __html: props.tapChiInfo?.tomTat ?? '' }}></p>
                 </div>
-                <TapChiInfoOverall/>
+                <TapChiInfoOverall tapChiInfo={props.tapChiInfo}/>
             </div>
             <div className="mb-[40px] md:mb-[50px]">
-                <TagTapChi/>
+                <TagTapChi tagsTapChi={props.tapChiInfo?.tuKhoa}/>
             </div>
             <div className="so-moi-nhat mb-[40px] md:mb-[50px]">
-                <CardTinTuc3/>
+                <CardTinTuc3 soMoiNhat={props.soMoiNhat}/>
             </div>
             <div className="mb-[40px] md:mb-[50px]">
-                <BaiVietCungSo/>
+                <BaiVietCungSo soTapChi={props.tapChiInfo?.thongTinXuatBan[0].soXuatBan} idBaiHienTai={props.tapChiInfo?._id}/>
             </div>
             <Button
                 type={"primary"}
                 classname="flex gap-[8px] items-center"
-                onClick={() => {}}
+                onClick={() => {router.push('/phat-hanh/dat-mua-tap-chi')}}
             >
                 Mua bài tại đây
                 <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">

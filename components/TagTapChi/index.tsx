@@ -1,24 +1,22 @@
 import styled from "styled-components";
 
-export default () => {
+interface IProps {
+    tagsTapChi?: string[]
+}
+
+export default (props: IProps) => {
+    const {tagsTapChi} = props;
     return <TagTapChiWrapper>
         <div className="flex gap-[16px] flex-wrap">
             <strong>
                 Từ khoá:
             </strong>
             <ul className="list-tag">
-                <li>
-                    Financial consumer protection
-                </li>
-                <li>
-                    Legal framework
-                </li>
-                <li>
-                    international norms
-                </li>
-                <li>
-                    enforcement mechanims
-                </li>
+                {
+                    tagsTapChi?.map(item => <li>
+                        {item}
+                    </li>)
+                }
             </ul>
         </div>
     </TagTapChiWrapper>

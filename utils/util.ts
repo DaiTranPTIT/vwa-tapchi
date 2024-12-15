@@ -1,5 +1,6 @@
 import axios from "axios";
 import {ip, ipImage} from "../api/ip";
+import moment from "moment";
 
 export const vndFormat = new Intl.NumberFormat("vi-VN", { style: "currency", currency: "VND" });
 
@@ -123,3 +124,8 @@ export function renderImage(thumbnail: string) {
 // 	});
 // 	return `http://u2212-dev.dttt.vn/gwdevv5/file/v5/FileObject/public/${res?.data?.data?.id}/download`;
 // }
+
+export function formatDate(dateStr?: string) {
+	if(!dateStr) return;
+	return moment(dateStr).format('DD/MM/YYYY');
+}

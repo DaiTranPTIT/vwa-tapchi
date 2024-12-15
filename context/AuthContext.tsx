@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { axios } from "../api";
-import { getClientOAuth, userLoginOAuth } from "../api/auth";
+import { userLoginOAuth } from "../api/auth";
 import { getAllApply, getAllBookmark, getAllFollow } from "../api/baidang";
 import { getUserMe, getUserProfile, userLogin, userLogout } from "../api/user";
 import { User } from "../api/user/type";

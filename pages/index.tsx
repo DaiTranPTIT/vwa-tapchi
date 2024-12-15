@@ -29,7 +29,7 @@ const Home: NextPage = () => {
 					<SectionTinTuc element={<TapChiKhoaHoc/>} title={'Tạp chí khoa học'}/>
 				</div>
 				<div className="container mx-auto pt-[40px] pb-[40px]">
-					<SectionTinTuc element={<BaiViet2024/>} title={'Năm 2024'}/>
+					<SectionTinTuc element={<BaiViet2024/>} title={`Năm ${(new Date()).getFullYear()}`}/>
 				</div>
 			</section>
 		</HomeWrapper>

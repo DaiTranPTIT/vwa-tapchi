@@ -112,7 +112,6 @@ const Header = (props: IProps) => {
   }, []);
 
   const isSticky = (e: any) => {
-    console.log("cc", window.scrollY);
     if (window.scrollY > 132) {
       setIsScroll(true);
     } else {
@@ -120,7 +119,7 @@ const Header = (props: IProps) => {
     }
   };
   useEffect(() => {
-    getThongTinChung();
+    //getThongTinChung();
     setShowMenu(false);
   }, [router, langCode]);
   const handleClickOutside = (e: any) => {

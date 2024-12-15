@@ -2,18 +2,23 @@ import styled from "styled-components";
 import Breadcrumb from "../Breadcrumb";
 import Button from "../Button";
 import React from "react";
+import router from "next/router";
+import { MTapChi } from "../../api/tapChi/typing";
 
-export default () => {
+interface IProps {
+    tapChiInfo?: MTapChi.ITapChi;
+}
+export default (props: IProps) => {
     return <SectionBreadcrumb>
         <div className="container mx-auto pt-[16px] pb-[48px] container-breadcrumb">
             <Breadcrumb data={[
                 {
-                    title: 'Trang chu',
+                    title: 'Trang chủ',
                     path: '/'
                 },
                 {
-                    title: 'International experience overview on mechanisms for enforcing financial consumer protectionng',
-                    path: '/baiviet'
+                    title: props.tapChiInfo?.tieuDe || '',
+                    path: `/tap-chi/${props.tapChiInfo?._id}`
                 }
             ]}/>
             <div className="description-tapchi md:flex gap-[40px] mt-[28px]">
@@ -22,15 +27,15 @@ export default () => {
                 </div>
                 <div className="flex flex-col gap-[24px] max-w-[850px]">
                     <h1 className="title">
-                        International experience overview on mechanisms for enforcing financial consumer protection
+                        {props.tapChiInfo?.tieuDe}
                     </h1>
                     <h3 className="description">
-                        Tạp chí: Quyển. 26, Số 2-2024
+                        Tạp chí: {props.tapChiInfo?.thongTinXuatBan[0].quyen}, {props.tapChiInfo?.thongTinXuatBan[0].soXuatBan}
                     </h3>
                     <Button
                         type={"primary"}
                         classname="button-type-2 flex gap-[8px] items-center"
-                        onClick={() => {}}
+                        onClick={() => {router.push('/phat-hanh/dat-mua-tap-chi')}}
                     >
                         Mua bài tại đây
                         <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -48,6 +53,7 @@ const SectionBreadcrumb = styled.div`
 	.container-breadcrumb {
         .banner-image {
           width: 150px;
+          height: 207px;
           border: 3px solid #FFFFFF;
           border-radius: 3px;
           overflow: hidden;

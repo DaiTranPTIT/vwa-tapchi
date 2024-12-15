@@ -1,25 +1,26 @@
-import {ICardTinTuc} from "./models/card-tin-tuc";
 import styled from "styled-components";
 import Link from "next/link";
+import { MTapChi } from "../../api/tapChi/typing";
+import { formatDate } from "../../utils/util";
 
 interface IProps {
-    data?: ICardTinTuc
+    data?: MTapChi.ITapChi
 }
 export default (props: IProps) => {
     return <CardTInTucWrapper>
         <div className="card">
-            <Link href={'/tap-chi/tap-chi-1'}>
+            <Link href={`/tap-chi/${props.data?._id}`}>
                 <div className="feature-image relative">
                     <img src="/images/default/logo-tap-chi.jpg"/>
-                    <div className="tag absolute">Đã khoá</div>
+                    {props.data?.thongTinXuatBan[0].lock && <div className="tag absolute">Đã khoá</div>}
                 </div>
             </Link>
-            <Link href={'/tap-chi/tap-chi-1'}>
+            <Link href={`/tap-chi/${props.data?._id}`}>
                 <h2 className="title">
-                    Hình ảnh người phụ nữ trong văn xuôi Việt Nam tiêu biểu giai đoạn 1945-1975: Phân tích từ cách tiếp cận Giới
+                    {props.data?.tieuDe}
                 </h2>
             </Link>
-            <p className="author-name">Nguyễn Thị Thu Hường</p>
+            <p className="author-name">{props.data?.hoTen}</p>
             <div className="metadata">
                 <div className="label">
                     Ngày đăng
@@ -29,7 +30,7 @@ export default (props: IProps) => {
                         <circle cx="6.63464" cy="6.77843" r="5.46667" stroke="#777D93" stroke-linecap="round" stroke-linejoin="round"/>
                         <path d="M6.63477 3.44507V6.81174L9.3681 6.81174" stroke="#777D93" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
-                    <span>22/03/2024</span>
+                    <span>{formatDate(props.data?.thongTinXuatBan[0].thoiGianXuatBan)}</span>
                 </div>
                 <div className="label">
                     Số trang
@@ -44,7 +45,7 @@ export default (props: IProps) => {
                         <path d="M2.63281 11.245H6.89948" stroke="#777D93" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                     <span>
-                        49-49
+                        {props.data?.soTrangBatDau} - {props.data?.soTrangKetThuc}
                     </span>
                 </div>
                 <div className="label">
@@ -136,7 +137,11 @@ const CardTInTucWrapper = styled.div`
       line-height: 27px;
       text-align: left;
       color: #2387E3;
-
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
       :hover {
         text-decoration: underline;
       }

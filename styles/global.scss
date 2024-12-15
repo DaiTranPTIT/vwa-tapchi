@@ -360,7 +360,6 @@ a {
 			margin-bottom: 16px;
 			border-bottom: 2px solid #A9CBED;
 			.title {
-				font-size: 24px;
 				font-weight: 700;
 				line-height: 32px;
 				text-align: left;
@@ -374,5 +373,12 @@ a {
 				color: var(--text-primary);
 			}
 		}
+	}
+}
+
+
+.ps-menuitem-root.active {
+	a {
+		color: var(--primary-color);
 	}
 }

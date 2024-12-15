@@ -1,24 +1,42 @@
 import styled from "styled-components";
 import CardTinTuc4 from "../CardTinTuc4";
+import { useEffect, useState } from "react";
+import { MTapChi } from "../../api/tapChi/typing";
+import { getTapChiTheoSo } from "../../api/tapChi/api";
 
-export default () => {
+export default (props: {soTapChi?: string, idBaiHienTai?: string}) => {
+    const [dsTapChi, setDsTapChi] = useState<MTapChi.ITapChi[]>();
+
+    const getTapChi = async (idSoTapChi: string) => {
+        try {
+            const res = await getTapChiTheoSo({}, idSoTapChi);
+            setDsTapChi(res.data);
+        } catch (err) {
+            console.log(err);
+        } finally {}
+    }
+
+    useEffect(() => {
+      if(props.soTapChi) {
+        getTapChi(props.soTapChi);
+      }
+    }, [props.soTapChi]);
+
     return <BaiVietCungSoWrapper>
         <div>
             <h2 className="heading">Bài viết cùng số</h2>
         </div>
         <ul className="ds-bai-viet">
-            <li className="item">
-                <CardTinTuc4/>
-            </li>
-            <li className="item">
-                <CardTinTuc4/>
-            </li>
-            <li className="item">
-                <CardTinTuc4/>
-            </li>
-            <li className="item">
-                <CardTinTuc4/>
-            </li>
+            {dsTapChi?.filter(item => {
+              if(!props.idBaiHienTai) return true;
+              else {
+                return item._id !== props.idBaiHienTai;
+              }
+            }).map(item => {
+              return <li className="item">
+                <CardTinTuc4 data={item}/>
+              </li>
+            })}
         </ul>
     </BaiVietCungSoWrapper>
 }

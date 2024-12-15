@@ -1,22 +1,23 @@
 import {ICardTinTuc} from "./models/card-tin-tuc";
 import styled from "styled-components";
 import Link from "next/link";
+import { MTapChi } from "../../api/tapChi/typing";
 
 interface IProps {
-    data?: ICardTinTuc
+    data?: MTapChi.ITapChi
 }
 export default (props: IProps) => {
     return <CardTInTucWrapper>
         <div className="card">
-            <Link href={'/tap-chi/tap-chi-1'}>
+            <Link href={`/tap-chi/${props.data?._id}`}>
                 <div className="feature-image relative">
                     <img src="./images/default/logo-tap-chi.jpg"/>
-                    <div className="tag absolute">Đã khoá</div>
+                    {props.data?.thongTinXuatBan[0].lock && <div className="tag absolute">Đã khoá</div>}
                 </div>
             </Link>
-            <Link href={'/tap-chi/tap-chi-1'}>
+            <Link href={`/tap-chi/${props.data?._id}`}>
                 <h2 className="title">
-                    Hình ảnh người phụ nữ trong văn xuôi Việt Nam tiêu biểu giai đoạn 1945-1975: Phân tích từ cách tiếp cận Giới
+                    {props.data?.tieuDe}
                 </h2>
             </Link>
         </div>
@@ -61,6 +62,11 @@ const CardTInTucWrapper = styled.div`
         line-height: 27px;
         text-align: left;
         color: #2387E3;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
         :hover {
           text-decoration: underline;
         }

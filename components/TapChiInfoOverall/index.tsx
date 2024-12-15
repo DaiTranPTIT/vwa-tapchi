@@ -1,6 +1,13 @@
 import styled from "styled-components";
+import { MTapChi } from "../../api/tapChi/typing";
+import { formatDate } from "../../utils/util";
 
-export default () => {
+interface IProps {
+    tapChiInfo?: MTapChi.ITapChi;
+}
+
+export default (props: IProps) => {
+    const {tapChiInfo} = props;
     return <TapChiInfoOverallWrapper>
         <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-[16px]">
             <div className="card-info">
@@ -15,7 +22,7 @@ export default () => {
                         Ngày đăng
                     </div>
                     <div className="value">
-                        22/03/2024
+                        {formatDate(tapChiInfo?.thongTinXuatBan[0].thoiGianXuatBan)}
                     </div>
                 </div>
             </div>
@@ -62,7 +69,7 @@ export default () => {
                         Số trang
                     </div>
                     <div className="value">
-                        71-79
+                        {tapChiInfo?.soTrangBatDau}-{tapChiInfo?.soTrangKetThuc}
                     </div>
                 </div>
             </div>

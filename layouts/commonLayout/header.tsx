@@ -196,8 +196,8 @@ const Header = (props: IProps) => {
                       // href={value?.children?.length > 0 ? "" : value?.linkTo}
                       className={`text-nav cursor-pointer ${
                         value?.link
-                          ?.split("?")?.[0]
-                          ?.localeCompare(typeMenu) === 0
+                          ?.split("?")?.[0]?.localeCompare(typeMenu) === 0 || 
+                          value?.trangCon?.some((subValue) => subValue?.link?.localeCompare(typeMenu) === 0)
                           ? `text-white ${
                               isScroll ? "text-active " : "text-active "
                             } `
@@ -222,9 +222,7 @@ const Header = (props: IProps) => {
                                         }
                                       }}
                                       className={`text-children mr-[40px] cursor-pointer pt-2 ${
-                                          value2?.link?.localeCompare(
-                                              typeMenu
-                                          ) === 0
+                                          value2?.link?.localeCompare(typeMenu) === 0
                                               ? "text-active lg:border-b-2 lg:border-secondary"
                                               : "lg:border-none"
                                       } mb-[8px] hover:text-secondary`}
@@ -239,9 +237,26 @@ const Header = (props: IProps) => {
                           >
                             <div className="flex items-center gap-[10px]">
                               <span>{value?.ten}</span>
-                              <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M3.86207 5.06896L0 0.93103L8 0.931031L3.86207 5.06896Z" fill="#212529"/>
-                              </svg>
+                              <svg 
+                              width="8" 
+                              height="6" 
+                              viewBox="0 0 8 6" 
+                              fill="none" 
+                              xmlns="http://www.w3.org/2000/svg"
+                              className={`
+                                ${value?.link?.split("?")?.[0]?.localeCompare(typeMenu) === 0 || 
+                                  value?.trangCon?.some((subValue) => subValue?.link?.localeCompare(typeMenu) === 0)
+                                  ? "text-active"  // Add a custom class for active state
+                                  : "text-black"  // Custom class for inactive state
+                                }`}
+                            >
+                              <path d="M3.86207 5.06896L0 0.93103L8 0.931031L3.86207 5.06896Z" fill={ 
+                                    value?.link?.split("?")?.[0]?.localeCompare(typeMenu) === 0 || 
+                                    value?.trangCon?.some((subValue) => subValue?.link?.localeCompare(typeMenu) === 0)
+                                    ? "#007bff"  // Active color
+                                    : "#212529"  // Default color
+                                  }/>
+                            </svg>
                             </div>
                           </Tooltip>
                         </>
@@ -563,6 +578,7 @@ const HeaderWrapper = styled.div`
   }
   .text-active {
     color: var(--text-main) !important;
+    fill:  #007bff;
   }
   .menu-mobile {
     ul {

@@ -1,11 +1,13 @@
+import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 
 export default () => {
+  const [common] = useTranslation('common');
   return <BannerHomeWrapper>
     <div className="banner-home flex">
       <div className="content">
-        <h2 className="title">Thư mời viết bài tham luận hội thảo khoa học quốc gia khu vực miền Bắc</h2>
-        <h4 className="description">“Rà soát, xác định vấn đề xã hội cấp thiết với phụ nữ, trẻ em vùng dân tộc thiểu số và miền núi; khuyến nghị, đề xuất nội dung, giải pháp vận động hỗ trợ phụ nữ dân tộc thiểu số giai đoạn tiếp theo" </h4>
+        <h2 className="title">{common("home.thu-moi")}</h2>
+        <h4 className="description">“{common("home.noi-dung")}"</h4>
       </div>
       <div className="banner-image">
         <img className="h-[100%] w-[100%]" src={'/images/home/banner-home.jpg'}/>
@@ -42,7 +44,6 @@ const BannerHomeWrapper = styled.div`
     }
     .banner-image {
       width: calc(100% - 490px);
-      height: 290px;
       overflow: hidden;
       img {
         object-fit: cover;

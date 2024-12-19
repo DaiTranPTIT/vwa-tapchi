@@ -1,18 +1,20 @@
 import styled from "styled-components";
 import Link from "next/link";
 import { MTapChi } from "../../api/tapChi/typing";
+import { useTranslation } from "react-i18next";
 
 interface IProps {
     namTapChi?: MTapChi.INamTapChi
 }
 export default (props: IProps) => {
+    const [common] = useTranslation('common')
     const {namTapChi} = props;
     return <CardNamTapChiWrapper>
         <div className="card-type-2">
             <div className="heading">
                 <div className="flex items-center justify-between">
-                    <h2 className="title">Năm {namTapChi?.namXuatBan}</h2>
-                    <strong className="sub-title">Từ tháng 1- tháng 12 {namTapChi?.namXuatBan}</strong>
+                    <h2 className="title">{common("so-tap-chi.year")} {namTapChi?.namXuatBan}</h2>
+                    <strong className="sub-title">{common("so-tap-chi.thang1-thang12")} {namTapChi?.namXuatBan}</strong>
                 </div>
             </div>
             <div className="card-body">

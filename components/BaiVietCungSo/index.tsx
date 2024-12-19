@@ -4,10 +4,11 @@ import { useEffect, useState } from "react";
 import { MTapChi } from "../../api/tapChi/typing";
 import { getTapChiTheoSo } from "../../api/tapChi/api";
 import Empty from "../Common/Empty";
+import { useTranslation } from "react-i18next";
 
 export default (props: {soTapChi?: string, idBaiHienTai?: string}) => {
     const [dsTapChi, setDsTapChi] = useState<MTapChi.ITapChi[]>();
-
+    const {t:common} = useTranslation('common')
     const getTapChi = async (idSoTapChi: string) => {
         try {
             const res = await getTapChiTheoSo({}, idSoTapChi);
@@ -25,7 +26,7 @@ export default (props: {soTapChi?: string, idBaiHienTai?: string}) => {
 
     return <BaiVietCungSoWrapper>
         <div>
-            <h2 className="heading">Bài viết cùng số</h2>
+            <h2 className="heading">{common("common.bai-viet-cung-so")}</h2>
         </div>
         <ul className="ds-bai-viet">
             {dsTapChi?.filter(item => {
@@ -43,7 +44,7 @@ export default (props: {soTapChi?: string, idBaiHienTai?: string}) => {
               else {
                 return item._id !== props.idBaiHienTai;
               }
-            }).length === 0 && <Empty title="Không còn bài viết trong số hiện tại"/>}
+            }).length === 0 && <Empty title={common("common.khong-co-bai-viet-cung-so")}/>}
 
         </ul>
     </BaiVietCungSoWrapper>

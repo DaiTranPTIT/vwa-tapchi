@@ -1,30 +1,32 @@
+import { useTranslation } from "react-i18next"
 import MenuVertical1 from "../../../components/MenuVertical1"
 
 export default () => {
+    const {t : common} = useTranslation('common')
     return <>
         <MenuVertical1 hasBox={true} listLink={[
             {
-                title: 'Hội đồng biên tập',
+                title: common("gioi-thieu.hoi-dong-bien-tap"),
                 path: '/gioi-thieu/hoi-dong-bien-tap'
             },
             {
-                title: 'Tôn chỉ, mục đích học động',
+                title: common("gioi-thieu.ton-chi-muc-dich"),
                 path: '/gioi-thieu/ton-chi-muc-dich'
             },
             {
-                title: 'Quy trình phản biện tạp chí',
+                title: common("gioi-thieu.quy-trinh-phan-bien"),
                 path: '/gioi-thieu/quy-trinh-phan-bien'
             },
             {
-                title: 'Quy định và hướng dẫn dành cho tác giả',
+                title: common("gioi-thieu.quy-dinh-huong-dan"),
                 path: '/gioi-thieu/quy-dinh-huong-dan'
             },
             {
-                title: 'Quy định về bản quyền',
+                title: common("gioi-thieu.quy-trinh-ban-quyen"),
                 path: '/gioi-thieu/quy-trinh-ban-quyen'
             },
             {
-                title: 'Chính sách rút bài/sửa bài',
+                title: common("gioi-thieu.chinh-sach-rut-bai"),
                 path: '/gioi-thieu/chinh-sach-rut-bai'
             }
         ]} />

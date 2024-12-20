@@ -2,9 +2,15 @@ import styled from "styled-components";
 import React from "react";
 import Link from "next/link";
 import ShareSocial from "../../components/ShareSocial";
+import { useTranslation } from "react-i18next";
 
-const MainFooter = () => {
-
+interface IProps {
+	language: string,
+	handleChangeLanguage: (lang: string) => void
+}
+const MainFooter = (props: IProps) => {
+	const [common] = useTranslation('common')
+	const {language, handleChangeLanguage} = props;
 	return (
 		<FooterWrapper>
 			<div className="footer-container">
@@ -16,19 +22,45 @@ const MainFooter = () => {
 							</Link>
 						</div>
 						<ShareSocial/>
+						<div className="flex">
+							<div
+								className={`mr-[8px] cursor-pointer ${
+								language === "vi-VN" ? "border-white border" : ""
+								} hover:border-white hover:border`}
+								onClick={() => handleChangeLanguage("vi-VN")}
+							>
+								<img
+								className="h-[30px] w-[45px]"
+								src={"/images/icons/vn.svg"}
+								alt={"image"}
+								/>
+							</div>
+							<div
+								className={`cursor-pointer ${
+								language === "en" ? "border-white border" : ""
+								} hover:border-white hover:border`}
+								onClick={() => handleChangeLanguage("en")}
+							>
+								<img
+								className="h-[30px] w-[45px]"
+								src={"/images/icons/us.svg"}
+								alt={"image"}
+								/>
+							</div>
+                		</div>
 					</div>
 				</div>
 				<div className="bgr-break">
 					<img src={'/images/footer/bgr-break.png'}/>
 				</div>
 				<div className="copyright container mx-auto">
-					<strong>© Copyright 2024 HocvienPhunuVietNam, All rights reserved ® Học viện Phụ nữ Việt Nam giữ bản quyền nội dung trên website này</strong>
+					<strong>© Copyright 2024 HocvienPhunuVietNam, All rights reserved ® {common("footer.content")}</strong>
 					<strong>Phòng 1503, Tầng 15, Tòa A2, Học viện Phụ nữ Việt Nam, 68 Nguyễn Chí Thanh, Đống Đa, Hà Nội</strong>
 					<strong>(84-24) 3775-4452; (84) 0983.160.389</strong>
 
 					<div className="contact-info">
-						<p>Tạp chí Khoa học Học viện Phụ nữ Việt Nam đang trong quá trình hoàn thiện, phát triển. Mọi ý kiến đóng góp, chia sẻ xin vui lòng gửi về:</p>
-						<p>Toà soạn Tạp chí Khoa học, Học viện Phụ nữ Việt Nam </p>
+						<p>{common("footer.content1")}</p>
+						<p>{common("footer.name")}</p>
 						<p>Email: tapchikh@vwa.edu.vn</p>
 					</div>
 				</div>

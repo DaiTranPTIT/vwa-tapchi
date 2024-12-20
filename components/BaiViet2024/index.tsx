@@ -5,9 +5,12 @@ import { getTapChiNamHienTai } from "../../api/tapChi/api";
 import { MTapChi } from "../../api/tapChi/typing";
 import router from "next/router";
 import { HiArrowNarrowRight, HiArrowRight } from "react-icons/hi";
+import { useTranslation } from "react-i18next";
 
 export default () => {
     const [dsTapChi, setDsTapChi] = useState<MTapChi.ITapChi[]>();
+    const {t : common} = useTranslation('common')
+
     const getDsTapChi = async () => {
         try {
             const res = await getTapChiNamHienTai({ page: 1, limit: 4 });
@@ -29,7 +32,7 @@ export default () => {
             )}
         </div>
 
-        <ButtonDefault onClick={() => {router.push('/so-tap-chi')}} title="Xem thêm bài viết"
+        <ButtonDefault onClick={() => {router.push('/so-tap-chi')}} title={common("home.xem-them-bai-viet")}
             icon={<HiArrowNarrowRight/>} />
     </>
 }

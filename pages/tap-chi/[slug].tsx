@@ -5,6 +5,7 @@ import MenuVertical1 from "../../components/MenuVertical1";
 import { useEffect, useState } from "react";
 import { MTapChi } from "../../api/tapChi/typing";
 import { getNam, getTapChiDetail, getTapChiTheoSo } from "../../api/tapChi/api";
+import { useTranslation } from "react-i18next";
 
 export default () => {
     const router = useRouter();
@@ -12,6 +13,7 @@ export default () => {
     const [treeNam, setTreeNam] = useState<MTapChi.INamTapChi[]>([]);
     const [selectedSo, setSelectSo] = useState<MTapChi.ISoTapChi>();
     const [tapChiInfo, setTapChiInfo] = useState<MTapChi.ITapChi>();
+    const [common] = useTranslation('common')
 
     const getAllSo = async () => {
         try {
@@ -70,7 +72,7 @@ export default () => {
                 </div>
                 <div className="sidebar">
                     <div className="mb-[28px]">
-                        <h2 className="heading-1">Tạp chí khoa học</h2>
+                        <h2 className="heading-1">{common("common.tap-chi-kh")}</h2>
                     </div>
                     <MenuVertical1 hasBox={true} listLink={
                         treeNam.map(item => {

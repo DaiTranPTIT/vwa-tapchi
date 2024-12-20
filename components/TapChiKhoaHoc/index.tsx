@@ -6,11 +6,13 @@ import { getNam, getTapChiTheoSo } from "../../api/tapChi/api";
 import { MTapChi } from "../../api/tapChi/typing";
 import router from "next/router";
 import { HiArrowNarrowRight } from "react-icons/hi";
+import { useTranslation } from "react-i18next";
 
 export default () => {
     const [treeNam, setTreeNam] = useState<MTapChi.INamTapChi[]>([]);
     const [selectedSo, setSelectSo] = useState<MTapChi.ISoTapChi>();
     const [dsTapChi, setDsTapChi] = useState<MTapChi.ITapChi[]>();
+    const {t : common} = useTranslation('common');
 
     const getAllSo = async () => {
         try {
@@ -83,7 +85,7 @@ export default () => {
             }
         </div>
 
-        <ButtonDefault onClick={() => {router.push('/so-tap-chi')}} title="Xem thêm bài viết"
+        <ButtonDefault onClick={() => {router.push('/so-tap-chi')}} title={common("home.xem-them-bai-viet")}
                        icon={<HiArrowNarrowRight/>}/>
     </>
 }

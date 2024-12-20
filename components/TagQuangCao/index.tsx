@@ -1,16 +1,15 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 
 export default ({handleClose}: any) => {
+    const [common] = useTranslation('common')
 
     return <TagQuangCao>
         <div className="flex items-center gap-[16px]">
             <div className="flex items-center gap-[8px]">
-                <strong>
-                    Quảng cáo
-                </strong>
                 <div className="tag">
-                    Ads
+                    {common("home.quang-cao")}
                 </div>
             </div>
             <button className="close" onClick={handleClose}>

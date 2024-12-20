@@ -8,21 +8,24 @@ import Header from "./header";
 import Head from "next/head";
 import axios from "axios";
 import {ip} from "../../api/ip";
+import { useTranslation } from "react-i18next";
 
 const CommonLayout = ({ children }: any) => {
 	const [language, setLanguage] = useState<string>("");
 	const { langCode, setDataConfigLang,setLangCode } = useContext(AuthContext);
 	const { pathname } = useRouter();
+	const [common] = useTranslation('common');
 
 	useEffect(() => {
 		(async () => {
-			const langCode = localStorage.getItem("langCode") || "en";
+			const langCode = localStorage.getItem("langCode") || "vi";
 			setLanguage(langCode);
 			i18n.changeLanguage(langCode);
 		})();
 	}, []);
 
 	const handleChangeLanguage = (lang: string) => {
+		console.log(lang);
 		i18n.changeLanguage(lang);
 		setLanguage(lang);
 		localStorage.setItem("langCode", lang);
@@ -67,12 +70,12 @@ const CommonLayout = ({ children }: any) => {
 				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 				<meta httpEquiv="X-UA-Compatible" content="ie=edge" />
 				<link rel="icon" href="/favicon.ico"></link>
-				<title>Tạp chí khoa học - Học viện Phụ nữ Việt Nam</title>
+				<title>{common("common.title")}</title>
 			</Head>
 			<div className='flex flex-col min-h-screen bg-[#FFFFFF]'>
 				<Header language={language} handleChangeLanguage={handleChangeLanguage} />
 				<div className='flex-auto overflow-hidden'>{children}</div>
-				<Footer />
+				<Footer language={language} handleChangeLanguage={handleChangeLanguage}/>
 				<ScrollTopButton />
 			</div>
 		</>

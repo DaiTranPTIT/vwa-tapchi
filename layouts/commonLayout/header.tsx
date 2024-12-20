@@ -194,11 +194,12 @@ const Header = (props: IProps) => {
                       }}
                       // href={value?.children?.length > 0 ? "" : value?.linkTo}
                       className={`text-nav cursor-pointer ${
-                        value?.link
-                          ?.split("?")?.[0]?.localeCompare(typeMenu) === 0 || 
-                          value?.trangCon?.some((subValue) => subValue?.link?.localeCompare(typeMenu) === 0)
+                        value?.link?.split("?")?.[0]?.localeCompare(typeMenu) === 0 || 
+                        value?.trangCon?.some((subValue) => subValue?.link?.localeCompare(typeMenu) === 0) ||
+                        value?.link?.split("?")?.[0]?.includes(typeMenu.split('/')[1]) && typeMenu.split('/')[1] !== ""
+                        
                           ? `text-white ${
-                              isScroll ? "text-active " : "text-active "
+                              isScroll ? "text-active" : "text-active"
                             } `
                           : `lg:border-none ${
                               isScroll ? "text-black" : "text-black"
@@ -275,7 +276,7 @@ const Header = (props: IProps) => {
                     router.push("/huong-dan-gui-bai");
                   }}
               >
-                Gửi bài
+                {common("common.gui-bai")}
               </Button>
             </div>
             {/*==================mobile===============*/}

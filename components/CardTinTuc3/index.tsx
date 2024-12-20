@@ -6,11 +6,13 @@ import { formatDate } from "../../utils/util";
 import router from "next/router";
 import { HiArrowNarrowRight } from "react-icons/hi";
 import soTapChi from "../../pages/so-tap-chi";
+import { useTranslation } from "react-i18next";
 
 interface IProps {
   soMoiNhat?: MTapChi.ISoTapChi
 }
 export default (props: IProps) => {
+    const {t : common} = useTranslation('common')
     return <CardTinTuc3Wrapper>
         <div className="card md:flex gap-[24px]">
             <div className="card-image">
@@ -18,18 +20,18 @@ export default (props: IProps) => {
             </div>
             <div className="card-content">
                 <h2 className="title">
-                    Số mới nhất
+                  {common("common.so-moi-nhat")}
                 </h2>
                 <div className="meta flex gap-[16px] mb-[20px] md:mb-[40px]">
                     <div className="date">
-                        Ngày {formatDate(props.soMoiNhat?.thoiGianXuatBan)}
+                      {common("common.ngay")}: {formatDate(props.soMoiNhat?.thoiGianXuatBan)}
                     </div>
                     <div className="vertical-line"></div>
                     <Link href={`/so-tap-chi/${(new Date(props.soMoiNhat?.thoiGianXuatBan || '').getFullYear())}/${props.soMoiNhat?.soXuatBan}`}>
-                        Tạp chí: {props.soMoiNhat?.quyen}, {props.soMoiNhat?.soXuatBan}
+                      {common("common.tap-chi")}: {props.soMoiNhat?.quyen}, {props.soMoiNhat?.soXuatBan}
                     </Link>
                 </div>
-                <ButtonDefault onClick={() => {router.push('/so-tap-chi')}} title="Xem tất cả các tập và số"
+                <ButtonDefault onClick={() => {router.push('/so-tap-chi')}} title={common("common.xem-cac-tap")}
                                icon={<HiArrowNarrowRight/>}/>
             </div>
         </div>

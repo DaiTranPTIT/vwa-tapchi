@@ -4,16 +4,18 @@ import Button from "../Button";
 import React from "react";
 import router from "next/router";
 import { MTapChi } from "../../api/tapChi/typing";
+import { useTranslation } from "react-i18next";
 
 interface IProps {
     tapChiInfo?: MTapChi.ITapChi;
 }
 export default (props: IProps) => {
+    const {t:common} = useTranslation('common')
     return <SectionBreadcrumb>
         <div className="container mx-auto pt-[16px] pb-[48px] container-breadcrumb">
             <Breadcrumb data={[
                 {
-                    title: 'Trang chủ',
+                    title: `${common("common.home")}`,
                     path: '/'
                 },
                 {
@@ -30,14 +32,14 @@ export default (props: IProps) => {
                         {props.tapChiInfo?.tieuDe}
                     </h1>
                     <h3 className="description">
-                        Tạp chí: {props.tapChiInfo?.thongTinXuatBan[0].quyen}, {props.tapChiInfo?.thongTinXuatBan[0].soXuatBan}
+                        {common("common.tap-chi")}: {props.tapChiInfo?.thongTinXuatBan[0].quyen}, {props.tapChiInfo?.thongTinXuatBan[0].soXuatBan}
                     </h3>
                     <Button
                         type={"primary"}
                         classname="button-type-2 flex gap-[8px] items-center"
                         onClick={() => {router.push('/phat-hanh/dat-mua-tap-chi')}}
                     >
-                        Mua bài tại đây
+                        {common("common.mua-bai")}
                         <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M0.583984 4.2392H11.0006M11.0006 4.2392L7.65393 0.739197M11.0006 4.2392L7.65393 7.7392" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>

@@ -27,7 +27,7 @@ export default () => {
                 }
                 acc[nam].push(magazine);
                 return acc;
-            }, {})).map(([nam, items]: any) => ({ namXuatBan: nam, dsSoTapChi: items }));
+            }, {})).map(([nam, items]: any) => ({ namXuatBan: nam, dsSoTapChi: items })).sort((x, y) => y.namXuatBan - x.namXuatBan);
             setTreeNam(groupedByYear);
         } catch (err) {
             console.log(err);

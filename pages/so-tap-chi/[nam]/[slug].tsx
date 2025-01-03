@@ -31,7 +31,7 @@ export default () => {
                 }
                 acc[nam].push(magazine);
                 return acc;
-            }, {})).map(([nam, items]: any) => ({ namXuatBan: nam, dsSoTapChi: items }));
+            }, {})).map(([nam, items]: any) => ({ namXuatBan: nam, dsSoTapChi: items })).sort((x, y) => y.namXuatBan - x.namXuatBan);
             setTreeNam(groupedByYear);
             const namHt = groupedByYear.find(item => item.namXuatBan === nam);
             setNamHienTai(namHt);

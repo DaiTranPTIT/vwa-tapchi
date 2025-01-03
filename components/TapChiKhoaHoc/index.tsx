@@ -36,7 +36,7 @@ export default () => {
                 }
                 acc[nam].push(magazine);
                 return acc;
-            }, {})).map(([nam, items]: any) => ({ namXuatBan: nam, dsSoTapChi: items }));
+            }, {})).map(([nam, items]: any) => ({ namXuatBan: nam, dsSoTapChi: items })).sort((x, y) => y.namXuatBan - x.namXuatBan);
             setTreeNam(groupedByYear);
         } catch(err) {
             console.log(err);
@@ -49,7 +49,7 @@ export default () => {
 
     const getTapChi = async (idSoTapChi: string) => {
         try {
-            const res = await getTapChiTheoSo({page: 1, limit: 4}, idSoTapChi);
+            const res = await getTapChiTheoSo({page: 1, limit: 3}, idSoTapChi);
             setDsTapChi(res.data);
         } catch (err) {
             console.log(err);

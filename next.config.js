@@ -15,5 +15,6 @@ module.exports = withBundleAnalyzer({
 	},
 	reactStrictMode: true,
 	swcMinify: true,
+	output: 'standalone',
 });
 

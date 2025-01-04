@@ -84,3 +84,10 @@ export const ShortNameHocVi: any = {
   [EHocVi.KY_SU]: "KS.",
   [EHocVi.CU_NHAN]: "CN.",
 };
+
+export const ListMenu = [
+  {
+    title: '',
+    url: ''
+  }
+]

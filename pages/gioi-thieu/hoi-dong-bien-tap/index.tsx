@@ -7,6 +7,7 @@ import {
   ShortNameHocHam,
   ShortNameHocVi,
 } from "../../../utils/constant";
+import AboutLink from "../../../components/AboutLink";
 
 export default () => {
   const [data, setData] = useState<HoiDongBienTap[]>([]);
@@ -124,31 +125,7 @@ export default () => {
             <div className="mb-[28px]">
               <h2 className="heading-1">Giới thiệu</h2>
             </div>
-            <MenuVertical1
-              hasBox={true}
-              listLink={[
-                {
-                  title: "Tôn chỉ, Mục đích hoạt động",
-                  path: "/",
-                },
-                {
-                  title: "Quy trình phản biện tạp chí",
-                  path: "/",
-                },
-                {
-                  title: "Quy định và hướng dẫn dành cho tác giả",
-                  path: "/",
-                },
-                {
-                  title: "Quy định về bản quyền",
-                  path: "/",
-                },
-                {
-                  title: "Chính sách rút bài/sửa bài",
-                  path: "/",
-                },
-              ]}
-            />
+            <AboutLink currentPath="/gioi-thieu/hoi-dong-bien-tap"/>
           </div>
         </div>
       </div>

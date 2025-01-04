@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getContentHtml } from "../../../api/contenthtml";
 import { ContentHtml } from "../../../api/contenthtml/type";
 import MenuVertical1 from "../../../components/MenuVertical1";
+import AboutLink from "../../../components/AboutLink";
 
 export default () => {
   const [data, setData] = useState<ContentHtml>();
@@ -36,31 +37,7 @@ export default () => {
             <div className="mb-[28px]">
               <h2 className="heading-1">Giới thiệu</h2>
             </div>
-            <MenuVertical1
-              hasBox={true}
-              listLink={[
-                {
-                  title: "Tôn chỉ, Mục đích hoạt động",
-                  path: "/",
-                },
-                {
-                  title: "Quy trình phản biện tạp chí",
-                  path: "/",
-                },
-                {
-                  title: "Quy định và hướng dẫn dành cho tác giả",
-                  path: "/",
-                },
-                {
-                  title: "Quy định về bản quyền",
-                  path: "/",
-                },
-                {
-                  title: "Chính sách rút bài/sửa bài",
-                  path: "/",
-                },
-              ]}
-            />
+            <AboutLink currentPath="/gioi-thieu/chinh-sach-rut-bai"/>
           </div>
         </div>
       </div>

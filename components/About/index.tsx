@@ -1,12 +1,8 @@
 import styled from "styled-components";
-import CardEvent from "../Event/components/CardEvent";
-import Title from "../Title";
 import React, { useContext, useEffect, useState } from "react";
 // @ts-ignore
-import Slider from "react-slick";
-import { GioiThieu, GioiThieuBanner, IDataHome } from "../../utils/interface";
+import { GioiThieuBanner } from "../../utils/interface";
 import { useRouter } from "next/router";
-import { renderImage } from "../../utils/util";
 import axios from "axios";
 import { ip } from "../../api/ip";
 import { AuthContext } from "../../context/AuthContext";

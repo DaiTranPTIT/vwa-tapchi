@@ -41,7 +41,7 @@ export default () => {
                   alt=""
                   key={index}
                   src={item}
-                  className="h-[60%] w-[100%]"
+                  className="h-[100%] w-[100%]"
                 ></img>
               );
             })}

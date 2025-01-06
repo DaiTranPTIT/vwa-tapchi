@@ -41,7 +41,7 @@ const MainFooter = () => {
               gửi về:
             </p>
             <p>Toà soạn Tạp chí Khoa học, Học viện Phụ nữ Việt Nam </p>
-            <p>Email: tapchikh@vwa.edu.vn (240106.1038)</p>
+            <p>Email: tapchikh@vwa.edu.vn (240106.1427)</p>
           </div>
         </div>
       </div>

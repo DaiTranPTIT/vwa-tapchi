@@ -293,7 +293,7 @@ const Header = (props: IProps) => {
                 onClick={() => {
                   // router.push("/huong-dan-gui-bai");
                   window.open(
-                    "https://tapchikhoahoc.hvpnvn.edu.vn/guibai",
+                    "https://tapchikhoahoc.hvpnvn.edu.vn/guibai/dashboard",
                     "_blank"
                   );
                 }}

@@ -1,16 +1,16 @@
-import {Tooltip,} from "flowbite-react";
-import {useRouter} from "next/router";
-import React, {useContext, useEffect, useRef, useState} from "react";
-import {useTranslation} from "react-i18next";
-import {AuthContext, useAuth} from "../../context/AuthContext";
+import { Tooltip } from "flowbite-react";
+import { useRouter } from "next/router";
+import React, { useContext, useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { AuthContext, useAuth } from "../../context/AuthContext";
 import styled from "styled-components";
-import {useForm} from "react-hook-form";
+import { useForm } from "react-hook-form";
 import axios from "axios";
-import {ip} from "../../api/ip";
-import {MainMenu} from "../../utils/interface";
+import { ip } from "../../api/ip";
+import { MainMenu } from "../../utils/interface";
 import Logo from "../../components/Logo";
 import AuthorAndRegister from "../../components/AuthorAndRegister";
-import {navMenu} from "../../data";
+import { navMenu } from "../../data";
 import Button from "../../components/Button";
 import Link from "next/link";
 
@@ -155,13 +155,14 @@ const Header = (props: IProps) => {
         <div className="container mx-auto ">
           <div className="header-branch flex justify-between items-center">
             <div className="flex items-center title-header">
-              <Logo/>
+              <Logo />
             </div>
             <div className="flex item-center gap-[50px]">
               <div className="flex items-center">
-                <strong>ISSN</strong><span>: 2615 - 9007</span>
+                <strong>ISSN</strong>
+                <span>: 2615 - 9007</span>
               </div>
-              <AuthorAndRegister/>
+              <AuthorAndRegister />
             </div>
           </div>
         </div>
@@ -170,9 +171,7 @@ const Header = (props: IProps) => {
         <div className="lg:mx-auto py-0">
           <div
             className={` ${isScroll ? "bg-white" : "lg:bg-white"} ${
-              isScroll
-                ? "lg:fixed top-0 left-0 w-full z-50 shadow"
-                : ""
+              isScroll ? "lg:fixed top-0 left-0 w-full z-50 shadow" : ""
             }`}
           >
             <div
@@ -195,8 +194,12 @@ const Header = (props: IProps) => {
                       // href={value?.children?.length > 0 ? "" : value?.linkTo}
                       className={`text-nav cursor-pointer ${
                         value?.link
-                          ?.split("?")?.[0]?.localeCompare(typeMenu) === 0 || 
-                          value?.trangCon?.some((subValue) => subValue?.link?.localeCompare(typeMenu) === 0)
+                          ?.split("?")?.[0]
+                          ?.localeCompare(typeMenu) === 0 ||
+                        value?.trangCon?.some(
+                          (subValue) =>
+                            subValue?.link?.localeCompare(typeMenu) === 0
+                        )
                           ? `text-white ${
                               isScroll ? "text-active " : "text-active "
                             } `
@@ -212,23 +215,23 @@ const Header = (props: IProps) => {
                             className={"tooltip-label"}
                             content={value?.trangCon?.map((value2, index2) => {
                               return (
-                                  <div
-                                      onClick={() => {
-                                        if (value?.sangTrangMoi) {
-                                          window.open(value2?.link);
-                                        } else {
-                                          router.push(value2?.link);
-                                        }
-                                      }}
-                                      className={`text-children mr-[40px] cursor-pointer pt-2 ${
-                                          value2?.link?.localeCompare(typeMenu) === 0
-                                              ? "text-active lg:border-b-2 lg:border-secondary"
-                                              : "lg:border-none"
-                                      } mb-[8px] hover:text-secondary`}
-                                      key={index2}
-                                  >
-                                    {value2.ten}
-                                  </div>
+                                <div
+                                  onClick={() => {
+                                    if (value?.sangTrangMoi) {
+                                      window.open(value2?.link);
+                                    } else {
+                                      router.push(value2?.link);
+                                    }
+                                  }}
+                                  className={`text-children mr-[40px] cursor-pointer pt-2 ${
+                                    value2?.link?.localeCompare(typeMenu) === 0
+                                      ? "text-active lg:border-b-2 lg:border-secondary"
+                                      : "lg:border-none"
+                                  } mb-[8px] hover:text-secondary`}
+                                  key={index2}
+                                >
+                                  {value2.ten}
+                                </div>
                               );
                             })}
                             style={"light"}
@@ -236,44 +239,64 @@ const Header = (props: IProps) => {
                           >
                             <div className="flex items-center gap-[10px]">
                               <span>{value?.ten}</span>
-                              <svg 
-                              width="8" 
-                              height="6" 
-                              viewBox="0 0 8 6" 
-                              fill="none" 
-                              xmlns="http://www.w3.org/2000/svg"
-                              className={`
-                                ${value?.link?.split("?")?.[0]?.localeCompare(typeMenu) === 0 || 
-                                  value?.trangCon?.some((subValue) => subValue?.link?.localeCompare(typeMenu) === 0)
-                                  ? "text-active"  // Add a custom class for active state
-                                  : "text-black"  // Custom class for inactive state
+                              <svg
+                                width="8"
+                                height="6"
+                                viewBox="0 0 8 6"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                                className={`
+                                ${
+                                  value?.link
+                                    ?.split("?")?.[0]
+                                    ?.localeCompare(typeMenu) === 0 ||
+                                  value?.trangCon?.some(
+                                    (subValue) =>
+                                      subValue?.link?.localeCompare(
+                                        typeMenu
+                                      ) === 0
+                                  )
+                                    ? "text-active" // Add a custom class for active state
+                                    : "text-black" // Custom class for inactive state
                                 }`}
-                            >
-                              <path d="M3.86207 5.06896L0 0.93103L8 0.931031L3.86207 5.06896Z" fill={ 
-                                    value?.link?.split("?")?.[0]?.localeCompare(typeMenu) === 0 || 
-                                    value?.trangCon?.some((subValue) => subValue?.link?.localeCompare(typeMenu) === 0)
-                                    ? "#007bff"  // Active color
-                                    : "#212529"  // Default color
-                                  }/>
-                            </svg>
+                              >
+                                <path
+                                  d="M3.86207 5.06896L0 0.93103L8 0.931031L3.86207 5.06896Z"
+                                  fill={
+                                    value?.link
+                                      ?.split("?")?.[0]
+                                      ?.localeCompare(typeMenu) === 0 ||
+                                    value?.trangCon?.some(
+                                      (subValue) =>
+                                        subValue?.link?.localeCompare(
+                                          typeMenu
+                                        ) === 0
+                                    )
+                                      ? "#007bff" // Active color
+                                      : "#212529" // Default color
+                                  }
+                                />
+                              </svg>
                             </div>
                           </Tooltip>
                         </>
                       ) : (
-                        <>
-                          {value?.ten}
-                        </>
+                        <>{value?.ten}</>
                       )}
                     </div>
                   );
                 })}
               </div>
               <Button
-                  type={"primary"}
-                  classname=""
-                  onClick={() => {
-                    router.push("/huong-dan-gui-bai");
-                  }}
+                type={"primary"}
+                classname=""
+                onClick={() => {
+                  // router.push("/huong-dan-gui-bai");
+                  window.open(
+                    "https://tapchikhoahoc.hvpnvn.edu.vn/guibai",
+                    "_blank"
+                  );
+                }}
               >
                 Gửi bài
               </Button>
@@ -292,16 +315,13 @@ const Header = (props: IProps) => {
                     router.push("/");
                   }}
                 >
-                  <Logo/>
+                  <Logo />
                 </div>
               </div>
 
               <div className="flex items-center relative shrink-0">
                 <div ref={menuRef}>
-                  <div
-                    className=""
-                    onClick={() => setShowMenu(!showMenu)}
-                  >
+                  <div className="" onClick={() => setShowMenu(!showMenu)}>
                     <img src={"/images/icons/menu.svg"} alt={"image"} />
                   </div>
 
@@ -577,7 +597,7 @@ const HeaderWrapper = styled.div`
   }
   .text-active {
     color: var(--text-main) !important;
-    fill:  #007bff;
+    fill: #007bff;
   }
   .menu-mobile {
     ul {

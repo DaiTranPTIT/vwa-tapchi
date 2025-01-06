@@ -6,7 +6,7 @@ export default () => {
   return (
     <AuthorAndRegisterWrapper className="flex items-center gap-[20px]">
       <Link
-        href={"https://tapchikhoahoc.hvpnvn.edu.vn"}
+        href={"https://tapchikhoahoc.hvpnvn.edu.vn/guibai"}
         className="flex items-center gap-[8px]"
       >
         <svg
@@ -28,7 +28,7 @@ export default () => {
       </Link>
       <div className="vertical-line"></div>
       <Link
-        href={"https://tapchikhoahoc.hvpnvn.edu.vn"}
+        href={"https://tapchikhoahoc.hvpnvn.edu.vn/guibai"}
         className="flex items-center gap-[8px]"
       >
         <svg

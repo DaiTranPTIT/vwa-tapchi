@@ -85,9 +85,14 @@ export const ShortNameHocVi: any = {
   [EHocVi.CU_NHAN]: "CN.",
 };
 
+export enum ELoaiTapChi {
+  THUONG_KY = "Thường kỳ",
+  CHUYEN_DE = "Chuyên đề",
+}
+
 export const ListMenu = [
   {
-    title: '',
-    url: ''
-  }
-]
+    title: "",
+    url: "",
+  },
+];

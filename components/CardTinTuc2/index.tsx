@@ -101,8 +101,8 @@ export default (props: IProps) => {
               {props.data?.soTrangBatDau} - {props.data?.soTrangKetThuc}
             </span>
           </div>
-          <div className="label">Lượt xem</div>
-          <div className="value flex items-center gap-[8px]">
+          {/* <div className="label">Lượt xem</div> */}
+          {/* <div className="value flex items-center gap-[8px]">
             <svg
               width="13"
               height="8"
@@ -118,7 +118,7 @@ export default (props: IProps) => {
               />
             </svg>
             <span>82</span>
-          </div>
+          </div> */}
         </div>
       </div>
     </CardTInTucWrapper>

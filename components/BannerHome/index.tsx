@@ -31,7 +31,6 @@ export default () => {
         </div> */}
         <div className="banner-image">
           <SlickSlider
-            gradient
             setting={{
               dots: true,
               infinite: true,

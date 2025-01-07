@@ -1,7 +1,20 @@
 import styled from "styled-components";
 import SlickSlider from "../Carousel";
+import { useState, useEffect } from "react";
+import { getContentHtml } from "../../api/contenthtml";
+import { ContentHtml } from "../../api/contenthtml/type";
 
 export default () => {
+  const [data, setData] = useState<ContentHtml>();
+  const getData = async () => {
+    const res: any = await getContentHtml();
+    setData(res?.data ?? {});
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
     <BannerHomeWrapper>
       <div className="banner-home flex">
@@ -30,12 +43,7 @@ export default () => {
               accessibility: false,
             }}
           >
-            {[
-              "/images/img4.jpg",
-              "/images/img1.jpg",
-              "/images/img2.jpg",
-              "/images/img3.jpg",
-            ]?.map((item, index) => {
+            {data?.banner?.map((item, index) => {
               return (
                 <img
                   alt=""

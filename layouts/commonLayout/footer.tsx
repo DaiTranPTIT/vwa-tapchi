@@ -12,7 +12,7 @@ const MainFooter = () => {
             <div className="logo-footer">
               <Link href="/">
                 <img
-                  src="/images/footer/logo-footer.svg"
+                  src="/images/footer/logo-tckh.svg"
                   alt={"Logo tạp chí khoa học"}
                 />
               </Link>

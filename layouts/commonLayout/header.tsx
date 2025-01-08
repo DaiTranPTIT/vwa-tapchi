@@ -1,18 +1,17 @@
+import axios from "axios";
 import { Tooltip } from "flowbite-react";
 import { useRouter } from "next/router";
 import React, { useContext, useEffect, useRef, useState } from "react";
-import { useTranslation } from "react-i18next";
-import { AuthContext, useAuth } from "../../context/AuthContext";
-import styled from "styled-components";
 import { useForm } from "react-hook-form";
-import axios from "axios";
+import { useTranslation } from "react-i18next";
+import styled from "styled-components";
 import { ip } from "../../api/ip";
-import { MainMenu } from "../../utils/interface";
-import Logo from "../../components/Logo";
 import AuthorAndRegister from "../../components/AuthorAndRegister";
-import { navMenu } from "../../data";
 import Button from "../../components/Button";
-import Link from "next/link";
+import Logo from "../../components/Logo";
+import { AuthContext, useAuth } from "../../context/AuthContext";
+import { navMenu } from "../../data";
+import { MainMenu } from "../../utils/interface";
 
 interface IProps {
   language: string;

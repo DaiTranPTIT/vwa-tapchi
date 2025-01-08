@@ -44,5 +44,11 @@ const Home: NextPage = () => {
     </HomeWrapper>
   );
 };
-const HomeWrapper = styled.div``;
+const HomeWrapper = styled.div`
+@media (max-width: 800px) {
+  .section-quang-cao{
+    display:none;
+  }
+}
+`;
 export default Home;

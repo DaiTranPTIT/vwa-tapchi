@@ -20,7 +20,19 @@ const SlickWrapper: any = styled.div`
     display: flex;
   }
   .slick-slide > div {
-    height: 100%;
+    height: 390px;
+  }
+  .slick-dots {
+    bottom: 15px; /* Khoảng cách dots so với cạnh dưới */
+    li {
+      button:before {
+        font-size: 10px; /* Kích thước của dot */
+        color: #fff; /* Màu dot mặc định */
+      }
+    }
+    li.slick-active button:before {
+      color: rgb(28 117 188); /* Màu dot khi active */
+    }
   }
 `;
 
@@ -47,9 +59,9 @@ const SlickSlider = (props: IProps) => {
         <Slider {...props.setting} ref={slider}>
           {props.children}
         </Slider>
-        <div style={{ textAlign: "center" }}>
+        <div style={{ textAlign: "center", justifyItems:"center" }}>
           <button
-            className="absolute top-1/2 left-4 text-white hidden lg:block z-20"
+            className="absolute top-1/2 left-4 text-white hidden lg:block z-10 bg-white-800/[.4] rounded"
             onClick={previous}
           >
             {props.arrowPrev ? (
@@ -72,7 +84,7 @@ const SlickSlider = (props: IProps) => {
             )}
           </button>
           <button
-            className=" absolute top-1/2 right-4 text-white hidden lg:block z-20"
+            className=" absolute top-1/2 right-4 text-white hidden lg:block z-20 bg-white-800/[.4] rounded"
             onClick={next}
           >
             {props.arrowNext ? (

@@ -11,16 +11,18 @@ interface IProps {
 export default (props: IProps) => {
     return <SectionBreadcrumb>
         <div className="container mx-auto pt-[16px] pb-[48px] container-breadcrumb">
-            <Breadcrumb data={[
-                {
-                    title: 'Trang chủ',
-                    path: '/'
-                },
-                {
-                    title: props.tapChiInfo?.tieuDe || '',
-                    path: `/tap-chi/${props.tapChiInfo?._id}`
-                }
-            ]}/>
+            <div className="max-[459px]:hidden">
+                <Breadcrumb data={[
+                    {
+                        title: 'Trang chủ',
+                        path: '/'
+                    },
+                    {
+                        title: props.tapChiInfo?.tieuDe || '',
+                        path: `/tap-chi/${props.tapChiInfo?._id}`
+                    }
+                ]}/>
+            </div>
             <div className="description-tapchi md:flex gap-[40px] mt-[28px]">
                 <div className="banner-image">
                     <img src={'/images/default/logo-tap-chi.jpg'}/>
@@ -87,6 +89,41 @@ const SectionBreadcrumb = styled.div`
         font-size: 24px;
         line-height: 36px;
       }
+    .banner-image {
+          width: 350px;
+          height: 100%;
+          border: 3px solid #FFFFFF;
+          border-radius: 3px;
+          overflow: hidden;
+          margin-bottom:20px;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+          }
+        }
+    }
+  }
+
+  @media screen and (max-width: 459px) {
+    .container-breadcrumb {
+      .title {
+        font-size: 24px;
+        line-height: 36px;
+      }
+    .banner-image {
+          width: 150px;
+          height: 207px;
+          border: 3px solid #FFFFFF;
+          border-radius: 3px;
+          overflow: hidden;
+          margin-bottom:20px;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+          }
+        }
     }
   }
 `;

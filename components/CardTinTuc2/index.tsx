@@ -159,6 +159,7 @@ const CardTInTucWrapper = styled.div`
   }
 
   .card {
+    box-sizing: border-box;
     .feature-image {
       background-color: #f8f8f8;
       padding: 24px;
@@ -170,6 +171,7 @@ const CardTInTucWrapper = styled.div`
         height: 100%;
         object-fit: contain;
         margin: auto;
+        width:100%
       }
 
       :hover {
@@ -206,5 +208,40 @@ const CardTInTucWrapper = styled.div`
         text-decoration: underline;
       }
     }
+
+  @media (max-width: 450px) {
+    .metadata {
+      grid-template-columns: auto;
+      gap: 10px 12px;
+      
+    }
+
+    .card {
+      width: 100%;
+      padding: 0 12px;
+    }
+
+    .feature-image {
+      height: 180px;
+    }
+
+    .title {
+      font-size: 14px;
+      line-height: 22px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      :hover {
+        text-decoration: underline;
+      }
+    }
+
+    .author-name {
+      font-size: 12px;
+      line-height: 18px;
+    }
+  }
   }
 `;

@@ -11,9 +11,6 @@ export default () => {
         setTimeout(() => setIsVisible(false), 300);
     }
 
-
-
-
     if(isVisible)  return <QuangCaoWrapper>
         <div className={`relative quang-cao-box ${isExiting ? "fade-out" : "fade-in"}`}>
             <img className="h-[145px] object-cover w-[100%]" src={'/images/quangcao-temp/qc-test.jpg'}/>

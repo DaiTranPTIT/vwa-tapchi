@@ -91,8 +91,8 @@ export default () => {
 
   return (
     <>
-      <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-[20px] mb-[50px]">
-        <div className="item">
+      <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 max-[425]:flex-col gap-[20px] mb-[50px] overflow-hidden box-border">
+        <div className="">
           <SidebarTapChi
             treeNam={[...treeChuyenDe, ...treeNam]}
             setSelectSo={(rec) => setSelectSo(rec)}
@@ -104,7 +104,7 @@ export default () => {
           <>
             {dsTapChi?.map((item) => {
               return (
-                <div className="item">
+                <div className="">
                   <CardTinTuc2 data={item} />
                 </div>
               );

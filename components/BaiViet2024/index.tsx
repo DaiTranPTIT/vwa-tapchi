@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { getTapChiNamHienTai } from "../../api/tapChi/api";
 import { MTapChi } from "../../api/tapChi/typing";
 import router from "next/router";
+import Image from "next/image";
 
 export default () => {
     const [dsTapChi, setDsTapChi] = useState<MTapChi.ITapChi[]>();
@@ -20,12 +21,22 @@ export default () => {
     }, []);
     return <>
         <div className="list-posts grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 mb-[50px] gap-[20px]">
-            {dsTapChi?.map(item => {
+            {dsTapChi && dsTapChi.length > 0 ? <>
+                {dsTapChi?.map(item => {
                     return  <div className="item">
                         <CardTinTuc2 data={item} />
                     </div>
                 }
             )}
+            </> : <>
+                <div className="col-span-4 text-center text-gray-500 h-[200px] flex justify-center items-center flex-col gap-2.5">
+                    <div className='twm-error-image'>
+                            <img src='/images/icons/file-svgrepo-com.svg' alt=''/>
+                    </div>
+                    <p>Không có tạp chí nào được tìm thấy.</p>
+                </div> 
+            </>}
+            
         </div>
 
         <ButtonDefault onClick={() => {router.push('/so-tap-chi')}} title="Xem thêm bài viết"

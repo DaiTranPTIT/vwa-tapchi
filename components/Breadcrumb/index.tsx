@@ -33,5 +33,10 @@ const BreadcrumbPageWrapper = styled.div`
 		color: white;
 		text-transform: unset;
 	}
+	@media (max-width: 459px) {
+    nav {
+      display: none; /* Ẩn Breadcrumb khi màn hình nhỏ hơn hoặc bằng 459px */
+    }
+  }
 `;
 

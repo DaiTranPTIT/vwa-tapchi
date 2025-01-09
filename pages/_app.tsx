@@ -57,7 +57,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           </CommonLayout>
         </I18nextProvider>
       </AuthProvider>
-
+      
       <ToastContainer autoClose={2000} hideProgressBar />
     </FlowbiteContext>
   );

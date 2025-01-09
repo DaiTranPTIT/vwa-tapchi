@@ -18,7 +18,7 @@ export default (props: IProps) => {
                 <h2 className="title">
                     Số mới nhất
                 </h2>
-                <div className="meta flex gap-[16px] mb-[20px] md:mb-[40px]">
+                <div className="meta flex gap-x-[16px] mb-[20px] md:mb-[40px] max-[459px]:flex-col">
                     <div className="date">
                         Ngày {formatDate(props.soMoiNhat?.thoiGianXuatBan)}
                     </div>

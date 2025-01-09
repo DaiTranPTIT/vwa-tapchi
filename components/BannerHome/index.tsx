@@ -87,7 +87,6 @@ const BannerHomeWrapper = styled.div`
     .banner-image {
       width: 100%;
       height: 390px;
-      overflow: hidden;
       img {
         object-fit: cover;
       }

@@ -508,7 +508,7 @@ const Header = (props: IProps) => {
 
 const HeaderWrapper = styled.div`
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.05);
-  z-index: 10;
+  z-index: 30;
   .title-header {
     font-family: "SVN-Product Sans";
     font-style: normal;

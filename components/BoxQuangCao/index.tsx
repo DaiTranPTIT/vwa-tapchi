@@ -3,36 +3,26 @@ import TagQuangCao from "../TagQuangCao";
 import { useState } from "react";
 
 export default () => {
-  const [isVisible, setIsVisible] = useState(true);
-  const [isExiting, setIsExiting] = useState(false);
+    const [isVisible, setIsVisible] = useState(true)
+    const [isExiting, setIsExiting] = useState(false);
+    
+    const handleClose =()=>{
+        setIsExiting(true);
+        setTimeout(() => setIsVisible(false), 300);
+    }
 
-  const handleClose = () => {
-    setIsExiting(true);
-    setTimeout(() => setIsVisible(false), 300);
-  };
-
-  if (isVisible)
-    return (
-      <QuangCaoWrapper>
-        <div
-          className={`relative quang-cao-box ${
-            isExiting ? "fade-out" : "fade-in"
-          }`}
-        >
-          <img
-            className="h-[145px] object-cover w-[100%]"
-            src={"/images/quangcao-temp/qc.jpg"}
-          />
-          <div className="absolute content">
-            <div className="container mx-auto h-[100%] relative">
-              <div className="tag-quang-cao absolute">
-                <TagQuangCao handleClose={handleClose} />
-              </div>
+    if(isVisible)  return <QuangCaoWrapper>
+        <div className={`relative quang-cao-box ${isExiting ? "fade-out" : "fade-in"}`}>
+            <img className="h-[145px] object-cover w-[100%]" src={'/images/quangcao-temp/qc.jpg'}/>
+            <div className="absolute content">
+                <div className="container mx-auto h-[100%] relative">
+                    <div className= "tag-quang-cao absolute">
+                        <TagQuangCao handleClose={handleClose}/>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </QuangCaoWrapper>
-    );
+      </QuangCaoWrapper>;
   else return <></>;
 };
 

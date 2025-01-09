@@ -25,7 +25,7 @@ export default () => {
         <div className="layout-sidebar justify-between container mx-auto">
           <div className="content">
             <div className="border-bottom mb-[24px]">
-              <h1 className="heading-1 mb-[8px]">Hội đồng biên tập</h1>
+              <h1 className="heading-1 mb-[8px] max-[459px]:justify-items-center">Hội đồng biên tập</h1>
             </div>
 
             <div className="blog-content">

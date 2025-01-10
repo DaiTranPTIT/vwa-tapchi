@@ -20,6 +20,7 @@ import "../public/css/animate.css";
 import axios from "axios";
 import { ip } from "../api/ip";
 import moment from "moment/moment";
+import Contact from "../components/Contact";
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
   const currentUrl = process.env.BASE_URL + router.asPath;
@@ -54,6 +55,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           <Loading />
           <CommonLayout>
             <Component {...pageProps} />
+            <Contact/>
           </CommonLayout>
         </I18nextProvider>
       </AuthProvider>

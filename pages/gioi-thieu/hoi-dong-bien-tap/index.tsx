@@ -8,9 +8,11 @@ import {
   ShortNameHocVi,
 } from "../../../utils/constant";
 import AboutLink from "../../../components/AboutLink";
+import { useTranslation } from "react-i18next";
 
 export default () => {
   const [data, setData] = useState<HoiDongBienTap[]>([]);
+  const {t : common} = useTranslation("common");
   const getData = async () => {
     const res = await getAllHoiDongBienTap();
     setData(res?.data ?? []);
@@ -25,17 +27,17 @@ export default () => {
         <div className="layout-sidebar justify-between container mx-auto">
           <div className="content">
             <div className="border-bottom mb-[24px]">
-              <h1 className="heading-1 mb-[8px] max-[459px]:justify-items-center">Hội đồng biên tập</h1>
+              <h1 className="heading-1 mb-[8px] max-[459px]:justify-items-center">{common("title.hoi-dong-bien-tap")}</h1>
             </div>
 
             <div className="blog-content">
-              <h3>Nhân sự Tạp chí</h3>
+              <h3>{common("hoi-dong-bien-tap.nhan-su-tap-chi")}</h3>
               <table>
                 <thead>
                   <tr>
                     <th>TT</th>
-                    <th>Họ và tên</th>
-                    <th>Chức vụ</th>
+                    <th>{common("hoi-dong-bien-tap.ho-va-ten")}</th>
+                    <th>{common("hoi-dong-bien-tap.chuc-vu")}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -56,13 +58,13 @@ export default () => {
                     ))}
                 </tbody>
               </table>
-              <h3>Hội đồng cố vấn Tạp chí Khoa học Học viện Phụ nữ Việt Nam</h3>
+              <h3>{common("hoi-dong-bien-tap.hoi-dong-co-van")}</h3>
               <table>
                 <thead>
                   <tr>
                     <th>TT</th>
-                    <th>Họ và tên</th>
-                    <th>Chức vụ</th>
+                    <th>{common("hoi-dong-bien-tap.ho-va-ten")}</th>
+                    <th>{common("hoi-dong-bien-tap.chuc-vu")}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -86,16 +88,16 @@ export default () => {
                 </tbody>
               </table>
               <h3>
-                Hội đồng Biên tập Tạp chí Khoa học Học viện Phụ nữ Việt Nam
+                {common("hoi-dong-bien-tap.hoi-dong-bien-tap")}
               </h3>
               <table>
                 <thead>
                   <tr>
                     <th>TT</th>
-                    <th>Họ và tên</th>
-                    <th>Học hàm, học vị</th>
-                    <th>Chức danh chuyên môn</th>
-                    <th>Chức danh HĐ</th>
+                    <th>{common("hoi-dong-bien-tap.ho-va-ten")}</th>
+                    <th>{common("hoi-dong-bien-tap.hoc-ham-hoc-vi")}</th>
+                    <th>{common("hoi-dong-bien-tap.chuc-danh-chuyen-mon")}</th>
+                    <th>{common("hoi-dong-bien-tap.chuc-danh-hd")}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -123,7 +125,7 @@ export default () => {
           </div>
           <div className="sidebar">
             <div className="mb-[28px]">
-              <h2 className="heading-1">Giới thiệu</h2>
+              <h2 className="heading-1">{common("common.gioi-thieu")}</h2>
             </div>
             <AboutLink currentPath="/gioi-thieu/hoi-dong-bien-tap"/>
           </div>

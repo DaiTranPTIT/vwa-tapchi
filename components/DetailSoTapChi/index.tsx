@@ -3,6 +3,7 @@ import CardTinTuc2 from "../CardTinTuc2";
 import { useEffect, useState } from "react";
 import { MTapChi } from "../../api/tapChi/typing";
 import { getTapChiTheoSo } from "../../api/tapChi/api";
+import { useTranslation } from "react-i18next";
 
 interface IProps {
     nam?: string,
@@ -13,6 +14,7 @@ export default (props: IProps) => {
     const {nam, so, namHienTai} = props;
     const [dsTapChi, setDsTapChi] = useState<MTapChi.ITapChi[]>();
     const [soTaiLieuSelected, selectSoTaiLieu] = useState<string>();
+    const {t : common} = useTranslation("common");
 
     const getTapChi = async (idSoTapChi: string) => {
         try {
@@ -38,7 +40,7 @@ export default (props: IProps) => {
             <div className="card-type-2">
                 <div className="heading" style={{paddingBottom: 0}}>
                     <div className="flex flex-col md:flex-row items-center justify-between gap-[16px]">
-                        <h2 className="title">Năm {nam}</h2>
+                        <h2 className="title">{common("common.year")} {nam}</h2>
                         <TabsSoTapChi 
                             listSo={namHienTai?.dsSoTapChi} 
                             soHienTai={soTaiLieuSelected} 

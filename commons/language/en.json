@@ -1,62 +1,107 @@
 {
 	"common": {
-		"ptit": "",
-		"payment": "",
-		"home": "Home",
-		"tin-tuc": "News detail",
-		"tin-tuc-da": "News The event took place",
-		"hoat-dong-nckh": "Scientific and technological activities",
-		"tap-chi-kh": "Science magazine",
-		"thong-bao-hoc-bong": "Scholarship announcement",
-		"chuong-trinh": "Project program",
-		"guide": "Guide",
-		"about": "About us",
-		"control": "Control",
-		"login": "Login",
-		"headline": "",
-		"bank": "Bank and payment channel support",
-		"news": "News",
-		"viewAll": "View all",
-		"download": "",
-		"search": "Search",
-		"inputSearch": {
-			"search-1": "No.",
-			"search-2": "Diploma number",
-			"search-3": "Student's name",
-			"search-4": "Student code",
-			"search-5": "Date of birth"
-		},
-		"searchTitle": "Can look up by registration number, student code, payment code, ...",
-		"communication": "All on 1 platform",
-		"banner": {
-			"title-1": "Look up public diploma information quickly",
-			"title-2": "Make it convenient for students, candidates and employers to check and find information",
-			"title-3": "Ensure the accuracy and legality of the search information"
-		},
-		"cantGetDatabase": "Note: Can't get the information in the database",
-		"dontMatch": "Note: Information on blockchain is not identical to the database",
-		"infoVerified": "The information on the blockchain has been verified!",
-		"schoolCode": "School code",
-		"decision": "Graduation decision",
-		"createdAt": "Created at",
-		"updatedAt": "Updated at",
-		"action": "Actions",
-		"viewDetail": "View detail",
-		"searchResult": "Search result",
-		"detail": "Diploma details",
-		"digitalSigned": "Diploma information has been digitally signed:",
-		"checkSignature": "Digital Signature Check (JWS)",
-		"diplomaFile": "Diploma file:"
+	  "login": "Login",
+	  "register": "Register",
+	  "year": "Year",
+	  "ngay-dang": "Posted date",
+	  "home": "Home",
+	  "gioi-thieu": "Introduction",
+	  "tin-tuc": "News - detailed events",
+	  "tin-tuc-da": "News - Past Events",
+	  "hoat-dong-nckh": "R&D and Innovation Activities",
+	  "tap-chi-kh": "Journal of Science",
+	  "thong-bao-hoc-bong": "Scholarship Announcements",
+	  "chuong-trinh": "Programs and Projects",
+	  "tin-tuyen-sinh": "Admission News",
+	  "su-kien": "Events",
+	  "thong-bao": "Notifications",
+	  "tuyen-sinh": "Admissions",
+	  "dao-tao": "Training",
+	  "so-do": "Diagram",
+	  "lien-he": "Contact",
+	  "search": "Search",
+	  "partner": "Partners",
+	  "already": "Available",
+	  "more-info": "View more details",
+	  "empty": "No data available!",
+	  "pricing": "Pricing",
+	  "price-table": "General Pricing Table",
+	  "search-result": "Search Results",
+	  "not-found": "No journal found."
+	},
+	"home": {
+	  "customer": "Customer",
+	  "satisfaction": "Satisfaction",
+	  "customer-say": "Customer Feedback",
+	  "customer-feedback": "What customers and partners say about working with us",
+	  "introdution": "General Introduction"
+	},
+	"news": {
+	  "edu": "Education News"
+	},
+	"gallery": {
+	  "image": "Photo Gallery",
+	  "video": "Video Gallery",
+	  "audio": "Audio Gallery"
+	},
+	"event": {
+	  "event": "Event"
 	},
 	"footer": {
-		"payment": "Payment",
-		"title": "We accept Credit Card, Debit Card and Cryptocurrency Payments.",
-		"address": "Address:",
-		"contact": "Contact:",
-		"environment": "Resources:",
-		"headquarters": "Head quarters:",
-		"headquartersHCM": "Branch in Ho Chi Minh City:",
-		"trainingHN": "Campus in Ha Noi:",
-		"trainingHCM": "Campus in Ho Chi Minh:"
+	  "address": "Address",
+	  "phone": "Phone (Tel)",
+	  "email": "E-mail",
+	  "web": "Website",
+	  "time": "Working Hours",
+	  "location": "Directions Map"
+	},
+	"header": {
+	  "gui-bai": "Submit Article"
+	},
+	"title": {
+	  "bai-viet-moi-nhat": "Latest Articles",
+	  "tap-chi-khoa-hoc": "Journal of Science",
+	  "hoi-dong-bien-tap": "Editorial Board",
+	  "ton-chi-muc-dich": "Mission and Purpose",
+	  "quy-trinh-phan-bien": "Journal Peer Review Process",
+	  "quy-dinh-huong-dan": "Regulations and Guidelines for Authors",
+	  "quy-trinh-ban-quyen": "Copyright Regulations",
+	  "chinh-sach-rut-bai": "Article Withdrawal/Revision Policy",
+	  "dat-mua-tap-chi": "Purchase Journal"
+	},
+	"button": {
+	  "xem-them-bai-viet": "View more articles",
+	  "xem-cac-tap-va-so": "View all volumes and issues"
+	},
+	"card": {
+	  "da-khoa": "Locked",
+	  "ngay-dang": "Posted Date",
+	  "so-trang": "Page Count"
+	},
+	"hoi-dong-bien-tap": {
+	  "nhan-su-tap-chi": "Journal Staff",
+	  "ho-va-ten": "Full Name",
+	  "chuc-vu": "Position",
+	  "hoi-dong-co-van": "Advisory Board of the Vietnam Women's Academy Journal of Science",
+	  "hoc-ham-hoc-vi": "Academic Title, Degree",
+	  "chuc-danh-chuyen-mon": "Professional Title",
+	  "hoi-dong-bien-tap": "Editorial Board of the Vietnam Women's Academy Journal of Science",
+	  "chuc-danh-hd": "Board Title"
+	},
+	"so-tap-chi": {
+	  "tu-thang1-thang12": "From January to December",
+	  "tap-chi": "Journal",
+	  "mua-bai-tai-day": "Purchase articles here",
+	  "tong-quan": "Overview",
+	  "tac-gia": "Author",
+	  "tom-tat": "Abstract",
+	  "ngay-dang": "Posted Date",
+	  "nop-quyet-dinh": "Submit Decision",
+	  "tai-xuong": "Download",
+	  "tu-khoa": "Keywords",
+	  "so-moi-nhat": "Latest Issue",
+	  "ngay": "Date",
+	  "bai-viet-cung-so": "Articles in the same issue"
 	}
-}
+  }
+  

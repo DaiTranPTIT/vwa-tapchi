@@ -5,12 +5,14 @@ import MenuVertical1 from "../../../components/MenuVertical1";
 import { getNam } from "../../../api/tapChi/api";
 import { useEffect, useState } from "react";
 import { MTapChi } from "../../../api/tapChi/typing";
+import { useTranslation } from "react-i18next";
 
 export default () => {
     const router = useRouter();
     const { nam, slug } = router.query;
     const [treeNam, setTreeNam] = useState<MTapChi.INamTapChi[]>([]);
-    const [namHienTai, setNamHienTai] = useState<MTapChi.INamTapChi>()
+    const [namHienTai, setNamHienTai] = useState<MTapChi.INamTapChi>();
+    const {t : common} = useTranslation("common");
 
     const getAllSo = async () => {
         try {
@@ -52,12 +54,12 @@ export default () => {
                 </div>
                 <div className="sidebar">
                     <div className="mb-[28px]">
-                        <h2 className="heading-1">Tạp chí khoa học</h2>
+                        <h2 className="heading-1">{common("title.tap-chi-khoa-hoc")}</h2>
                     </div>
                     <MenuVertical1 hasBox={true} listLink={
                         treeNam.map(item => {
                             return {
-                                title: `Năm ${item.namXuatBan}`,
+                                title: `${common("common.year")} ${item.namXuatBan}`,
                                 path: `/so-tap-chi/${item.namXuatBan}/${item.dsSoTapChi[0].soXuatBan}`
                             }
                         })

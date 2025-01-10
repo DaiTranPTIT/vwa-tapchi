@@ -164,6 +164,32 @@ const Header = (props: IProps) => {
               </div>
               <AuthorAndRegister />
             </div>
+            <div className="flex">
+                  <div
+                    className={`mr-[5px] cursor-pointer ${
+                      language === "vi-VN" ? "border-cyan-700 border-2 rounded-sm" : ""
+                    } border-2 border-transparent rounded-sm`}
+                    onClick={() => handleChangeLanguage("vi-VN")}
+                  >
+                    <img
+                      className="h-[30px] w-[45px] object-cover"
+                      src={"/images/icons/vn.svg"}
+                      alt={"image"}
+                    />
+                  </div>
+                  <div
+                    className={`cursor-pointer ${
+                      language === "en" ? "border-cyan-700 border-2 rounded-sm" : ""
+                    } border-2 border-transparent rounded-sm`}
+                    onClick={() => handleChangeLanguage("en")}
+                  >
+                    <img
+                      className="h-[30px] w-[45px] object-cover"
+                      src={"/images/icons/us.svg"}
+                      alt={"image"}
+                    />
+                  </div>
+                </div>
           </div>
         </div>
       </div>
@@ -298,7 +324,7 @@ const Header = (props: IProps) => {
                   );
                 }}
               >
-                Gửi bài
+                {common("header.gui-bai")}
               </Button>
             </div>
             {/*==================mobile===============*/}

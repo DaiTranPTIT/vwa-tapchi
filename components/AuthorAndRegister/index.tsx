@@ -1,8 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import Link from "next/link";
+import { useTranslation } from "react-i18next";
 
 export default () => {
+  const {t : common} = useTranslation("common");
   return (
     <AuthorAndRegisterWrapper className="flex items-center gap-[20px]">
       <Link
@@ -24,7 +26,7 @@ export default () => {
           />
         </svg>
 
-        <span>Đăng nhập</span>
+        <span>{common("common.login")}</span>
       </Link>
       <div className="vertical-line"></div>
       <Link
@@ -46,7 +48,7 @@ export default () => {
           />
         </svg>
 
-        <span>Đăng ký</span>
+        <span>{common("common.register")}</span>
       </Link>
     </AuthorAndRegisterWrapper>
   );

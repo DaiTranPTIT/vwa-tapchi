@@ -7,19 +7,21 @@ import Button from "../Button";
 import React from "react";
 import { MTapChi } from "../../api/tapChi/typing";
 import router from "next/router";
+import { useTranslation } from "react-i18next";
 
 interface IProps {
     soMoiNhat?: MTapChi.ISoTapChi,
     tapChiInfo?: MTapChi.ITapChi;
 }
 export default (props: IProps) => {
+    const {t : common} = useTranslation("common");
     return <TapChiContentWrapper>
         <div className="section-content">
-            <h2 className="meta-title">Tổng quan</h2>
+            <h2 className="meta-title">{common("so-tap-chi.tong-quan")}</h2>
             <div className="main-content mb-[28px]">
                 <div className="post-wrapper">
                     <strong className="title">
-                        Tác giả:
+                        {common("so-tap-chi.tac-gia")}:
                     </strong>
                     <p className="post-info">
                         {props.tapChiInfo?.danhSachNguoiThamGia.map(item => {
@@ -29,7 +31,7 @@ export default (props: IProps) => {
                 </div>
                 <div className="post-wrapper">
                     <strong className="title">
-                        Tóm tắt:
+                        {common("so-tap-chi.tac-gia")}:
                     </strong>
                     <p className="post-info" dangerouslySetInnerHTML={{ __html: props.tapChiInfo?.tomTat ?? '' }}></p>
                 </div>
@@ -49,7 +51,7 @@ export default (props: IProps) => {
                 classname="flex gap-[8px] items-center"
                 onClick={() => {router.push('/phat-hanh/dat-mua-tap-chi')}}
             >
-                Mua bài tại đây
+                {common("so-tap-chi.mua-bai-tai-day")}
                 <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M0.583984 4.2392H11.0006M11.0006 4.2392L7.65393 0.739197M11.0006 4.2392L7.65393 7.7392" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>

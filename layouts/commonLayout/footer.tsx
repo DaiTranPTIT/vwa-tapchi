@@ -2,8 +2,11 @@ import styled from "styled-components";
 import React from "react";
 import Link from "next/link";
 import ShareSocial from "../../components/ShareSocial";
+import { useTranslation } from "react-i18next";
 
 const MainFooter = () => {
+  const {t : common} = useTranslation("common");
+  
   return (
     <FooterWrapper>
       <div className="footer-container">

@@ -1,12 +1,14 @@
 import styled from "styled-components";
 import { MTapChi } from "../../api/tapChi/typing";
 import { formatDate } from "../../utils/util";
+import { useTranslation } from "react-i18next";
 
 interface IProps {
     tapChiInfo?: MTapChi.ITapChi;
 }
 
 export default (props: IProps) => {
+    const {t : common} = useTranslation("common");
     const {tapChiInfo} = props;
     return <TapChiInfoOverallWrapper>
         <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-[16px]">
@@ -19,7 +21,7 @@ export default (props: IProps) => {
                 </div>
                 <div className="info">
                     <div className="label">
-                        Ngày đăng
+                        {common("so-tap-chi.ngay-dang")}
                     </div>
                     <div className="value">
                         {formatDate(tapChiInfo?.thongTinXuatBan[0].thoiGianXuatBan)}
@@ -46,7 +48,7 @@ export default (props: IProps) => {
                 </div>
                 <div className="info">
                     <div className="label">
-                        Nộp quyết định
+                        {common("so-tap-chi.nop-quyet-dinh")}
                     </div>
                     <div className="value">
                         4 ngày
@@ -66,7 +68,7 @@ export default (props: IProps) => {
                 </div>
                 <div className="info">
                     <div className="label">
-                        Số trang
+                        {common("card.so-trang")}
                     </div>
                     <div className="value">
                         {tapChiInfo?.soTrangBatDau}-{tapChiInfo?.soTrangKetThuc}
@@ -82,7 +84,7 @@ export default (props: IProps) => {
                 </div>
                 <div className="info">
                     <div className="label">
-                        Tải xuống
+                    {common("card.tai-xuong")}
                     </div>
                     <div className="value">
                         838.637

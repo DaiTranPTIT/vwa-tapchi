@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 
 interface IProps {
@@ -5,11 +6,12 @@ interface IProps {
 }
 
 export default (props: IProps) => {
+    const {t : common} = useTranslation("common");
     const {tagsTapChi} = props;
     return <TagTapChiWrapper>
         <div className="flex gap-[16px] flex-wrap">
             <strong>
-                Từ khoá:
+                {common("so-tap-chi.tu-khoa")}:
             </strong>
             <ul className="list-tag">
                 {

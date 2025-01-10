@@ -1,6 +1,8 @@
 {
   "common": {
     "login": "Đăng nhập",
+    "register":"Đăng ký",
+    "year":"Năm",
     "ngay-dang": "Ngày đăng",
     "home": "Trang chủ",
     "gioi-thieu": "Giới thiệu",
@@ -24,7 +26,8 @@
     "empty": "Không có dữ liệu!",
     "pricing": "Báo giá",
     "price-table": "Bảng báo giá chung",
-    "search-result": "Kết quả tìm kiếm"
+    "search-result": "Kết quả tìm kiếm",
+    "not-found":"Không có tạp chí nào được tìm thấy."
   },
   "home": {
     "customer": "Khách hàng",
@@ -51,5 +54,53 @@
     "web": "Website",
     "time": "Thời gian làm việc",
     "location": "Bản đồ chỉ dẫn"
+  },
+  "header":{
+    "gui-bai":"Gửi bài"
+  },
+  "title":{
+    "bai-viet-moi-nhat":"Bài viết mới nhất",
+    "tap-chi-khoa-hoc":"Tạp chí khoa học",
+    "hoi-dong-bien-tap":"Hội đồng biên tập",
+    "ton-chi-muc-dich":"Tôn chỉ, Mục đích hoạt động",
+    "quy-trinh-phan-bien":"Quy trình phản biện tạp chí",
+    "quy-dinh-huong-dan":"Quy định và hướng dẫn dành cho tác giả",
+    "quy-trinh-ban-quyen":"Quy định về bản quyền",
+    "chinh-sach-rut-bai":"Chính sách rút bài/sửa bài",
+    "dat-mua-tap-chi":"Đặt mua tạp chí"
+  },
+  "button":{
+    "xem-them-bai-viet":"Xem thêm bài viết",
+    "xem-cac-tap-va-so":"Xem tất cả các tập và số"
+  },
+  "card":{
+    "da-khoa":"Đã khoá",
+    "ngay-dang":"Ngày đăng",
+    "so-trang":"Số trang"
+  },
+  "hoi-dong-bien-tap":{
+    "nhan-su-tap-chi":"Nhân sự Tạp chí",
+    "ho-va-ten":"Họ và tên",
+    "chuc-vu":"Chức vụ",
+    "hoi-dong-co-van":"Hội đồng cố vấn Tạp chí Khoa học Học viện Phụ nữ Việt Nam",
+    "hoc-ham-hoc-vi":"Học hàm, học vị",
+    "chuc-danh-chuyen-mon":"Chức danh chuyên môn",
+    "hoi-dong-bien-tap":"Hội đồng Biên tập Tạp chí Khoa học Học viện Phụ nữ Việt Nam",
+    "chuc-danh-hd":"Chức danh HĐ"
+  },
+  "so-tap-chi":{
+    "tu-thang1-thang12":"Từ tháng 1- tháng 12",
+    "tap-chi":"Tạp chí",
+    "mua-bai-tai-day":"Mua bài tại đây",
+    "tong-quan":"Tổng quan",
+    "tac-gia":"Tác giả",
+    "tom-tat":"Tóm tắt",
+    "ngay-dang":"Ngày đăng",
+    "nop-quyet-dinh":"Nộp quyết định",
+    "tai-xuong":"Tải xuống",
+    "tu-khoa":"Từ khoá",
+    "so-moi-nhat":"Số mới nhất",
+    "ngay":"Ngày",
+    "bai-viet-cung-so":"Bài viết cùng số"
   }
 }

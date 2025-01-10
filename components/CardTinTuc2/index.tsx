@@ -2,11 +2,13 @@ import styled from "styled-components";
 import Link from "next/link";
 import { MTapChi } from "../../api/tapChi/typing";
 import { formatDate } from "../../utils/util";
+import { useTranslation } from "react-i18next";
 
 interface IProps {
   data?: MTapChi.ITapChi;
 }
 export default (props: IProps) => {
+  const {t : common} = useTranslation("common");
   return (
     <CardTInTucWrapper>
       <div className="card">
@@ -14,7 +16,7 @@ export default (props: IProps) => {
           <div className="feature-image relative">
             <img src="/images/default/logo-tap-chi.jpg" />
             {props.data?.thongTinXuatBan[0]?.lock && (
-              <div className="tag absolute">Đã khoá</div>
+              <div className="tag absolute">{common("card.da-khoa")}</div>
             )}
           </div>
         </Link>
@@ -23,7 +25,7 @@ export default (props: IProps) => {
         </Link>
         <p className="author-name">{props.data?.hoTen}</p>
         <div className="metadata">
-          <div className="label">Ngày đăng</div>
+          <div className="label">{common("card.ngay-dang")}</div>
           <div className="value flex items-center gap-[8px]">
             <svg
               width="13"
@@ -51,7 +53,7 @@ export default (props: IProps) => {
               {formatDate(props.data?.thongTinXuatBan[0].thoiGianXuatBan)}
             </span>
           </div>
-          <div className="label">Số trang</div>
+          <div className="label">{common("card.so-trang")}</div>
           <div className="value flex items-center gap-[8px]">
             <svg
               width="11"

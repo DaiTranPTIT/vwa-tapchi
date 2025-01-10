@@ -1,33 +1,35 @@
+import { useTranslation } from "react-i18next";
 import MenuVertical1 from "../MenuVertical1";
 
 export default (props: {currentPath?: string}) => {
     const {currentPath} = props;
+    const {t : common} = useTranslation("common");
     return <>
         <MenuVertical1
             hasBox={true}
             listLink={[
                 {
-                    title: "Hội đồng biên tập",
+                    title: common("title.bai-viet-moi-nhat"),
                     path: "/gioi-thieu/hoi-dong-bien-tap",
                 },
                 {
-                    title: "Tôn chỉ, Mục đích hoạt động",
+                    title: common("title.ton-chi-muc-dich"),
                     path: "/gioi-thieu/ton-chi-muc-dich",
                 },
                 {
-                    title: "Quy trình phản biện tạp chí",
+                    title: common("title.quy-trinh-phan-bien"),
                     path: "/gioi-thieu/quy-trinh-phan-bien",
                 },
                 {
-                    title: "Quy định và hướng dẫn dành cho tác giả",
+                    title: common("title.quy-dinh-huong-dan"),
                     path: "/gioi-thieu/quy-dinh-huong-dan",
                 },
                 {
-                    title: "Quy định về bản quyền",
+                    title: common("title.quy-trinh-ban-quyen"),
                     path: "/gioi-thieu/quy-trinh-ban-quyen",
                 },
                 {
-                    title: "Chính sách rút bài/sửa bài",
+                    title: common("title.chinh-sach-rut-bai"),
                     path: "/gioi-thieu/chinh-sach-rut-bai",
                 },
             ].filter(val => val.path != currentPath)}

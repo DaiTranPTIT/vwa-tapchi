@@ -4,11 +4,13 @@ import ButtonDefault from "../ButtonDefault";
 import { MTapChi } from "../../api/tapChi/typing";
 import { formatDate } from "../../utils/util";
 import router from "next/router";
+import { useTranslation } from "react-i18next";
 
 interface IProps {
   soMoiNhat?: MTapChi.ISoTapChi
 }
 export default (props: IProps) => {
+    const {t : common} = useTranslation("common");
     return <CardTinTuc3Wrapper>
         <div className="card md:flex gap-[24px]">
             <div className="card-image">
@@ -16,18 +18,18 @@ export default (props: IProps) => {
             </div>
             <div className="card-content">
                 <h2 className="title">
-                    Số mới nhất
+                  {common("so-tap-chi.so-moi-nhat")}
                 </h2>
                 <div className="meta flex gap-x-[16px] mb-[20px] md:mb-[40px] max-[459px]:flex-col">
                     <div className="date">
-                        Ngày {formatDate(props.soMoiNhat?.thoiGianXuatBan)}
+                      {common("so-tap-chi.ngay")} {formatDate(props.soMoiNhat?.thoiGianXuatBan)}
                     </div>
                     <div className="vertical-line"></div>
                     <Link href="/">
-                        Tạp chí: {props.soMoiNhat?.quyen}, {props.soMoiNhat?.soXuatBan}
+                      {common("so-tap-chi.tap-chi")}: {props.soMoiNhat?.quyen}, {props.soMoiNhat?.soXuatBan}
                     </Link>
                 </div>
-                <ButtonDefault onClick={() => {router.push('/so-tap-chi')}} title="Xem tất cả các tập và số"
+                <ButtonDefault onClick={() => {router.push('/so-tap-chi')}} title={common("button.xem-cac-tap-va-so")}
                                icon={<svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                                    <path d="M0.583984 4.2392H11.0006M11.0006 4.2392L7.65393 0.739197M11.0006 4.2392L7.65393 7.7392"
                                          stroke="#AFCC36"/>

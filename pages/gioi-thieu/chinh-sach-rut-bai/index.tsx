@@ -3,9 +3,11 @@ import { getContentHtml } from "../../../api/contenthtml";
 import { ContentHtml } from "../../../api/contenthtml/type";
 import MenuVertical1 from "../../../components/MenuVertical1";
 import AboutLink from "../../../components/AboutLink";
+import { useTranslation } from "react-i18next";
 
 export default () => {
   const [data, setData] = useState<ContentHtml>();
+  const {t : common} = useTranslation("common");
   const getData = async () => {
     const res: any = await getContentHtml();
     setData(res?.data ?? {});
@@ -22,7 +24,7 @@ export default () => {
           <div className="content">
             <div className="border-bottom mb-[24px]">
               <h1 className="heading-1 mb-[8px]">
-                Chính sách rút bài, sửa bài
+                {common("title.chinh-sach-rut-bai")}
               </h1>
             </div>
 
@@ -35,7 +37,7 @@ export default () => {
           </div>
           <div className="sidebar">
             <div className="mb-[28px]">
-              <h2 className="heading-1">Giới thiệu</h2>
+              <h2 className="heading-1">{common("common.gioi-thieu")}</h2>
             </div>
             <AboutLink currentPath="/gioi-thieu/chinh-sach-rut-bai"/>
           </div>

@@ -6,9 +6,6 @@ export default ({handleClose}: any) => {
     return <TagQuangCao>
         <div className="flex items-center gap-[16px]">
             <div className="flex items-center gap-[8px]">
-                <strong>
-                    Quảng cáo
-                </strong>
                 <div className="tag">
                     Ads
                 </div>

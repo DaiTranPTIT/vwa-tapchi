@@ -7,8 +7,10 @@ import SectionTinTuc from "../components/SectionTinTuc";
 import BaiVietMoiNhat from "../components/BaiVietMoiNhat";
 import BaiViet2024 from "../components/BaiViet2024";
 import TapChiKhoaHoc from "../components/TapChiKhoaHoc";
+import { useTranslation } from "react-i18next";
 
 const Home: NextPage = () => {
+  const {t : common} = useTranslation("common");
   return (
     <HomeWrapper>
       <section className="container mx-auto">
@@ -25,19 +27,19 @@ const Home: NextPage = () => {
         <div className="container mx-auto pt-[40px]">
           <SectionTinTuc
             element={<BaiVietMoiNhat />}
-            title={"Bài viết mới nhất"}
+            title={common("title.bai-viet-moi-nhat")}
           />
         </div>
         <div className="container mx-auto pt-[40px]">
           <SectionTinTuc
             element={<TapChiKhoaHoc />}
-            title={"Tạp chí khoa học"}
+            title={common("title.tap-chi-khoa-hoc")}
           />
         </div>
         <div className="container mx-auto pt-[40px] pb-[40px]">
           <SectionTinTuc
             element={<BaiViet2024 />}
-            title={`Năm ${new Date().getFullYear()}`}
+            title={`${common("common.year")} ${new Date().getFullYear()}`}
           />
         </div>
       </section>

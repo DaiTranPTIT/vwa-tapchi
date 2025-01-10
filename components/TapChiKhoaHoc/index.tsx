@@ -6,12 +6,14 @@ import { ELoaiTapChi } from "../../utils/constant";
 import ButtonDefault from "../ButtonDefault";
 import CardTinTuc2 from "../CardTinTuc2";
 import SidebarTapChi from "../SidebarTapChi";
+import { useTranslation } from "react-i18next";
 
 export default () => {
   const [treeNam, setTreeNam] = useState<MTapChi.INamTapChi[]>([]);
   const [treeChuyenDe, setTreeChuyenDe] = useState<MTapChi.INamTapChi[]>([]);
   const [selectedSo, setSelectSo] = useState<MTapChi.ISoTapChi>();
   const [dsTapChi, setDsTapChi] = useState<MTapChi.ITapChi[]>();
+  const {t : common} = useTranslation("common");
 
   const buildData = (loai: ELoaiTapChi, data: MTapChi.ISoTapChi[]) => {
     //lấy số xuất bản mới nhất
@@ -117,7 +119,7 @@ export default () => {
         onClick={() => {
           router.push("/so-tap-chi");
         }}
-        title="Xem thêm bài viết"
+        title={common("button.xem-them-bai-viet")}
         icon={
           <svg
             width="12"
